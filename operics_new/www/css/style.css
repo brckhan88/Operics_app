@@ -222,6 +222,7 @@ min-block-size: -webkit-fill-available;
 
 }
 
+<<<<<<< Updated upstream
 .ha
 {
   
@@ -401,4 +402,43 @@ margin-top: 70px;
   background: #ffffff;
   margin-left: 226px;
 margin-top: -123px;
+}
+
+.card .item:last-child, .list-inset .item:last-child {
+    margin-bottom: 30px;
+}
+
+.card .item, .list-inset .item, .padding > .list .item, .padding-horizontal > .list .item {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.item {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: 40px;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+  }
+
+    .item {
+    margin: 80px;
+    padding: 10px;
+    border-width: 1px;
+    font-size: 3px;
+}
+
+.card .item:last-child, .list-inset .item:last-child, .padding > .list .item:last-child {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.card .item:first-child, .list-inset .item:first-child, .padding > .list .item:first-child {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
