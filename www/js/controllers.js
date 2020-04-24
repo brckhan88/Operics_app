@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     $scope.pictureUrl = "http://placehold.it/200x200";
 
 
-    var ServiceRequest = {
+    /*var ServiceRequest = {
       service_type: "admin_users_detail",
     }
 
@@ -33,7 +33,7 @@ angular.module('starter.controllers', [])
 
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
       })
-    }
+    }*/
 
 
   
