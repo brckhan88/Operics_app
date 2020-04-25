@@ -44,6 +44,7 @@ angular.module('starter.controllers', [])
     $scope.kayitData                    = {};
     $scope.resetPass                    = {};
     $scope.smsVerify                    = {};
+    $scope.editInput                    = {};
     $scope.language                     = localStorage.getItem('language');
     $scope.userId                       = localStorage.getItem('user_id');
     $scope.loginStatus                  = localStorage.getItem('loginStatus');
@@ -623,7 +624,10 @@ angular.module('starter.controllers', [])
           break;
       }
     };
-
+    
+    $scope.testButton = function () {
+      console.log($scope.editInput.headline);
+    }
     
 
   });
