@@ -124,7 +124,7 @@
             <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
 
             <input type="password" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-              placeholder="Confirm Password" name="{{diller[17].kelime}}" ng-model-options="{ debounce: 500 }"
+              placeholder="{{diller[17].kelime}}" name="passwordChck" ng-model-options="{ debounce: 500 }"
               ng-model="kayitData.passwordChck" confirm-password="kayitData.password" required>
           </label>
           <p ng-show="kayit_form.passwordChck.$invalid && !kayit_form.passwordChck.$pristine && !kayit_form.passwordChck.$error.password_Chck"
@@ -134,64 +134,21 @@
         <br>
 
         <!-- Finally, submit! -->
-          <button class="button button-dark beton2" style="margin-left: 60px;" ng-disabled="kayit_form.$invalid" type="submit">
-            {{diller[20].kelime}}
-          </button>
-
-        <br>
-        <br>
-          <button style="margin-left: 60px;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
-            <p class="dil">{{diller[16].kelime}}</p>
-          </button>
-        <br>
-
-      </div>
-    </form>
-
-    <form ng-submit="registerUser()" ng-if="kayittab==7">
-
-      <div class="list" style="padding:10px;">
-
-        <label class="item item-input kd">
-          <i class="ion-ios-person-outline" style="margin-right: 1%;font-size: 124%;"></i>
-          <br><br><br>
-
-          <input type="text" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-            placeholder="" ng-model="kayitData.name" required>
-        </label>
-
-        <label class="item item-input kd">
-          <i class="ion-ios-telephone-outline" style="margin-right: 1%;font-size: 124%;"></i>
-          <input type="text" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-            placeholder="" ng-model="kayitData.number" required>
-        </label>
-
-        <label class="item item-input  kd">
-          <i class="ion-ios-email-outline" style="margin-right: 1%;font-size: 124%;"></i>
-          <input type="text" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-            placeholder="" ng-model="kayitData.email" required>
-        </label>
-
-        <label class="item item-input  kd">
-          <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
-          <input type="password" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-            placeholder="" ng-model="kayitData.password" required>
-        </label>
-
-        <label class="item item-input kd">
-          <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
-          <input type="password" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-            placeholder="" ng-model="kayitData.passwordChck" required>
-        </label>
-      </div>
-      <div>
-        <button style="margin-left: 60px;" class="button button-dark beton2"
-          ng-disabled="!kayitData.name || !kayitData.number || !kayitData.email || kayitData.password.length<8 || (kayitData.password!=kayitData.passwordChck)"
-          type="submit">
+        <button class="button button-dark beton2" style="margin-left: 60px;" ng-disabled="kayit_form.$invalid" type="submit">
           {{diller[20].kelime}}
         </button>
+
+        <br>
+        <br>
+        
+        <!-- Return to login! -->
+        <button style="margin-left: 60px;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
+         <p class="dil">{{diller[16].kelime}}</p>
+        </button>
+
+        <br>
+
       </div>
-      
     </form>
 
     <!-- Şifremi Unuttum Form Yapısı -->
