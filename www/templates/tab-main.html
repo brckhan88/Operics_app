@@ -21,7 +21,7 @@
 
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
-        <div class="col.col-25 item item-thumbnail- h2" ng-repeat="servis in hizmetler" style="border-radius: 10px !important;
+        <div class="col.col-25 item item-thumbnail- services-main" ng-repeat="servis in hizmetler" style="border-radius: 10px !important;
       margin-right: 14px;margin-top: 2.7%;" ng-click="modalgosterici('service',{{$index}})">
           <img class="hiz" ng-src="{{servis.SERVICE_IMAGE}}">
           <p align="center">{{servis.SERVICE_NAME}}</p>
@@ -35,7 +35,7 @@
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
         <div class="col.col-25" ng-repeat="referans in referanslar">
-          <a class="item item-thumbnail- h" style="border-radius: 10px !important;
+          <a class="item item-thumbnail- reference-main" style="border-radius: 10px !important;
       margin-right: 14px; ">
             <img class="rfr" ng-src="{{referans.REF_PHOTO}}">
           </a>
