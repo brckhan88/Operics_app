@@ -17,12 +17,12 @@
     <div  class="ion-compose edit_i detail_edit" ng-if="isAdmin==1"></div>
     <br>
 
-    <p align="left" class="y">{{egitimler[itemId].CRS_DESCRIPTION}}</p>
+    <p align="left" class="y" ng-model="editInput.headline">{{egitimler[itemId].CRS_DESCRIPTION}}</p>
 
     <ion-icon name="time-outline"></ion-icon>
 
     <br>
-
+    <button class="button button royal" ng-click="testButton()"> Test </button>
 
 
     <h2 style="font-size: 23px;" class="ion-ios-time-outline y">
@@ -41,7 +41,7 @@
 
     <center>
       <div ng-if="aktifmi">
-      <button ng-click="CancelApplication()" class="button button-assertive pre-application-buton">Ön Başvuruyu İptal Et</button>
+      <button ng-click="CancelApplication()" class="button button-dark pre-application-buton">Ön Başvuruyu İptal Et</button>
     </div>
 
     <div ng-if="!aktifmi">
