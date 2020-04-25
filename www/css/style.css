@@ -1,5 +1,9 @@
-
-.ekle_b{
+.pre-application-buton{
+  width: 75%;
+  height: 46.5px;
+  border-radius: 23.25px;
+}
+.add_buton{
   min-width: 50%;
   max-width: 250px;
   height: 60px;
@@ -295,13 +299,7 @@
   font-size: 22px;
   margin-left: 70px;
 }
-.obton{
-  width: 328px;
-  height: 46.5px;
-  border-radius: 23.25px;
-  background: #e03121;
-  margin-left: 21px;
-}
+
 .title-image1 {
   margin-top: 4px;
   height: 38px;

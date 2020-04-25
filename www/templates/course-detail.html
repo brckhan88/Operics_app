@@ -39,14 +39,15 @@
     </h4>
     <br><br>
 
-    <div ng-if="aktifmi">
-      <button ng-click="CancelApplication()" class="button button-assertive obton">Ön Başvuruyu İptal Et</button>
+    <center>
+      <div ng-if="aktifmi">
+      <button ng-click="CancelApplication()" class="button button-assertive pre-application-buton">Ön Başvuruyu İptal Et</button>
     </div>
 
     <div ng-if="!aktifmi">
-     <button ng-click="ConfirmApplication()" class="button button-assertive obton ">Ön Başvuru Yap</button>
+     <button ng-click="ConfirmApplication()" class="button button-assertive pre-application-buton">Ön Başvuru Yap</button>
     </div>
-
+   </center>
 
   </ion-content>
 </ion-modal-view>
