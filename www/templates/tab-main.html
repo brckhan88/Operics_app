@@ -5,8 +5,6 @@
 
     <!-- Anasayfa Tab -->
 
-    <!-- Hikayeler Tasarım -->
-
     <h3 class="fnt">{{diller[0].kelime}}</h3>
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
@@ -18,21 +16,18 @@
     </ion-scroll>
 
 
-    <!-- Hizmetlerimiz Tasarım -->
 
     <h3 class="fnt">{{diller[1].kelime}}</h3>
 
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
-        <div class="col.col-25 item item-thumbnail- h" ng-repeat="servis in hizmetler" style="border-radius: 10px !important;
-      margin-right: 14px;" ng-click="modalgosterici('service',{{$index}})">
+        <div class="col.col-25 item item-thumbnail- h2" ng-repeat="servis in hizmetler" style="border-radius: 10px !important;
+      margin-right: 14px;margin-top: 2.7%;" ng-click="modalgosterici('service',{{$index}})">
           <img class="hiz" ng-src="{{servis.SERVICE_IMAGE}}">
           <p align="center">{{servis.SERVICE_NAME}}</p>
         </div>
       </div>
     </ion-scroll>
-
-    <!-- Referanslar Tasarım -->
 
 
     <h3 class="fnt">{{diller[2].kelime}}</h3>
@@ -47,8 +42,6 @@
         </div>
       </div>
     </ion-scroll>
-
-    <!-- Ekibimiz Tasarım -->
 
     <h3 class="fnt">{{diller[3].kelime}}</h3>
 

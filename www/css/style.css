@@ -123,7 +123,16 @@
   margin-left: -24px;
   margin-top: -24px;
 }
-
+.h2
+{
+ 
+  min-width: 102.46px;
+  height: 97.5px;
+  border-radius: 4px !important;
+  border: solid 0.5px #e5e5e5;
+  margin-left: -1px;
+ 
+}
 .h
 {
   z-index: 3;
