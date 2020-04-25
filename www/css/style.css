@@ -18,7 +18,7 @@
   margin-top: 7%;
 }
 
-.ekibimiz_style{
+.our-team-style{
  border-radius: 11px;
  height: 155px;
  padding-top: 4%;
@@ -49,6 +49,12 @@
   margin-right: -18px;
   font-size: 134%;
   contain: size;
+}
+.existing-users{
+  text-align: center;
+  margin-left: 89px;
+  font-family: initial;
+  font-size: 121%;
 }
 
 .blocked-user{
@@ -126,13 +132,13 @@
 }
 .h2
 {
- 
+
   min-width: 102.46px;
   height: 97.5px;
   border-radius: 4px !important;
   border: solid 0.5px #e5e5e5;
   margin-left: -1px;
- 
+
 }
 .h
 {
