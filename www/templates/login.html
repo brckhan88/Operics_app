@@ -11,7 +11,7 @@
     " src="img/logo.PNG" /></center>
 
     <!-- Kullanıcı Giriş Form Yapısı -->
-
+<center>
     <form ng-submit="doLogin()" ng-if="!kayittab || kayittab==0">
       <br><br>
       <div class="list ortala" style="padding:1px;">
@@ -48,7 +48,7 @@
         </button>
 
       </div>
-    </form>
+    </form></center>
     
     <!-- Kullanıcı Kayıt Form Yapısı -->
 <center>
@@ -133,7 +133,7 @@
         </div>
         <br>
         <!-- Finally, submit! -->
-        <button class="button button-dark beton2" style="margin-left: 2%;" ng-disabled="kayit_form.$invalid" type="submit">
+        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="kayit_form.$invalid" type="submit">
           {{diller[20].kelime}}
         </button>
 
@@ -141,7 +141,7 @@
         <br>
         
         <!-- Return to login! -->
-        <button style="margin-left: 2%;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
+        <button style="margin-left: -1%;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
          <p class="dil">{{diller[16].kelime}}</p>
         </button>
 </center>
