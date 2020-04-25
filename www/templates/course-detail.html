@@ -12,30 +12,29 @@
         <img class="ed" ng-src="{{egitimler[itemId].CRS_PHOTO}}">
       </div>
     </a>
-    <h3>{{egitimler[itemId].CRS_NAME}}</h3>
+    <h3>{{editInput.head =egitimler[itemId].CRS_NAME}}</h3>
     
     <div  class="ion-compose edit_i detail_edit" ng-if="isAdmin==1"></div>
     <br>
 
-    <p align="left" class="y" ng-model="editInput.headline">{{egitimler[itemId].CRS_DESCRIPTION}}</p>
+    <p align="left" class="y" >{{editInput.desc = egitimler[itemId].CRS_DESCRIPTION}}</p>
 
     <ion-icon name="time-outline"></ion-icon>
 
     <br>
-    <button class="button button royal" ng-click="testButton()"> Test </button>
-
+   
 
     <h2 style="font-size: 23px;" class="ion-ios-time-outline y">
-      <font style="margin-left: 5px;font-size: 19px;"> {{egitimler[itemId].CRS_HOUR}} Saat</font>
+      <font style="margin-left: 5px;font-size: 19px;"> {{editInput.hour = egitimler[itemId].CRS_HOUR}} Saat</font>
     </h2>
     <br>
     <h4 style="font-size: 29px;" class="ion-ios-location-outline y">
-      <font style="margin-left: 12px;font-size: 19px;">{{egitimler[itemId].CRS_ADRESS}}</font>
+      <font style="margin-left: 12px;font-size: 19px;">{{editInput.address = egitimler[itemId].CRS_ADRESS}}</font>
     </h4>
     <br>
     <h4 style="font-size: 24px;" class="ion-calendar y">
-      <font style="margin-left: 12px;font-size: 19px;">{{egitimler[itemId].CRS_BEGINDATE}} -
-      {{egitimler[itemId].CRS_ENDDATE}} </font>
+      <font style="margin-left: 12px;font-size: 19px;">{{editInput.bgdate = egitimler[itemId].CRS_BEGINDATE}} -
+      {{editInput.enddate = egitimler[itemId].CRS_ENDDATE}} </font>
     </h4>
     <br><br>
 

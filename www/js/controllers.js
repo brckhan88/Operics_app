@@ -625,9 +625,7 @@ angular.module('starter.controllers', [])
       }
     };
     
-    $scope.testButton = function () {
-      console.log($scope.editInput.headline);
-    }
+  
     
 
   });
