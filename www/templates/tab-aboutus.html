@@ -53,15 +53,15 @@
 <!-- Referanslar Tab -->
 <div style="margin-top: 30px;" class="row ortala " ng-if="abouttab==1">
   <div class="col col-50">
-    <div class="col referans_konum" ng-repeat="referans in referanslar" ng-if="referans.ID%2==0">
-      <i class="ion-compose referans_icon" ng-if="isAdmin==1"></i>
-      <img class="referans_style " ng-src="{{referans.REF_PHOTO}}">
+    <div class="col reference-location" ng-repeat="referans in referanslar" ng-if="referans.ID%2==0">
+      <i class="ion-compose reference-icon" ng-if="isAdmin==1"></i>
+      <img class="reference-style " ng-src="{{referans.REF_PHOTO}}">
     </div> 
   </div>
   <div class="col col-50">
-    <div  class="col referans_konum " ng-repeat="referans in referanslar" ng-if="referans.ID%2==1">
-      <i class="ion-compose referans_icon" ng-if="isAdmin==1"></i>
-      <img class="referans_style" src="{{referans.REF_PHOTO}}">
+    <div  class="col reference-location " ng-repeat="referans in referanslar" ng-if="referans.ID%2==1">
+      <i class="ion-compose reference-icon" ng-if="isAdmin==1"></i>
+      <img class="reference-style" src="{{referans.REF_PHOTO}}">
     </div>
   </div>
 </div>

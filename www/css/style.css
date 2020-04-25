@@ -1,13 +1,14 @@
 .title-image {
-
   margin-top: 4px;
   height: 38px;
 }
+
 .pre-application-buton{
   width: 75%;
   height: 46.5px;
   border-radius: 23.25px;
 }
+
 .add_buton{
   min-width: 50%;
   max-width: 250px;
@@ -16,44 +17,42 @@
   background: #e41a28;
   margin-top: 7%;
 }
+
 .ekibimiz_style{
- padding: 5px;
  border-radius: 11px;
  height: 155px;
  padding-top: 4%;
  width: 100%;
  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-
 }
-.referans_style
-{
+
+.reference-style{
   width: auto; 
   height: 70%;
   max-width: 125px;
   max-height: 109px;
   padding: 28%; 
-  border: solid 1px darkgrey;
+  border: solid 1px #ddd;
   border-radius: 10px;
   padding-top: 16%;
 }
-.referans_konum
-{
+
+.reference-location{
   background-color: white;
   padding-left: 13% !important;
   margin-top: -46%;
   padding: 39%;
 }
 
-.engellenmis_kullanici{
-  background: rgb(255,0,0,0.2);
-}
-
-.referans_icon
-{
+.reference-icon{
   float: right;
   margin-right: -18px;
   font-size: 134%;
   contain: size;
+}
+
+.blocked-user{
+  background: rgb(255,0,0,0.2);
 }
 
 .sagda_simge{

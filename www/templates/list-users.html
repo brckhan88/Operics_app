@@ -11,7 +11,7 @@
 		<ion-list>
 			<ion-item class="item-remove-animate item-avatar item-icon-right " ng-repeat="veri in userlist" type="item-text-wrap" href="#/tab/userprofile/{{veri.id}}">
 				<img ng-src="{{veri.USER_PHOTO}}">
-				<h2 class="{{veri.USER_TYPE=='banned' ? 'engellenmis_kullanici' : ''}}">{{veri.USER_NAME}} - {{veri.USER_COMPANY}}{{veri.USER_TYPE=='banned' ? ' (Yasaklı Kullanıcı)' : ''}}</h2>
+				<h2 class="{{veri.USER_TYPE=='banned' ? 'blocked-user' : ''}}">{{veri.USER_NAME}} - {{veri.USER_COMPANY}}{{veri.USER_TYPE=='banned' ? ' (Yasaklı Kullanıcı)' : ''}}</h2>
 				<p>{{veri.USER_EMAIL}} - {{veri.USER_PHONE}}</p>
 				<i class="icon ion-chevron-right icon-accessory"></i>
 
