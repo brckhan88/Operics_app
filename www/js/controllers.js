@@ -45,6 +45,7 @@ angular.module('starter.controllers', [])
     $scope.resetPass                    = {};
     $scope.smsVerify                    = {};
     $scope.editInput                    = {};
+    $scope.inputField                   = {};
     $scope.language                     = localStorage.getItem('language');
     $scope.userId                       = localStorage.getItem('user_id');
     $scope.loginStatus                  = localStorage.getItem('loginStatus');
@@ -580,6 +581,22 @@ angular.module('starter.controllers', [])
             $scope.modal = modal;
             $scope.modal.show();
           })
+          if ($scope.editFg == 1) {
+            $scope.inputField.head      = $scope.editInput.head;
+            $scope.inputField.desc      = $scope.editInput.desc;
+            $scope.inputField.hour      = $scope.editInput.hour;
+            $scope.inputField.address   = $scope.editInput.address;
+            $scope.inputField.bgdate    = $scope.editInput.bgdate;
+            $scope.inputField.enddate   = $scope.editInput.enddate;
+          }
+           else {
+            $scope.inputField.head      = null;
+            $scope.inputField.desc      = null;
+            $scope.inputField.hour      = null;
+            $scope.inputField.address   = null;
+            $scope.inputField.bgdate    = null;
+            $scope.inputField.enddate   = null;
+           }
           break;
 
         case 'editStory':
