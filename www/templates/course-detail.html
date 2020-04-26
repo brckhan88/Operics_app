@@ -12,27 +12,27 @@
         <img class="ed" ng-src="{{egitimler[itemId].CRS_PHOTO}}">
       </div>
     </a>
-    <h3>{{editInput.head =egitimler[itemId].CRS_NAME}}</h3>
+    <h3 style="margin-left: 3%;">{{editInput.head =egitimler[itemId].CRS_NAME}}</h3>
     
     <div  class="ion-compose edit_icon edit-detail_icon" ng-if="isAdmin==1"></div>
     <br>
 
-    <p align="left" class="y" >{{editInput.desc = egitimler[itemId].CRS_DESCRIPTION}}</p>
+    <p align="left" class="courses-story_text " >{{editInput.desc = egitimler[itemId].CRS_DESCRIPTION}}</p>
 
     <ion-icon name="time-outline"></ion-icon>
 
     <br>
-   
+    
 
-    <h2 style="font-size: 23px;" class="ion-ios-time-outline y">
+    <h2 style="font-size: 23px;margin-left: 4%;" class="ion-ios-time-outline y">
       <font style="margin-left: 5px;font-size: 19px;"> {{editInput.hour = egitimler[itemId].CRS_HOUR}} Saat</font>
     </h2>
     <br>
-    <h4 style="font-size: 29px;" class="ion-ios-location-outline y">
+    <h4 style="font-size: 29px;margin-left: 4%;" class="ion-ios-location-outline y">
       <font style="margin-left: 12px;font-size: 19px;">{{editInput.address = egitimler[itemId].CRS_ADRESS}}</font>
     </h4>
     <br>
-    <h4 style="font-size: 24px;" class="ion-calendar y">
+    <h4 style="font-size: 24px;margin-left: 4%;" class="ion-calendar y">
       <font style="margin-left: 12px;font-size: 19px;">{{editInput.bgdate = egitimler[itemId].CRS_BEGINDATE}} -
       {{editInput.enddate = egitimler[itemId].CRS_ENDDATE}} </font>
     </h4>
@@ -40,13 +40,13 @@
 
     <center>
       <div ng-if="aktifmi">
-      <button ng-click="CancelApplication()" class="button button-dark pre-application_button">Ön Başvuruyu İptal Et</button>
-    </div>
+        <button ng-click="CancelApplication()" class="button button-dark pre-application_button">Ön Başvuruyu İptal Et</button>
+      </div>
 
-    <div ng-if="!aktifmi">
-     <button ng-click="ConfirmApplication()" class="button button-assertive pre-application_button">Ön Başvuru Yap</button>
-    </div>
+      <div ng-if="!aktifmi">
+       <button ng-click="ConfirmApplication()" class="button button-assertive pre-application_button">Ön Başvuru Yap</button>
+     </div>
    </center>
 
-  </ion-content>
+ </ion-content>
 </ion-modal-view>

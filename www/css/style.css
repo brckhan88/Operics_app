@@ -165,7 +165,6 @@
  margin-top: 4%;
 }
 
-
 .our-services_align{
   height: 25%;
   margin-top: -9px;
@@ -173,7 +172,12 @@
   min-block-size: -webkit-fill-available;
 }
 
-
+.courses-story_text {
+  margin-left: 9px;
+  width: 93%;
+  font-family: Microsoft Sans serif;
+  font-size: large;
+}
 
 
 /* Empty. Add your own CSS if you like */
@@ -214,13 +218,7 @@
   border-radius: 50%;
 }
 
-.y {
-  margin-left: 9px;
-  width: 93%;
-  font-family: Microsoft Sans serif;
-  font-size: large;
-  color: black;
-}
+
 
 .imi{
  z-index: 4;
