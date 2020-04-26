@@ -165,7 +165,7 @@
  margin-top: 4%;
 }
 
-.our-services_align{
+.main-image_align{
   height: 25%;
   margin-top: -9px;
   max-inline-size: -webkit-fill-available;
@@ -179,23 +179,18 @@
   font-size: large;
 }
 
+.courses-story_img{
+  width: 101%;
+}
 
 /* Empty. Add your own CSS if you like */
 
 
 
 
-.m{
-  width: 273%;
-  margin-left: -24px;
-  margin-top: -24px;
-}
 
-.rfr{
-  width: 139%;
-  margin-left: -14px;
-  margin-top: -21px;
-}
+
+
 
 .fnt{
   font-family: Bahnschrift Light;
@@ -203,9 +198,7 @@
   margin-left: 12px;
 }
 
-.ed{
-  width: 101%;
-}
+
 
 .im{
   position: absolute;
