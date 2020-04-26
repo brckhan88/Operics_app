@@ -79,7 +79,7 @@
 .reference-icon{
   float: right;
   margin-right: -18px;
-  font-size: 134%;
+  font-size: 148%;
   contain: size;
 }
 
@@ -165,7 +165,7 @@
  margin-top: 4%;
 }
 
-.our-services_align{
+.main-image_align{
   height: 25%;
   margin-top: -9px;
   max-inline-size: -webkit-fill-available;
@@ -179,33 +179,28 @@
   font-size: large;
 }
 
+.courses-story_img{
+  width: 101%;
+}
+
+.font_text{
+  font-family: Bahnschrift Light;
+  font-size: 22px;
+  margin-left: 12px;
+}
+
+.tabs{
+  background-color: black;
+  height: 8%;
+}
+
+
 
 /* Empty. Add your own CSS if you like */
 
 
 
 
-.m{
-  width: 273%;
-  margin-left: -24px;
-  margin-top: -24px;
-}
-
-.rfr{
-  width: 139%;
-  margin-left: -14px;
-  margin-top: -21px;
-}
-
-.fnt{
-  font-family: Bahnschrift Light;
-  font-size: 22px;
-  margin-left: 12px;
-}
-
-.ed{
-  width: 101%;
-}
 
 .im{
   position: absolute;
@@ -239,14 +234,7 @@
   margin-top: -14px;
 }
 
-.bar{
- background-position: inherit;
-}
 
-.tabs{
-  background-color: black;
-  height: 8%;
-}
 
 .ie{
   -webkit-user-drag: none;
@@ -255,27 +243,10 @@
   margin-left: -17px;
 }
 
-.ie2{
-  color: #FFFFFF;
-  margin-top: 76px;
-  margin-right: 202px;
-  background-color: red;
-  border-radius: 0px !important;
-}
 
-.ie3{
-  color: #FFFFFF;
-  margin-top: 103px;
-  margin-right: 85px;
-  background-color: black;
-  border-radius: 0px !important;
-  height: 25px;
-  line-height: 18px;
-}
 
-.icon{
-  color: white;
-}
+
+
 
 .ea {
   margin-left: 63px;
