@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     $scope.pictureUrl = "http://placehold.it/200x200";
 
 
-    var ServiceRequest = {
+    /*var ServiceRequest = {
       service_type: "admin_users_detail",
     }
 
@@ -33,7 +33,7 @@ angular.module('starter.controllers', [])
 
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
       })
-    }
+    }*/
 
 
   
@@ -425,11 +425,7 @@ angular.module('starter.controllers', [])
       $scope.abouttab = abouttab;
     };
 
-    $scope.editPage = function (editFlag) {
-      console.log(editFlag);
-      $scope.editFlag = editFlag;
-    };
-
+  
     //Favoriye ekleme
     $scope.FavKontrol = function (kelime_id, kullanici_id) {
       console.log(kelime_id, kullanici_id);
@@ -550,7 +546,13 @@ angular.module('starter.controllers', [])
 
     //Admin İçerik Düzenleme arayüzlerine erişim
 
-    $scope.editgosterici = function (tur) {
+    $scope.editgosterici = function (tur, editFlag) {
+
+      $scope.editFg = editFlag;
+      
+      if ($scope.editFg == 1) {
+        $scope.modal.hide();
+      }
 
       switch (tur) {
 
@@ -581,7 +583,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editStory':
-          $scope.modal.hide();
+          if ($scope.editFg == 0) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/add-story.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -623,9 +627,11 @@ angular.module('starter.controllers', [])
           });
           break;
       }
+
+      console.log($scope.editFg);
+
     };
-    
-  
+
     
 
   });
