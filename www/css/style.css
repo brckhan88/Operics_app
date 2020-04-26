@@ -3,13 +3,28 @@
   height: 38px;
 }
 
-.pre-application-buton{
+.title-image1 {
+  margin-top: 4px;
+  height: 38px;
+}
+
+.item .badge + .badge {
+  margin-right: 76px;
+  width: 67%;
+  line-height: 18px;
+}
+
+.background_color{
+  background-color: #000000;
+}
+
+.pre-application_button{
   width: 75%;
   height: 46.5px;
   border-radius: 23.25px;
 }
-.services-main{
 
+.services-main{
   min-width: 102.46px;
   height: 97.5px;
   border-radius: 4px !important;
@@ -17,7 +32,7 @@
   margin-left: -1px;
 }
 
-.add_buton{
+.add_button{
   min-width: 50%;
   max-width: 250px;
   height: 60px;
@@ -76,7 +91,7 @@
 }
 
 .blocked-user{
-  background: rgb(255,0,0,0.2);
+  background: #ef473a91;
 }
 
 .sagda_simge{
@@ -86,23 +101,18 @@
   max-width: 32px;
 }
 
-.ortala{
+.center{
   text-align: center;
 }
 
-.edit_i{
-
+.edit_icon{
   font-size: 33px;
   margin-top: -48px;"
 }
 
-.detail_edit{
+.edit-detail_icon{
   margin-left: -802%;
   text-align: right;
-}
-
-.edit_r{
- font-size: 130%;
 }
 
 .sms_text{
@@ -110,14 +120,13 @@
   text-align: center;
 }
 
-.ekip_rsm{
+.our-team-story_img{
   width:420%;
   margin-top: -70%;
   margin-left: -239%;
 }
 
 .storycircle{
-  
   width: 63.46px;
   height: 63.5px;
   border-radius: 89px !important;
@@ -125,31 +134,52 @@
   margin-left: 8px;
 }
 
-.sms
-{
+.sms{
  width: 20%;
  height: 60px;
  border: solid 1px #f0f0f0
  margin-top: 12%;
  border: solid 0px #e2e2e2;
  box-shadow: 0px 5px 14px 8px #e5e5e5;
-
 }
-.sms_button
-{
+
+.sms_button{
   width: 238px;
   height: 44px;
   border-radius: 2px;
   background-color: black;
   color: white;
 }
+
+.teams_style {
+  width: 238px;
+  height: 118px;
+  border-radius: 12px;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+}
+
+.mstory_image{
+ max-width: 100%;
+ margin-left: -5%;
+ height: 86px;
+ margin-top: 4%;
+}
+
+
+.our-services_align{
+  height: 25%;
+  margin-top: -9px;
+  max-inline-size: -webkit-fill-available;
+  min-block-size: -webkit-fill-available;
+}
+
+
+
+
 /* Empty. Add your own CSS if you like */
 
 
-.bg
-{
-  background-color: #000000;
-}
+
 
 .m{
   width: 273%;
@@ -157,58 +187,22 @@
   margin-top: -24px;
 }
 
-
-
-
-.teams_style {
-  height: 86px;
-  width: 238px;
-  height: 118px;
-  border-radius: 12px;
-  margin-left: 9px;
-  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
-
-}
-
-
-.hiz{
-  max-inline-size: -webkit-fill-available;
-  min-block-size: -webkit-fill-available;
-  width: 137%;
-  margin-left: -12px;
-  margin-top: -9px;
-  height: 25%;
-  margin-left: 1px;
-}
-
-.hizz{
-  max-inline-size: -webkit-fill-available;
-  min-block-size: -webkit-fill-available;
-  width: 137%;
-  margin-left: -12px;
-  margin-top: 1px;
-  height: 25%;
-  width: 139%;
-  margin-left: 1px;
-}
-.rfr
-{
-
+.rfr{
   width: 139%;
   margin-left: -14px;
   margin-top: -21px;
 }
 
-.fnt
-{
+.fnt{
   font-family: Bahnschrift Light;
   font-size: 22px;
   margin-left: 12px;
 }
-.ed
-{
+
+.ed{
   width: 101%;
 }
+
 .im{
   position: absolute;
   top: 19px;
@@ -219,6 +213,7 @@
   height: 100%;
   border-radius: 50%;
 }
+
 .y {
   margin-left: 9px;
   width: 93%;
@@ -226,6 +221,7 @@
   font-size: large;
   color: black;
 }
+
 .imi{
  z-index: 4;
  width: 58.86px;
@@ -233,41 +229,43 @@
  border-radius: 31px;
 }
 
-
 .i{
   width: 40%;
   margin-left: -1%;
   margin-top: -3%;
 }
+
 .id{
   width: 33%;
   margin-left: 95px;
   margin-top: -14px;
 }
+
 .bar{
  background-position: inherit;
 }
-.tabs
-{
+
+.tabs{
   background-color: black;
   height: 8%;
 }
+
 .ie{
   -webkit-user-drag: none;
   width: 113%;
   margin-top: -28px;
   margin-left: -17px;
 }
-.ie2{
 
+.ie2{
   color: #FFFFFF;
   margin-top: 76px;
   margin-right: 202px;
   background-color: red;
   border-radius: 0px !important;
 }
-.ie3{
 
+.ie3{
   color: #FFFFFF;
   margin-top: 103px;
   margin-right: 85px;
@@ -276,13 +274,8 @@
   height: 25px;
   line-height: 18px;
 }
-.item .badge + .badge {
-  margin-right: 76px;
-  width: 67%;
-  line-height: 18px;
-}
-.icon
-{
+
+.icon{
   color: white;
 }
 
@@ -292,26 +285,26 @@
   font-size: 15px;
   margin-top: 10px;
 }
+
 .es {
  text-align: center;
  font-size: 15px;
  margin-left: 72px;
 }
+
 .ei{
   text-align: center;
   font-size: 22px;
   margin-left: 70px;
 }
 
-.title-image1 {
-  margin-top: 4px;
-  height: 38px;
-}
+
 .all{
   font-size:25px;
   text-align:center;
   margin-top:15px;
 }
+
 .rr{
   width:8%;
   margin-left:309px;
@@ -329,67 +322,58 @@
   text-align:left;
   margin-left:20px;
 }
+
 .profile{
   border-radius: 130px !important;
   width: 49%;
   height: 27%;
-
-}
-.mstory_image
-{
- max-width: 100%;
- margin-left: -5%;
- height: 86px;
- margin-top: 4%;
 }
 
 .ic{
-
  margin-right: 25px;
  margin-left: -34px;
  font-size: 33px;
 }
 
-.profile2
-{
+.profile2{
   border-radius: 130px !important;
   width: 39%;
   height: 133px;
   margin-left: 28%;
 }
+
 .ikk{
   width: 30%;
   margin-left: 110px;
   margin-top: 37px;
 }
+
 .kart{
   border-radius:60px;
   width: 263px;
   margin-left: 26px;
   height: 46px;
-  
 }
-.si{
 
+.si{
   margin: -16px 88px 10px;
   font-family: Bahnschrift Light;
   margin-left: 83px;
   font-size:18px;
 }
+
 .in{
  font-size:14px;
 }
 
 
 .b4{
-
   border-radius: 100px !important;
   margin-left:33px !important;
   width:250px !important;
 }
 
 .say{
-
   font-size:20px;
   color:black;
 }
@@ -401,10 +385,9 @@
   width: 87%;
   margin-left: 6%;
   box-shadow: 1px 3px rgb(246,248,249)
-
 }
-.beton1{
 
+.beton1{
   border-radius: 4px;
   width:250px;
   height:32px !important;
@@ -413,7 +396,6 @@
 }
 
 .beton2{
-
   border-radius: 4px;
   width:250px;
   border-color:black;
@@ -429,25 +411,15 @@
  width:45px;
  height: 24px;
  margin-left: 17px;
-
 }
 
 .l3{
-
-
   width: 45px;
   height: 25px;
   margin-left:20px;
 }
 
-.title-image {
-  margin-top: 4px;
-  height: 38px;
-}
-
 .pp{
-
-
   text-align:center;
   margin-left:-14px;
   font-family:Bahnschrift Light;
@@ -456,37 +428,22 @@
 }
 
 .dil{
-
-
   color:black;
   margin-top:2px;
 }
 
 .button-bar{
-
-
   background-color:white !important;
   border-color:black !important;
   box-shadow: inset 15px 15px black !important;
-
-
-
 }
 
 
 .mi{
-
  width: 10%;
 }
 
 
 .kh{
-
   background-color:lightgray;
-
-
-
-}
-.temizle{
-  clear: both;
 }
