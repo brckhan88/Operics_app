@@ -66,7 +66,7 @@
             <input type="text" style="font-size:103%;margin-top: -1%; margin-left: 5%;" placeholder="{{diller[14].kelime}}"
               name="name" ng-model="kayitData.name" class="form_control" required>
           </label>
-          <p ng-show="kayit_form.name.$invalid && !kayit_form.name.$pristine" class="help-block">Adınız gerekli.</p>
+          <p ng-show="kayit_form.name.$invalid && !kayit_form.name.$pristine" class="help-block">{{diller[46].kelime}}</p>
         </div>
         <br>
 
@@ -80,10 +80,9 @@
               name="phone" placeholder="498887776655" class="form_control" ng-pattern="/^[0-9]+$/" required>
           </label>
           <p ng-show="kayit_form.phone.$invalid && !kayit_form.phone.$pristine && !kayit_form.phone.$error.validPhone && !kayit_form.phone.$error.pattern"
-            class="help-block">Telefonunuz gerekli.</p>
-          <p ng-show="kayit_form.phone.$error.validPhone && !kayit_form.phone.$error.pattern" class="help-block">Enter a
-            valid phone.</p>
-          <p ng-show="kayit_form.phone.$error.pattern" class="help-block">Yalnızca sayılara izin verilir.</p>
+            class="help-block">{{diller[47].kelime}}</p>
+          <p ng-show="kayit_form.phone.$error.validPhone && !kayit_form.phone.$error.pattern" class="help-block">{{diller[48].kelime}}</p>
+          <p ng-show="kayit_form.phone.$error.pattern" class="help-block">{{diller[49].kelime}}</p>
         </div>
         <br>
 
@@ -96,7 +95,7 @@
             <input type="email" style="font-size:103%;margin-top: -1%; margin-left: 5%;" placeholder="{{diller[15].kelime}}"
               name="email" ng-model="kayitData.email" class="form_control" required>
           </label>
-          <p ng-show="!kayit_form.email.$pristine && kayit_form.email.$invalid" class="help-block">Enter a valid email.
+          <p ng-show="!kayit_form.email.$pristine && kayit_form.email.$invalid" class="help-block">{{diller[50].kelime}}
           </p>
         </div>
         <br>
@@ -112,10 +111,10 @@
               ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
           </label>
           <p ng-show="!kayit_form.password.$pristine && kayit_form.password.$invalid && !kayit_form.password.$error.minlength && !kayit_form.password.$error.pattern"
-            class="help-block">Parolanız gerekiyor.</p>
-          <p ng-show="kayit_form.password.$error.minlength" class="help-block">Parolanız çok kısa.</p>
+            class="help-block">{{diller[51].kelime}}</p>
+          <p ng-show="kayit_form.password.$error.minlength" class="help-block">{{diller[52].kelime}}</p>
           <p ng-show="kayit_form.password.$error.pattern && !kayit_form.password.$error.minlength" class="help-block">
-            Şifreniz bir küçük ve büyük harf ve bir alfa olmayan karakter içermelidir.</p>
+            {{diller[53].kelime}}</p>
         </div>
         <br>
 
@@ -129,8 +128,8 @@
               ng-model="kayitData.passwordChck" confirm-password="kayitData.password" required>
           </label>
           <p ng-show="kayit_form.passwordChck.$invalid && !kayit_form.passwordChck.$pristine && !kayit_form.passwordChck.$error.password_Chck"
-            class="help-block">Parolanızı onaylamanız gerekir.</p>
-          <p ng-show="kayit_form.passwordChck.$error.password_Chck" class="help-block">Şifreniz uyuşmuyor.</p>
+            class="help-block">{{diller[54].kelime}}</p>
+          <p ng-show="kayit_form.passwordChck.$error.password_Chck" class="help-block">{{diller[55].kelime}}</p>
         </div>
         <br>
         <!-- Finally, submit! -->
@@ -156,7 +155,7 @@
     <form ng-submit="paswordRes()" ng-if="kayittab==2">
       <br><br>
       <center>
-        <h4> Lütfen E-mail adresinizi giriniz. </h4>
+        <h4> {{diller[56].kelime}} </h4>
       </center>
       <br>
       <div class="list center" style="padding:1px;">
@@ -167,11 +166,11 @@
             ng-model="resetPass.email">
         </label>
         <br><br>
-        <button ng-disabled="!resetPass.email" class="button button-dark beton2" type="submit">Şifremi Sıfırla
+        <button ng-disabled="!resetPass.email" class="button button-dark beton2" type="submit">{{diller[57].kelime}}
         </button>
         <br><br>
         <button class="button button-block button-light" type="button" ng-click="kayitButon(0)">
-          <a class="y">Geri</a>
+          <a class="y">{{diller[58].kelime}}</a>
         </button>
 
       </div>
