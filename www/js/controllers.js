@@ -553,15 +553,19 @@ angular.module('starter.controllers', [])
       
       if ($scope.editFg == 1) {
         $scope.modal.hide();
+        $scope.inputField.img       = $scope.editInput.img;
         $scope.inputField.head      = $scope.editInput.head;
         $scope.inputField.desc      = $scope.editInput.desc;
+        $scope.inputField.detDesc   = $scope.editInput.detDesc;
         $scope.inputField.hour      = $scope.editInput.hour;
         $scope.inputField.address   = $scope.editInput.address;
         $scope.inputField.bgdate    = $scope.editInput.bgdate;
         $scope.inputField.enddate   = $scope.editInput.enddate;
       } else {
+        $scope.inputField.img       = null;
         $scope.inputField.head      = null;
         $scope.inputField.desc      = null;
+        $scope.inputField.detDesc   = null;
         $scope.inputField.hour      = null;
         $scope.inputField.address   = null;
         $scope.inputField.bgdate    = null;
