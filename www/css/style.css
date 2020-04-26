@@ -79,7 +79,7 @@
 .reference-icon{
   float: right;
   margin-right: -18px;
-  font-size: 145%;
+  font-size: 148%;
   contain: size;
 }
 
@@ -183,20 +183,22 @@
   width: 101%;
 }
 
-/* Empty. Add your own CSS if you like */
-
-
-
-
-
-
-
-
-.fnt{
+.font_text{
   font-family: Bahnschrift Light;
   font-size: 22px;
   margin-left: 12px;
 }
+
+.tabs{
+  background-color: black;
+  height: 8%;
+}
+
+
+
+/* Empty. Add your own CSS if you like */
+
+
 
 
 
@@ -232,14 +234,7 @@
   margin-top: -14px;
 }
 
-.bar{
- background-position: inherit;
-}
 
-.tabs{
-  background-color: black;
-  height: 8%;
-}
 
 .ie{
   -webkit-user-drag: none;
@@ -248,27 +243,10 @@
   margin-left: -17px;
 }
 
-.ie2{
-  color: #FFFFFF;
-  margin-top: 76px;
-  margin-right: 202px;
-  background-color: red;
-  border-radius: 0px !important;
-}
 
-.ie3{
-  color: #FFFFFF;
-  margin-top: 103px;
-  margin-right: 85px;
-  background-color: black;
-  border-radius: 0px !important;
-  height: 25px;
-  line-height: 18px;
-}
 
-.icon{
-  color: white;
-}
+
+
 
 .ea {
   margin-left: 63px;
