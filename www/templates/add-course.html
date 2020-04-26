@@ -19,16 +19,27 @@
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <textarea type="text" placeholder="Eğitim Adı" ></textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Adı' : ''}}" >{{editFg==1 ? editInput.head : ''}}</textarea>
+        </label>
+
+        
+        <label class="ekle_input item item-input" style="width: 89%;height: 106px; border-radius:10px !important;margin-top: 4%;">
+          <textarea type="text" placeholder="{{editFg==0 ? '0/255 Açıklama' : ''}}" style="margin-top:-28px;">{{editFg==1 ? editInput.desc : ''}}</textarea>
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <textarea type="text" placeholder="Eğitim Tarihi" ></textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Süresi' : ''}}" >{{editFg==1 ? editInput.hour : ''}}</textarea>
         </label>
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 106px; border-radius:10px !important;margin-top: 4%;">
-          <textarea type="text" placeholder="0/255 Açıklama" style="margin-top:-28px;"></textarea>
+        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Başlangıç Tarihi' : ''}}" >{{editFg==1 ? editInput.bgdate : ''}}</textarea>
         </label>
+
+        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Bitiş Tarihi' : ''}}" >{{editFg==1 ? editInput.enddate : ''}}</textarea>
+        </label>
+
+
       </center>
 
 
