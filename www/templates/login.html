@@ -12,7 +12,7 @@
     " src="img/logo.PNG" /></center>
 
     <!-- Kullanıcı Giriş Form Yapısı -->
-<center>
+  <center>
     <form ng-submit="doLogin()" ng-if="!kayittab || kayittab==0">
       <br><br>
       <div class="list center" style="padding:1px;">
@@ -49,28 +49,31 @@
         </button>
 
       </div>
-    </form></center>
+    </form>
+  </center>
     
     <!-- Kullanıcı Kayıt Form Yapısı -->
-<center>
-    <form name="kayit_form" ng-submit="registerUser()" ng-if="kayittab==1" novalidate>
+
+        <!-- Kullanıcı Kayıt Form Yapısı -->
+  <center>
+    <form ng-submit="registerUser()" ng-if="kayittab==1" novalidate>
 
       <div class="form-fields-outer list list-inset" style="padding:10px;">
 
-        <!-- Name -->
+        <!-- Ad Soyad -->
         <div class="form_group">
-          <label class="item item-input kd"
-            ng-class="{ 'has_error' : kayit_form.name.$invalid && !kayit_form.name.$pristine }">
+          <label class="item item-input kd" ng-class="{ 'has_error' : kayitData.name.$invalid && !kayitData.name.$pristine }">
             <i class="ion-ios-person-outline" style="margin-right: 1%;font-size: 124%;"></i>
             <br><br><br>
             <input type="text" style="font-size:103%;margin-top: -1%; margin-left: 5%;" placeholder="{{diller[14].kelime}}"
-              name="name" ng-model="kayitData.name" class="form_control" required>
+               ng-model="kayitData.name" class="form_control" required>
           </label>
-          <p ng-show="kayit_form.name.$invalid && !kayit_form.name.$pristine" class="help-block">{{diller[46].kelime}}</p>
+           <p ng-show="kayitData.name.$invalid && !kayitData.name.$pristine" class="help-block">{{diller[46].kelime}}</p>
         </div>
-        <br>
 
-        <!-- Phone -->
+       <br>
+
+        <!-- Telefon -->
         <div class="form_group">
           <label class="item item-input kd"
             ng-class="{ 'has_error' : (kayit_form.phone.$invalid && !kayit_form.phone.$pristine)}">
@@ -84,6 +87,7 @@
           <p ng-show="kayit_form.phone.$error.validPhone && !kayit_form.phone.$error.pattern" class="help-block">{{diller[48].kelime}}</p>
           <p ng-show="kayit_form.phone.$error.pattern" class="help-block">{{diller[49].kelime}}</p>
         </div>
+
         <br>
 
         <!-- Email -->
@@ -98,6 +102,7 @@
           <p ng-show="!kayit_form.email.$pristine && kayit_form.email.$invalid" class="help-block">{{diller[50].kelime}}
           </p>
         </div>
+        
         <br>
 
         <!-- Password (+ confirm password) -->
@@ -116,6 +121,7 @@
           <p ng-show="kayit_form.password.$error.pattern && !kayit_form.password.$error.minlength" class="help-block">
             {{diller[53].kelime}}</p>
         </div>
+
         <br>
 
         <div class="form_group">
@@ -132,7 +138,8 @@
           <p ng-show="kayit_form.passwordChck.$error.password_Chck" class="help-block">{{diller[55].kelime}}</p>
         </div>
         <br>
-        <!-- Finally, submit! -->
+
+        <!-- Submit Butonu -->
         <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="kayit_form.$invalid" type="submit">
           {{diller[20].kelime}}
         </button>
@@ -140,15 +147,16 @@
         <br>
         <br>
         
-        <!-- Return to login! -->
+        <!-- Giriş Yap'a dönüş -->
         <button style="margin-left: -1%;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
          <p class="dil">{{diller[16].kelime}}</p>
         </button>
-</center>
+
         <br>
 
       </div>
     </form>
+  </center>
 
     <!-- Şifremi Unuttum Form Yapısı -->
 
