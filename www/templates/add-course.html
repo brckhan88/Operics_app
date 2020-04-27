@@ -19,29 +19,29 @@
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Adı' : ''}}" >{{inputField.head}}</textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Adı' : ''}}" ng-model="inputField.head"> {{inputField.head}}</textarea>
         </label>
-
+        
         
         <label class="ekle_input item item-input" style="width: 89%;height: 106px; border-radius:10px !important;margin-top: 4%;">
-          <input type="text" placeholder="{{editFg==0 ? '0/255 Açıklama' : ''}}" ng-model="inputField.desc" style="margin-top:-28px;">
+          <textarea type="text" placeholder="{{editFg==0 ? '0/255 Açıklama' : ''}}" ng-model="inputField.desc" style="margin-top:-28px;">{{inputField.desc}}</textarea>
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <input type="text" placeholder="{{editFg==0 ? 'Eğitim Süresi' : ''}}" ng-model="inputField.hour">
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Süresi' : ''}}" ng-model="inputField.hour">{{inputField.hour}}</textarea>
         </label>
 
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <input type="text" placeholder="{{editFg==0 ? 'Eğitim Konumu' : ''}}" ng-model="inputField.address">
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Konumu' : ''}}" ng-model="inputField.address">{{inputField.address}}</textarea>
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <input type="text" placeholder="{{editFg==0 ? 'Eğitim Başlangıç Tarihi' : ''}}" ng-model="inputField.bgdate">
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Başlangıç Tarihi' : ''}}" ng-model="inputField.bgdate">{{inputField.bgdate}}</textarea>
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <input type="text" placeholder="{{editFg==0 ? 'Eğitim Bitiş Tarihi' : ''}}" ng-model="inputField.enddate">
+          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Bitiş Tarihi' : ''}}" ng-model="inputField.enddate">{{inputField.enddate}}</textarea>
         </label>
 
 
@@ -63,7 +63,6 @@
       </div>
 
     </div>
-
 </ion-content>
 
 </ion-modal-view>
