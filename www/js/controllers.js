@@ -109,7 +109,7 @@ angular.module('starter.controllers', [])
     $scope.loadData = function (){
 
     
-      if ($scope.loginStatus == 0) {
+      if ($scope.loginStatus != 1) {
 
         location.href = "#/login";
 
@@ -251,10 +251,6 @@ angular.module('starter.controllers', [])
       }
     }
     
-    if (!$scope.loginStatus) {
-      localStorage.setItem('loginStatus', 0);
-      $scope.loginStatus = localStorage.getItem('loginStatus');
-    }
 
 
     
