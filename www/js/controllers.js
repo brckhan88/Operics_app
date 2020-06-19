@@ -665,12 +665,14 @@ angular.module('starter.controllers', [])
               team_position:  $scope.inputField.position,
               team_about:     $scope.inputField.desc,
               team_linkedin:  $scope.inputField.link,
-              team_image:     "img/pp.jpg"  
+              team_image:     "img/profile.jpg"  
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
+            localStorage.removeItem('ekipJson');
+            $scope.loadData();
             console.log("ekledi");
             break;
 
@@ -682,29 +684,29 @@ angular.module('starter.controllers', [])
               team_position:  $scope.inputField.position,
               team_about:     $scope.inputField.desc,
               team_linkedin:  $scope.inputField.link,
-              team_image:     "img/pp.jpg"  
+              team_image:     "img/profile.jpg"  
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
+            localStorage.removeItem('ekipJson');
+            $scope.loadData();
             console.log("guncelledi");
             break;
 
           case 'sil':
             var ServiceRequest = {
-              service_type: "calisan_ekle",
-              team_name:      $scope.inputField.name,
-              team_position:  $scope.inputField.position,
-              team_about:     $scope.inputField.desc,
-              team_linkedin:  $scope.inputField.link,
-              team_image:     "img/pp.jpg"  
+              service_type: "calisan_sil",
+              team_id:        $scope.editInput.itemID
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            console.log("ekledi");
+            localStorage.removeItem('ekipJson');
+            $scope.loadData();
+            console.log("silindi");
             break;
         }
         break;
