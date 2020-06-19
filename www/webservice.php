@@ -418,7 +418,7 @@ switch ($service_type) {
         $team_image = $data["team_image"];
         $team_linkedin = $data["team_linkedin"];
 
-        $sorgu = "UPDATE `TEAMS` SET NAME = ".$team_name.", POSITION = ".$team_position.", ABOUT = ".$team_about.", IMAGE = ".$team_image.", LINKEDIN = ".$team_linkedin." WHERE ID=".$team_id;
+        $sorgu = "UPDATE `TEAMS` SET NAME = $team_name, POSITION = $team_position, ABOUT = $team_about, IMAGE = $team_image, LINKEDIN = $team_linkedin., WHERE ID=$team_id ";
         $data = $conn->query($sorgu);
     break;
 
