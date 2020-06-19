@@ -403,7 +403,9 @@ switch ($service_type) {
         $team_image = $data["team_image"];
         $team_linkedin = $data["team_linkedin"];
 
-        $sorgu = "UPDATE `TEAMS` SET NAME = ".$team_name.", POSITION = ".$team_position.", ABOUT = ".$team_about.", IMAGE = ".$team_image.", LINKEDIN = ".$team_linkedin." WHERE ID=".$team_id;
+        $sorgu = "UPDATE `TEAMS` SET NAME = $team_name, POSITION = $team_position, 
+            ABOUT = $team_about, IMAGE = $team_image, LINKEDIN = $team_linkedin
+            WHERE ID=$team_id";
         $data = $conn->query($sorgu);
     break;
 
@@ -414,30 +416,18 @@ switch ($service_type) {
     break;
 
     case "egitim_ekle":
-        $team_name = $data["team_name"];
-
-        $sorgu = "INSERT INTO `TEAMS` (`NAME`, `POSITION`, `ABOUT`, `IMAGE`, `LINKEDIN`) VALUES ('".$team_name."','".$team_position."','".$team_about."','".$team_image."','".$team_linkedin."')";
-        $data = $conn->query($sorgu);
+        //deneme;
+        //deneme;
     break;
 
     case "egitim_guncelle":
-        $team_id = $data["team_id"];
-        $team_name = $data["team_name"];
-        $team_position = $data["team_position"];
-        $team_about = $data["team_about"];
-        $team_image = $data["team_image"];
-        $team_linkedin = $data["team_linkedin"];
-
-        $sorgu = "UPDATE `TEAMS` SET NAME = $team_name, POSITION = $team_position, 
-            ABOUT = .$team_about, IMAGE = $team_image, LINKEDIN = $team_linkedin
-            WHERE ID=$team_id";
-        $data = $conn->query($sorgu);
+        //deneme;
+        //deneme;
     break;
 
     case "egitim_sil":
-        $course_id = $data["course_id"];
-        $sorgu = "DELETE FROM `COURSE` WHERE ID=".$course_id;
-        $data = $conn->query($sorgu);
+        //deneme;
+        //deneme;
     break;
 
     case "kelime_ekle":
