@@ -59,7 +59,6 @@ angular.module('starter.controllers', [])
     $scope.egitimler                    = JSON.parse(localStorage.getItem('egitimJson'));
     $scope.sozluk                       = JSON.parse(localStorage.getItem('sozlukJson'));
     $scope.profil                       = JSON.parse(localStorage.getItem('profilJson'));
-    $scope.versions                     = JSON.parse(localStorage.getItem('versionJson'));
     $scope.savedVersions                = JSON.parse(localStorage.getItem('savedVersionJson'));
      
    
@@ -71,10 +70,9 @@ angular.module('starter.controllers', [])
 
     // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.
     $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-      localStorage.setItem('versionJson', JSON.stringify(data));
-      $scope.versions = JSON.parse(localStorage.getItem('versionJson'));
+      $scope.versions = data;
 
-      if (!$scope.savedVersions ) {
+      if (!$scope.savedVersions) {
         localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
         $scope.savedVersions = JSON.parse(localStorage.getItem('savedVersionJson'));
       }
@@ -220,7 +218,7 @@ angular.module('starter.controllers', [])
         */
 
         
-        if ((!$scope.profil || ($scope.savedVersions != $scope.versions)) && $scope.loginStatus == 1) {
+        if (!$scope.profil  && $scope.loginStatus == 1) {
           localStorage.removeItem('profilJson');
           var ServiceRequest = {
               service_type: "profil",
@@ -245,8 +243,7 @@ angular.module('starter.controllers', [])
         }
 
         localStorage.removeItem('savedVersionJson');
-        localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
-        $scope.savedVersions = JSON.parse(localStorage.getItem('savedVersionJson')); 
+        
          
         location.href = "#/tab/main";
       }
