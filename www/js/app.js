@@ -50,6 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       
       getLanguage();
     });
+    
   })
 
   .config(function ($stateProvider, $urlRouterProvider) {

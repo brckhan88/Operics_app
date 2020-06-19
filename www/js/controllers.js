@@ -109,6 +109,7 @@ angular.module('starter.controllers', [])
     $scope.loadData = function (){
 
     
+
       if ($scope.loginStatus != 1) {
 
         location.href = "#/login";
@@ -550,6 +551,9 @@ angular.module('starter.controllers', [])
       
       if ($scope.editFg == 1) {
         $scope.modal.hide();
+        $scope.inputField.name      = $scope.editInput.name;
+        $scope.inputField.position  = $scope.editInput.position;
+        $scope.inputField.link      = $scope.editInput.link;
         $scope.inputField.img       = $scope.editInput.img;
         $scope.inputField.head      = $scope.editInput.head;
         $scope.inputField.desc      = $scope.editInput.desc;
@@ -559,6 +563,9 @@ angular.module('starter.controllers', [])
         $scope.inputField.bgdate    = $scope.editInput.bgdate;
         $scope.inputField.enddate   = $scope.editInput.enddate;
       } else {
+        $scope.inputField.name      = null;
+        $scope.inputField.position  = null;
+        $scope.inputField.link      = null; 
         $scope.inputField.img       = null;
         $scope.inputField.head      = null;
         $scope.inputField.desc      = null;
@@ -645,6 +652,63 @@ angular.module('starter.controllers', [])
 
       console.log($scope.editFg);
 
+    };
+
+    $scope.applyButton = function(tur, islem) {
+     switch (tur) {
+      case 'team':
+        switch (islem) {
+          case 'ekle':
+            var ServiceRequest = {
+              service_type: "calisan_ekle",
+              team_name:      $scope.inputField.name,
+              team_position:  $scope.inputField.position,
+              team_about:     $scope.inputField.desc,
+              team_linkedin:  $scope.inputField.link,
+              team_image:     "img/pp.jpg"  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            console.log("ekledi");
+            break;
+
+          case 'guncelle':
+            var ServiceRequest = {
+              service_type: "calisan_guncelle",
+              team_id:        $scope.ekip[0].ID,
+              team_name:      $scope.inputField.name,
+              team_position:  $scope.inputField.position,
+              team_about:     $scope.inputField.desc,
+              team_linkedin:  $scope.inputField.link,
+              team_image:     "img/pp.jpg"  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            console.log("guncelledi");
+            break;
+
+          case 'sil':
+            var ServiceRequest = {
+              service_type: "calisan_ekle",
+              team_name:      $scope.inputField.name,
+              team_position:  $scope.inputField.position,
+              team_about:     $scope.inputField.desc,
+              team_linkedin:  $scope.inputField.link,
+              team_image:     "img/pp.jpg"  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            console.log("ekledi");
+            break;
+        }
+        break;
+     }
     };
 
     
