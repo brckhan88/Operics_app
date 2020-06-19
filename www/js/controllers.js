@@ -70,7 +70,7 @@ angular.module('starter.controllers', [])
 
     // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.
     $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-      $scope.versions = data;
+      $scope.versions = data
 
       if (!$scope.savedVersions) {
         localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
@@ -128,6 +128,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('hikayeJson', JSON.stringify(data));
             $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
 
         if ((!$scope.hizmetler || ($scope.savedVersions[2].TABLE_VERSION != $scope.versions[2].TABLE_VERSION)) && $scope.loginStatus == 1) {
@@ -142,6 +143,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('hizmetJson', JSON.stringify(data));
             $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
 
         if ((!$scope.ekip || ($scope.savedVersions[3].TABLE_VERSION != $scope.versions[3].TABLE_VERSION)) && $scope.loginStatus == 1) {
@@ -156,6 +158,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('ekipJson', JSON.stringify(data));
             $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
 
         if ((!$scope.referanslar || ($scope.savedVersions[4].TABLE_VERSION != $scope.versions[4].TABLE_VERSION)) && $scope.loginStatus == 1) {
@@ -170,6 +173,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('referansJson', JSON.stringify(data));
             $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
 
         if ((!$scope.egitimler || ($scope.savedVersions[6].TABLE_VERSION != $scope.versions[6].TABLE_VERSION)) && $scope.loginStatus == 1) {
@@ -184,6 +188,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('egitimJson', JSON.stringify(data));
             $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
 
 
@@ -199,6 +204,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('sozlukJson', JSON.stringify(data));
             $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
 
         /*
@@ -214,6 +220,7 @@ angular.module('starter.controllers', [])
             localStorage.setItem('iletisimJson', JSON.stringify(data));
             $scope.iletisim = JSON.parse(localStorage.getItem('iletisimJson'));
           })
+          localStorage.removeItem('savedVersionJson');
         }
         */
 
@@ -240,9 +247,8 @@ angular.module('starter.controllers', [])
                 $scope.isAdmin = localStorage.getItem('isAdmin');
               }
           })
+          localStorage.removeItem('savedVersionJson');
         }
-
-        localStorage.removeItem('savedVersionJson');
         
          
         location.href = "#/tab/main";
@@ -715,8 +721,5 @@ angular.module('starter.controllers', [])
         break;
      }
     };
-
-    
-
   });
 
