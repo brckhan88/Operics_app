@@ -9,41 +9,46 @@
   <ion-content>
 
     <div style="margin-top: 20px" class="center list list-inset">
-      <h3>İletişim Ekle</h3>
+      <h3>{{editFg==0 ? 'İletişim Ekle' : editFg==1 ? 'İletişimi Düzenle' : ''}}
+
+      </h3>
       
 
       <center>
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-        border-radius: 10px !important;margin-top:28px;">
-        <textarea type="text" placeholder="Yıldız Mahallesi, Spor Caddesi 
-        Quasar Plaza 1b/28 Şişli/İstanbul" ></textarea>
+      <label class="ekle_input item item-input" style="width: 89%;height: 51px;
+      border-radius: 10px !important;margin-top:28px;">
+      <textarea type="text" placeholder="Yıldız Mahallesi, Spor Caddesi 
+      Quasar Plaza 1b/28 Şişli/İstanbul" ></textarea>
       </label>
 
       <label class="ekle_input item item-input" style="width: 89%;height: 51px;
       border-radius: 10px !important;margin-top: 4%;">
       <textarea type="text" placeholder="+90 505 765 33 22
       " ></textarea>
-    </label>
-    <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-    border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="0 212 456 78 89" ></textarea>
-  </label>
-  <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-  border-radius: 10px !important;margin-top: 4%;">
-  <textarea type="text" placeholder="indo@operics.com.tr" ></textarea>
-</label>
+      </label>
+
+     <label class="ekle_input item item-input" style="width: 89%;height: 51px;
+     border-radius: 10px !important;margin-top: 4%;">
+     <textarea type="text" placeholder="0 212 456 78 89" ></textarea>
+     </label>
+
+     <label class="ekle_input item item-input" style="width: 89%;height: 51px;
+     border-radius: 10px !important;margin-top: 4%;">
+     <textarea type="text" placeholder="info@operics.com.tr" ></textarea>
+     </label>
+
+     </center>
 
 
-</center>
-
-<div class="center"style="margin-top: 29%;">
-  <button class="button button-assertive add_button ">
-    <h3 style=" color: white;font-family: monospace;">Güncelle</h3>
-  </button></div>
+    <div class="center"style="margin-top: 29%;">
+     <button class="button button-assertive add_button " ng-click="applyButton('team','guncelle')">
+    <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? '+Ekle' : editFg==1 ? 'Güncelle' : ''}}</h3>
+    </button>
+   </div>
 
   <div class="center"style="margin-top: 1%;">
-    <button class="button button-assertive add_button ">
+    <button class="button button-assertive add_button " ng-if="editFg==1" ng-click="applyButton('team','sil')">
       <h3 style=" color: white;font-family: monospace;">Sil</h3>
     </button></div>
   </div>

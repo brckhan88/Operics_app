@@ -25,7 +25,7 @@
 
     <div class="center" ng-if="isAdmin==1" ng-click="editgosterici('editAbout',0)">
     <button class="button button-assertive add_button ">
-    <h3 style=" color: white;font-family: monospace;">  + Ekle</h3>
+    <h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
     </button>
     </div>
 
@@ -82,64 +82,7 @@
 
 </div>
 </div>
-  <!-- Hizmetlerimiz Tab 
-  <div class="ortala" ng-click="deneme()">
-    <button class="button button-assertive ekle_b ">
-      Deneme
-    </button>
-  </div>
-
-  <div class="ortala" ng-click="aboutus_ekle(abouttab)">
-    <button class="button button-assertive ekle_b ">
-      <h3 style=" color: white;font-family: monospace;">  + Ekle</h3>
-    </button>
-  </div>
-
-  <div ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" style="margin-top: 30px;"
-  ng-click="modalgosterici('service',{{$index}})">
-
-  <div class="item item-body hk">
-    <img class="full-image i" ng-src="{{hizmet.SERVICE_IMAGE}}">
-
-    <div class="">
-      <h2 align="center">{{hizmet.SERVICE_NAME}}
-        <hr width="100%" size="4">
-      </h2>
-    </div>
-    <p style="font-size: 12px;" align="center">
-      {{hizmet.DESCRIPTION}}
-    </p>
-  </div>
-</div>
-
-</div>
-
--->
-
-
-
-<!--
-
-<div ng-if="abouttab==1" class="row">
-  <div class="col" >
-    <br>
-    <div class="col.col-50 " ng-repeat="referans in referanslar">
-      <div class="item item-thumbnail- h "  href="#" ng-if="referans.ID%2!=0">
-        <img class="rfr " ng-src="{{referans.REF_PHOTO}}">
-      </div>
-      <br>
-    </div>
-  </div>
-  <div class="col ">
-    <div class="col.col-50 " ng-repeat="referans in referanslar">
-      <div class="item item-thumbnail- h " href="#" ng-if="referans.ID%2==0">
-        <img class="rfr " ng-src="{{referans.REF_PHOTO}}">
-      </div>
-      <br>
-    </div>
-  </div>
-</div>
--->
+ 
 
 </ion-content>
 </ion-view>

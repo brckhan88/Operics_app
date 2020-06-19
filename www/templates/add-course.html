@@ -4,8 +4,6 @@
       <button class="button button-clear button-assertive ion-close" ng-click="modal.hide()"></button>
     </ion-header-buttons>
   </ion-header-bar>
-
-
   <ion-content>
     
 
@@ -50,20 +48,22 @@
 
 
 
+
       <div class="center"style="margin-top: 2%;">
-        <button class="button button-assertive add_button">
+        <button class="button button-assertive add_button" ng-click="applyButton('team','guncelle')">
           <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? '+Ekle' : editFg==1 ? 'Güncelle' : ''}}</h3>
         </button>
       </div>
       <br>
 
-      <div class="center" style="margin-top: 1%;" ng-if="editFg==1">
+      <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('team','sil')">
         <button class="button button-assertive add_button">
           <h3 style=" color: white;font-family: monospace;">Sil</h3>
-        </button></div>
+        </button>
       </div>
 
-    </div>
+
+</div>
 </ion-content>
 
 </ion-modal-view>
