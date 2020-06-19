@@ -291,6 +291,7 @@ angular.module('starter.controllers', [])
         service_type: "giris",
         email: $scope.loginData.email,
         sifre: $scope.loginData.password,
+        language: localStorage.getItem('language')
       }
 
       // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.

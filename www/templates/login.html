@@ -18,7 +18,7 @@
       <div class="list center" style="padding:1px;">
 
         <br><br>
-
+        <!-- Kullanıcı Email Girişi -->
         <label class="item item-input kd">
           <i class="ion-ios-email-outline" style="margin-right: 1%;font-size: 124%;"></i>
           <input type="text" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"
@@ -26,7 +26,7 @@
         </label>
 
         <br><br>
-
+        <!-- Kullanıcı Şifre Girişi -->
         <label class="item item-input kd">
           <i class="ion-ios-unlocked-outline" style="margin-right: 10%;font-size: 124%;"></i>
           <input type="password" style="font-size:103%;margin-left: -5%;margin-top: 0%;"
@@ -56,91 +56,66 @@
 
         <!-- Kullanıcı Kayıt Form Yapısı -->
   <center>
-    <form ng-submit="registerUser()" ng-if="kayittab==1" novalidate>
-
-      <div class="form-fields-outer list list-inset" style="padding:10px;">
-
-        <!-- Ad Soyad -->
-        <div class="form_group">
-          <label class="item item-input kd" ng-class="{ 'has_error' : kayitData.name.$invalid && !kayitData.name.$pristine }">
+    <form ng-submit="registerUser()" ng-if="kayittab==1">
+      <div class="list center" style="padding:1px;">
+        <br><br>
+          <!-- Kayıt Ad Soyad -->
+          <label class="item item-input kd">
             <i class="ion-ios-person-outline" style="margin-right: 1%;font-size: 124%;"></i>
-            <br><br><br>
-            <input type="text" style="font-size:103%;margin-top: -1%; margin-left: 5%;" placeholder="{{diller[14].kelime}}"
-               ng-model="kayitData.name" class="form_control" required>
+            <input type="text" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[14].kelime}}"
+            ng-model="kayitData.name">
           </label>
-           <p ng-show="kayitData.name.$invalid && !kayitData.name.$pristine" class="help-block">{{diller[46].kelime}}</p>
-        </div>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.name.length==0 ? "Zorunlu" : ""}}</p>
+          
 
-       <br>
-
-        <!-- Telefon -->
-        <div class="form_group">
-          <label class="item item-input kd"
-            ng-class="{ 'has_error' : (kayit_form.phone.$invalid && !kayit_form.phone.$pristine)}">
+        <br><br>
+          <!-- Kayıt Telefon -->
+          <label class="item item-input kd">
             <i class="ion-ios-telephone-outline" style="margin-right: 1%;font-size: 124%;"></i>
-
-            <input type="tel" style="font-size:103%;margin-top: -1%; margin-left: 5%;" ng-model="kayitData.number"
-              name="phone" placeholder="498887776655" class="form_control" ng-pattern="/^[0-9]+$/" required>
+            <input type="number" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="498887776655"
+            ng-model="kayitData.number">
           </label>
-          <p ng-show="kayit_form.phone.$invalid && !kayit_form.phone.$pristine && !kayit_form.phone.$error.validPhone && !kayit_form.phone.$error.pattern"
-            class="help-block">{{diller[47].kelime}}</p>
-          <p ng-show="kayit_form.phone.$error.validPhone && !kayit_form.phone.$error.pattern" class="help-block">{{diller[48].kelime}}</p>
-          <p ng-show="kayit_form.phone.$error.pattern" class="help-block">{{diller[49].kelime}}</p>
-        </div>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.number.length==0 ? "Zorunlu" : ""}}</p>
+          
+          
 
-        <br>
-
-        <!-- Email -->
-        <div class="form_group">
-          <label class="item item-input kd"
-            ng-class="{ 'has_error' : kayit_form.email.$invalid && !kayit_form.email.$pristine }">
+        <br><br>
+          <!-- Kayıt Email -->
+          <label class="item item-input kd">
             <i class="ion-ios-email-outline" style="margin-right: 1%;font-size: 124%;"></i>
-
-            <input type="email" style="font-size:103%;margin-top: -1%; margin-left: 5%;" placeholder="{{diller[15].kelime}}"
-              name="email" ng-model="kayitData.email" class="form_control" required>
+            <input type="email" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"  ng-model="kayitData.email" [email]="true">
           </label>
-          <p ng-show="!kayit_form.email.$pristine && kayit_form.email.$invalid" class="help-block">{{diller[50].kelime}}
-          </p>
-        </div>
+          <div ng-if="kayitData.email.length==0">
+            <p style="text-align: left; margin-left: 7%;">Zorunlu</p>
+          </div>
+          
+
+        <br><br>
+          <!-- Kayıt Şifre -->
+          <label class="item item-input kd">
+            <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
+            <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[13].kelime}}"
+            ng-model="kayitData.password">
+          </label>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.password.length==0 ? "Zorunlu": kayitData.password.length<8 ? "Şifreniz en az 8 haneli olmalıdır.":""}}</p>
+         
+          
+        <br><br>
+          <!-- Kayıt Şifre Tekrar -->
+          <label class="item item-input kd">
+            <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
+            <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[17].kelime}}"
+            ng-model="kayitData.passwordChck">
+          </label>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.passwordChck!=kayitData.password ? "Şifreleriniz birbiri ile uyuşmuyor!" : ""}}</p>
         
-        <br>
+          
+          
 
-        <!-- Password (+ confirm password) -->
-        <div class="form_group">
-          <label class="item item-input kd"
-            ng-class="{ 'has_error' : kayit_form.password.$invalid && !kayit_form.password.$pristine }">
-            <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
-
-            <input type="password" style="font-size:103%;margin-top: -1%; margin-left: 5%;" placeholder="{{diller[13].kelime}}"
-              name="password" ng-model="kayitData.password" ng-minlength="5"
-              ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required>
-          </label>
-          <p ng-show="!kayit_form.password.$pristine && kayit_form.password.$invalid && !kayit_form.password.$error.minlength && !kayit_form.password.$error.pattern"
-            class="help-block">{{diller[51].kelime}}</p>
-          <p ng-show="kayit_form.password.$error.minlength" class="help-block">{{diller[52].kelime}}</p>
-          <p ng-show="kayit_form.password.$error.pattern && !kayit_form.password.$error.minlength" class="help-block">
-            {{diller[53].kelime}}</p>
-        </div>
-
-        <br>
-
-        <div class="form_group">
-          <label class="item item-input kd"
-            ng-class="{ 'has_error' : (kayit_form.passwordChck.$invalid && !kayit_form.passwordChck.$pristine) || match_password }">
-            <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
-
-            <input type="password" style="font-size:103%;margin-top: -1%; margin-left: 5%;"
-              placeholder="{{diller[17].kelime}}" name="passwordChck" ng-model-options="{ debounce: 500 }"
-              ng-model="kayitData.passwordChck" confirm-password="kayitData.password" required>
-          </label>
-          <p ng-show="kayit_form.passwordChck.$invalid && !kayit_form.passwordChck.$pristine && !kayit_form.passwordChck.$error.password_Chck"
-            class="help-block">{{diller[54].kelime}}</p>
-          <p ng-show="kayit_form.passwordChck.$error.password_Chck" class="help-block">{{diller[55].kelime}}</p>
-        </div>
-        <br>
+        <br><br>
 
         <!-- Submit Butonu -->
-        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="kayit_form.$invalid" type="submit">
+        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || !kayitData.email || !kayitData.password || (kayitData.passwordChck!=kayitData.password)" type="submit">
           {{diller[20].kelime}}
         </button>
 
@@ -152,6 +127,7 @@
          <p class="dil">{{diller[16].kelime}}</p>
         </button>
 
+        <br>
         <br>
 
       </div>
