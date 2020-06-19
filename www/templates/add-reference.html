@@ -14,25 +14,22 @@
       </h3>
       
 
-      <center><label class="ekle_input item item-input" style="width: 89%;height: 143px;
-      border-radius:10px !important;">
-      <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
-      <textarea type="" placeholder="Referans Ekle" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
-    </label>
+      <center>
+        <label class="ekle_input item item-input" style="width: 89%;height: 143px;
+        border-radius:10px !important;">
+          <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
+          <textarea type="" placeholder="Referans Ekle" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
+        </label>
 
-    <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-    border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="Müşteri Adı" ></textarea>
-  </label>
-
-
-  
-  
-</center>
+        <label class="ekle_input item item-input" style="width: 89%;height: 51px;
+          border-radius: 10px !important;margin-top: 4%;">
+           <textarea type="text" placeholder="Müşteri Adı" ></textarea>
+        </label>
+      </center>
 
 
 
- <div class="center"style="margin-top: 2%;">
+      <div class="center"style="margin-top: 2%;">
         <button class="button button-assertive add_button" ng-click="applyButton('team','guncelle')">
           <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? '+Ekle' : editFg==1 ? 'Güncelle' : ''}}</h3>
         </button>
@@ -41,17 +38,12 @@
 
       <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('team','sil')">
         <button class="button button-assertive add_button">
-          <h3 style=" color: white;font-family: monospace;">Sil</h3>
+         <h3 style=" color: white;font-family: monospace;">Sil</h3>
         </button>
       </div>
 
+    </div>
 
-
-
-
-
-</div>
-
-</ion-content>
+  </ion-content>
 
 </ion-modal-view>

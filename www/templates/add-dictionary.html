@@ -9,29 +9,35 @@
   <ion-content>
 
     <div style="margin-top: 20px" class="center list list-inset">
-      <h3>{{editFg==0 ? 'Kelime Ekle' : editFg==1 ? 'Kelime Düzenle' : ''}}</h3>
+      <h3>{{editFg==0 ? 'Kelime Ekle' : editFg==1 ? 'Kelimeyi Düzenle' : ''}}</h3>
       
 
       <center>
 
-  <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-  border-radius: 10px !important;margin-top: 4%;">
-  <textarea type="text" placeholder="Kelime Adı" ></textarea>
-</label>
+        <label class="ekle_input item item-input" style="width: 89%;height: 51px;
+        border-radius: 10px !important;margin-top: 4%;">
+        <textarea type="text" placeholder="Kelime Adı" ></textarea>
+      </label>
 
-<label class="ekle_input item item-input" style="width: 89%;height: 106px;
-border-radius:10px !important;margin-top: 4%;">
-<textarea type="text" placeholder="0/255 Açıklama" style="margin-top:-28px;"></textarea>
-</label>
-</center>
+      <label class="ekle_input item item-input" style="width: 89%;height: 106px;
+      border-radius:10px !important;margin-top: 4%;">
+      <textarea type="text" placeholder="0/255 Açıklama" style="margin-top:-28px;"></textarea>
+    </label>
+  </center>
 
 
 
-<div class="center" style="margin-top: 49%;">
-  <button class="button button-assertive add_button">
-    <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? '+Ekle' : editFg==1 ? 'Güncelle' : ''}}</h3>
-  </button></div>
-</div>
+  <div class="center" style="margin-top: 49%;">
+    <button class="button button-assertive add_button">
+      <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? '+Ekle' : editFg==1 ? 'Güncelle' : ''}}</h3>
+    </button></div>
+  </div>
+  
+  <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('team','sil')">
+    <button class="button button-assertive add_button">
+      <h3 style=" color: white;font-family: monospace;">Sil</h3>
+    </button></div>
+  </div>
 
 </ion-content>
 
