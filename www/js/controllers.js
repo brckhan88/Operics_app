@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     $scope.pictureUrl = "http://placehold.it/200x200";
 
 
-    /*var ServiceRequest = {
+    var ServiceRequest = {
       service_type: "admin_users_detail",
     }
 
@@ -33,7 +33,7 @@ angular.module('starter.controllers', [])
 
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
       })
-    }*/
+    }
 
 
   
@@ -672,8 +672,10 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
             console.log("ekledi");
+            $scope.modal.hide();
             break;
 
           case 'guncelle':
@@ -691,8 +693,10 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
             console.log("guncelledi");
+            $scope.modal.hide();
             break;
 
           case 'sil':
@@ -705,8 +709,10 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
             console.log("silindi");
+            $scope.modal.hide();
             break;
         }
         break;
