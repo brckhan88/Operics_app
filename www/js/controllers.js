@@ -677,7 +677,7 @@ angular.module('starter.controllers', [])
           case 'guncelle':
             var ServiceRequest = {
               service_type: "calisan_guncelle",
-              team_id:        $scope.ekip[0].ID,
+              team_id:        $scope.editInput.itemID,
               team_name:      $scope.inputField.name,
               team_position:  $scope.inputField.position,
               team_about:     $scope.inputField.desc,
