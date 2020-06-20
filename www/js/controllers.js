@@ -661,9 +661,6 @@ angular.module('starter.controllers', [])
           break;
 
         case 'listUsers':
-          if ($scope.editFg == 1) {
-            $scope.modal.hide();
-          }
           $ionicModal.fromTemplateUrl('templates/list-users.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
