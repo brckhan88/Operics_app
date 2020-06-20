@@ -977,17 +977,19 @@ angular.module('starter.controllers', [])
         switch (islem) {
           case 'ekle':
             var ServiceRequest = {
-              service_type: "",
+              service_type:                        "kelime_ekle",
+              word_name          :                 $scope.inputField.name,
+              word_description   :                 $scope.inputField.desc
               
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            localStorage.removeItem('sozlukJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('sozlukJson'));
             $scope.loadData();
-            console.log("... eklendi");
+            console.log("Sozluk eklendi");
             $scope.modal.hide();
             break;
 
