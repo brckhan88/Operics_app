@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
     $scope.pictureUrl = "http://placehold.it/200x200";
 
 
-    var ServiceRequest = {
+    /*var ServiceRequest = {
       service_type: "admin_users_detail",
     }
 
@@ -33,7 +33,7 @@ angular.module('starter.controllers', [])
 
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
       })
-    }
+    }*/
 
 
   
@@ -63,24 +63,20 @@ angular.module('starter.controllers', [])
      
    
     // Version Kontrolü
-    
+
     var ServiceRequest = {
-      service_type: "version_check"
-    }
-
-    // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.
-    $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-      $scope.versions = data
-
-      if (!$scope.savedVersions) {
-        localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
-        $scope.savedVersions = JSON.parse(localStorage.getItem('savedVersionJson'));
+        service_type: "version_check"
       }
-      $scope.loadData();
-    })
+      // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+        $scope.versions = data
+        if (!$scope.savedVersions) {
+          localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
+          $scope.savedVersions = JSON.parse(localStorage.getItem('savedVersionJson'));
+        }
+        $scope.loadData();
+      })
     
-    
-
     
 
     // Uygulama dilinin belirlenmesi
@@ -106,8 +102,6 @@ angular.module('starter.controllers', [])
 
     $scope.loadData = function (){
 
-    
-
       if ($scope.loginStatus != 1) {
 
         location.href = "#/login";
@@ -116,7 +110,7 @@ angular.module('starter.controllers', [])
 
         // Çağrılacak servisler:
 
-        if ((!$scope.hikayeler || ($scope.savedVersions[1].TABLE_VERSION != $scope.versions[1].TABLE_VERSION)) && $scope.loginStatus == 1) {
+        if (!$scope.hikayeler || ($scope.savedVersions[1].TABLE_VERSION != $scope.versions[1].TABLE_VERSION)) {
           localStorage.removeItem('hikayeJson');
           var ServiceRequest = {
             service_type: "hikayeler",
@@ -131,7 +125,7 @@ angular.module('starter.controllers', [])
           localStorage.removeItem('savedVersionJson');
         }
 
-        if ((!$scope.hizmetler || ($scope.savedVersions[2].TABLE_VERSION != $scope.versions[2].TABLE_VERSION)) && $scope.loginStatus == 1) {
+        if (!$scope.hizmetler || ($scope.savedVersions[2].TABLE_VERSION != $scope.versions[2].TABLE_VERSION)) {
           localStorage.removeItem('hizmetJson');
           var ServiceRequest = {
             service_type: "hizmetler",
@@ -146,7 +140,8 @@ angular.module('starter.controllers', [])
           localStorage.removeItem('savedVersionJson');
         }
 
-        if ((!$scope.ekip || ($scope.savedVersions[3].TABLE_VERSION != $scope.versions[3].TABLE_VERSION)) && $scope.loginStatus == 1) {
+        if (!$scope.ekip) {
+          console.log("Buraya girdi!");
           localStorage.removeItem('ekipJson');
           var ServiceRequest = {
             service_type: "ekip",
@@ -158,10 +153,9 @@ angular.module('starter.controllers', [])
             localStorage.setItem('ekipJson', JSON.stringify(data));
             $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
           })
-          localStorage.removeItem('savedVersionJson');
         }
 
-        if ((!$scope.referanslar || ($scope.savedVersions[4].TABLE_VERSION != $scope.versions[4].TABLE_VERSION)) && $scope.loginStatus == 1) {
+        if (!$scope.referanslar || ($scope.savedVersions[4].TABLE_VERSION != $scope.versions[4].TABLE_VERSION)) {
           localStorage.removeItem('referansJson');
           var ServiceRequest = {
             service_type: "referanslar",
@@ -176,7 +170,7 @@ angular.module('starter.controllers', [])
           localStorage.removeItem('savedVersionJson');
         }
 
-        if ((!$scope.egitimler || ($scope.savedVersions[6].TABLE_VERSION != $scope.versions[6].TABLE_VERSION)) && $scope.loginStatus == 1) {
+        if (!$scope.egitimler || ($scope.savedVersions[6].TABLE_VERSION != $scope.versions[6].TABLE_VERSION)) {
           localStorage.removeItem('egitimJson');
           var ServiceRequest = {
             service_type: "egitimler",
@@ -192,7 +186,7 @@ angular.module('starter.controllers', [])
         }
 
 
-        if ((!$scope.sozluk || ($scope.savedVersions[5].TABLE_VERSION != $scope.versions[5].TABLE_VERSION)) && $scope.loginStatus == 1) {
+        if (!$scope.sozluk || ($scope.savedVersions[5].TABLE_VERSION != $scope.versions[5].TABLE_VERSION)) {
           localStorage.removeItem('sozlukJson');
           var ServiceRequest = {
             service_type: "sozluk",
@@ -208,7 +202,7 @@ angular.module('starter.controllers', [])
         }
 
         /*
-        if ((!$scope.iletisim || ($scope.savedVersions != $scope.versions)) && $scope.loginStatus == 1) {
+        if (!$scope.iletisim || ($scope.savedVersions != $scope.versions)) {
           localStorage.removeItem('iletisimJson');
           var ServiceRequest = {
             service_type: "iletisim",
@@ -225,7 +219,7 @@ angular.module('starter.controllers', [])
         */
 
         
-        if (!$scope.profil  && $scope.loginStatus == 1) {
+        if (!$scope.profil) {
           localStorage.removeItem('profilJson');
           var ServiceRequest = {
               service_type: "profil",
