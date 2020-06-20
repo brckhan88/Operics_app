@@ -50,8 +50,8 @@
 }
 
 .reference-style{
-   max-width: 77%;
-   margin-top: -2%;
+  max-width: 77%;
+  margin-top: -16%;
   
 }
 
@@ -65,15 +65,17 @@
 }
 
 .reference-location{
-  margin-top: 37%;
-  height: 23%;
-  max-width: 80%;
-  border-radius: 6%;;
+  margin-top: 43%;
+  height: 20%;
+  max-width: 74%;
+  overflow: hidden;
+  border-radius: 8%;
   margin-left: 10%;
+  border-color: #69696987;
 }
 
 .reference-icon{
-  font-size: 188%;
+  font-size: 168%;
   margin-left: 81%;
   margin-top: -9%;
   
