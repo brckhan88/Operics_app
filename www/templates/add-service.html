@@ -9,25 +9,25 @@
   <ion-content>
 
     <div style="margin-top: 20px" class="center list list-inset">
-      <h3>{{editFg==0 ? 'Hizmet Ekle' : editFg==1 ? 'Hizmeti Düzenle' : ''}}</h3>
+      <h3>{{editFg==0 ? diller[24].kelime : editFg==1 ? 'Hizmeti Düzenle' : ''}}</h3>
       
 
       <center><label class="ekle_input item item-input" style="width: 89%;height: 143px;
       border-radius:10px !important;">
       <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
-      <textarea type="text" placeholder="Hizmet Ekle" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
+      <textarea type="text" placeholder="{{diller[25].kelime}}" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
     </label>
 
     <label class="ekle_input item item-input" style="width: 89%;height: 51px;
     border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="Hizmet Adı" ></textarea>
+    <textarea type="text" placeholder="{{diller[26].kelime}}" ></textarea>
   </label>
 
 
   
   <label class="ekle_input item item-input" style="width: 89%;height: 106px;
   border-radius:10px !important;margin-top: 4%;">
-  <textarea type="text" placeholder="Açıklama" style="margin-top:-28px;"></textarea>
+  <textarea type="text" placeholder="{{diller[27].kelime}}" style="margin-top:-28px;"></textarea>
 </label>
 </center>
 
