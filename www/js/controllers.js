@@ -655,7 +655,7 @@ angular.module('starter.controllers', [])
 
     $scope.applyButton = function(tur, islem) {
      switch (tur) {
-      case 'story':
+      case 'stories':
         switch (islem) {
           case 'ekle':
             var ServiceRequest = {
@@ -712,7 +712,68 @@ angular.module('starter.controllers', [])
         }
         break;
 
-      case 'team':
+      case 'services':
+        switch (islem) {
+          case 'ekle':
+            var ServiceRequest = {
+              service_type: "calisan_ekle",
+              team_name:      $scope.inputField.name,
+              team_position:  $scope.inputField.position,
+              team_about:     $scope.inputField.desc,
+              team_linkedin:  $scope.inputField.link,
+              team_image:     "img/profile.jpg"  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+            $scope.loadData();
+            console.log("ekledi");
+            $scope.modal.hide();
+            break;
+
+          case 'guncelle':
+            var ServiceRequest = {
+              service_type: "calisan_guncelle",
+              team_id:        $scope.editInput.itemID,
+              team_name:      $scope.inputField.name,
+              team_position:  $scope.inputField.position,
+              team_about:     $scope.inputField.desc,
+              team_linkedin:  $scope.inputField.link,
+              team_image:     "img/profile.jpg"  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+            $scope.loadData();
+            console.log("guncelledi");
+            $scope.modal.hide();
+            break;
+
+          case 'sil':
+            var ServiceRequest = {
+              service_type: "calisan_sil",
+              team_id:        $scope.editInput.itemID
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+            $scope.loadData();
+            console.log("silindi");
+            $scope.modal.hide();
+            break;
+        }
+        break;
+
+      case 'references':
         switch (islem) {
           case 'ekle':
             var ServiceRequest = {
@@ -834,68 +895,7 @@ angular.module('starter.controllers', [])
         }
         break;
 
-      case 'team':
-        switch (islem) {
-          case 'ekle':
-            var ServiceRequest = {
-              service_type: "calisan_ekle",
-              team_name:      $scope.inputField.name,
-              team_position:  $scope.inputField.position,
-              team_about:     $scope.inputField.desc,
-              team_linkedin:  $scope.inputField.link,
-              team_image:     "img/profile.jpg"  
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('ekipJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-            $scope.loadData();
-            console.log("ekledi");
-            $scope.modal.hide();
-            break;
-
-          case 'guncelle':
-            var ServiceRequest = {
-              service_type: "calisan_guncelle",
-              team_id:        $scope.editInput.itemID,
-              team_name:      $scope.inputField.name,
-              team_position:  $scope.inputField.position,
-              team_about:     $scope.inputField.desc,
-              team_linkedin:  $scope.inputField.link,
-              team_image:     "img/profile.jpg"  
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('ekipJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-            $scope.loadData();
-            console.log("guncelledi");
-            $scope.modal.hide();
-            break;
-
-          case 'sil':
-            var ServiceRequest = {
-              service_type: "calisan_sil",
-              team_id:        $scope.editInput.itemID
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('ekipJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-            $scope.loadData();
-            console.log("silindi");
-            $scope.modal.hide();
-            break;
-        }
-        break;
-
-      case 'team':
+      case 'courses':
         switch (islem) {
           case 'ekle':
             var ServiceRequest = {
