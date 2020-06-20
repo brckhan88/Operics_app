@@ -541,6 +541,7 @@ angular.module('starter.controllers', [])
       $scope.editFg = editFlag;
       
       if ($scope.editFg == 1) {
+        
         $scope.inputField.name      = $scope.editInput.name;
         $scope.inputField.position  = $scope.editInput.position;
         $scope.inputField.link      = $scope.editInput.link;
@@ -575,13 +576,17 @@ angular.module('starter.controllers', [])
               $scope.modal.show();
             });
           } else if ($scope.abouttab == 2) {
-            $scope.modal.hide();
+            if ($scope.editFg == 1) {
+              $scope.modal.hide();
+            }
             $ionicModal.fromTemplateUrl('templates/add-teams.html', { scope: $scope }).then(function (modal) {
               $scope.modal = modal;
               $scope.modal.show();
             });
           } else {
-            $scope.modal.hide();
+            if ($scope.editFg == 1) {
+              $scope.modal.hide();
+            }
             $ionicModal.fromTemplateUrl('templates/add-service.html', { scope: $scope }).then(function (modal) {
               $scope.modal = modal;
               $scope.modal.show();
@@ -590,7 +595,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editCourse':
-          $scope.modal.hide();
+          if ($scope.editFg == 1) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/add-course.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -599,9 +606,7 @@ angular.module('starter.controllers', [])
 
         case 'editStory':
           $scope.modal.hide();
-          if ($scope.editFg == 0) {
-            $scope.modal.hide();
-          }
+      
           $ionicModal.fromTemplateUrl('templates/add-story.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -609,7 +614,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editProfile':
-          $scope.modal.hide();
+          if ($scope.editFg == 1) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/profile-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -617,7 +624,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editTeam':
-          $scope.modal.hide();
+          if ($scope.editFg == 1) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/add-teams.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -625,7 +634,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editDic':
-          $scope.modal.hide();
+          if ($scope.editFg == 1) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/add-dictionary.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -633,7 +644,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editCon':
-          $scope.modal.hide();
+          if ($scope.editFg == 1) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/add-contact.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -641,7 +654,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'listUsers':
-          $scope.modal.hide();
+          if ($scope.editFg == 1) {
+            $scope.modal.hide();
+          }
           $ionicModal.fromTemplateUrl('templates/list-users.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -720,7 +735,6 @@ angular.module('starter.controllers', [])
               service_image:        $scope.inputField.img,  
               service_name:         $scope.inputField.name,
               service_description:  $scope.inputField.desc
-              
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
@@ -735,33 +749,36 @@ angular.module('starter.controllers', [])
 
           case 'guncelle':
             var ServiceRequest = {
-              service_type: "",
-              
+              service_type:           "hizmet_guncelle",
+              service_id :            $scope.editInput.itemID,
+              service_image :         $scope.inputField.img,
+              service_name :          $scope.inputField.name,
+              service_description :   $scope.inputField.desc 
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            localStorage.removeItem('hizmetJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('hizmetJson'));
             $scope.loadData();
-            console.log("... güncellendi");
+            console.log("Hizmet güncellendi");
             $scope.modal.hide();
             break;
 
           case 'sil':
             var ServiceRequest = {
-              service_type: "",
-              team_id:        $scope.editInput.itemID
+              service_type:            "hizmet_sil",
+              service_id:              $scope.editInput.itemID
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            localStorage.removeItem('hizmetJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('hizmetJson'));
             $scope.loadData();
-            console.log("... silindi");
+            console.log("Hizmet silindi");
             $scope.modal.hide();
             break;
         }
