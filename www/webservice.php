@@ -109,7 +109,7 @@ switch ($service_type) {
         }
 
             
-        $rows[]=["login_status"=>$login_status,"id"=>$user_id,"error_message"=>$error,"user_type"=>$user_type,"user_name"=>$user_name];
+        $rows[]=["login_status"=>$login_statuss,"id"=>$user_id,"error_message"=>$error,"user_type"=>$user_type,"user_name"=>$user_name];
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
