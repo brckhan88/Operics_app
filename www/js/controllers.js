@@ -59,12 +59,13 @@ angular.module('starter.controllers', [])
     $scope.egitimler                    = JSON.parse(localStorage.getItem('egitimJson'));
     $scope.sozluk                       = JSON.parse(localStorage.getItem('sozlukJson'));
     $scope.profil                       = JSON.parse(localStorage.getItem('profilJson'));
-    $scope.savedVersions                = JSON.parse(localStorage.getItem('savedVersionJson'));
      
    
     // Version Kontrolü
 
-    var ServiceRequest = {
+    /*$scope.versionChck = function () {
+      
+      var ServiceRequest = {
         service_type: "version_check"
       }
       // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.
@@ -73,9 +74,10 @@ angular.module('starter.controllers', [])
         if (!$scope.savedVersions) {
           localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
           $scope.savedVersions = JSON.parse(localStorage.getItem('savedVersionJson'));
-        }
-        $scope.loadData();
+        } 
       })
+      
+    }*/
     
     
 
@@ -102,15 +104,17 @@ angular.module('starter.controllers', [])
 
     $scope.loadData = function (){
 
+
       if ($scope.loginStatus != 1) {
 
         location.href = "#/login";
 
       } else {
+        console.log("Buraya girdi!");
 
         // Çağrılacak servisler:
 
-        if (!$scope.hikayeler || ($scope.savedVersions[1].TABLE_VERSION != $scope.versions[1].TABLE_VERSION)) {
+        if (!$scope.hikayeler ) {
           localStorage.removeItem('hikayeJson');
           var ServiceRequest = {
             service_type: "hikayeler",
@@ -122,10 +126,9 @@ angular.module('starter.controllers', [])
             localStorage.setItem('hikayeJson', JSON.stringify(data));
             $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
           })
-          localStorage.removeItem('savedVersionJson');
         }
 
-        if (!$scope.hizmetler || ($scope.savedVersions[2].TABLE_VERSION != $scope.versions[2].TABLE_VERSION)) {
+        if (!$scope.hizmetler) {
           localStorage.removeItem('hizmetJson');
           var ServiceRequest = {
             service_type: "hizmetler",
@@ -137,11 +140,9 @@ angular.module('starter.controllers', [])
             localStorage.setItem('hizmetJson', JSON.stringify(data));
             $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
           })
-          localStorage.removeItem('savedVersionJson');
         }
 
         if (!$scope.ekip) {
-          console.log("Buraya girdi!");
           localStorage.removeItem('ekipJson');
           var ServiceRequest = {
             service_type: "ekip",
@@ -155,7 +156,7 @@ angular.module('starter.controllers', [])
           })
         }
 
-        if (!$scope.referanslar || ($scope.savedVersions[4].TABLE_VERSION != $scope.versions[4].TABLE_VERSION)) {
+        if (!$scope.referanslar) {
           localStorage.removeItem('referansJson');
           var ServiceRequest = {
             service_type: "referanslar",
@@ -167,10 +168,9 @@ angular.module('starter.controllers', [])
             localStorage.setItem('referansJson', JSON.stringify(data));
             $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
           })
-          localStorage.removeItem('savedVersionJson');
         }
 
-        if (!$scope.egitimler || ($scope.savedVersions[6].TABLE_VERSION != $scope.versions[6].TABLE_VERSION)) {
+        if (!$scope.egitimler) {
           localStorage.removeItem('egitimJson');
           var ServiceRequest = {
             service_type: "egitimler",
@@ -182,11 +182,10 @@ angular.module('starter.controllers', [])
             localStorage.setItem('egitimJson', JSON.stringify(data));
             $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
           })
-          localStorage.removeItem('savedVersionJson');
         }
 
 
-        if (!$scope.sozluk || ($scope.savedVersions[5].TABLE_VERSION != $scope.versions[5].TABLE_VERSION)) {
+        if (!$scope.sozluk) {
           localStorage.removeItem('sozlukJson');
           var ServiceRequest = {
             service_type: "sozluk",
@@ -198,7 +197,6 @@ angular.module('starter.controllers', [])
             localStorage.setItem('sozlukJson', JSON.stringify(data));
             $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
           })
-          localStorage.removeItem('savedVersionJson');
         }
 
         /*
@@ -241,7 +239,6 @@ angular.module('starter.controllers', [])
                 $scope.isAdmin = localStorage.getItem('isAdmin');
               }
           })
-          localStorage.removeItem('savedVersionJson');
         }
         
          
@@ -298,14 +295,11 @@ angular.module('starter.controllers', [])
 
         //Gelen veriler girlenler ile uyuşuyorsa kullanıcı ismi ve maili lokale kaydedilir.
         if ($scope.giris.login_status == true) {
-
           localStorage.setItem('user_id', $scope.giris.id);
           localStorage.setItem('loginStatus', 1);
           $scope.loginStatus = localStorage.getItem('loginStatus');
-          $scope.userId = localStorage.getItem('user_id');
-          console.log ($scope.userId);
           $scope.loadData();
-
+          $scope.userId = localStorage.getItem('user_id');
           // Kaydedilen bilgiler uygulamanın ilgili kısımlarında gösterilmek üzere kullanılır.
           $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
           console.log("Login Status = " + $scope.loginStatus);
@@ -547,7 +541,6 @@ angular.module('starter.controllers', [])
       $scope.editFg = editFlag;
       
       if ($scope.editFg == 1) {
-        $scope.modal.hide();
         $scope.inputField.name      = $scope.editInput.name;
         $scope.inputField.position  = $scope.editInput.position;
         $scope.inputField.link      = $scope.editInput.link;
@@ -582,11 +575,13 @@ angular.module('starter.controllers', [])
               $scope.modal.show();
             });
           } else if ($scope.abouttab == 2) {
+            $scope.modal.hide();
             $ionicModal.fromTemplateUrl('templates/add-teams.html', { scope: $scope }).then(function (modal) {
               $scope.modal = modal;
               $scope.modal.show();
             });
           } else {
+            $scope.modal.hide();
             $ionicModal.fromTemplateUrl('templates/add-service.html', { scope: $scope }).then(function (modal) {
               $scope.modal = modal;
               $scope.modal.show();
@@ -595,6 +590,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editCourse':
+          $scope.modal.hide();
           $ionicModal.fromTemplateUrl('templates/add-course.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -602,6 +598,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editStory':
+          $scope.modal.hide();
           if ($scope.editFg == 0) {
             $scope.modal.hide();
           }
@@ -612,6 +609,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editProfile':
+          $scope.modal.hide();
           $ionicModal.fromTemplateUrl('templates/profile-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -619,6 +617,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editTeam':
+          $scope.modal.hide();
           $ionicModal.fromTemplateUrl('templates/add-teams.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -626,6 +625,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editDic':
+          $scope.modal.hide();
           $ionicModal.fromTemplateUrl('templates/add-dictionary.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -633,6 +633,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editCon':
+          $scope.modal.hide();
           $ionicModal.fromTemplateUrl('templates/add-contact.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -640,6 +641,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'listUsers':
+          $scope.modal.hide();
           $ionicModal.fromTemplateUrl('templates/list-users.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -715,5 +717,6 @@ angular.module('starter.controllers', [])
         break;
      }
     };
+    $scope.loadData();
   });
 
