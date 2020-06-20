@@ -9,7 +9,7 @@
   <ion-content>
 
     <div style="margin-top: 20px" class="center list list-inset">
-      <h3>{{editFg==0 ? 'Müşteri Ekle' : editFg==1 ? 'Müşteri Düzenle' : ''}}
+      <h3>{{editFg==0 ? diller[28].kelime : editFg==1 ? diller[68].kelime : ''}}
 
       </h3>
       
@@ -18,12 +18,12 @@
         <label class="ekle_input item item-input" style="width: 89%;height: 143px;
         border-radius:10px !important;">
           <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
-          <textarea type="" placeholder="Referans Ekle" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
+          <textarea type="" placeholder="{{diller[29].kelime}}" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px;
           border-radius: 10px !important;margin-top: 4%;">
-           <textarea type="text" placeholder="Müşteri Adı" ></textarea>
+           <textarea type="text" placeholder="{{diller[30].kelime}}" ></textarea>
         </label>
       </center>
 
