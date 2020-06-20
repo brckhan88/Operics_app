@@ -6,13 +6,7 @@ angular.module('starter.controllers', [])
     $scope.pictureUrl = "http://placehold.it/200x200";
 
 
-    /*var ServiceRequest = {
-      service_type: "admin_users_detail",
-    }
-
-    $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-      $scope.userlist = data
-    })    
+    /*
     
 
     $scope.user_yasakla = function(userId){
@@ -52,6 +46,7 @@ angular.module('starter.controllers', [])
     $scope.isAdmin                      = localStorage.getItem('isAdmin');
     $scope.languageOld                  = localStorage.getItem('languageOld');
     $scope.diller                       = JSON.parse(localStorage.getItem('dillerJson'));
+    $scope.userList                     = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
     $scope.hikayeler                    = JSON.parse(localStorage.getItem('hikayeJson'));
     $scope.hizmetler                    = JSON.parse(localStorage.getItem('hizmetJson'));
     $scope.ekip                         = JSON.parse(localStorage.getItem('ekipJson'));
@@ -110,9 +105,18 @@ angular.module('starter.controllers', [])
         location.href = "#/login";
 
       } else {
-        console.log("Buraya girdi!");
-
         // Çağrılacak servisler:
+
+        if (!$scope.userList && ($scope.isAdmin == 1) ) {
+          var ServiceRequest = {
+            service_type: "admin_users_detail",
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
+            $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+          })    
+        }
 
         if (!$scope.hikayeler ) {
           localStorage.removeItem('hikayeJson');
