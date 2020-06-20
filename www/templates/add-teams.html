@@ -10,31 +10,31 @@
 
 
     <div style="margin-top: 10%" class="center list list-inset">
-      <h3>{{editFg==0 ? 'Çalışan Ekle' : editFg==1 ? 'Çalışan Düzenle' : ''}}</h3>
+      <h3>{{editFg==0 ? diller[31].kelime : editFg==1 ? diller[69].kelime : ''}}</h3>
      <center> <label class="ekle_input item item-input" style="width: 89%;height: 51px;
       border-radius: 10px !important;margin-top:8%;">
-      <textarea type="text" placeholder="Kişi Adı" ng-model="inputField.name" ></textarea>
+      <textarea type="text" placeholder="{{diller[32].kelime}}" ng-model="inputField.name" ></textarea>
     </label>
     <label class="ekle_input item item-input" style="width: 89%;height: 51px;
     border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="Görevi" ng-model="inputField.position"></textarea>
+    <textarea type="text" placeholder="{{diller[33].kelime}}" ng-model="inputField.position"></textarea>
   </label>
 
 
   <label class="ekle_input item item-input" style="width: 89%;height: 106px;
   border-radius:10px !important;margin-top: 4%;">
-  <textarea type="text" placeholder="Açıklama" ng-model="inputField.desc" style="margin-top:-28px;"></textarea>
+  <textarea type="text" placeholder="{{diller[27].kelime}}" ng-model="inputField.desc" style="margin-top:-28px;"></textarea>
 </label>
 
 <label class="ekle_input item item-input" style="width: 89%;height: 51px;
 border-radius: 10px !important;margin-top: 4%;">
-<textarea type="text" placeholder="Linkedin Profili" ng-model="inputField.link"></textarea>
+<textarea type="text" placeholder="{{diller[34].kelime}}" ng-model="inputField.link"></textarea>
 </label>
 
 <label class="ekle_input item item-input" style="width: 89%;height: 143px;
 border-radius:10px !important;margin-top: 4%;">
 <button class="button button-clear button-assertive"> <input class="ekle_input item-input" type="file"></button>
-<textarea type="text" placeholder="Resmi" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
+<textarea type="text" placeholder="{{diller[35].kelime}}" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
 </label>
 
 
