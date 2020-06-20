@@ -50,14 +50,9 @@
 }
 
 .reference-style{
-  width: auto; 
-  height: 70%;
-  max-width: 125px;
-  max-height: 109px;
-  padding: 28%; 
-  border: solid 1px #ddd;
-  border-radius: 10px;
-  padding-top: 16%;
+   max-width: 77%;
+   margin-top: -2%;
+  
 }
 
 .reference-main{
@@ -70,17 +65,18 @@
 }
 
 .reference-location{
-  background-color: white;
-  padding-left: 13% !important;
-  margin-top: -46%;
-  padding: 39%;
+  margin-top: 37%;
+  height: 23%;
+  max-width: 80%;
+  border-radius: 6%;;
+  margin-left: 10%;
 }
 
 .reference-icon{
-  float: right;
-  margin-right: -18px;
-  font-size: 148%;
-  contain: size;
+  font-size: 188%;
+  margin-left: 81%;
+  margin-top: -9%;
+  
 }
 
 .existing-users{
