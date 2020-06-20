@@ -109,7 +109,7 @@ switch ($service_type) {
         }
 
             
-        $rows[]=["login_status"=>$login_statuss,"id"=>$user_id,"error_message"=>$error,"user_type"=>$user_type,"user_name"=>$user_name];
+        $rows[]=["login_status"=>$login_status,"id"=>$user_id,"error_message"=>$error,"user_type"=>$user_type,"user_name"=>$user_name];
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
@@ -459,27 +459,32 @@ switch ($service_type) {
     break;
 
     case "egitim_sil":
-        $course_id = $data["course_id"];
-        $sorgu = "DELETE FROM `COURSE` WHERE ID=".$course_id;
-        $data = $conn->query($sorgu);
+        $course_id          = $data["course_id"];
+        $sorgu              = "DELETE FROM `COURSE` WHERE ID=".$course_id;
+        $data               = $conn->query($sorgu);
     break;
 
     case "kelime_ekle":
         $word_name          = $data["word_name"];
         $word_description   = $data["word_description"];
         
-        $sorgu = "INSERT INTO `DICTIONARY` (`WORD`, `DESCRIPTION`) VALUES ('$word_name','$word_description')";
-        $data = $conn->query($sorgu);
+        $sorgu              = "INSERT INTO `DICTIONARY` (`WORD`, `DESCRIPTION`) VALUES ('$word_name','$word_description')";
+        $data               = $conn->query($sorgu);
     break;
 
     case "kelime_guncelle":
-        //deneme;
-        //deneme;
+        $word_id            = $data["word_id"];
+        $word_name          = $data["word_name"];
+        $word_description   = $data["word_description"];
+        
+        $sorgu              = "UPDATE `DICTIONARY` SET WORD = '$word_name' , DESCRIPTION = '$word_description' WHERE ID=".$word_id;
+        $data               = $conn->query($sorgu);
     break;
 
     case "kelime_sil":
-        //deneme;
-        //deneme;
+        $word_id            = $data["word_id"];
+        $sorgu              = "DELETE FROM `DICTIONARY` WHERE ID=".$word_id;
+        $data               = $conn->query($sorgu);
     break;
 
     case "iletisim_ekle":
