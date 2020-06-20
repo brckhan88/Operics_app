@@ -9,7 +9,7 @@
   <ion-content>
 
     <div style="margin-top: 20px" class="center list list-inset">
-      <h3>{{editFg==0 ? 'Müşteri Hikayesi Ekle' : editFg==1 ? 'Müşteri Hikayesi Düzenle' : ''}}</h3>
+      <h3>{{editFg==0 ? diller[45].kelime : editFg==1 ? 'Müşteri Hikayesi Düzenle' : ''}}</h3>
       
 
       <center>
@@ -21,6 +21,7 @@
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
           <textarea type="text" placeholder="Müşteri Adı" ng-model="inputField.head" ></textarea>
         </label>
+
 
 
   
