@@ -19,25 +19,25 @@
         </label>
 
         <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
-          <input type="text" placeholder="Müşteri Adı" >
+          <textarea type="text" placeholder="Müşteri Adı" ng-model="inputField.head" ></textarea>
         </label>
 
 
   
         <label class="ekle_input item item-input" style="width: 89%;height: 106px; border-radius:10px !important;margin-top: 4%;">
-          <input type="text" placeholder="0/255 Açıklama" style="margin-top:-28px;">
+          <textarea type="text" placeholder="0/255 Açıklama" style="margin-top:-28px;" ng-model="inputField.desc" ></textarea>
         </label>
       </center>
 
 
 
   <div class="center"style="margin-top: 20%;">
-    <button class="button button-assertive add_button ">
+    <button class="button button-assertive add_button " ng-click="applyButton('story','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
       <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? '+Ekle' : editFg==1 ? 'Güncelle' : ''}}</h3>
     </button>
   </div>
   <br>
-  <div class="center" style="margin-top: 1%;" ng-if="editFg==1">
+  <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('story','sil')">
     <button class="button button-assertive add_button">
       <h3 style=" color: white;font-family: monospace;">Sil</h3>
     </button>
