@@ -92,167 +92,149 @@ angular.module('starter.controllers', [])
         $scope.diller = JSON.parse(localStorage.getItem('dillerJson'));
       })
     };
+
+    // Verilerin kontrolü ve yüklenmesi
    
-    
+    $scope.loadData = function () {
+      // Çağrılacak servisler:
 
-    // Login Durum Kontrol düzeltme
+      if (!$scope.profil) {
+        var ServiceRequest = {
+            service_type: "profil",
+            language: localStorage.getItem('language'),
+            user_id: $scope.userId
+        }
 
-    $scope.loadData = function (){
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+          localStorage.setItem('profilJson', JSON.stringify(data[0]));
+          $scope.profil = JSON.parse(localStorage.getItem('profilJson'));
+          
+          // Kullanıcı tipi belirlenir!.. (MANDATORY)
 
+          if ($scope.profil.USER_TYPE == "admin") {
+            localStorage.setItem('isAdmin', 1);
+            $scope.isAdmin = localStorage.getItem('isAdmin');
+          } else {
+            localStorage.setItem('isAdmin', 0);
+            $scope.isAdmin = localStorage.getItem('isAdmin');
+          }
+        })
+          
+      } 
 
+      if (!$scope.userList && ($scope.isAdmin == 1) ) {
+        localStorage.removeItem('kullanıcıListesiJson');
+        var ServiceRequest = {
+          service_type: "admin_users_detail",
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
+          $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+        })    
+      }
+
+      if (!$scope.hikayeler ) {
+        var ServiceRequest = {
+          service_type: "hikayeler",
+          language: localStorage.getItem('language')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('hikayeJson', JSON.stringify(data));
+          $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
+        })
+      }
+
+      if (!$scope.hizmetler) {
+        var ServiceRequest = {
+          service_type: "hizmetler",
+          language: localStorage.getItem('language')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('hizmetJson', JSON.stringify(data));
+          $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
+        })
+      }
+
+      if (!$scope.ekip) {
+        var ServiceRequest = {
+          service_type: "ekip",
+          language: localStorage.getItem('language')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('ekipJson', JSON.stringify(data));
+          $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+        })
+      }
+
+      if (!$scope.referanslar) {
+        var ServiceRequest = {
+          service_type: "referanslar",
+          language: localStorage.getItem('language')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('referansJson', JSON.stringify(data));
+          $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
+        })
+      }
+
+      if (!$scope.egitimler) {
+        var ServiceRequest = {
+          service_type: "egitimler",
+          language: localStorage.getItem('language')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('egitimJson', JSON.stringify(data));
+          $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
+        })
+      }
+
+      if (!$scope.sozluk) {
+        var ServiceRequest = {
+          service_type: "sozluk",
+          user_id: localStorage.getItem('user_id')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('sozlukJson', JSON.stringify(data));
+          $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
+        })
+      }
+
+      /*
+      if (!$scope.iletisim || ($scope.savedVersions != $scope.versions)) {
+        var ServiceRequest = {
+          service_type: "iletisim",
+          user_id: localStorage.getItem('user_id')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('iletisimJson', JSON.stringify(data));
+          $scope.iletisim = JSON.parse(localStorage.getItem('iletisimJson'));
+        }) 
+      }
+      */
+    }
+
+    // Login Durum Kontrolcüsü
+
+    $scope.isLogged = function () {
       if ($scope.loginStatus != 1) {
 
         location.href = "#/login";
 
       } else {
-        // Çağrılacak servisler:
+        $scope.loadData();
 
-        if (!$scope.userList && ($scope.isAdmin == 1) ) {
-          var ServiceRequest = {
-            service_type: "admin_users_detail",
-          }
-
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
-            $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
-          })    
-        }
-
-        if (!$scope.hikayeler ) {
-          localStorage.removeItem('hikayeJson');
-          var ServiceRequest = {
-            service_type: "hikayeler",
-            language: localStorage.getItem('language')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('hikayeJson', JSON.stringify(data));
-            $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
-          })
-        }
-
-        if (!$scope.hizmetler) {
-          localStorage.removeItem('hizmetJson');
-          var ServiceRequest = {
-            service_type: "hizmetler",
-            language: localStorage.getItem('language')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('hizmetJson', JSON.stringify(data));
-            $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
-          })
-        }
-
-        if (!$scope.ekip) {
-          localStorage.removeItem('ekipJson');
-          var ServiceRequest = {
-            service_type: "ekip",
-            language: localStorage.getItem('language')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('ekipJson', JSON.stringify(data));
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-          })
-        }
-
-        if (!$scope.referanslar) {
-          localStorage.removeItem('referansJson');
-          var ServiceRequest = {
-            service_type: "referanslar",
-            language: localStorage.getItem('language')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('referansJson', JSON.stringify(data));
-            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
-          })
-        }
-
-        if (!$scope.egitimler) {
-          localStorage.removeItem('egitimJson');
-          var ServiceRequest = {
-            service_type: "egitimler",
-            language: localStorage.getItem('language')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('egitimJson', JSON.stringify(data));
-            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-          })
-        }
-
-
-        if (!$scope.sozluk) {
-          localStorage.removeItem('sozlukJson');
-          var ServiceRequest = {
-            service_type: "sozluk",
-            user_id: localStorage.getItem('user_id')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('sozlukJson', JSON.stringify(data));
-            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-          })
-        }
-
-        /*
-        if (!$scope.iletisim || ($scope.savedVersions != $scope.versions)) {
-          localStorage.removeItem('iletisimJson');
-          var ServiceRequest = {
-            service_type: "iletisim",
-            user_id: localStorage.getItem('user_id')
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            localStorage.setItem('iletisimJson', JSON.stringify(data));
-            $scope.iletisim = JSON.parse(localStorage.getItem('iletisimJson'));
-          })
-          localStorage.removeItem('savedVersionJson');
-        }
-        */
-
-        
-        if (!$scope.profil) {
-          localStorage.removeItem('profilJson');
-          var ServiceRequest = {
-              service_type: "profil",
-              language: localStorage.getItem('language'),
-              user_id: $scope.userId
-          }
-
-          // Yeni user isteği post edilir ve veritabanına eklenir.
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
-              localStorage.setItem('profilJson', JSON.stringify(data));
-              $scope.profil = JSON.parse(localStorage.getItem('profilJson'));
-
-          // Kullanıcı tipi belirlenir.
-              if ($scope.profil[0].USER_TYPE == "admin") {
-                localStorage.setItem('isAdmin', 1);
-                $scope.isAdmin = localStorage.getItem('isAdmin');
-              } else {
-                localStorage.setItem('isAdmin', 0);
-                $scope.isAdmin = localStorage.getItem('isAdmin');
-              }
-          })
-        }
-        
-         
         location.href = "#/tab/main";
       }
     }
-    
 
-
-    
     $scope.tiklabayrak = function (language) {
 
       localStorage.setItem('languageOld', $scope.language);
@@ -301,13 +283,15 @@ angular.module('starter.controllers', [])
         if ($scope.giris.login_status == true) {
           localStorage.setItem('user_id', $scope.giris.id);
           localStorage.setItem('loginStatus', 1);
+          $scope.userId = localStorage.getItem('user_id');
           $scope.loginStatus = localStorage.getItem('loginStatus');
           $scope.loadData();
-          $scope.userId = localStorage.getItem('user_id');
+          
           // Kaydedilen bilgiler uygulamanın ilgili kısımlarında gösterilmek üzere kullanılır.
           $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
+
           console.log("Login Status = " + $scope.loginStatus);
-          
+          location.href = "#/tab/main";
 
         } else {
 
@@ -438,6 +422,14 @@ angular.module('starter.controllers', [])
         return str.substring(0, length - ending.length) + ending;
       } else {
           return str;
+      }
+    }
+
+    $scope.wait =function (ms) {
+      var start = new Date().getTime();
+      var end = start;
+      while(end < start + ms) {
+        end = new Date().getTime();
       }
     }
 
@@ -687,7 +679,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('hikayeJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('hikayeJson'));
+            $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
             $scope.loadData();
             console.log("Hikaye eklendi");
             $scope.modal.hide();
@@ -706,7 +698,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('hikayeJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('hikayeJson'));
+            $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
             $scope.loadData();
             console.log("Hikaye güncellendi");
             $scope.modal.hide();
@@ -722,7 +714,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('hikayeJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('hikayeJson'));
+            $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
             $scope.loadData();
             console.log("Hikaye silindi");
             $scope.modal.hide();
@@ -744,7 +736,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('hizmetJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('hizmetJson'));
+            $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
             $scope.loadData();
             console.log("Hizmet eklendi");
             $scope.modal.hide();
@@ -763,7 +755,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('hizmetJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('hizmetJson'));
+            $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
             $scope.loadData();
             console.log("Hizmet güncellendi");
             $scope.modal.hide();
@@ -779,7 +771,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('hizmetJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('hizmetJson'));
+            $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
             $scope.loadData();
             console.log("Hizmet silindi");
             $scope.modal.hide();
@@ -801,7 +793,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('referansJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('referansJson'));
+            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
             $scope.loadData();
             console.log("Referans eklendi");
             $scope.modal.hide();
@@ -820,7 +812,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('referansJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('referansJson'));
+            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
             $scope.loadData();
             console.log("Referans güncellendi");
             $scope.modal.hide();
@@ -836,7 +828,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('referansJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('referansJson'));
+            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
             $scope.loadData();
             console.log("Referans silindi");
             $scope.modal.hide();
@@ -862,7 +854,7 @@ angular.module('starter.controllers', [])
             localStorage.removeItem('ekipJson');
             $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
-            console.log("ekledi");
+            console.log("Çalışan ekledi");
             $scope.modal.hide();
             break;
 
@@ -883,7 +875,7 @@ angular.module('starter.controllers', [])
             localStorage.removeItem('ekipJson');
             $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
-            console.log("guncelledi");
+            console.log("Çalışan guncelledi");
             $scope.modal.hide();
             break;
 
@@ -899,7 +891,7 @@ angular.module('starter.controllers', [])
             localStorage.removeItem('ekipJson');
             $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
-            console.log("silindi");
+            console.log("Çalışan silindi");
             $scope.modal.hide();
             break;
         }
@@ -925,7 +917,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('egitimJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('egitimJson'));
+            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
             $scope.loadData();
             console.log("Egitim eklendi");
             $scope.modal.hide();
@@ -949,7 +941,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('egitimJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('egitimJson'));
+            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
             $scope.loadData();
             console.log("Egitim güncellendi");
             $scope.modal.hide();
@@ -965,7 +957,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('egitimJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('egitimJson'));
+            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
             $scope.loadData();
             console.log("Egitim silindi");
             $scope.modal.hide();
@@ -988,7 +980,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('sozlukJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('sozlukJson'));
+            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
             $scope.loadData();
             console.log("Sozluk eklendi");
             $scope.modal.hide();
@@ -1008,7 +1000,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('sozlukJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('sozlukJson'));
+            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
             $scope.loadData();
             console.log("Sozluk güncellendi");
             $scope.modal.hide();
@@ -1024,7 +1016,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
             localStorage.removeItem('sozlukJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('sozlukJson'));
+            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
             $scope.loadData();
             console.log("Sozluk silindi");
             $scope.modal.hide();
@@ -1043,8 +1035,7 @@ angular.module('starter.controllers', [])
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            $scope.iletisim= null;
             $scope.loadData();
             console.log("... eklendi");
             $scope.modal.hide();
@@ -1059,8 +1050,7 @@ angular.module('starter.controllers', [])
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            $scope.iletisim = null;
             $scope.loadData();
             console.log("... güncellendi");
             $scope.modal.hide();
@@ -1075,8 +1065,7 @@ angular.module('starter.controllers', [])
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            $scope.iletisim = null;
             $scope.loadData();
             console.log("... silindi");
             $scope.modal.hide();
@@ -1085,6 +1074,8 @@ angular.module('starter.controllers', [])
         break;
      }
     };
-    $scope.loadData();
+
+    $scope.isLogged();
+
   });
 
