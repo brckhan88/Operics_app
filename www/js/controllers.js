@@ -958,8 +958,8 @@ angular.module('starter.controllers', [])
 
           case 'sil':
             var ServiceRequest = {
-              service_type: "",
-              course_id:                           $scope.editInput.itemID
+              service_type    :                     "egitim_sil",
+              course_id       :                     $scope.editInput.itemID
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
@@ -978,11 +978,12 @@ angular.module('starter.controllers', [])
         switch (islem) {
           case 'ekle':
             var ServiceRequest = {
-              service_type:                        "kelime_ekle",
+              service_type       :                 "kelime_ekle",
               word_name          :                 $scope.inputField.name,
               word_description   :                 $scope.inputField.desc
               
             }
+
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
@@ -996,33 +997,37 @@ angular.module('starter.controllers', [])
 
           case 'guncelle':
             var ServiceRequest = {
-              service_type: "",
+              service_type       :                  "kelime_guncelle",
+              word_id            :                  $scope.editInput.itemID,
+              word_name          :                  $scope.inputField.name,
+              word_description   :                  $scope.inputField.desc
+        
               
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            localStorage.removeItem('sozlukJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('sozlukJson'));
             $scope.loadData();
-            console.log("... güncellendi");
+            console.log("Sozluk güncellendi");
             $scope.modal.hide();
             break;
 
           case 'sil':
             var ServiceRequest = {
-              service_type: "",
-              team_id:        $scope.editInput.itemID
+              service_type      :                  "kelime_sil",
+              word_id            :                  $scope.editInput.itemID
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
             })
-            localStorage.removeItem('Json');
-            $scope.ekip = JSON.parse(localStorage.getItem('Json'));
+            localStorage.removeItem('sozlukJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('sozlukJson'));
             $scope.loadData();
-            console.log("... silindi");
+            console.log("Sozluk silindi");
             $scope.modal.hide();
             break;
         }
