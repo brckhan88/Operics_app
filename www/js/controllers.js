@@ -903,13 +903,13 @@ angular.module('starter.controllers', [])
             var ServiceRequest = {
               service_type       :               "egitim_ekle",
               course_image       :               $scope.inputField.img,
-              course_name        :               $scope.inputField.name,
+              course_name        :               $scope.inputField.head,
               course_description :               $scope.inputField.desc,
-              course_city        :               $scope.editInput.city,
+              course_city        :               $scope.inputField.city,
               course_hour        :               $scope.inputField.hour,
-              course_adress      :               $scope.editInput.address,
-              course_bgdate      :               $scope.editInput.bgdate,
-              course_endate      :               $scope.editInput.enddate
+              course_adress      :               $scope.inputField.address,
+              course_bgdate      :               $scope.inputField.bgdate,
+              course_endate      :               $scope.inputField.enddate
 
             }
 
@@ -927,13 +927,14 @@ angular.module('starter.controllers', [])
             var ServiceRequest = {
               service_type       :               "egitim_guncelle",
               course_id          :               $scope.editInput.itemID,
-              course_image       :               $scope.inputField.name,
+              course_image       :               $scope.inputField.img,
+              course_name        :               $scope.inputField.head,
               course_description :               $scope.inputField.desc,
-              course_city        :               $scope.editInput.city,
+              course_city        :               $scope.inputField.city,
               course_hour        :               $scope.inputField.hour,
-              course_adress      :               $scope.editInput.address,
-              course_bgdate      :               $scope.editInput.bgdate,
-              course_endate      :               $scope.editInput.enddate
+              course_adress      :               $scope.inputField.address,
+              course_bgdate      :               $scope.inputField.bgdate,
+              course_endate      :               $scope.inputField.enddate
               
             }
 
