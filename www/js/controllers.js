@@ -1067,7 +1067,71 @@ angular.module('starter.controllers', [])
       }
     };
 
+
+    $scope.dragItem = function(tur,ID){
+      switch(tur){
+       case 'ekip':
+        $scope.tempItem = $scope.ekip[ID];
+       break;
+
+     }
+    }
+
+
+    $scope.dropItem = function(ID,dropId){
+     var ServiceRequest = {
+              service_type       :               "calisan_guncelle",
+              team_id            :                ID,
+              team_name          :               $scope.ekip[dropId].NAME,
+              team_position      :               $scope.ekip[dropId].POSITION,
+              team_about         :               $scope.ekip[dropId].ABOUT,
+              team_linkedin      :               $scope.ekip[dropId].LINKEDIN,
+              team_image         :               $scope.ekip[dropId].IMAGE  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+            $scope.loadData();
+
+
+      var ServiceRequest = {
+              service_type       :               "calisan_guncelle",
+              team_id            :               dropId,
+              team_name          :               $scope.tempItem.NAME,
+              team_position      :               $scope.tempItem.POSITION,
+              team_about         :               $scope.tempItem.ABOUT,
+              team_linkedin      :               $scope.tempItem.LINKEDIN,
+              team_image         :               $scope.tempItem.IMAGE  
+            }
+
+            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            })
+            localStorage.removeItem('ekipJson');
+            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+            $scope.loadData();
+   }
+
+
+
+
+
+
+
+
+
     $scope.isLogged();
+
+
+
+
+
+
+
+
 
   });
 
