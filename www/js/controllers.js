@@ -552,7 +552,6 @@ angular.module('starter.controllers', [])
         $scope.inputField.img       = $scope.editInput.img;
         $scope.inputField.head      = $scope.editInput.head;
         $scope.inputField.desc      = $scope.editInput.desc;
-        $scope.inputField.detDesc   = $scope.editInput.detDesc;
         $scope.inputField.city      = $scope.editInput.city;
         $scope.inputField.hour      = $scope.editInput.hour;
         $scope.inputField.address   = $scope.editInput.address;
@@ -566,7 +565,6 @@ angular.module('starter.controllers', [])
         $scope.inputField.img       = null;
         $scope.inputField.head      = null;
         $scope.inputField.desc      = null;
-        $scope.inputField.detDesc   = null;
         $scope.inputField.city      = null;
         $scope.inputField.hour      = null;
         $scope.inputField.address   = null;
@@ -876,7 +874,7 @@ angular.module('starter.controllers', [])
               team_position      :               $scope.inputField.position,
               team_about         :               $scope.inputField.desc,
               team_linkedin      :               $scope.inputField.link,
-              team_image         :               "img/profile.jpg"  
+              team_image         :               "img/team/3.png"  
             }
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
