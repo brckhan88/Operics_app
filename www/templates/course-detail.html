@@ -27,7 +27,7 @@
 
 
     <h2 style="font-size: 23px;margin-left: 4%;" class="ion-ios-time-outline y">
-      <font style="font-size: 19px;"> {{editInput.hour = egitimler[itemId].CRS_HOUR}} Saat</font>
+      <font style="font-size: 19px;"> {{editInput.hour = egitimler[itemId].CRS_HOUR}} {{diller[11].kelime}}</font>
     </h2>
     <br>
     <h4 style="font-size: 29px;margin-left: 4%;" class="ion-ios-location-outline y">
@@ -42,7 +42,7 @@
 
     <center>
       <div ng-if="aktifmi">
-        <button ng-click="CancelApplication()" class="button button-dark pre-application_button">Ön Başvuruyu İptal Et</button>
+        <button ng-click="CancelApplication()" class="button button-dark pre-application_button">{{diller[75].kelime}}</button>
       </div>
 
       <div ng-if="!aktifmi">
