@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-  .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera) {
+  .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera, $ionicActionSheet) {
 
     $rootScope.webServiceUrl = "http://www.microwebservice.net/operics_web/webservice.php";
     $scope.pictureUrl = "http://placehold.it/200x200";
@@ -383,21 +383,73 @@ angular.module('starter.controllers', [])
     }
 
     // Profil resmi için kamera kontrolcüsü
+    $scope.changePP = function () {
+      $ionicActionSheet.show({
+        titleText: '',
+        buttons: [
+        {text:'<i class="icon ion-camera"></i> Camera'},
+        {text:'<i class="icon ion-images"></i> Gallery'},
+        ],
+        cancelText: 'Cancel',
+        cancel: function() {
+          console.log('CANCELLED');
+        },
+        buttonClicked: function(index) {
+          console.log('BUTTON CLICKED', index);
+          if (index==0) {
+            $scope.takePP();
+            return true;
+          } else {
+            $scope.galleryPP();
+            return true;
+          }
+        } 
+      });
+    };
 
     $scope.takePP = function () {
       var options = {
+        quality: 80,
         destinationType: Camera.DestinationType.DATA_URL,
-        encodingType: Camera.EncodingType.JPEG
-      }
-      $cordovaCamera.getPicture({})
-        .then(function (imageData) {
-          console.log('camera data: ' + angular.toJson(imageData));
-          $scope.pictureUrl = 'data:image/jpeg;base64,' + imageData;
-        }, function (error) {
-          console.log('camera error: ' + angular.toJson(imageData))
-        })
+        sourceType: Camera.PictureSourceType.CAMERA,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 500,
+        targetHeight:500,
+        allowEdit: true,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
+          console.log('Failed because:');
+          console.log(err);
+      });
     };
 
+    $scope.galleryPP = function () {
+      var options = {
+        quality: 80,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+        encodingType: Camera.EncodingType.JPEG,
+        targetWidth: 500,
+        targetHeight:500,
+        allowEdit: true,
+        popoverOptions: CameraPopoverOptions,
+        saveToPhotoAlbum: false,
+        correctOrientation: true
+      };
+
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
+          console.log('Failed because:');
+          console.log(err);
+      });
+    };
+    
+ 
     $scope.showMap = function (lat, lng) {
       // var options = { timeout: 10000, enableHighAccuracy: true };
 
@@ -1003,133 +1055,60 @@ angular.module('starter.controllers', [])
               } 
 
             // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('sozlukJson');
-            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-            $scope.loadData();
-            console.log("Sozluk silindi");
-            $scope.modal.hide();
-            break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('sozlukJson');
+              $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
+              $scope.loadData();
+              console.log("Sozluk silindi");
+              $scope.modal.hide();
+              break;
+          }
+          break;
+
+        case 'contact':
+          switch (islem) {
+            case 'ekle':
+              var ServiceRequest = {
+                service_type: "",
+              }
+
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              $scope.iletisim= null;
+              $scope.loadData();
+              console.log("... eklendi");
+              $scope.modal.hide();
+              break;
+
+            case 'guncelle':
+              var ServiceRequest = {
+                service_type: "",  
+              }
+
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              $scope.iletisim = null;
+              $scope.loadData();
+              console.log("... güncellendi");
+              $scope.modal.hide();
+              break;
+
+            case 'sil':
+              var ServiceRequest = {
+                service_type: "",
+                team_id:        $scope.editInput.itemID
+              }
+
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              $scope.iletisim = null;
+              $scope.loadData();
+              console.log("... silindi");
+              $scope.modal.hide();
+              break;
+          }
+          break;
         }
-        break;
-
-      case 'contact':
-        switch (islem) {
-          case 'ekle':
-            var ServiceRequest = {
-              service_type: "",
-              
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            $scope.iletisim= null;
-            $scope.loadData();
-            console.log("... eklendi");
-            $scope.modal.hide();
-            break;
-
-          case 'guncelle':
-            var ServiceRequest = {
-              service_type: "",
-              
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            $scope.iletisim = null;
-            $scope.loadData();
-            console.log("... güncellendi");
-            $scope.modal.hide();
-            break;
-
-          case 'sil':
-            var ServiceRequest = {
-              service_type: "",
-              team_id:        $scope.editInput.itemID
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            $scope.iletisim = null;
-            $scope.loadData();
-            console.log("... silindi");
-            $scope.modal.hide();
-            break;
-        }
-        break;
-      }
-    };
-
-
-    $scope.dragItem = function(tur,ID){
-      switch(tur){
-       case 'ekip':
-        $scope.tempItem = $scope.ekip[ID];
-       break;
-
-     }
-    }
-
-
-    $scope.dropItem = function(ID,dropId){
-     var ServiceRequest = {
-              service_type       :               "calisan_guncelle",
-              team_id            :                ID,
-              team_name          :               $scope.ekip[dropId].NAME,
-              team_position      :               $scope.ekip[dropId].POSITION,
-              team_about         :               $scope.ekip[dropId].ABOUT,
-              team_linkedin      :               $scope.ekip[dropId].LINKEDIN,
-              team_image         :               $scope.ekip[dropId].IMAGE  
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('ekipJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-            $scope.loadData();
-
-
-      var ServiceRequest = {
-              service_type       :               "calisan_guncelle",
-              team_id            :               dropId,
-              team_name          :               $scope.tempItem.NAME,
-              team_position      :               $scope.tempItem.POSITION,
-              team_about         :               $scope.tempItem.ABOUT,
-              team_linkedin      :               $scope.tempItem.LINKEDIN,
-              team_image         :               $scope.tempItem.IMAGE  
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('ekipJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-            $scope.loadData();
-   }
-
-
-
-
-
-
-
-
+      };
 
     $scope.isLogged();
-
-
-
-
-
-
-
-
 
   });
 
