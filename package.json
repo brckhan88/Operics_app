@@ -23,7 +23,8 @@
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-firebasex": "^9.1.0-cli",
     "cordova-plugin-globalization": "^1.11.0",
-    "cordova-plugin-googlemaps": "^2.7.1"
+    "cordova-plugin-googlemaps": "^2.7.1",
+    "cordova-plugin-ios-camera-permissions": "^1.2.0"
   },
   "cordova": {
     "plugins": {
@@ -38,7 +39,8 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-firebasex": {},
-      "cordova-plugin-googlemaps": {}
+      "cordova-plugin-googlemaps": {},
+      "cordova-plugin-ios-camera-permissions": {}
     },
     "platforms": [
       "android"
