@@ -1096,7 +1096,7 @@ angular.module('starter.controllers', [])
             $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
             $scope.loadData();
 
-      
+
       var ServiceRequest = {
               service_type       :               "calisan_guncelle",
               team_id            :               dropId,
