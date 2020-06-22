@@ -910,199 +910,171 @@ angular.module('starter.controllers', [])
               break;
 
             case 'sil':
-            var ServiceRequest = {
-              service_type       :               "calisan_sil",
-              team_id            :               $scope.editInput.itemID
-            }
+              var ServiceRequest = {
+                service_type       :               "calisan_sil",
+                team_id            :               $scope.editInput.itemID
+              }
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('ekipJson');
-            $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-            $scope.loadData();
-            console.log("Çalışan silindi");
-            $scope.modal.hide();
-            break;
-        }
-        break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('ekipJson');
+              $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
+              $scope.loadData();
+              console.log("Çalışan silindi");
+              $scope.modal.hide();
+              break;
+          }
+          break;
 
-      case 'courses':
-        switch (islem) {
-          case 'ekle':
-            var ServiceRequest = {
-              service_type       :               "egitim_ekle",
-              course_image       :               $scope.inputField.img,
-              course_name        :               $scope.inputField.head,
-              course_description :               $scope.inputField.desc,
-              course_city        :               $scope.inputField.city,
-              course_hour        :               $scope.inputField.hour,
-              course_adress      :               $scope.inputField.address,
-              course_bgdate      :               $scope.inputField.bgdate,
-              course_endate      :               $scope.inputField.enddate
+        case 'courses':
+          switch (islem) {
+            case 'ekle':
+              var ServiceRequest = {
+                service_type       :               "egitim_ekle",
+                course_image       :               $scope.inputField.img,
+                course_name        :               $scope.inputField.head,
+                course_description :               $scope.inputField.desc,
+                course_city        :               $scope.inputField.city,
+                course_hour        :               $scope.inputField.hour,
+                course_adress      :               $scope.inputField.address,
+                course_bgdate      :               $scope.inputField.bgdate,
+                course_endate      :               $scope.inputField.enddate
+              }
 
-            }
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('egitimJson');
+              $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
+              $scope.loadData();
+              console.log("Egitim eklendi");
+              $scope.modal.hide();
+              break;
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('egitimJson');
-            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-            $scope.loadData();
-            console.log("Egitim eklendi");
-            $scope.modal.hide();
-            break;
+            case 'guncelle':
+              var ServiceRequest = {
+                service_type       :               "egitim_guncelle",
+                course_id          :               $scope.editInput.itemID,
+                course_image       :               $scope.inputField.img,
+                course_name        :               $scope.inputField.head,
+                course_description :               $scope.inputField.desc,
+                course_city        :               $scope.inputField.city,
+                course_hour        :               $scope.inputField.hour,
+                course_adress      :               $scope.inputField.address,
+                course_bgdate      :               $scope.inputField.bgdate,
+                course_endate      :               $scope.inputField.enddate
+              }
 
-          case 'guncelle':
-            var ServiceRequest = {
-              service_type       :               "egitim_guncelle",
-              course_id          :               $scope.editInput.itemID,
-              course_image       :               $scope.inputField.img,
-              course_name        :               $scope.inputField.head,
-              course_description :               $scope.inputField.desc,
-              course_city        :               $scope.inputField.city,
-              course_hour        :               $scope.inputField.hour,
-              course_adress      :               $scope.inputField.address,
-              course_bgdate      :               $scope.inputField.bgdate,
-              course_endate      :               $scope.inputField.enddate
-              
-            }
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('egitimJson');
+              $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
+              $scope.loadData();
+              console.log("Egitim güncellendi");
+              scope.modal.hide();
+              break;
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('egitimJson');
-            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-            $scope.loadData();
-            console.log("Egitim güncellendi");
-            $scope.modal.hide();
-            break;
+            case 'sil':
+              var ServiceRequest = {
+                service_type       :               "egitim_sil",
+                course_id          :               $scope.editInput.itemID
+              }
 
-          case 'sil':
-            var ServiceRequest = {
-              service_type       :               "egitim_sil",
-              course_id          :               $scope.editInput.itemID
-            }
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('egitimJson');
+              $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
+              $scope.loadData();
+              console.log("Egitim silindi");
+              $scope.modal.hide();
+              break;
+          }
+          break;
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('egitimJson');
-            $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-            $scope.loadData();
-            console.log("Egitim silindi");
-            $scope.modal.hide();
-            break;
-        }
-        break;
+        case 'dictionary':
+          switch (islem) {
+            case 'ekle':
+              var ServiceRequest = {
+                service_type       :                 "kelime_ekle",
+                word_name          :                 $scope.inputField.name,
+                word_description   :                 $scope.inputField.desc 
+              }
 
-      case 'dictionary':
-        switch (islem) {
-          case 'ekle':
-            var ServiceRequest = {
-              service_type       :                 "kelime_ekle",
-              word_name          :                 $scope.inputField.name,
-              word_description   :                 $scope.inputField.desc
-              
-            }
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('sozlukJson');
+              $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
+              $scope.loadData();
+              console.log("Sozluk eklendi");
+              $scope.modal.hide();
+              break;
 
+            case 'guncelle':
+              var ServiceRequest = {
+                service_type       :                  "kelime_guncelle",
+                word_id            :                  $scope.editInput.itemID,
+                word_name          :                  $scope.inputField.name,
+                word_description   :                  $scope.inputField.desc
+              }
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('sozlukJson');
-            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-            $scope.loadData();
-            console.log("Sozluk eklendi");
-            $scope.modal.hide();
-            break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('sozlukJson');
+              $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
+              $scope.loadData();
+              console.log("Sozluk güncellendi");
+              $scope.modal.hide();
+              break;
 
-          case 'guncelle':
-            var ServiceRequest = {
-              service_type       :                  "kelime_guncelle",
-              word_id            :                  $scope.editInput.itemID,
-              word_name          :                  $scope.inputField.name,
-              word_description   :                  $scope.inputField.desc
-        
-              
-            }
+            case 'sil':
+              var ServiceRequest = {
+                service_type       :                  "kelime_sil",
+                word_id            :                  $scope.editInput.itemID
+              }
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('sozlukJson');
-            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-            $scope.loadData();
-            console.log("Sozluk güncellendi");
-            $scope.modal.hide();
-            break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              localStorage.removeItem('sozlukJson');
+              $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
+              $scope.loadData();
+              console.log("Sozluk silindi");
+              $scope.modal.hide();
+              break;
+          }
+          break;
 
-          case 'sil':
-            var ServiceRequest = {
-              service_type       :                  "kelime_sil",
-              word_id            :                  $scope.editInput.itemID
-            }
+        case 'contact':
+          switch (islem) {
+            case 'ekle':
+              var ServiceRequest = {
+                service_type: "",
+              }
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            localStorage.removeItem('sozlukJson');
-            $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-            $scope.loadData();
-            console.log("Sozluk silindi");
-            $scope.modal.hide();
-            break;
-        }
-        break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              $scope.iletisim= null;
+              $scope.loadData();
+              console.log("... eklendi");
+              $scope.modal.hide();
+              break;
 
-      case 'contact':
-        switch (islem) {
-          case 'ekle':
-            var ServiceRequest = {
-              service_type: "",
-              
-            }
+            case 'guncelle':
+              var ServiceRequest = {
+                service_type: "",
+              }
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            $scope.iletisim= null;
-            $scope.loadData();
-            console.log("... eklendi");
-            $scope.modal.hide();
-            break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              $scope.iletisim = null;
+              $scope.loadData();
+              console.log("... güncellendi");
+              $scope.modal.hide();
+              break;
 
-          case 'guncelle':
-            var ServiceRequest = {
-              service_type: "",
-              
-            }
+            case 'sil':
+              var ServiceRequest = {
+                service_type: "",
+                team_id:        $scope.editInput.itemID
+              }
 
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            $scope.iletisim = null;
-            $scope.loadData();
-            console.log("... güncellendi");
-            $scope.modal.hide();
-            break;
-
-          case 'sil':
-            var ServiceRequest = {
-              service_type: "",
-              team_id:        $scope.editInput.itemID
-            }
-
-            // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            })
-            $scope.iletisim = null;
-            $scope.loadData();
-            console.log("... silindi");
-            $scope.modal.hide();
-            break;
-        }
-        break;
+              $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+              $scope.iletisim = null;
+              $scope.loadData();
+              console.log("... silindi");
+              $scope.modal.hide();
+              break;
+          }
+          break;
       }
     };
 
