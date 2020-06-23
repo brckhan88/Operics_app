@@ -314,7 +314,6 @@ angular.module('starter.controllers', [])
         sifre: $scope.kayitData.password
       }
 
-      // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
         $scope.kullanici = data[0]
         localStorage.setItem('user_id', $scope.kullanici.user_id)
@@ -334,12 +333,21 @@ angular.module('starter.controllers', [])
     $scope.passwordRes = function () {
       
       var ServiceRequest = {
-        service_type: "pass_res",
-        email: $scope.resetPass.email
+        service_type: "reset_password",
+        email: $scope.resetPass.email,
+        language: localStorage.getItem('language')
       }
 
-      // Service request değişkeni web service post edilir. Gelen yanıt $scope.kullanici isimli değişkene atanır.
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+        $scope.resReq = data[0]
+        if ($scope.resReq.is_valid == true) {
+          $ionicPopup.alert({ template: $scope.resReq.error_message });
+          $scope.kayitButon(0);
+
+        } else {
+
+          $ionicPopup.alert({ template: $scope.resReq.error_message });
+        };
       })
 
     };
@@ -586,6 +594,14 @@ angular.module('starter.controllers', [])
 
     //Admin İçerik Düzenleme arayüzlerine erişim
 
+    $scope.editLang = function (language) {
+      $scope.icerikLang = language;
+      console.log(language);
+    };
+
+
+
+
     $scope.editgosterici = function (tur, editFlag) {
 
       $scope.editFg = editFlag;
@@ -723,6 +739,7 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :               "story_ekle",
+                language           :               $scope.icerikLang,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
                 story_about        :               $scope.inputField.desc  

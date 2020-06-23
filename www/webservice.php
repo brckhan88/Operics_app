@@ -189,6 +189,46 @@ switch ($service_type) {
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
+    case "reset_password":
+        $email = $data["email"];
+        $dil   = $data['language'];
+
+        $sorgu = "SELECT * from LOGIN";
+        $is_valid = false;
+        $sıra = 1;
+
+        if ($dil == TR ) {
+            $error = "Böyle bir kullanıcı bulunamadı!";   
+        } else if ($dil == EN ) {
+            $error =  "User not found!";
+        } else if ($dil == DE ) {
+            $error =  "Benutzer wurde nicht gefunden!";
+        }
+
+        $data = $conn->query($sorgu);
+         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            if($row["USER_EMAIL"]==$email) {
+                $user_id = $row['ID'];
+                $is_valid = true;
+
+                if ($dil == TR ) {
+                    $error = "Şifre yenileme talebiniz e-postanıza iletilmiştir. Lütfen posta kutunuzu kontrol ediniz.";   
+                } else if ($dil == EN ) {
+                    $error =  "Your password renewal request has been sent to your e-mail. Please check your mailbox.";
+                } else if ($dil == DE ) {
+                     $error =  "Ihre Anfrage zur Passworterneuerung wurde an Ihre E-Mail gesendet. Bitte überprüfen Sie Ihre Mailbox.";
+                }
+                
+                //bu kısıma kullanılacak olan email şifre yenileme servisinin çağrılacağı metod girilir
+                $data = $conn->query($sorgu);
+                $sıra++;
+            } 
+        }
+
+        $rows[]=["is_valid"=>$is_valid,"id"=>$user_id,"error_message"=>$error];
+        print json_encode($rows, JSON_UNESCAPED_UNICODE);
+    break;
+
     case "sms_verify":
     $user_id = $data["user_id"];
     $sms_code = $data["sms_code"];
@@ -503,22 +543,38 @@ switch ($service_type) {
     break;
 
     case "story_ekle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $story_head     = $data["story_head"];
         $story_about    = $data["story_about"];
         $story_image    = $data["story_image"];
 
-        $sorgu = "INSERT INTO `STORIES` (`STR_HEAD`, `STR_DESCRIPTION`, `STR_IMAGE`) VALUES ('$story_head','$story_about','$story_image')";
+        $sorgu = "INSERT INTO `STORIES` (`LANGUAGES_ID`, `STR_HEAD`, `STR_DESCRIPTION`, `STR_IMAGE`) VALUES ('$language','$story_head','$story_about','$story_image')";
         $data = $conn->query($sorgu);
     break;
 
     case "story_guncelle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $story_id       = $data["story_id"];
         $story_head     = $data["story_head"];
         $story_about    = $data["story_about"];
         $story_image    = $data["story_image"];
 
         //deneme;
-        $sorgu = "UPDATE `STORIES` SET STR_HEAD = '$story_head' , STR_DESCRIPTION = '$story_about' , STR_IMAGE = '$story_image'  WHERE ID=".$story_id;
+        $sorgu = "UPDATE `STORIES` SET LANGUAGES_ID = STR_HEAD = '$story_head' , STR_DESCRIPTION = '$story_about' , STR_IMAGE = '$story_image'  WHERE ID=".$story_id;
         $data = $conn->query($sorgu);
     break;
 

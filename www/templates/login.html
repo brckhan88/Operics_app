@@ -65,7 +65,7 @@
             <input type="text" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[14].kelime}}"
             ng-model="kayitData.name">
           </label>
-          <p style="text-align: left; margin-left: 7%;">{{kayitData.name.length==0 ? "Zorunlu" : ""}}</p>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.name.length==0 ? diller[46].kelime : ""}}</p>
           
 
         <br><br>
@@ -75,7 +75,7 @@
             <input type="number" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="498887776655"
             ng-model="kayitData.number">
           </label>
-          <p style="text-align: left; margin-left: 7%;">{{kayitData.number.length==0 ? "Zorunlu" : ""}}</p>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.number/10==0 ? diller[47].kelime : kayitData.number/100000000000<1 ? diller[48].kelime : kayitData.number/100000000000>=10 ? diller[48].kelime :"" }}</p>
           
           
 
@@ -86,7 +86,7 @@
             <input type="email" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"  ng-model="kayitData.email" [email]="true">
           </label>
           <div ng-if="kayitData.email.length==0">
-            <p style="text-align: left; margin-left: 7%;">Zorunlu</p>
+            <p style="text-align: left; margin-left: 7%;">{{diller[50].kelime}}</p>
           </div>
           
 
@@ -97,7 +97,7 @@
             <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[13].kelime}}"
             ng-model="kayitData.password">
           </label>
-          <p style="text-align: left; margin-left: 7%;">{{kayitData.password.length==0 ? "Zorunlu": kayitData.password.length<8 ? "Şifreniz en az 8 haneli olmalıdır.":""}}</p>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.password.length==0 ? diller[51].kelime: kayitData.password.length<8 ? diller[52].kelime:""}}</p>
          
           
         <br><br>
@@ -107,7 +107,7 @@
             <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[17].kelime}}"
             ng-model="kayitData.passwordChck">
           </label>
-          <p style="text-align: left; margin-left: 7%;">{{kayitData.passwordChck!=kayitData.password ? "Şifreleriniz birbiri ile uyuşmuyor!" : ""}}</p>
+          <p style="text-align: left; margin-left: 7%;">{{kayitData.passwordChck!=kayitData.password ? diller[54].kelime : ""}}</p>
         
           
           
@@ -115,7 +115,7 @@
         <br><br>
 
         <!-- Submit Butonu -->
-        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || !kayitData.email || !kayitData.password || (kayitData.passwordChck!=kayitData.password)" type="submit">
+        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || kayitData.number/100000000000<1 || kayitData.number/100000000000>=10|| !kayitData.email || !kayitData.password || kayitData.password.length<8 || (kayitData.passwordChck!=kayitData.password)" type="submit">
           {{diller[20].kelime}}
         </button>
 
@@ -136,7 +136,7 @@
 
     <!-- Şifremi Unuttum Form Yapısı -->
 
-    <form ng-submit="paswordRes()" ng-if="kayittab==2">
+    <form ng-submit="passwordRes()" ng-if="kayittab==2">
       <br><br>
       <center>
         <h4> {{diller[56].kelime}} </h4>
@@ -150,7 +150,7 @@
             ng-model="resetPass.email">
         </label>
         <br><br>
-        <button ng-disabled="!resetPass.email" class="button button-dark beton2" type="submit">{{diller[57].kelime}}
+        <button ng-disabled="!resetPass.email" class="button button-dark beton2" type="submit" >{{diller[57].kelime}}
         </button>
         <br><br>
         <button class="button button-block button-light" type="button" ng-click="kayitButon(0)">
