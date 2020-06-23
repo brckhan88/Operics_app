@@ -387,6 +387,39 @@ angular.module('starter.controllers', [])
       $scope.userId = localStorage.getItem('user_id');
     }
 
+
+    /*$scope.setMap = function(lat,lng,t){
+     $scope.mapType = t;
+     $ionicLoading.show({
+      template: '<ion-spinner icon="android"></ion-spinner>'
+     });
+     var options = {enableMighAccuracy: false};
+     $scope.locationModalShow();
+
+     if(lat && lng)
+
+    }*/
+
+    $scope.getMap = function (lat, lng) {
+      // var options = { timeout: 10000, enableHighAccuracy: true };
+
+
+      // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+      var latLng = new google.maps.LatLng(lat, lng);
+
+
+      var mapOptions = {
+        center: latLng,
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      $timeout(function () {
+        $scope.map = new google.maps.Map(document.getElementById("map2"), mapOptions);
+
+
+
     // Profil resmi için kamera kontrolcüsü
     $scope.changePP = function () {
       $ionicActionSheet.show({
