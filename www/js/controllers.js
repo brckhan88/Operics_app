@@ -1189,8 +1189,6 @@ angular.module('starter.controllers', [])
           break;
       }
     };
-
-
     $scope.isLogged();
 
   });
