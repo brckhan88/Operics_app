@@ -486,7 +486,7 @@ switch ($service_type) {
         $team_about = $data["team_about"];
         $team_linkedin = $data["team_linkedin"];
 
-        $sorgu = "INSERT INTO `TEAMS` (`NAME`, `POSITION`, `ABOUT`, `IMAGE`, `LINKEDIN`) VALUES ('$team_name','$team_position','$team_about','$team_image','$team_linkedin')";
+        $sorgu = "INSERT INTO `TEAMS` (`LANGUAGES_ID`, `NAME`, `POSITION`, `ABOUT`, `IMAGE`, `LINKEDIN`) VALUES ('$language','$team_name','$team_position','$team_about','$team_image','$team_linkedin')";
         $data = $conn->query($sorgu);
     break;
 
@@ -506,7 +506,7 @@ switch ($service_type) {
         $team_about = $data["team_about"];
         $team_linkedin = $data["team_linkedin"];
 
-        $sorgu = "UPDATE `TEAMS` SET NAME = '$team_name' , POSITION = '$team_position' , ABOUT = '$team_about' , IMAGE = '$team_image', LINKEDIN = '$team_linkedin' WHERE ID=".$team_id;
+        $sorgu = "UPDATE `TEAMS` SET LANGUAGES_ID = '$language', NAME = '$team_name' , POSITION = '$team_position' , ABOUT = '$team_about' , IMAGE = '$team_image', LINKEDIN = '$team_linkedin' WHERE ID=".$team_id;
         $data = $conn->query($sorgu);
     break;
 
