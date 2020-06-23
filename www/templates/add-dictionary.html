@@ -10,6 +10,13 @@
 
     <div style="margin-top: 10%" class="center list list-inset">
       <h3>{{editFg==0 ? diller[40].kelime : editFg==1 ? diller[71].kelime : ''}}</h3>
+
+        <button class="button button-clear button-light" ng-click="editLang('EN')">              
+        <img  style="opacity: {{icerikLang=='EN' ? 1 : 0.2 }};"  class=" full-image l1"src="img/login/bb.png"></button>
+        <button class="button button-clear button--light" ng-click="editLang('DE')">
+        <img style="opacity: {{icerikLang=='DE' ? 1 : 0.2 }};"class="full-image l2"src="img/login/aa.png"></button>
+        <button class="button button-clear button-light" ng-click="editLang('TR')">
+        <img style="opacity: {{icerikLang=='TR' ? 1 : 0.2 }};"class="full-image l3"src="img/login/tt.png"></button>
       
 
       <center>
@@ -26,13 +33,13 @@
 
 
       <div class="center" style="margin-top: 49%;">
-       <button class="button button-assertive add_button">
+       <button class="button button-assertive add_button" ng-click="applyButton('dictionary','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
        <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? diller[23].kelime : editFg==1 ? diller[43].kelime : ''}}</h3>
        </button>
        </div>
       </div>
   
-      <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('team','sil')">
+      <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('dictionary','sil')">
        <button class="button button-assertive add_button">
        <h3 style=" color: white;font-family: monospace;">{{diller[44].kelime}}</h3>
        </button>
