@@ -496,11 +496,11 @@ angular.module('starter.controllers', [])
     }
 
     // Onay kutusu
-    $scope.ConfirmApplication = function () {
+    $scope.ConfirmApplication = function (id) {
 
       var confirmPopup = $ionicPopup.alert({
         title: "Başarılı",
-        template: "Sn. Ahmet Yılmaz " + $scope.egitimler[$scope.itemId].CRS_NAME + " için ön başvurunuz alınmıuştır. En kısa sürede sizinle iritibata geçilecektir."
+        template: "Sn." + $scope.profil.USER_NAME + "," + $scope.egitimler[$scope.itemId].CRS_NAME + " için ön başvurunuz alınmıuştır. En kısa sürede sizinle iritibata geçilecektir."
       });
 
       confirmPopup.then(function (res) {
@@ -509,7 +509,7 @@ angular.module('starter.controllers', [])
           var ServiceRequest = {
             service_type: "kursa_katil",
             user_id: $scope.userId,
-            course_id: $scope.itemId
+            course_id: $scope.egitimler[id].ID
           }
 
           $http.post($rootScope.webServiceUrl, ServiceRequest)
@@ -519,7 +519,7 @@ angular.module('starter.controllers', [])
 
     // A confirm dialog
 
-    $scope.CancelApplication = function () {
+    $scope.CancelApplication = function (id) {
       var confirmPopup = $ionicPopup.alert({
         title: "İptal Edildi",
         template: "İptal onaylanmıştır."
@@ -1000,6 +1000,9 @@ angular.module('starter.controllers', [])
               console.log("Egitim silindi");
               $scope.modal.hide();
               break;
+
+            case 'derseKatil' :
+             break;
           }
           break;
 
