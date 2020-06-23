@@ -479,14 +479,6 @@ angular.module('starter.controllers', [])
       $scope.abouttab = abouttab;
     };
 
-  
-    //Favoriye ekleme
-    $scope.FavKontrol = function (kelime_id, kullanici_id) {
-      console.log(kelime_id, kullanici_id);
-    };
-
-    
-
     $scope.text_truncate = function (str, length, ending) {
       if (length == null) {
         length = 100;
