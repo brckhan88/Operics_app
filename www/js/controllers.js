@@ -556,6 +556,19 @@ angular.module('starter.controllers', [])
           break;
 
         case 'course':
+
+          var ServiceRequest = {
+            service_type:      "kursa_katildi_mi",
+            user_id     :      $scope.userId,
+            course_id   :      $scope.egitimler[id].ID
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            $scope.katildiMi = data
+            console.log("Katılım durumu :" + $scope.katildiMi.is_enrolled);
+          })
+
+
           $ionicModal.fromTemplateUrl('templates/course-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -1001,7 +1014,7 @@ angular.module('starter.controllers', [])
               $scope.modal.hide();
               break;
 
-            case 'derseKatil' :
+            case 'dersEkleSil' :
              break;
           }
           break;
