@@ -392,6 +392,14 @@ switch ($service_type) {
     break;
 
     case "hizmet_ekle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $service_image = $data["service_image"];
         $service_name = $data["service_name"];
         $service_description = $data["service_description"];
@@ -401,6 +409,14 @@ switch ($service_type) {
     break;
 
     case "hizmet_guncelle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $service_id = $data["service_id"];
         $service_image = $data["service_image"];
         $service_name = $data["service_name"];
@@ -417,6 +433,14 @@ switch ($service_type) {
     break;
 
     case "referans_ekle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $reference_image = $data["reference_image"];
         $reference_name = $data["reference_name"];
 
@@ -425,6 +449,14 @@ switch ($service_type) {
     break;
 
     case "referans_guncelle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $reference_id = $data["reference_id"];
         $reference_image = $data["reference_image"];
         $reference_name = $data["reference_name"];
@@ -440,6 +472,14 @@ switch ($service_type) {
     break;
 
     case "calisan_ekle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $team_image = $data["team_image"];
         $team_name = $data["team_name"];
         $team_position = $data["team_position"];
@@ -451,6 +491,14 @@ switch ($service_type) {
     break;
 
     case "calisan_guncelle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $team_id = $data["team_id"];
         $team_image = $data["team_image"];
         $team_name = $data["team_name"];
@@ -469,32 +517,47 @@ switch ($service_type) {
     break;
 
     case "egitim_ekle":
-        
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $course_image       = $data["course_image"];
         $course_name        = $data["course_name"];
         $course_description = $data["course_description"];
-        $course_city        = $data["course_city"];
+        $course_city        = 'Ankara';
         $course_hour        = $data["course_hour"];
         $course_adress      = $data["course_adress"];
         $course_bgdate      = $data["course_bgdate"];
         $course_endate      = $data["course_endate"];
 
-        $sorgu = "INSERT INTO `COURSE` (`CRS_NAME`, `CRS_DESCRIPTION`, `CRS_PHOTO`, `CRS_CITY`, `CRS_HOUR`, `CRS_ADRESS`, `CRS_ENDDATE`, `CRS_BEGINDATE`) VALUES ('$course_name','$course_description','$course_image','$course_city','$course_hour','$course_adress','$course_endate','$course_bgdate')";
+        $sorgu = "INSERT INTO `COURSE` (`LANGUAGES_ID`, `CRS_NAME`, `CRS_DESCRIPTION`, `CRS_PHOTO`, `CRS_CITY`, `CRS_HOUR`, `CRS_ADRESS`, `CRS_ENDDATE`, `CRS_BEGINDATE`) VALUES ('$language','$course_name','$course_description','$course_image','$course_city','$course_hour','$course_adress','$course_endate','$course_bgdate')";
         $data = $conn->query($sorgu);
     break;
 
     case "egitim_guncelle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $course_id          = $data["course_id"];
         $course_image       = $data["course_image"];
         $course_name        = $data["course_name"];
         $course_description = $data["course_description"];
-        $course_city        = $data["course_city"];
+        $course_city        = 'Ankara';
         $course_hour        = $data["course_hour"];
         $course_adress      = $data["course_adress"];
         $course_bgdate      = $data["course_bgdate"];
         $course_endate      = $data["course_endate"];
 
-        "UPDATE `COURSE` SET CRS_NAME = '$course_name' , CRS_DESCRIPTION = '$course_description' , CRS_PHOTO = '$course_image' , CRS_CITY = '$course_city', CRS_HOUR = '$course_hour' , CRS_ADRESS = '$course_adress' , CRS_ENDDATE = '$course_endate' , CRS_BEGINDATE = '$course_bgdate' WHERE ID=".$team_id;
+        "UPDATE `COURSE` SET LANGUAGES_ID = '$language', CRS_NAME = '$course_name' , CRS_DESCRIPTION = '$course_description' , CRS_PHOTO = '$course_image' , CRS_CITY = '$course_city', CRS_HOUR = '$course_hour' , CRS_ADRESS = '$course_adress' , CRS_ENDDATE = '$course_endate' , CRS_BEGINDATE = '$course_bgdate' WHERE ID=".$team_id;
         $data = $conn->query($sorgu);
     break;
 
@@ -505,19 +568,35 @@ switch ($service_type) {
     break;
 
     case "kelime_ekle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $word_name          = $data["word_name"];
         $word_description   = $data["word_description"];
         
-        $sorgu              = "INSERT INTO `DICTIONARY` (`WORD`, `DESCRIPTION`) VALUES ('$word_name','$word_description')";
+        $sorgu              = "INSERT INTO `DICTIONARY` (`LANG_ID`, `WORD`, `DESCRIPTION`) VALUES ('$language','$word_name','$word_description')";
         $data               = $conn->query($sorgu);
     break;
 
     case "kelime_guncelle":
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language = '+90';
+        } else if ($language == 'DE') {
+            $language = '+49';
+        } else {
+            $language = '+44';
+        }
         $word_id            = $data["word_id"];
         $word_name          = $data["word_name"];
         $word_description   = $data["word_description"];
         
-        $sorgu              = "UPDATE `DICTIONARY` SET WORD = '$word_name' , DESCRIPTION = '$word_description' WHERE ID=".$word_id;
+        $sorgu              = "UPDATE `DICTIONARY` SET LANG_ID = '$language', WORD = '$word_name' , DESCRIPTION = '$word_description' WHERE ID=".$word_id;
         $data               = $conn->query($sorgu);
     break;
 
@@ -573,8 +652,7 @@ switch ($service_type) {
         $story_about    = $data["story_about"];
         $story_image    = $data["story_image"];
 
-        //deneme;
-        $sorgu = "UPDATE `STORIES` SET LANGUAGES_ID = STR_HEAD = '$story_head' , STR_DESCRIPTION = '$story_about' , STR_IMAGE = '$story_image'  WHERE ID=".$story_id;
+        $sorgu = "UPDATE `STORIES` SET LANGUAGES_ID = '$language', STR_HEAD = '$story_head' , STR_DESCRIPTION = '$story_about' , STR_IMAGE = '$story_image'  WHERE ID=".$story_id;
         $data = $conn->query($sorgu);
     break;
 
