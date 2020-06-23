@@ -351,17 +351,38 @@ switch ($service_type) {
     break;
 
     case "kursa_katil":
-        $user_id = $data["user_id"];
-        $course_id = $data["course_id"];
+        $user_id    = $data["user_id"];
+        $course_id  = $data["course_id"];
         $sorgu = "INSERT INTO `ENROLL` (`LOGIN_ID`, `COURSE_ID`) VALUES ('".$user_id."', '".$course_id."')";
         $data = $conn->query($sorgu);
     break;
 
     case "kursu_iptal_et":
-        $user_id = $data["user_id"];
-        $course_id = $data["course_id"];
+        $user_id    = $data["user_id"];
+        $course_id  = $data["course_id"];
         $sorgu = "DELETE FROM `ENROLL` WHERE (`ENROLL`.`LOGIN_ID` = ".$user_id." AND `ENROLL`.`COURSE_ID` = ".$course_id.")";
         $data = $conn->query($sorgu);
+    break;
+
+    case "kelime_favladi_mi":
+        $user_id    = $data["user_id"];
+        $word_id    = $data["word_id"];
+
+        $sorgu = "SELECT * from FAVORITES";
+        $is_faved = false;
+        $sıra = 1;
+
+        $data = $conn->query($sorgu);
+        foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            if($row["DICTIONARY_ID"] == $word_id) {
+                if($row["LOGIN_ID"]  == $user_id) {
+                    $is_faved = true;
+                } 
+                $sıra++;
+            }
+        }
+        $rows[]=["is_faved"=>$is_faved];
+        print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
     case "favori_ekle":
