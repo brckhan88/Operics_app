@@ -11,6 +11,13 @@
       <h3> {{editFg==0 ? diller[36].kelime : editFg==1 ? diller[70].kelime : ''}} </h3>
       
 
+        <button class="button button-clear button-light" ng-click="editLang('EN')">              
+          <img  style="opacity: {{icerikLang=='EN' ? 1 : 0.2 }};"  class=" full-image l1"src="img/login/bb.png"></button>
+        <button class="button button-clear button--light" ng-click="editLang('DE')">
+          <img style="opacity: {{icerikLang=='DE' ? 1 : 0.2 }};"class="full-image l2"src="img/login/aa.png"></button>
+        <button class="button button-clear button-light" ng-click="editLang('TR')">
+          <img style="opacity: {{icerikLang=='TR' ? 1 : 0.2 }};"class="full-image l3"src="img/login/tt.png"></button>
+          
       <center>
         <label class="ekle_input item item-input" style="width: 89%;height: 143px; border-radius:10px !important;">
           <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
