@@ -361,7 +361,6 @@ angular.module('starter.controllers', [])
         user_id: $scope.userId,
         sms_code: $scope.smsVerify.kod1 + $scope.smsVerify.kod2 + $scope.smsVerify.kod3 + $scope.smsVerify.kod4
       }
-      console.log(ServiceRequest);
 
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
         $scope.sms_verify = data[0]
@@ -435,6 +434,15 @@ angular.module('starter.controllers', [])
           console.log('Failed because:');
           console.log(err);
       });
+      var ServiceRequest = {
+          service_type     :  "catchPP",
+          photoLink        :  $scope.profileImage
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          $scope.inputField.img = data[0];
+        })
+
     };
 
 
@@ -458,6 +466,14 @@ angular.module('starter.controllers', [])
           console.log('Failed because:');
           console.log(err);
       });
+      var ServiceRequest = {
+          service_type     :  "catchPP",
+          photoLink        :  $scope.profileImage
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          $scope.inputField.img = data[0];
+        })
     };
 
     $scope.tiklaab = function (abouttab) {

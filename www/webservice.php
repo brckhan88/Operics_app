@@ -414,6 +414,18 @@ switch ($service_type) {
         $data = $conn->query($sorgu);
     break;
 
+    case "catchPP":
+        $deal_pictureUrl = $data["photoLink"];
+        $urldate         = new DateTime(date("Y-m-d H:i:s"));
+
+        file_put_contents("img/deals/". $urldate . ".jpeg", base64_decode(preg_replace("#^data:image/\w+;base64,#i", "", $deal_pictureUrl)));
+
+        $photo_url = "http://www.microwebservice.net/operics_web/img/%22.$urldate.%22.jpeg";
+        $rows[]=["photo_link"=>$photo_url];
+                
+        print json_encode($rows, JSON_UNESCAPED_UNICODE);
+    break;
+
     case "hizmet_ekle":
         $language       = $data["language"];
         if ($language == 'TR') {
