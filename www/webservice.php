@@ -404,7 +404,7 @@ switch ($service_type) {
         $service_name = $data["service_name"];
         $service_description = $data["service_description"];
 
-        $sorgu = "INSERT INTO `SERVICE` (`SERVICE_NAME`, `DESCRIPTION`, `SERVICE_IMAGE`) VALUES ('$service_name','$service_description','$service_image')";
+        $sorgu = "INSERT INTO `SERVICE` (`LANGUAGES_ID`, `SERVICE_NAME`, `DESCRIPTION`, `SERVICE_IMAGE`) VALUES ('$language','$service_name','$service_description','$service_image')";
         $data = $conn->query($sorgu);
     break;
 
@@ -422,7 +422,7 @@ switch ($service_type) {
         $service_name = $data["service_name"];
         $service_description = $data["service_description"];
         
-        $sorgu = "UPDATE `SERVICE` SET SERVICE_NAME = '$service_name', DESCRIPTION = '$service_description', SERVICE_IMAGE = '$service_image' WHERE ID=".$service_id;
+        $sorgu = "UPDATE `SERVICE` SET LANGUAGES_ID = '$language', SERVICE_NAME = '$service_name', DESCRIPTION = '$service_description', SERVICE_IMAGE = '$service_image' WHERE ID=".$service_id;
         $data = $conn->query($sorgu);
     break;
 
@@ -433,14 +433,6 @@ switch ($service_type) {
     break;
 
     case "referans_ekle":
-        $language       = $data["language"];
-        if ($language == 'TR') {
-            $language = '+90';
-        } else if ($language == 'DE') {
-            $language = '+49';
-        } else {
-            $language = '+44';
-        }
         $reference_image = $data["reference_image"];
         $reference_name = $data["reference_name"];
 
@@ -449,14 +441,6 @@ switch ($service_type) {
     break;
 
     case "referans_guncelle":
-        $language       = $data["language"];
-        if ($language == 'TR') {
-            $language = '+90';
-        } else if ($language == 'DE') {
-            $language = '+49';
-        } else {
-            $language = '+44';
-        }
         $reference_id = $data["reference_id"];
         $reference_image = $data["reference_image"];
         $reference_name = $data["reference_name"];
