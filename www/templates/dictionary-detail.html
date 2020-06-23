@@ -9,8 +9,8 @@
 
     <div class="all">{{sozluk[itemId].WORD}}</div>
 
-    <img ng-click="FavKontrol(sozluk[itemId], localStorage.getItem('user_id'))" class="full-image sagda_simge rr"
-      src="img/icons/r5.png">
+    <img ng-click="applyButton('dictionary','favoriEkleKaldir')" class="full-image sagda_simge rr"
+      src="img/sozlk/s1.png{{aktifMi==true ? 's1.png' : aktifMi==false ? 'r5.png': '' }}">
 
     <br>
     <center>

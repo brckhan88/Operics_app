@@ -1126,7 +1126,7 @@ angular.module('starter.controllers', [])
               $scope.modal.hide();
               break;
 
-            case 'favoriEkleKaldır' :
+            case 'favoriEkleKaldir' :
               if ($scope.aktifMi==false) {
                 var ServiceRequest = {
                   service_type: "favori_ekle",

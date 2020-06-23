@@ -388,7 +388,7 @@ switch ($service_type) {
     case "favori_ekle":
         $user_id = $data["user_id"];
         $word_id = $data["word_id"];
-        $sorgu = "INSERT INTO `FAVORITES` (`DICTIONARY_ID`, `LOGIN_ID`) VALUES ('".$word_id."', '".$user_id."')";
+        $sorgu = "INSERT INTO `FAVORITES` (`DICTIONARY_ID`, `LOGIN_ID`) VALUES ('$word_id', '$user_id')";
         $data = $conn->query($sorgu);
     break;
 
