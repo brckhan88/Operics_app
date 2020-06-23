@@ -529,6 +529,26 @@ angular.module('starter.controllers', [])
       });
     };
 
+    // Sözlük Kelime Favori Sorgusu
+    $scope.chckFaved = function (id) {
+      var ServiceRequest = {
+        service_type       :      "kelime_favladi_mi",
+        user_id            :      $scope.userId,
+        word_id            :      $scope.sozluk[id].ID
+      }
+
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+        $scope.favladiMi = data[0]
+
+        console.log(" Fav durumu:" + $scope.favladiMi.is_faved);
+        if ($scope.favladiMi.is_faved==true) {
+          $scope.aktifMi = true;
+        } else {
+          $scope.aktifMi = false;
+        }
+      });
+    };
+
     //Detay sayfası filtreleme algoritması
 
     $scope.modalgosterici = function (tur, id) {
@@ -579,6 +599,7 @@ angular.module('starter.controllers', [])
 
         case 'dictionary':
           $location.hash(id);
+          $scope.chckFaved($scope.itemId);
           $ionicModal.fromTemplateUrl('templates/dictionary-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -1081,6 +1102,26 @@ angular.module('starter.controllers', [])
               $scope.loadData();
               console.log("Sozluk silindi");
               $scope.modal.hide();
+              break;
+
+            case 'favoriEkleKaldır' :
+              if ($scope.aktifMi==false) {
+                var ServiceRequest = {
+                  service_type: "favori_ekle",
+                  user_id: $scope.userId,
+                  word_id: $scope.sozluk[$scope.itemId].ID
+                }
+                $http.post($rootScope.webServiceUrl, ServiceRequest)
+                
+              } else {
+                var ServiceRequest = {
+                  service_type: "favori_cikar",
+                  user_id: $scope.userId,
+                  word_id: $scope.sozluk[$scope.itemId].ID
+                }
+                $http.post($rootScope.webServiceUrl, ServiceRequest)
+              }
+              $scope.chckFaved($scope.itemId);
               break;
           }
           break;
