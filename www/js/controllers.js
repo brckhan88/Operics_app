@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-  .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera, $ionicActionSheet) {
+  .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera, $ionicActionSheet, $location) {
 
     $rootScope.webServiceUrl = "http://www.microwebservice.net/operics_web/webservice.php";
     $scope.pictureUrl = "http://placehold.it/200x200";
@@ -495,51 +495,25 @@ angular.module('starter.controllers', [])
       }
     }
 
-    // Onay kutusu
-    $scope.ConfirmApplication = function () {
+    // Derse Katılım sorgusu
+    $scope.chckEnrollment = function (id) {
+      var ServiceRequest = {
+        service_type       :      "kursa_katildi_mi",
+        user_id            :      $scope.userId,
+        course_id          :      $scope.egitimler[id].ID
+      }
 
-      var confirmPopup = $ionicPopup.alert({
-        title: "Başarılı",
-        template: "Sn. Ahmet Yılmaz " + $scope.egitimler[$scope.itemId].CRS_NAME + " için ön başvurunuz alınmıuştır. En kısa sürede sizinle iritibata geçilecektir."
-      });
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+        $scope.katildiMi = data[0]
 
-      confirmPopup.then(function (res) {
-        if (res) {
-          $scope.aktifmi = true;
-          var ServiceRequest = {
-            service_type: "kursa_katil",
-            user_id: $scope.userId,
-            course_id: $scope.itemId
-          }
-
-          $http.post($rootScope.webServiceUrl, ServiceRequest)
+        console.log("Katılım durumu :" + $scope.katildiMi.is_enrolled);
+        if ($scope.katildiMi.is_enrolled==true) {
+          $scope.aktifMi = true;
+        } else {
+          $scope.aktifMi = false;
         }
       });
     };
-
-    // A confirm dialog
-
-    $scope.CancelApplication = function () {
-      var confirmPopup = $ionicPopup.alert({
-        title: "İptal Edildi",
-        template: "İptal onaylanmıştır."
-      });
-
-      confirmPopup.then(function (res) {
-        if (res) {
-          $scope.aktifmi = false;
-          var ServiceRequest = {
-            service_type: "kursu_iptal_et",
-            user_id: "3",
-            course_id: "2"
-          }
-
-          $http.post($rootScope.webServiceUrl, ServiceRequest)
-          }
-      });
-    };
-
-
 
     //Detay sayfası filtreleme algoritması
 
@@ -549,6 +523,7 @@ angular.module('starter.controllers', [])
       switch (tur) {
 
         case 'service':
+          $location.hash(id);
           $ionicModal.fromTemplateUrl('templates/service-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -556,6 +531,8 @@ angular.module('starter.controllers', [])
           break;
 
         case 'course':
+          $location.hash(id);
+          $scope.chckEnrollment($scope.itemId);
           $ionicModal.fromTemplateUrl('templates/course-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -563,6 +540,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'story':
+          $location.hash(id);
           $ionicModal.fromTemplateUrl('templates/story-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -570,6 +548,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'profile':
+          $location.hash(id);
           $ionicModal.fromTemplateUrl('templates/profile-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -577,6 +556,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'team':
+          $location.hash(id);
           $ionicModal.fromTemplateUrl('templates/team-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -584,6 +564,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'dictionary':
+          $location.hash(id);
           $ionicModal.fromTemplateUrl('templates/dictionary-detail.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -1000,6 +981,33 @@ angular.module('starter.controllers', [])
               console.log("Egitim silindi");
               $scope.modal.hide();
               break;
+
+            case 'dersEkleSil' :
+              if ($scope.aktifMi==false) {
+                var ServiceRequest = {
+                  service_type: "kursa_katil",
+                  user_id: $scope.userId,
+                  course_id: $scope.egitimler[$scope.itemId].ID
+                }
+                $http.post($rootScope.webServiceUrl, ServiceRequest)
+                var confirmPopup = $ionicPopup.alert({
+                  title: "Başarılı",
+                  template: "Sn." + $scope.profil.USER_NAME + "," + $scope.egitimler[$scope.itemId].CRS_NAME + " için ön başvurunuz alınmıuştır. En kısa sürede sizinle iritibata geçilecektir."
+                });
+              } else {
+                var ServiceRequest = {
+                  service_type: "kursu_iptal_et",
+                  user_id: $scope.userId,
+                  course_id: $scope.egitimler[$scope.itemId].ID
+                }
+                $http.post($rootScope.webServiceUrl, ServiceRequest)
+                var confirmPopup = $ionicPopup.alert({
+                  title: "İptal Edildi",
+                  template: "İptal onaylanmıştır."
+                });
+              }
+              $scope.chckEnrollment($scope.itemId);
+              break;
           }
           break;
 
@@ -1097,7 +1105,6 @@ angular.module('starter.controllers', [])
 
 
     $scope.isLogged();
-
 
   });
 

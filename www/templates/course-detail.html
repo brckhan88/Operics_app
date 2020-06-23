@@ -43,14 +43,10 @@
     <br><br>
 
     <center>
-      <div ng-if="aktifmi">
-        <button ng-click="CancelApplication()" class="button button-dark pre-application_button">{{diller[75].kelime}}</button>
+      <div>
+        <button ng-click="applyButton('courses','dersEkleSil')" class="button {{aktifMi==true ? 'button-dark': aktifMi==false ? 'button-assertive': '' }}  pre-application_button">{{aktifMi==true ? diller[75].kelime: aktifMi==false ? diller[10].kelime: '' }}</button>
       </div>
 
-      <div ng-if="!aktifmi">
-       <button ng-click="ConfirmApplication()" class="button button-assertive pre-application_button">{{diller[10].kelime}}</button>
-     </div>
    </center>
-
  </ion-content>
 </ion-modal-view>
