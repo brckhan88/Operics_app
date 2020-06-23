@@ -95,7 +95,7 @@
 .sagda_simge{
   position: absolute; 
   right: 20px; 
-  max-height: 32px; 
+  margin-top: -7%;
   max-width: 32px;
 }
 
