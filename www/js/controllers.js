@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-  .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera, $ionicActionSheet, $location) {
+  .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera, $ionicActionSheet, $location , $timeout) {
 
     $rootScope.webServiceUrl = "http://www.microwebservice.net/operics_web/webservice.php";
 
@@ -388,25 +388,14 @@ angular.module('starter.controllers', [])
     }
 
 
-    /*$scope.setMap = function(lat,lng,t){
-     $scope.mapType = t;
-     $ionicLoading.show({
-      template: '<ion-spinner icon="android"></ion-spinner>'
-     });
-     var options = {enableMighAccuracy: false};
-     $scope.locationModalShow();
+    //Harita Çağırma
 
-     if(lat && lng)
+    $scope.getMap = function (lat, lng) {
+    // var options = { timeout: 10000, enableHighAccuracy: true };
 
-    }*/
-
-  $scope.getMap = function (lat, lng) {
-      // var options = { timeout: 10000, enableHighAccuracy: true };
-
-     // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
       var latLng = new google.maps.LatLng(lat, lng);
-
 
       var mapOptions = {
         center: latLng,
@@ -423,13 +412,9 @@ angular.module('starter.controllers', [])
             animation: google.maps.Animation.DROP,
             position: latLng
           });
-       
-
       });
-
-
     };
-   // ps.Map(document.getElementById("map2"), mapOptions);lementById("map1"), mapOptions);
+    // ps.Map(document.getElementById("map2"), mapOptions);lementById("map1"), mapOptions);
 
 
     // Profil resmi için kamera kontrolcüsü
