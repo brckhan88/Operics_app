@@ -754,6 +754,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "story_guncelle",
                 story_id           :               $scope.editInput.itemID,
+                language           :               $scope.icerikLang,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
                 story_about        :               $scope.inputField.desc   
