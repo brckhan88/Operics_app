@@ -194,8 +194,7 @@ angular.module('starter.controllers', [])
 
       if (!$scope.sozluk) {
         var ServiceRequest = {
-          service_type: "sozluk",
-          user_id: localStorage.getItem('user_id')
+          service_type: "sozluk"
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
