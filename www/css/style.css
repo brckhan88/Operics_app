@@ -212,16 +212,14 @@
 .card_width{
   width: 89%;
   margin-top: 4%;
+  border-radius:10px !important;
 }
 .add_card{
   height: 143px; 
-  border-radius:10px !important;
 }
 
 .add_scard{
   height: 51px;
-  border-radius: 10px !important;
-  
 }
 .add_text{
   margin-top: -28px;

@@ -20,34 +20,36 @@
           
       <center>
         
-        <label class="ekle_input item item-input" style="width: 89%;height: 143px; border-radius:10px !important;">
-          <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="button"></button>
-          <textarea type="text" placeholder="Resmi" style="margin-top:-42px;margin-left: -6%;font-size: 120%;"></textarea>
+        <label class="ekle_input item item-input card_width add_card" >
+          <i class="ion-images images_icon"></i>
+          <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="text"></button>
+          <textarea type="text" placeholder="Resmi"></textarea>
         </label>
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+
+        <label class="ekle_input item item-input card_width add_scard">
           <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Adı' : ''}}" ng-model="inputField.head"> {{inputField.head}}</textarea>
         </label>
         
         
-        <label class="ekle_input item item-input" style="width: 89%;height: 106px; border-radius:10px !important;margin-top: 4%;">
-          <textarea type="text" class="scroll_structure" placeholder="{{editFg==0 ? '0/255 Açıklama' : ''}}" ng-model="inputField.desc" style="margin-top:-28px;margin-left: -7%;width: 150%;">{{inputField.desc}}</textarea>
+        <label class="ekle_input item item-input card_width" style="height: 106px;">
+          <textarea type="text" class="scroll_structure add_text" placeholder="{{editFg==0 ? '0/255 Açıklama' : ''}}" ng-model="inputField.desc">{{inputField.desc}}</textarea>
         </label>
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+        <label class="ekle_input item item-input card_width add_scard">
           <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Süresi' : ''}}" ng-model="inputField.hour">{{inputField.hour}}</textarea>
         </label>
 
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+        <label class="ekle_input item item-input card_width add_scard">
           <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Konumu' : ''}}" ng-model="inputField.address">{{inputField.address}}</textarea>
         </label>
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+        <label class="ekle_input item item-input card_width add_scard" >
           <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Başlangıç Tarihi' : ''}}" ng-model="inputField.bgdate">{{inputField.bgdate}}</textarea>
         </label>
 
-        <label class="ekle_input item item-input" style="width: 89%;height: 51px; border-radius: 10px !important;margin-top: 4%;">
+        <label class="ekle_input item item-input card_width add_scard">
           <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Bitiş Tarihi' : ''}}" ng-model="inputField.enddate">{{inputField.enddate}}</textarea>
         </label>
 
