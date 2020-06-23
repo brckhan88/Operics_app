@@ -403,8 +403,7 @@ angular.module('starter.controllers', [])
   $scope.getMap = function (lat, lng) {
       // var options = { timeout: 10000, enableHighAccuracy: true };
 
-
-      // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+     // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
       var latLng = new google.maps.LatLng(lat, lng);
 
