@@ -753,8 +753,8 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :               "story_guncelle",
-                story_id           :               $scope.editInput.itemID,
                 language           :               $scope.icerikLang,
+                story_id           :               $scope.editInput.itemID,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
                 story_about        :               $scope.inputField.desc   
@@ -789,6 +789,7 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :               "hizmet_ekle",
+                language           :               $scope.icerikLang,
                 service_image      :               $scope.inputField.img,  
                 service_name       :               $scope.inputField.name,
                 service_description:               $scope.inputField.desc
@@ -805,6 +806,7 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :               "hizmet_guncelle",
+                language           :               $scope.icerikLang,
                 service_id         :               $scope.editInput.itemID,
                 service_image      :               $scope.inputField.img,
                 service_name       :               $scope.inputField.name,
@@ -841,6 +843,7 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :               "referans_ekle",
+                language           :               $scope.icerikLang,
                 reference_image    :               $scope.inputField.img,
                 reference_name     :               $scope.inputField.name
               }
@@ -856,6 +859,7 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :               "referans_guncelle",
+                language           :               $scope.icerikLang,
                 reference_id       :               $scope.editInput.itemID,
                 reference_image    :               $scope.inputField.img,
                 reference_name     :               $scope.inputField.name 
@@ -890,6 +894,7 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :               "calisan_ekle",
+                language           :               $scope.icerikLang,
                 team_name          :               $scope.inputField.name,
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
@@ -908,6 +913,7 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :               "calisan_guncelle",
+                language           :               $scope.icerikLang,
                 team_id            :               $scope.editInput.itemID,
                 team_name          :               $scope.inputField.name,
                 team_position      :               $scope.inputField.position,
@@ -945,6 +951,7 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :               "egitim_ekle",
+                language           :               $scope.icerikLang,
                 course_image       :               $scope.inputField.img,
                 course_name        :               $scope.inputField.head,
                 course_description :               $scope.inputField.desc,
@@ -966,6 +973,7 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :               "egitim_guncelle",
+                language           :               $scope.icerikLang,
                 course_id          :               $scope.editInput.itemID,
                 course_image       :               $scope.inputField.img,
                 course_name        :               $scope.inputField.head,
@@ -1033,6 +1041,7 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :                 "kelime_ekle",
+                language           :                 $scope.icerikLang,
                 word_name          :                 $scope.inputField.name,
                 word_description   :                 $scope.inputField.desc 
               }
@@ -1048,6 +1057,7 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :                  "kelime_guncelle",
+                language           :                  $scope.icerikLang,
                 word_id            :                  $scope.editInput.itemID,
                 word_name          :                  $scope.inputField.name,
                 word_description   :                  $scope.inputField.desc
