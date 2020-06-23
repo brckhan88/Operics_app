@@ -436,7 +436,7 @@ angular.module('starter.controllers', [])
       });
       var ServiceRequest = {
           service_type     :  "catchPP",
-          photoLink        :  $scope.profileImage;
+          photoLink        :  $scope.profileImage
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
@@ -468,7 +468,7 @@ angular.module('starter.controllers', [])
       });
       var ServiceRequest = {
           service_type     :  "catchPP",
-          photoLink        :  $scope.profileImage;
+          photoLink        :  $scope.profileImage
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
