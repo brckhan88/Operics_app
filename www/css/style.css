@@ -199,7 +199,30 @@
   overflow-y: scroll;
 
 }
+.images_icon{
+  font-size: 215%;
+  margin-left: 40%;
+}
+.images_card{
+  margin-top:-62px;
+  margin-left: -84%;
+  font-size: 120%;
+  color: white;
+}
+.card_width{
+  width: 89%;
+  margin-top: 4%;
+}
+.add_card{
+  height: 143px; 
+  border-radius:10px !important;
+}
 
+.add_scard{
+  height: 51px;
+  border-radius: 10px !important;
+  
+}
 /* Empty. Add your own CSS if you like */
 
 
