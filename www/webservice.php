@@ -302,6 +302,22 @@ switch ($service_type) {
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
+    case "favlist":
+        $login_id=$data["user_id"];
+        $sorgu = "
+        SELECT F.LOGIN_ID, DIC.WORD, DIC.DESCRIPTION
+        FROM DICTIONARY DIC
+        LEFT JOIN FAVORITES F ON F.DICTIONARY_ID = DIC.ID
+        AND F.LOGIN_ID=".$login_id." 
+        ORDER BY DIC.WORD ASC";
+        $data = $conn->query($sorgu);
+        foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $rows[]=$row;
+        }
+
+        print json_encode($rows, JSON_UNESCAPED_UNICODE);
+    break;
+
     case "ekip":
         $sorgu = "SELECT * FROM TEAMS";
         $data = $conn->query($sorgu);
