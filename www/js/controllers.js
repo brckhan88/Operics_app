@@ -400,7 +400,7 @@ angular.module('starter.controllers', [])
 
     }*/
 
-    $scope.getMap = function (lat, lng) {
+  $scope.getMap = function (lat, lng) {
       // var options = { timeout: 10000, enableHighAccuracy: true };
 
 
@@ -416,8 +416,21 @@ angular.module('starter.controllers', [])
       };
 
       $timeout(function () {
-        $scope.map = new google.maps.Map(document.getElementById("map2"), mapOptions);
+        $scope.map = new google.maps.Map(document.getElementById("map1"), mapOptions);
 
+        var latLng = new google.maps.LatLng(lat, lng);
+          $scope.marker = new google.maps.Marker({
+            map: $scope.map,
+            animation: google.maps.Animation.DROP,
+            position: latLng
+          });
+       
+
+      });
+
+
+    };
+   // ps.Map(document.getElementById("map2"), mapOptions);lementById("map1"), mapOptions);
 
 
     // Profil resmi için kamera kontrolcüsü
