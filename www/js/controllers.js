@@ -389,31 +389,25 @@ angular.module('starter.controllers', [])
 
     //Harita Çağırma
 
-    $scope.getMap = function (lat, lng) {
-    // var options = { timeout: 10000, enableHighAccuracy: true };
-
-    // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+    /*var map = null; 
+    $scope.showMap = function () { 
+      console.log("burasdayim"); 
+      var directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true }); 
+      var directionsService = new google.maps.DirectionsService; 
+      var mapOptions = { 
+        center: new google.maps.LatLng(43.07493, -89.381388), 
+        zoom: 16, mapTypeId: google.maps.MapTypeId.ROADMAP 
+      }; 
+      map = new google.maps.Map(document.getElementById("map"), mapOptions); 
       var latLng = new google.maps.LatLng(lat, lng);
-
-      var mapOptions = {
-        center: latLng,
-        zoom: 14,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      $timeout(function () {
-        $scope.map = new google.maps.Map(document.getElementById("map1"), mapOptions);
-
-        var latLng = new google.maps.LatLng(lat, lng);
           $scope.marker = new google.maps.Marker({
             map: $scope.map,
             animation: google.maps.Animation.DROP,
             position: latLng
           });
-      });
+      directionsDisplay.setMap(map); caHTML
     };
-    // ps.Map(document.getElementById("map2"), mapOptions);lementById("map1"), mapOptions);
+    */
 
 
     // Profil resmi için kamera kontrolcüsü
