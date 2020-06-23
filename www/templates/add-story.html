@@ -26,7 +26,7 @@
         <label class=" ekle_input item item-input card_width add_card" >
           <i class="ion-images images_icon"></i>
           <button class="button button-clear button-assertive " ng-click="changePP()"> <input class="ekle_input item-input" type="text"></button>
-          <input class="images_card" type="text" placeholder="{{diller[29].kelime}}" style="color: white;" ng-model="inputField.img">
+          <img src="inputField.img">
         </label>
 
         <label class="ekle_input item item-input card_width add_scard">
@@ -40,6 +40,8 @@
           <textarea type="text" class="scroll_structure add_text" placeholder="{{diller[27].kelime}}" ng-model="inputField.desc" ></textarea>
         </label>
       </center>
+
+      {{inputField.img}}
 
 
 

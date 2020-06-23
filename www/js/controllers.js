@@ -3,8 +3,6 @@ angular.module('starter.controllers', [])
   .controller('MainCtrl', function ($scope, $state, $rootScope, $stateParams, $ionicModal, $http, $ionicPopup, $cordovaCamera, $ionicActionSheet, $location) {
 
     $rootScope.webServiceUrl = "http://www.microwebservice.net/operics_web/webservice.php";
-    $scope.pictureUrl = "http://placehold.it/200x200";
-
 
     /*
     
