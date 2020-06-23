@@ -37,25 +37,24 @@
 
   
         <label class="ekle_input item item-input card_width add_scard" style="height: 106px;">
-          <textarea type="text" class="scroll_structure" placeholder="{{diller[27].kelime}}" style="margin-top:-28px;margin-left: -7%;width: 150%;" ng-model="inputField.desc" ></textarea>
+          <textarea type="text" class="scroll_structure add_text" placeholder="{{diller[27].kelime}}" ng-model="inputField.desc" ></textarea>
         </label>
       </center>
 
 
 
-  <div class="center"style="margin-top: 20%;">
-    <button class="button button-assertive add_button " ng-click="applyButton('stories','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
-      <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? diller[23].kelime : editFg==1 ? diller[43].kelime : ''}}</h3>
-    </button>
-  </div>
-  <br>
-  <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('stories','sil')">
-    <button class="button button-assertive add_button">
-      <h3 style=" color: white;font-family: monospace;">{{diller[44].kelime}}</h3>
-    </button>
-  </div>
-
-</div>
+      <div class="center"style="margin-top: 20%;">
+       <button class="button button-assertive add_button " ng-click="applyButton('stories','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
+       <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? diller[23].kelime : editFg==1 ? diller[43].kelime : ''}}</h3>
+       </button>
+      </div>
+      <br>
+      <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('stories','sil')">
+       <button class="button button-assertive add_button">
+       <h3 style=" color: white;font-family: monospace;">{{diller[44].kelime}}</h3>
+       </button>
+     </div>
+   </div>
 
 </ion-content>
 
