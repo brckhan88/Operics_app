@@ -332,14 +332,14 @@ switch ($service_type) {
         $course_id  = $data["course_id"];
 
         $sorgu = "SELECT * from ENROLL";
-        $is_enrolled = "false";
+        $is_enrolled = false;
         $sıra = 1;
 
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             if($row["LOGIN_ID"]==$user_id){
                 if($row["COURSE_ID"]==$course_id){
-                    $is_enrolled = "true";
+                    $is_enrolled = true;
                 } 
                  $sıra++;
             }
