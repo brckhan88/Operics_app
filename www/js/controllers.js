@@ -897,7 +897,7 @@ angular.module('starter.controllers', [])
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
                 team_linkedin      :               $scope.inputField.link,
-                team_image         :               "img/profile.jpg"  
+                team_image         :               $scope.inputField.img  
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -917,7 +917,7 @@ angular.module('starter.controllers', [])
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
                 team_linkedin      :               $scope.inputField.link,
-                team_image         :               "img/team/3.png"  
+                team_image         :               $scope.inputField.img  
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
