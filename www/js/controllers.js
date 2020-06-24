@@ -630,6 +630,17 @@ angular.module('starter.controllers', [])
       console.log(language);
     };
 
+    //Dil kodu dönüştürücü
+    $scope.transformLangToLang = function (itemLang) {
+      if (itemLang == '+90') {
+        $scope.editLang('TR');
+      } else if (itemLang == '+49') {
+        $scope.editLang('DE');
+      } else  (itemLang == '+44') {
+        $scope.editLang('EN');
+      }
+    } 
+
 
 
 
@@ -638,7 +649,6 @@ angular.module('starter.controllers', [])
       $scope.editFg = editFlag;
       
       if ($scope.editFg == 1) {
-        
         $scope.inputField.name      = $scope.editInput.name;
         $scope.inputField.position  = $scope.editInput.position;
         $scope.inputField.link      = $scope.editInput.link;
@@ -771,7 +781,6 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "story_ekle",
                 language           :               $scope.icerikLang,
-                def_lang           :               $scope.language,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
                 story_about        :               $scope.inputField.desc  
@@ -825,7 +834,6 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "hizmet_ekle",
                 language           :               $scope.icerikLang,
-                def_lang           :                 $scope.language,
                 service_image      :               $scope.inputField.img,  
                 service_name       :               $scope.inputField.name,
                 service_description:               $scope.inputField.desc
@@ -879,8 +887,6 @@ angular.module('starter.controllers', [])
             case 'ekle':
               var ServiceRequest = {
                 service_type       :               "referans_ekle",
-                language           :               $scope.icerikLang,
-                def_lang           :               $scope.language,
                 reference_image    :               $scope.inputField.img,
                 reference_name     :               $scope.inputField.name
               }
@@ -896,7 +902,6 @@ angular.module('starter.controllers', [])
             case 'guncelle':
               var ServiceRequest = {
                 service_type       :               "referans_guncelle",
-                language           :               $scope.icerikLang,
                 reference_id       :               $scope.editInput.itemID,
                 reference_image    :               $scope.inputField.img,
                 reference_name     :               $scope.inputField.name 
@@ -932,7 +937,6 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "calisan_ekle",
                 language           :               $scope.icerikLang,
-                def_lang           :               $scope.language,
                 team_name          :               $scope.inputField.name,
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
@@ -990,7 +994,6 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "egitim_ekle",
                 language           :               $scope.icerikLang,
-                def_lang           :               $scope.language,
                 course_image       :               $scope.inputField.img,
                 course_name        :               $scope.inputField.head,
                 course_description :               $scope.inputField.desc,
@@ -1081,7 +1084,6 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :                 "kelime_ekle",
                 language           :                 $scope.icerikLang,
-                def_lang           :                 $scope.language,
                 word_name          :                 $scope.inputField.name,
                 word_description   :                 $scope.inputField.desc 
               }
@@ -1190,6 +1192,7 @@ angular.module('starter.controllers', [])
       }
     };
     $scope.isLogged();
+    $scope.editLang($scope.language);
 
   });
 

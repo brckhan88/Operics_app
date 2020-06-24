@@ -459,10 +459,6 @@ switch ($service_type) {
 
     case "hizmet_ekle":
         $language       = $data["language"];
-        $def_lang       = $data["def_lang"];
-        if (!$language) {
-            $language       = $def_lang ;
-        }
         if ($language == 'TR') {
             $language = '+90';
         } else if ($language == 'DE') {
@@ -572,10 +568,6 @@ switch ($service_type) {
 
     case "egitim_ekle":
         $language       = $data["language"];
-        $def_lang       = $data["def_lang"];
-        if (!$language) {
-            $language       = $def_lang ;
-        }
         if ($language == 'TR') {
             $language = '+90';
         } else if ($language == 'DE') {
@@ -627,10 +619,6 @@ switch ($service_type) {
 
     case "kelime_ekle":
         $language       = $data["language"];
-        $def_lang       = $data["def_lang"];
-        if (!$language) {
-            $language       = $def_lang ;
-        }
         if ($language == 'TR') {
             $language = '+90';
         } else if ($language == 'DE') {
@@ -685,10 +673,6 @@ switch ($service_type) {
 
     case "story_ekle":
         $language       = $data["language"];
-        $def_lang       = $data["def_lang"];
-        if (!$language) {
-            $language       = $def_lang ;
-        }
         if ($language == 'TR') {
             $language = '+90';
         } else if ($language == 'DE') {
