@@ -712,7 +712,7 @@ switch ($service_type) {
         $data = $conn->query($sorgu);
     break;
 
-    case "version_check":
+    case "get_current_version":
   
         $sorgu = "SELECT * FROM VERSIONS";
         $data = $conn->query($sorgu);
@@ -723,23 +723,9 @@ switch ($service_type) {
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
-
-
-
-
 }
 
-
-
-
-
-
-
-
 exit;
-    
-
-    
-    
+     
 $conn = null;
 ?>

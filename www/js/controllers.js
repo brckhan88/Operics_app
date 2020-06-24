@@ -43,6 +43,7 @@ angular.module('starter.controllers', [])
     $scope.loginStatus                  = localStorage.getItem('loginStatus');
     $scope.isAdmin                      = localStorage.getItem('isAdmin');
     $scope.languageOld                  = localStorage.getItem('languageOld');
+    $scope.currentVersion               = JSON.parse(localStorage.getItem('versionJson'));
     $scope.diller                       = JSON.parse(localStorage.getItem('dillerJson'));
     $scope.userList                     = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
     $scope.hikayeler                    = JSON.parse(localStorage.getItem('hikayeJson'));
@@ -56,21 +57,36 @@ angular.module('starter.controllers', [])
    
     // Version Kontrolü
 
-    /*$scope.versionChck = function () {
-      
-      var ServiceRequest = {
-        service_type: "version_check"
+    $scope.versionChck = function () {
+      if(!$scope.currentVersion) {
+        var ServiceRequest = {
+          service_type       :      "get_current_version",
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+          localStorage.setItem('versionJson', JSON.stringify(data));
+          $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
+        })
       }
-      // Service request değişkeni web service post edilir. Gelen yanıt $scope.giris isimli değişkene atanır.
-      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-        $scope.versions = data
-        if (!$scope.savedVersions) {
-          localStorage.setItem('savedVersionJson', JSON.stringify($scope.versions));
-          $scope.savedVersions = JSON.parse(localStorage.getItem('savedVersionJson'));
-        } 
+
+      var ServiceRequest = {
+        service_type       :         "version_check",
+        language_version   :          $scope.currentVersion[7].TABLE_VERSION,
+        story_version      :          $scope.currentVersion[1].TABLE_VERSION,
+        service_version    :          $scope.currentVersion[2].TABLE_VERSION,
+        team_version       :          $scope.currentVersion[3].TABLE_VERSION,
+        reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
+        dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
+        course_version     :          $scope.currentVersion[6].TABLE_VERSION,
+        about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
+      }
+
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+        $scope.versionResponse = data;
       })
       
-    }*/
+    };
+    $scope.versionChck();
     
     
 
