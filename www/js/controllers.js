@@ -771,6 +771,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "story_ekle",
                 language           :               $scope.icerikLang,
+                def_lang           :               $scope.language,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
                 story_about        :               $scope.inputField.desc  
@@ -824,6 +825,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "hizmet_ekle",
                 language           :               $scope.icerikLang,
+                def_lang           :                 $scope.language,
                 service_image      :               $scope.inputField.img,  
                 service_name       :               $scope.inputField.name,
                 service_description:               $scope.inputField.desc
@@ -878,6 +880,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "referans_ekle",
                 language           :               $scope.icerikLang,
+                def_lang           :               $scope.language,
                 reference_image    :               $scope.inputField.img,
                 reference_name     :               $scope.inputField.name
               }
@@ -929,6 +932,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "calisan_ekle",
                 language           :               $scope.icerikLang,
+                def_lang           :               $scope.language,
                 team_name          :               $scope.inputField.name,
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
@@ -986,6 +990,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "egitim_ekle",
                 language           :               $scope.icerikLang,
+                def_lang           :               $scope.language,
                 course_image       :               $scope.inputField.img,
                 course_name        :               $scope.inputField.head,
                 course_description :               $scope.inputField.desc,
@@ -1076,6 +1081,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :                 "kelime_ekle",
                 language           :                 $scope.icerikLang,
+                def_lang           :                 $scope.language,
                 word_name          :                 $scope.inputField.name,
                 word_description   :                 $scope.inputField.desc 
               }
