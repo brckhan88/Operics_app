@@ -630,16 +630,17 @@ angular.module('starter.controllers', [])
       console.log(language);
     };
 
+
     //Dil kodu dönüştürücü
     $scope.transformLangToLang = function (itemLang) {
       if (itemLang == '+90') {
         $scope.editLang('TR');
       } else if (itemLang == '+49') {
         $scope.editLang('DE');
-      } else  (itemLang == '+44') {
+      } else {
         $scope.editLang('EN');
       }
-    } 
+    };
 
 
 
@@ -685,6 +686,7 @@ angular.module('starter.controllers', [])
             });
           } else if ($scope.abouttab == 2) {
             if ($scope.editFg == 1) {
+              $scope.transformLangToLang($scope.editInput.LangID);
               $scope.modal.hide();
             }
             $ionicModal.fromTemplateUrl('templates/add-teams.html', { scope: $scope }).then(function (modal) {
@@ -693,6 +695,7 @@ angular.module('starter.controllers', [])
             });
           } else {
             if ($scope.editFg == 1) {
+              $scope.transformLangToLang($scope.editInput.LangID);
               $scope.modal.hide();
             }
             $ionicModal.fromTemplateUrl('templates/add-service.html', { scope: $scope }).then(function (modal) {
@@ -703,7 +706,9 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editCourse':
+          console.log($scope.editInput.itemID);
           if ($scope.editFg == 1) {
+            $scope.transformLangToLang($scope.editInput.LangID);
             $scope.modal.hide();
           }
           $ionicModal.fromTemplateUrl('templates/add-course.html', { scope: $scope }).then(function (modal) {
@@ -713,6 +718,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'editStory':
+          $scope.transformLangToLang($scope.editInput.LangID);
           $scope.modal.hide();
       
           $ionicModal.fromTemplateUrl('templates/add-story.html', { scope: $scope }).then(function (modal) {
@@ -723,6 +729,7 @@ angular.module('starter.controllers', [])
 
         case 'editProfile':
           if ($scope.editFg == 1) {
+            $scope.transformLangToLang($scope.editInput.LangID);
             $scope.modal.hide();
           }
           $ionicModal.fromTemplateUrl('templates/profile-detail.html', { scope: $scope }).then(function (modal) {
@@ -733,6 +740,7 @@ angular.module('starter.controllers', [])
 
         case 'editTeam':
           if ($scope.editFg == 1) {
+            $scope.transformLangToLang($scope.editInput.LangID);
             $scope.modal.hide();
           }
           $ionicModal.fromTemplateUrl('templates/add-teams.html', { scope: $scope }).then(function (modal) {
@@ -743,6 +751,7 @@ angular.module('starter.controllers', [])
 
         case 'editDic':
           if ($scope.editFg == 1) {
+            $scope.transformLangToLang($scope.editInput.LangID);
             $scope.modal.hide();
           }
           $ionicModal.fromTemplateUrl('templates/add-dictionary.html', { scope: $scope }).then(function (modal) {
@@ -753,6 +762,7 @@ angular.module('starter.controllers', [])
 
         case 'editCon':
           if ($scope.editFg == 1) {
+            $scope.transformLangToLang($scope.editInput.LangID);
             $scope.modal.hide();
           }
           $ionicModal.fromTemplateUrl('templates/add-contact.html', { scope: $scope }).then(function (modal) {
@@ -1192,7 +1202,6 @@ angular.module('starter.controllers', [])
       }
     };
     $scope.isLogged();
-    $scope.editLang($scope.language);
 
   });
 
