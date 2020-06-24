@@ -723,7 +723,54 @@ switch ($service_type) {
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
+    case "version_check":
+        $language_version   = $data["language_version"];
+        $story_version      = $data["story_version"];
+        $service_version    = $data["service_version"];
+        $teams_version      = $data["teams_version"];
+        $reference_version  = $data["reference_version"];
+        $dictionary_version = $data["dictionary_version"];
+        $course_version     = $data["course_version"];
+        $about_us_version   = $data["about_us_version"];
+
+        $sorgu = "SELECT TABLE_VERSION FROM VERSIONS  GROUP BY TABLE_VERSION";
+
+        foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            if($row["USER_EMAIL"]==$email){
+                $error = null;
+                    if($row["USER_PASSWORD"]==md5($sifre)){
+                        if($row["USER_TYPE"]=="passive"){
+                            if ($dil == TR ) {
+                                $error = "Profiliniz doğrulanmamıştır! Lütfen yeniden kayıt olup SMS onayı yapınız.";  
+                            } else if ($dil == EN ) {
+                                $error =  "Your profile has not been verified! Please re-register and confirm SMS.";
+                            } else if ($dil == DE ) {
+                                $error =  "Ihr Profil wurde nicht verifiziert! Bitte melden Sie sich erneut an und bestätigen Sie SMS.";
+                            }
+                        } else {
+                            $login_status = true;
+                            $user_id = $row["ID"];
+                            $user_type = $row["USER_TYPE"];
+                            $user_name = $row["USER_NAME"];
+                        }
+                    } else {
+                        if ($dil == TR ) {
+                           $error = "Şifrenizi yanlış girdiniz! Lütfen tekrar deneyiniz.";
+                        } else if ($dil == EN ) {
+                            $error =  "Your password is invalid! Please try again.";
+                        } else if ($dil == DE ) {
+                            $error =  "Sie haben Ihr Passwort falsch eingegeben! Bitte versuchen Sie es erneut.";
+                        }
+
+                    }
+                    $sıra++;
+                }
+        
+    break;
+
+
 }
+
 
 exit;
      
