@@ -67,23 +67,24 @@ angular.module('starter.controllers', [])
           localStorage.setItem('versionJson', JSON.stringify(data));
           $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
         })
-      }
+      } else {
 
-      var ServiceRequest = {
-        service_type       :         "version_check",
-        language_version   :          $scope.currentVersion[7].TABLE_VERSION,
-        story_version      :          $scope.currentVersion[1].TABLE_VERSION,
-        service_version    :          $scope.currentVersion[2].TABLE_VERSION,
-        team_version       :          $scope.currentVersion[3].TABLE_VERSION,
-        reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
-        dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
-        course_version     :          $scope.currentVersion[6].TABLE_VERSION,
-        about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
-      }
+        var ServiceRequest = {
+          service_type       :         "version_check",
+          language_version   :          $scope.currentVersion[7].TABLE_VERSION,
+          story_version      :          $scope.currentVersion[1].TABLE_VERSION,
+          service_version    :          $scope.currentVersion[2].TABLE_VERSION,
+          team_version       :          $scope.currentVersion[3].TABLE_VERSION,
+          reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
+          dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
+          course_version     :          $scope.currentVersion[6].TABLE_VERSION,
+          about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
+        }
 
-      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
-        $scope.versionResponse = data;
-      })
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+          $scope.versionResponse = data;
+        })
+      }
       
     };
     $scope.versionChck();

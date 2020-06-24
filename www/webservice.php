@@ -719,7 +719,6 @@ switch ($service_type) {
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $rows[]=$row;
         }
-        $rows[] = ["TABLE_NAME"=>"COURSE","TABLE_VERSION"=>"0"];
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
@@ -733,39 +732,50 @@ switch ($service_type) {
         $course_version     = $data["course_version"];
         $about_us_version   = $data["about_us_version"];
 
-        $sorgu = "SELECT TABLE_VERSION FROM VERSIONS  GROUP BY TABLE_VERSION";
+        $sorgu = "SELECT * FROM VERSIONS";
+        $response_lan  = true;
+        $response_ser  = true;
+        $response_tea  = true;
+        $response_ref  = true;
+        $response_dic  = true;
+        $response_cou  = true;
+        $response_abo  = true;
+        $response_test  = true;
 
-        foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
-            if($row["USER_EMAIL"]==$email){
-                $error = null;
-                    if($row["USER_PASSWORD"]==md5($sifre)){
-                        if($row["USER_TYPE"]=="passive"){
-                            if ($dil == TR ) {
-                                $error = "Profiliniz doğrulanmamıştır! Lütfen yeniden kayıt olup SMS onayı yapınız.";  
-                            } else if ($dil == EN ) {
-                                $error =  "Your profile has not been verified! Please re-register and confirm SMS.";
-                            } else if ($dil == DE ) {
-                                $error =  "Ihr Profil wurde nicht verifiziert! Bitte melden Sie sich erneut an und bestätigen Sie SMS.";
-                            }
-                        } else {
-                            $login_status = true;
-                            $user_id = $row["ID"];
-                            $user_type = $row["USER_TYPE"];
-                            $user_name = $row["USER_NAME"];
-                        }
-                    } else {
-                        if ($dil == TR ) {
-                           $error = "Şifrenizi yanlış girdiniz! Lütfen tekrar deneyiniz.";
-                        } else if ($dil == EN ) {
-                            $error =  "Your password is invalid! Please try again.";
-                        } else if ($dil == DE ) {
-                            $error =  "Sie haben Ihr Passwort falsch eingegeben! Bitte versuchen Sie es erneut.";
-                        }
+        $data = $conn->query($sorgu);
 
-                    }
-                    $sıra++;
-                }
+        if($data[7].TABLE_VERSION!=$language_version) {
+            $response_lan  = false;
+        }
+        if($data[1].TABLE_VERSION!=$story_version) {
+            $response_sto  = false;
+        }
+        if($data[2].TABLE_VERSION!=$service_version) {
+            $response_ser  = false;
+        }
+        if($data[3].TABLE_VERSION!=$teams_version) {
+            $response_tea  = false;
+        }
+        if($data[4].TABLE_VERSION!=$reference_version) {
+            $response_ref  = false;
+        }
+        if($data[5].TABLE_VERSION!=$dictionary_version) {
+            $response_dic  = false;
+        }
+        if($data[6].TABLE_VERSION!=$course_version) {
+            $response_cou  = false;
+        }
+        if($data[8].TABLE_VERSION!=$about_us_version) {
+            $response_abo  = false;
+        }
+        if($data[0].TABLE_VERSION!=5) {
+            $response_test  = false;
+        }
+
+        $rows[]=["response_lan"=>$response_lan,"response_sto"=>$response_sto,"response_ser"=>$response_ser,"response_tea"=>$response_lan,"response_ref"=>$response_ref,"response_dic"=>$response_dic,"response_cou"=>$response_cou,"response_abo"=>$response_abo,"response_test"=>$response_test];
         
+        print json_encode($rows, JSON_UNESCAPED_UNICODE);
+   
     break;
 
 
