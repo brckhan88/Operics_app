@@ -15,12 +15,12 @@
 				<p>{{veri.USER_EMAIL}} - {{veri.USER_PHONE}}</p>
 				<i class="icon ion-chevron-right icon-accessory"></i>
 
-				<ion-option-button class="button-assertive" ng-click="applyButton()">
-					Hesabı Sil
+				<ion-option-button class="button-assertive" ng-click="adminUserInteraction('userRemove',{{$index}})">
+					Sil
 				</ion-option-button>
 
-				<ion-option-button class="button-assertive" ng-click="remove(chat)">
-					Hesabı Dondur
+				<ion-option-button class="button-assertive" ng-click="adminUserInteraction('userBanorRelease',{{$index}})">
+					{{veri.USER_TYPE=='banned' ? 'Engeli Kaldır' : 'Engelle'}}
 				</ion-option-button>
 				
 			</ion-item>

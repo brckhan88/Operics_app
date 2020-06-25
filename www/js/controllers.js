@@ -199,19 +199,20 @@ angular.module('starter.controllers', [])
             localStorage.setItem('isAdmin', 0);
             $scope.isAdmin = localStorage.getItem('isAdmin');
           }
-          if (!$scope.userList && ($scope.isAdmin == 1) ) {
-            localStorage.removeItem('kullanıcıListesiJson');
-            var ServiceRequest = {
-              service_type: "admin_users_detail",
-            }
-
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-              localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
-              $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
-            })    
-          }
         })     
       } 
+
+      if (!$scope.userList && ($scope.isAdmin == 1) ) {
+        localStorage.removeItem('kullanıcıListesiJson');
+        var ServiceRequest = {
+          service_type: "admin_users_detail",
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
+          $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+        })    
+      }
 
       if (!$scope.hikayeler ) {
         var ServiceRequest = {
@@ -688,7 +689,35 @@ angular.module('starter.controllers', [])
       }
     };
 
+    $scope.adminUserInteraction = function (type, id) {
+      console.log(type + " " +id);
+      switch (type) {
+        case 'userBanorRelease':
+          if ($scope.userList[id].USER_TYPE == 'user') {
+            var ServiceRequest = {
+              service_type       :           "admin_user_block",
+              user_id            :           $scope.userList[id].ID,
+            }
 
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+          } else {
+            var ServiceRequest = {
+              service_type       :           "admin_user_unblock",
+              user_id            :           $scope.userList[id].ID,
+            }
+
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+          }
+          break;
+
+        case 'userRemove':
+
+          break;
+      }
+      localStorage.removeItem('kullanıcıListesiJson');
+      $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+      $scope.loadData();
+    };
 
 
     $scope.editgosterici = function (tur, editFlag) {

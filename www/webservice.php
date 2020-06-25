@@ -87,7 +87,15 @@ switch ($service_type) {
                             } else if ($dil == DE ) {
                                 $error =  "Ihr Profil wurde nicht verifiziert! Bitte melden Sie sich erneut an und bestätigen Sie SMS.";
                             }
-            			} else {
+            			} else if ($row["USER_TYPE"]=="banned"){
+                            if ($dil == TR ) {
+                                $error = "Uygulamaya erişiminiz yönetim tarafından engellenmiştir.";  
+                            } else if ($dil == EN ) {
+                                $error =  "Your access to the application has been blocked by administration.";
+                            } else if ($dil == DE ) {
+                                $error =  "Ihr Zugriff auf die Anwendung wurde vom Management blockiert.";
+                            }
+                        } else {
             				$login_status = true;
                             $user_id = $row["ID"];
                             $user_type = $row["USER_TYPE"];
@@ -441,7 +449,7 @@ switch ($service_type) {
 
     case "admin_user_unblock":
         $user_id = $data["user_id"];
-        $sorgu = "UPDATE `LOGIN` SET USER_TYPE = 'active' WHERE ID=".$user_id;
+        $sorgu = "UPDATE `LOGIN` SET USER_TYPE = 'user' WHERE ID=".$user_id;
         $data = $conn->query($sorgu);
     break;
 
