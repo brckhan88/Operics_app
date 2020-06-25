@@ -557,7 +557,12 @@ angular.module('starter.controllers', [])
       }
     }
 
-    $scope.wait =function (ms) {
+   $scope.moveItem = function(item, fromIndex, toIndex) {
+    $scope.items.splice(fromIndex, 1);
+    $scope.items.splice(toIndex, 0, item);
+   };
+
+   $scope.wait =function (ms) {
       var start = new Date().getTime();
       var end = start;
       while(end < start + ms) {
@@ -1242,7 +1247,14 @@ angular.module('starter.controllers', [])
           break;
       }
     };
+
+
+   
+
+
+
     $scope.isLogged();
+
 
   });
 
