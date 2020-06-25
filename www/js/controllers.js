@@ -382,16 +382,11 @@ angular.module('starter.controllers', [])
           localStorage.setItem('loginStatus', 1);
           $scope.loginStatus = localStorage.getItem('loginStatus');
           $scope.loadData(); 
+          location.href = "#/tab/main";
           $scope.modal.hide();
           console.log($scope.loginStatus);
         }
       })
-    }
-
-    $scope.moveToNext = function  (field1, maxlength, field2) {
-      if (document.getElementById(field1).length == maxlength) {
-        document.getElementById(field2).focus();
-      }
     }
     
 
@@ -406,7 +401,7 @@ angular.module('starter.controllers', [])
 
     //Harita Çağırma
 
-    /*var map = null; 
+    var map = null; 
     $scope.showMap = function () { 
       console.log("burasdayim"); 
       var directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true }); 
@@ -416,15 +411,15 @@ angular.module('starter.controllers', [])
         zoom: 16, mapTypeId: google.maps.MapTypeId.ROADMAP 
       }; 
       map = new google.maps.Map(document.getElementById("map"), mapOptions); 
-      var latLng = new google.maps.LatLng(lat, lng);
-          $scope.marker = new google.maps.Marker({
-            map: $scope.map,
-            animation: google.maps.Animation.DROP,
-            position: latLng
-          });
-      directionsDisplay.setMap(map); caHTML
+      var latLng = new google.maps.LatLng(43.07493, 89.381388);
+      $scope.marker = new google.maps.Marker({
+        map: $scope.map,
+        animation: google.maps.Animation.DROP,
+        position: latLng
+      });
+     
     };
-    */
+    
 
 
     // Profil resmi için kamera kontrolcüsü

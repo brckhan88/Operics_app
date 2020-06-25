@@ -743,7 +743,7 @@ switch ($service_type) {
         $response_test  = true;
 
 
-       /* $sorgu = "SELECT * FROM VERSIONS";
+        /*$sorgu = "SELECT * FROM VERSIONS";
         $data = $conn->query($sorgu);
 
         if($data!=$language_version) {
@@ -806,7 +806,7 @@ switch ($service_type) {
         if($data!=5) {
             $response_test  = false;
         }
-        */ 
+        */
 
         $rows[]=["response_lan"=>$response_lan,"response_sto"=>$response_sto,"response_ser"=>$response_ser,"response_tea"=>$response_lan,"response_ref"=>$response_ref,"response_dic"=>$response_dic,"response_cou"=>$response_cou,"response_abo"=>$response_abo,"response_test"=>$response_test];
 
