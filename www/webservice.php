@@ -445,6 +445,12 @@ switch ($service_type) {
         $data = $conn->query($sorgu);
     break;
 
+    case "admin_user_delete":
+        $user_id = $data["user_id"];
+        $sorgu = "DELETE FROM `lOGIN` WHERE ID=".$user_id;
+        $data = $conn->query($sorgu);
+    break;
+
     case "catchPP":
         $deal_pictureUrl = $data["photoLink"];
         $urldate         = new DateTime(date("Y-m-d H:i:s"));
