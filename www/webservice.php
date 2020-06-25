@@ -713,7 +713,6 @@ switch ($service_type) {
     break;
 
     case "get_current_version":
-  
         $sorgu = "SELECT * FROM VERSIONS";
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
