@@ -734,13 +734,14 @@ switch ($service_type) {
 
         
         $response_lan  = true;
+        $response_sto  = true;
         $response_ser  = true;
         $response_tea  = true;
         $response_ref  = true;
         $response_dic  = true;
         $response_cou  = true;
         $response_abo  = true;
-        $response_test  = true;
+        $response_test = true;
 
 
         /*$sorgu = "SELECT * FROM VERSIONS";

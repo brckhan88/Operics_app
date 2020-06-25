@@ -58,39 +58,72 @@ angular.module('starter.controllers', [])
     // Version Kontrolü
 
     $scope.versionChck = function () {
-      if(!$scope.currentVersion) {
-        var ServiceRequest = {
-          service_type       :      "get_current_version",
+      var i ;
+      for (i=0; i<2; i++) {
+        /*
+        if(!$scope.currentVersion) {
+          var ServiceRequest = {
+            service_type       :      "get_current_version",
+          }
+  
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+            localStorage.setItem('versionJson', JSON.stringify(data));
+            $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
+          })
+          console.log("buraya girdi.");
+        } else {
+          var ServiceRequest = {
+            service_type       :         "version_check",
+            language_version   :          $scope.currentVersion[7].TABLE_VERSION,
+            story_version      :          $scope.currentVersion[1].TABLE_VERSION,
+            service_version    :          $scope.currentVersion[2].TABLE_VERSION,
+            team_version       :          $scope.currentVersion[3].TABLE_VERSION,
+            reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
+            dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
+            course_version     :          $scope.currentVersion[6].TABLE_VERSION,
+            about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+            $scope.versionResponse = data[0];
+            if ($scope.versionResponse.response_lan == false) {
+              localStorage.removeItem('dillerJson');
+            }
+            if ($scope.versionResponse.response_sto == false) {
+              localStorage.removeItem('hikayeJson');
+            }
+            if ($scope.versionResponse.response_ser == false) {
+              localStorage.removeItem('hizmetJson');
+            }
+            if ($scope.versionResponse.response_tea == false) {
+              localStorage.removeItem('ekipJson');
+            }
+            if ($scope.versionResponse.response_ref == false) {
+              localStorage.removeItem('referansJson');
+            }
+            if ($scope.versionResponse.response_dic == false) {
+              localStorage.removeItem('sozlukJson');
+            }
+            if ($scope.versionResponse.response_cou == false) {
+              localStorage.removeItem('egitimJson');
+            }
+           //if ($scope.versionResponse.response_abo == false) {
+           //  localStorage.removeItem('..Json');
+           //}
+          })
+          
+
+          localStorage.removeItem('versionJson');
+          console.log("buraya da girdi.");
         }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
-          localStorage.setItem('versionJson', JSON.stringify(data));
-          $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
-        })
-      } else {
-
-        var ServiceRequest = {
-          service_type       :         "version_check",
-          language_version   :          $scope.currentVersion[7].TABLE_VERSION,
-          story_version      :          $scope.currentVersion[1].TABLE_VERSION,
-          service_version    :          $scope.currentVersion[2].TABLE_VERSION,
-          team_version       :          $scope.currentVersion[3].TABLE_VERSION,
-          reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
-          dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
-          course_version     :          $scope.currentVersion[6].TABLE_VERSION,
-          about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
-          $scope.versionResponse = data;
-        })
+        */
       }
       
     };
-    $scope.versionChck();
     
     
-
+    
+  
     // Uygulama dilinin belirlenmesi
    
     if (!$scope.language || !$scope.diller ) {
@@ -1214,6 +1247,7 @@ angular.module('starter.controllers', [])
       }
     };
     $scope.isLogged();
+    $scope.versionChck();
 
   });
 
