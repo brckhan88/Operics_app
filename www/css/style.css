@@ -72,11 +72,24 @@
   border-radius: 4%;
   border-color: #69696987;
 }
-
+.service_header{
+  font-size: 17px;
+  color: #424242; 
+  font-family: -webkit-body; 
+  width: 121%;
+}
 .service_icon{
   font-size: 168%;
   margin-right: 88%;
   margin-top: 0%;
+}
+.iconn{
+  margin-top: -138%;
+}
+
+.right_funct{
+ margin-right: -13%;
+
 }
 
 .reference-location{

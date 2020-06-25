@@ -7,6 +7,7 @@ angular.module('starter.controllers', [])
     /*
     
 
+
     $scope.user_yasakla = function(userId){
       var ServiceRequest = {
         service_type: "admin_user_block",
@@ -556,10 +557,16 @@ angular.module('starter.controllers', [])
       }
     }
 
-   $scope.moveItem = function(item, fromIndex, toIndex) {
-    $scope.items.splice(fromIndex, 1);
-    $scope.items.splice(toIndex, 0, item);
-   };
+  $scope.moveItem = function(hizmet, fromIndex, toIndex) {
+    $scope.hizmetler.splice(fromIndex, 1);
+    $scope.hizmetler.splice(toIndex, 0, hizmet);
+  };
+  
+
+  $scope.test = function(){
+  console.log("Tetikledi");
+  };
+
 
    $scope.wait =function (ms) {
       var start = new Date().getTime();

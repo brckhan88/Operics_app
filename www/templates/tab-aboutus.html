@@ -9,7 +9,7 @@
       <a class="tab-item {{abouttab==1 ? 'active' :''}}" ng-click="tiklaab(1)" href="#/tab/aboutus">
       {{diller[2].kelime}}
       </a>
-      <a class="tab-item {{abouttab==2 ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus">
+      <a class="tab-item {{abouttab==2  ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus">
         {{diller[3].kelime}}
       </a>
     </div>
@@ -25,6 +25,8 @@
    <br> 
     <br>
 
+
+
 <!--Ekleme Butonu-->
 
     <div class="center" ng-if="isAdmin==1" ng-click="editgosterici('editAbout',0)">
@@ -32,24 +34,30 @@
     <h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
     </button>
     </div>
-
+ <br>
+ <button style="margin-left:38%; "class="button" ng-click="data.showReorder = !data.showReorder">
+            Reorder
+        </button>
 <!--Hizmetler Tab-->
   <center> 
+  
+  <div dragable="true" class="col col-100">
+   <ion-list show-reorder="data.showReorder">
+      <ion-item class="col item item-body service_location item item-button-right"
+     item="item" ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" href="#/hizmet/{{hizmet.ID}}" ng-click="modalgosterici('service',{{$index}})">
 
-   <div dragable="true" class="col col-100">
-    <div class="col item item-body service_location" ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" ng-click="modalgosterici('service',{{$index}})">
-    <i class="ion-arrow-move  service_icon " ng-click="editgosterici('editAbout',1)"></i>
+    <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-release="test()"></ion-reorder-button>
 
-    <img style="max-width: 39%;margin-top: -7%;"class="col-50 full-image" ng-src="{{hizmet.SERVICE_IMAGE}}" >
-    <h2 style="font-size: 17px;color: #424242; font-family: -webkit-body;"align="center" class="col">{{hizmet.SERVICE_NAME}}
-    <hr width="100%" size="1">
+    <img style="max-width: 39%;margin-top: -7%;"class="col-50 full-image right_funct" ng-src="{{hizmet.SERVICE_IMAGE}}" >
+    <h2 align="center" class="col service_header right_funct">{{hizmet.SERVICE_NAME}}
+    <hr width="100%" size="1" >
     </h2>
 
-    <p style="font-size: 12px;color: #6e6767;" align="center">{{hizmet.DESCRIPTION}}</p>
-      </div>
-     </div>
+    <p style="font-size: 12px;color: #6e6767;" class="right_funct" align="center">{{hizmet.DESCRIPTION}}</p>
+      </ion-item>
+     </ion-list>
     </div>
-  </center>
+    </center>
 
 
 
