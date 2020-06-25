@@ -199,21 +199,19 @@ angular.module('starter.controllers', [])
             localStorage.setItem('isAdmin', 0);
             $scope.isAdmin = localStorage.getItem('isAdmin');
           }
-        })
-          
+          if (!$scope.userList && ($scope.isAdmin == 1) ) {
+            localStorage.removeItem('kullanıcıListesiJson');
+            var ServiceRequest = {
+              service_type: "admin_users_detail",
+            }
+
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+              localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
+              $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+            })    
+          }
+        })     
       } 
-
-      if (!$scope.userList && ($scope.isAdmin == 1) ) {
-        localStorage.removeItem('kullanıcıListesiJson');
-        var ServiceRequest = {
-          service_type: "admin_users_detail",
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
-          $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
-        })    
-      }
 
       if (!$scope.hikayeler ) {
         var ServiceRequest = {
