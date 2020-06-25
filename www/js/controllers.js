@@ -45,7 +45,6 @@ angular.module('starter.controllers', [])
     $scope.languageOld                  = localStorage.getItem('languageOld');
     $scope.currentVersion               = JSON.parse(localStorage.getItem('versionJson'));
     $scope.diller                       = JSON.parse(localStorage.getItem('dillerJson'));
-    $scope.userList                     = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
     $scope.hikayeler                    = JSON.parse(localStorage.getItem('hikayeJson'));
     $scope.hizmetler                    = JSON.parse(localStorage.getItem('hizmetJson'));
     $scope.ekip                         = JSON.parse(localStorage.getItem('ekipJson'));
@@ -209,8 +208,7 @@ angular.module('starter.controllers', [])
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          localStorage.setItem('kullanıcıListesiJson', JSON.stringify(data));
-          $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+          $scope.userList = data;
         })    
       }
 
@@ -711,11 +709,16 @@ angular.module('starter.controllers', [])
           break;
 
         case 'userRemove':
+            var ServiceRequest = {
+              service_type       :           "admin_user_delete",
+              user_id            :           $scope.userList[id].ID,
+            }
 
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
           break;
       }
-      localStorage.removeItem('kullanıcıListesiJson');
-      $scope.userList = JSON.parse(localStorage.getItem('kullanıcıListesiJson'));
+     
+      $scope.userList = null;
       $scope.loadData();
     };
 
@@ -1213,6 +1216,7 @@ angular.module('starter.controllers', [])
               break;
 
             case 'favoriEkleKaldir' :
+              /*
               if ($scope.aktifMi==false) {
                 var ServiceRequest = {
                   service_type: "favori_ekle",
@@ -1230,6 +1234,7 @@ angular.module('starter.controllers', [])
                 $http.post($rootScope.webServiceUrl, ServiceRequest)
               }
               $scope.chckFaved($scope.itemId);
+              */
               break;
           }
           break;

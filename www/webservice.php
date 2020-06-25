@@ -310,7 +310,7 @@ switch ($service_type) {
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
-    case "favlist":
+    /*case "favlist":
         $login_id=$data["user_id"];
         $sorgu = "
         SELECT F.LOGIN_ID, DIC.WORD, DIC.DESCRIPTION
@@ -325,6 +325,7 @@ switch ($service_type) {
 
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
+    */
 
     case "ekip":
         $sorgu = "SELECT * FROM TEAMS";
@@ -392,8 +393,8 @@ switch ($service_type) {
 
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
-            if($row["DICTIONARY_ID"] == $word_id) {
-                if($row["LOGIN_ID"]  == $user_id) {
+            if($row["LOGIN_ID"] == $user_id) {
+                if($row["DICTIONARY_ID"]  == $word_id) {
                     $is_faved = true;
                 } 
                 $sıra++;
@@ -406,15 +407,15 @@ switch ($service_type) {
     case "favori_ekle":
         $user_id = $data["user_id"];
         $word_id = $data["word_id"];
-        $sorgu = "INSERT INTO `FAVORITES` (`DICTIONARY_ID`, `LOGIN_ID`) VALUES ('$word_id', '$user_id')";
-        $data = $conn->query($sorgu);
+        $sorgu   = "INSERT INTO `FAVORITES` (`LOGIN_ID`, `DICTIONARY_ID`) VALUES ('$user_id', '$word_id')";
+        $data    = $conn->query($sorgu);
     break;
 
     case "favori_cikar":
         $user_id = $data["user_id"];
         $word_id = $data["word_id"];
-        $sorgu = "DELETE FROM `FAVORITES` WHERE (`FAVORITES`.`DICTIONARY_ID` = ".$word_id." AND `FAVORITES`.`LOGIN_ID` = ".$user_id.")";
-        $data = $conn->query($sorgu);
+        $sorgu   = "DELETE FROM `FAVORITES` WHERE (`FAVORITES`.`LOGIN_ID` = ".$user_id." AND `FAVORITES`.`DICTIONARY_ID` = ".$word_id.")";
+        $data    = $conn->query($sorgu);
     break;
 
     case "diller":
