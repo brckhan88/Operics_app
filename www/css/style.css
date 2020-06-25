@@ -64,6 +64,21 @@
   margin-top: 2%;
 }
 
+.service_location{
+  margin-top: 17%;
+  height: 271px;
+  max-width: 69%;
+  overflow: hidden;
+  border-radius: 4%;
+  border-color: #69696987;
+}
+
+.service_icon{
+  font-size: 168%;
+  margin-right: 88%;
+  margin-top: 0%;
+}
+
 .reference-location{
   margin-top: 43%;
   height: 22%;
