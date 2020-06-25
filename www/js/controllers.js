@@ -54,13 +54,64 @@ angular.module('starter.controllers', [])
     $scope.sozluk                       = JSON.parse(localStorage.getItem('sozlukJson'));
     $scope.profil                       = JSON.parse(localStorage.getItem('profilJson'));
      
+    // Uygulama dilinin belirlenmesi
+
+    $scope.tiklabayrak = function (language) {
+
+      localStorage.setItem('languageOld', $scope.language);
+      $scope.languageOld = localStorage.getItem('languageOld');
+      localStorage.setItem('language', language);
+      $scope.language = localStorage.getItem('language')
+      if ($scope.languageOld != $scope.language) {
+        localStorage.removeItem('dillerJson')
+        var ServiceRequest = {
+          service_type: "diller",
+          language: localStorage.getItem('language')
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          localStorage.setItem('dillerJson', JSON.stringify(data));
+          $scope.diller = JSON.parse(localStorage.getItem('dillerJson'));
+        })
+      }
+      console.log(language);
+    };
    
+    if (!$scope.language || !$scope.diller ) {
+      localStorage.setItem('language', "TR");
+      $scope.language = localStorage.getItem('language');
+      localStorage.removeItem('dillerJson');
+      var ServiceRequest = {
+        service_type: "diller",
+        language: localStorage.getItem('language')
+      }
+
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+        localStorage.setItem('dillerJson', JSON.stringify(data));
+        $scope.diller = JSON.parse(localStorage.getItem('dillerJson'));
+      })
+    };
+    
+    // Login Durum Kontrolcüsü
+
+    $scope.isLogged = function () {
+      if ($scope.loginStatus != 1) {
+
+        location.href = "#/login";
+
+      } else {
+        $scope.versionChck();
+
+        location.href = "#/tab/main";
+      }
+    };
+
     // Version Kontrolü
 
     $scope.versionChck = function () {
       var i ;
       for (i=0; i<2; i++) {
-        /*
+
         if(!$scope.currentVersion) {
           var ServiceRequest = {
             service_type       :      "get_current_version",
@@ -88,58 +139,47 @@ angular.module('starter.controllers', [])
             $scope.versionResponse = data[0];
             if ($scope.versionResponse.response_lan == false) {
               localStorage.removeItem('dillerJson');
+              $scope.diller      = JSON.parse(localStorage.getItem('dillerJson'));
             }
             if ($scope.versionResponse.response_sto == false) {
               localStorage.removeItem('hikayeJson');
+              $scope.hikayeler   = JSON.parse(localStorage.getItem('hikayeJson'));
             }
             if ($scope.versionResponse.response_ser == false) {
               localStorage.removeItem('hizmetJson');
+              $scope.hizmetler   = JSON.parse(localStorage.getItem('hizmetJson'));
             }
             if ($scope.versionResponse.response_tea == false) {
               localStorage.removeItem('ekipJson');
+              $scope.ekip        = JSON.parse(localStorage.getItem('ekipJson'));
             }
             if ($scope.versionResponse.response_ref == false) {
               localStorage.removeItem('referansJson');
+              $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
             }
-            if ($scope.versionResponse.response_dic == false) {
+            if ($scope.versionResponse.response_dic == true) {
               localStorage.removeItem('sozlukJson');
+              $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
             }
             if ($scope.versionResponse.response_cou == false) {
               localStorage.removeItem('egitimJson');
+              $scope.egitimler   = JSON.parse(localStorage.getItem('egitimJson'));
             }
-           //if ($scope.versionResponse.response_abo == false) {
-           //  localStorage.removeItem('..Json');
-           //}
+            //if ($scope.versionResponse.response_abo == false) {
+            //  localStorage.removeItem('..Json');
+            //}
           })
-          
 
           localStorage.removeItem('versionJson');
+          $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
           console.log("buraya da girdi.");
         }
-        */
+        
       }
+      $scope.loadData();
       
     };
     
-    
-    
-  
-    // Uygulama dilinin belirlenmesi
-   
-    if (!$scope.language || !$scope.diller ) {
-      localStorage.setItem('language', "TR");
-      $scope.language = localStorage.getItem('language');
-      localStorage.removeItem('dillerJson');
-      var ServiceRequest = {
-        service_type: "diller",
-        language: localStorage.getItem('language')
-      }
-
-      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-        localStorage.setItem('dillerJson', JSON.stringify(data));
-        $scope.diller = JSON.parse(localStorage.getItem('dillerJson'));
-      })
-    };
 
     // Verilerin kontrolü ve yüklenmesi
    
@@ -266,41 +306,6 @@ angular.module('starter.controllers', [])
         }) 
       }
       */
-    }
-
-    // Login Durum Kontrolcüsü
-
-    $scope.isLogged = function () {
-      if ($scope.loginStatus != 1) {
-
-        location.href = "#/login";
-
-      } else {
-        $scope.loadData();
-
-        location.href = "#/tab/main";
-      }
-    }
-
-    $scope.tiklabayrak = function (language) {
-
-      localStorage.setItem('languageOld', $scope.language);
-      $scope.languageOld = localStorage.getItem('languageOld');
-      localStorage.setItem('language', language);
-      $scope.language = localStorage.getItem('language')
-      if ($scope.languageOld != $scope.language) {
-        localStorage.removeItem('dillerJson')
-        var ServiceRequest = {
-          service_type: "diller",
-          language: localStorage.getItem('language')
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          localStorage.setItem('dillerJson', JSON.stringify(data));
-          $scope.diller = JSON.parse(localStorage.getItem('dillerJson'));
-        })
-      }
-      console.log(language);
     };
 
     // Kullanıcı girişi, Kullanıcı kaydı, Şifre yenileme Switch Algoritması
@@ -1247,7 +1252,6 @@ angular.module('starter.controllers', [])
       }
     };
     $scope.isLogged();
-    $scope.versionChck();
 
   });
 
