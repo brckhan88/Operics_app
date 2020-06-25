@@ -16,20 +16,14 @@
 				<i class="icon ion-chevron-right icon-accessory"></i>
 
 				<ion-option-button class="button-assertive" ng-click="remove(chat)">
-					Engelle
+					Hesabı Dondur
+				</ion-option-button>
+				<ion-option-button class="button-assertive" ng-click="remove(chat)">
+					Hesabı Sil
 				</ion-option-button>
 			</ion-item>
 		</ion-list>
 
-		<center>
-			<ion-option-button ng-if="veri.USER_TYPE!='banned'" class="button-assertive add_button" ng-click="user_yasakla(veri.ID)" >
-				<h3 style=" color: white;font-family: monospace;margin-top: 12px;">Engelle</h3>
-			</ion-option-button>
-
-			<ion-option-button ng-if="veri.USER_TYPE=='banned'" class="button-assertive" ng-click="user_yasak_kaldir(veri.ID)" >
-				<h3 style=" color: white;font-family: monospace;margin-top: 12px;">Engel Kaldır</h3>
-			</ion-option-button>
-		</center>
 	</ion-item>
 </ion-list>
 </ion-content>
