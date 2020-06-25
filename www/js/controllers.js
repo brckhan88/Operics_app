@@ -139,31 +139,24 @@ angular.module('starter.controllers', [])
             $scope.versionResponse = data[0];
             if ($scope.versionResponse.response_lan == false) {
               localStorage.removeItem('dillerJson');
-              $scope.diller      = JSON.parse(localStorage.getItem('dillerJson'));
             }
             if ($scope.versionResponse.response_sto == false) {
               localStorage.removeItem('hikayeJson');
-              $scope.hikayeler   = JSON.parse(localStorage.getItem('hikayeJson'));
             }
             if ($scope.versionResponse.response_ser == false) {
               localStorage.removeItem('hizmetJson');
-              $scope.hizmetler   = JSON.parse(localStorage.getItem('hizmetJson'));
             }
             if ($scope.versionResponse.response_tea == false) {
               localStorage.removeItem('ekipJson');
-              $scope.ekip        = JSON.parse(localStorage.getItem('ekipJson'));
             }
             if ($scope.versionResponse.response_ref == false) {
               localStorage.removeItem('referansJson');
-              $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
             }
-            if ($scope.versionResponse.response_dic == true) {
+            if ($scope.versionResponse.response_dic == false) {
               localStorage.removeItem('sozlukJson');
-              $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
             }
             if ($scope.versionResponse.response_cou == false) {
               localStorage.removeItem('egitimJson');
-              $scope.egitimler   = JSON.parse(localStorage.getItem('egitimJson'));
             }
             //if ($scope.versionResponse.response_abo == false) {
             //  localStorage.removeItem('..Json');
