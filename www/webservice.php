@@ -461,7 +461,9 @@ switch ($service_type) {
 
     case "admin_user_delete":
         $user_id = $data["user_id"];
-        $sorgu = "DELETE FROM `lOGIN` WHERE ID=".$user_id;
+        $sorgu = "DELETE FROM `LOGIN` WHERE ID=".$user_id;
+        $data = $conn->query($sorgu);
+        $sorgu = "DELETE FROM `ENROLL` WHERE LOGIN_ID=".$user_id;
         $data = $conn->query($sorgu);
     break;
 
