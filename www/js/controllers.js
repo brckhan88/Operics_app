@@ -112,31 +112,37 @@ angular.module('starter.controllers', [])
             $scope.versionResponse = data[0];
             if ($scope.versionResponse.response_lan == false) {
               localStorage.removeItem('dillerJson');
+              localStorage.removeItem('versionJson');
             }
             if ($scope.versionResponse.response_sto == false) {
               localStorage.removeItem('hikayeJson');
+              localStorage.removeItem('versionJson');
             }
             if ($scope.versionResponse.response_ser == false) {
               localStorage.removeItem('hizmetJson');
+              localStorage.removeItem('versionJson');
             }
             if ($scope.versionResponse.response_tea == false) {
               localStorage.removeItem('ekipJson');
+              localStorage.removeItem('versionJson');
             }
             if ($scope.versionResponse.response_ref == false) {
               localStorage.removeItem('referansJson');
+              localStorage.removeItem('versionJson');
             }
             if ($scope.versionResponse.response_dic == false) {
               localStorage.removeItem('sozlukJson');
+              localStorage.removeItem('versionJson');
             }
             if ($scope.versionResponse.response_cou == false) {
               localStorage.removeItem('egitimJson');
+              localStorage.removeItem('versionJson');
             }
             //if ($scope.versionResponse.response_abo == false) {
             //  localStorage.removeItem('..Json');
             //}
           })
 
-          localStorage.removeItem('versionJson');
           $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
           console.log("buraya da girdi.");
         }
