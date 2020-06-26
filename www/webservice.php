@@ -347,10 +347,7 @@ switch ($service_type) {
     break;
 
     case "reordering":
-        $reordered_list = $data["reordered_list"];
         
-        console.log(JSON.stringify($reordered_list));
-           
     break;
 
 
