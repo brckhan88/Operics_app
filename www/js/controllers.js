@@ -576,11 +576,6 @@ angular.module('starter.controllers', [])
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
     }
 
-
-    
-
-
-
     $scope.wait =function (ms) {
       var start = new Date().getTime();
       var end = start;
