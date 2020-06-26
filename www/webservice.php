@@ -765,70 +765,45 @@ switch ($service_type) {
         $response_test = true;
 
 
-        /*$sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=$language_version) {
-            $response_lan  = false;
-        }
-
         $sorgu = "SELECT * FROM VERSIONS";
         $data = $conn->query($sorgu);
 
+        foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $rows[] = $row;
+        }
 
-        if($data!=$story_version) {
+        if($rows[7]['TABLE_VERSION']!=$language_version) {
+            $response_lan  = false;
+        }
+        
+        if($rows[1]['TABLE_VERSION']!=$story_version) {
             $response_sto  = false;
         }
 
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=$service_version) {
+        if($rows[2]['TABLE_VERSION']!=$service_version) {
             $response_ser  = false;
         }
 
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=$teams_version) {
+        if($rows[3]['TABLE_VERSION']!=$teams_version) {
             $response_tea  = false;
         }
 
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=$reference_version) {
+        if($rows[4]['TABLE_VERSION']!=$reference_version) {
             $response_ref  = false;
         }
 
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=$dictionary_version) {
+        if($rows[5]['TABLE_VERSION']!=$dictionary_version) {
             $response_dic  = false;
         }
 
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=$course_version) {
+        if($rows[6]['TABLE_VERSION']!=$course_version) {
             $response_cou  = false;
         }
 
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
 
-        if($data!=$about_us_version) {
+        if($rows[8]['TABLE_VERSION']!=$about_us_version) {
             $response_abo  = false;
         }
-
-        $sorgu = "SELECT * FROM VERSIONS";
-        $data = $conn->query($sorgu);
-
-        if($data!=5) {
-            $response_test  = false;
-        }
-        */
 
         $rows[]=["response_lan"=>$response_lan,"response_sto"=>$response_sto,"response_ser"=>$response_ser,"response_tea"=>$response_lan,"response_ref"=>$response_ref,"response_dic"=>$response_dic,"response_cou"=>$response_cou,"response_abo"=>$response_abo,"response_test"=>$response_test];
 
