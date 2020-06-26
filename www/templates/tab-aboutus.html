@@ -32,19 +32,19 @@
     <h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
     </button>
     </div>
- <br>
- <button style="margin-left:38%; "class="button" ng-click="data.showReorder = !data.showReorder">
+    <button style="margin-left: 25%;" class="button add_button" ng-click="data.showReorder = !data.showReorder">
             {{!data.showReorder ? 'Reorder' : 'Save'}}
-        </button>
+    </button>
+ <br>
+    
 <!--Hizmetler Tab-->
   <center> 
-  
   <div dragable="true" class="col col-100">
    <ion-list show-reorder="data.showReorder">
       <ion-item class="col item item-body service_location item item-button-right"
      item="item" ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" href="#/hizmet/{{hizmet.ID}}" ng-click="modalgosterici('service',{{$index}})">
 
-    <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-touch="onCatch($index)" on-release="onRelease()"></ion-reorder-button>
+    <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-release="applyReorder()"></ion-reorder-button>
 
     <img style="max-width: 39%;margin-top: -7%;"class="col-50 full-image right_funct" ng-src="{{hizmet.SERVICE_IMAGE}}" >
     <h2 align="center" class="col service_header right_funct">{{hizmet.SERVICE_NAME}}
@@ -55,6 +55,7 @@
       </ion-item>
      </ion-list>
     </div>
+    {{hizmet[0].ID}}
     </center>
 
 

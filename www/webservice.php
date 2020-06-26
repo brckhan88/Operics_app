@@ -346,6 +346,14 @@ switch ($service_type) {
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
     break;
 
+    case "reordering":
+        $reordered_list = $data["reordered_list"];
+        
+        console.log(JSON.stringify($reordered_list));
+           
+    break;
+
+
     case "kursa_katildi_mi":
         $user_id    = $data["user_id"];
         $course_id  = $data["course_id"];

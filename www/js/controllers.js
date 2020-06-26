@@ -560,18 +560,28 @@ angular.module('starter.controllers', [])
     $scope.moveItem = function(item, fromIndex, toIndex) {
       $scope.hizmetler.splice(fromIndex, 1);
       $scope.hizmetler.splice(toIndex, 0, item);
+
+      $scope.homeIndex   = fromIndex;
+      $scope.targetIndex = toIndex;
+      console.log("Hedefin yola çıktığı konum : " + $scope.homeIndex  + ", Vardığı konum : " + $scope.targetIndex)
+      $scope.tempJson = $scope.hizmetler
+      console.log(JSON.stringify($scope.tempJson.length));
     };
 
-    $scope.onCatch = function(id) {
-      $scope.catchedItem = $scope.hizmetler[id]
-    };
+    $scope.applyReorder = function() {
+      var ServiceRequest = {
+        service_type       :         "reordering",
+        reordered_list     :         $scope.tempJson,
+      }
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
+    }
 
-    $scope.onRelease = function(id) {
-      console.log("Bıraktı " + id);
-    };
+
+    
 
 
-   $scope.wait =function (ms) {
+
+    $scope.wait =function (ms) {
       var start = new Date().getTime();
       var end = start;
       while(end < start + ms) {
@@ -1291,11 +1301,6 @@ angular.module('starter.controllers', [])
           break;
       }
     };
-
-
-   
-
-
 
     $scope.isLogged();
 
