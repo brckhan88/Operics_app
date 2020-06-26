@@ -404,18 +404,17 @@ angular.module('starter.controllers', [])
     //Harita Çağırma
 
       
-    $scope.showMap = function () { 
-      console.log("burasdayim"); 
+    $scope.showMap = function (lat,lng) { 
       var directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true }); 
       var directionsService = new google.maps.DirectionsService; 
       var mapOptions = { 
-        center: new google.maps.LatLng(43.07493, -89.381388), 
+        center: new google.maps.LatLng(lat,lng ), 
         zoom: 16, mapTypeId: google.maps.MapTypeId.ROADMAP 
       }; 
       var map = new google.maps.Map(document.getElementById("map"), mapOptions); 
-      var latLng = new google.maps.LatLng(43.07493, 89.381388);
+      var latLng = new google.maps.LatLng(lat, lng);
       $scope.marker = new google.maps.Marker({
-        map: $scope.map,
+        map: map,
         animation: google.maps.Animation.DROP,
         position: latLng
       });
@@ -1228,7 +1227,6 @@ angular.module('starter.controllers', [])
               break;
 
             case 'favoriEkleKaldir' :
-              /*
               if ($scope.aktifMi==false) {
                 var ServiceRequest = {
                   service_type: "favori_ekle",
@@ -1246,7 +1244,6 @@ angular.module('starter.controllers', [])
                 $http.post($rootScope.webServiceUrl, ServiceRequest)
               }
               $scope.chckFaved($scope.itemId);
-              */
               break;
           }
           break;
