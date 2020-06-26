@@ -4,34 +4,7 @@ angular.module('starter.controllers', [])
 
     $rootScope.webServiceUrl = "http://www.microwebservice.net/operics_web/webservice.php";
 
-    /*
-    
-
-
-    $scope.user_yasakla = function(userId){
-      var ServiceRequest = {
-        service_type: "admin_user_block",
-        user_id: userId
-      }
-
-      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-      })
-    }
-
-    $scope.user_yasak_kaldir = function(userId){
-      var ServiceRequest = {
-        service_type: "admin_user_unblock",
-        user_id: userId
-      }
-
-      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-      })
-    }*/
-
-
   
-
-
     //Girişte sorgulanacak parametreler
     $scope.loginData                    = {};
     $scope.kayitData                    = {};
@@ -430,7 +403,7 @@ angular.module('starter.controllers', [])
 
     //Harita Çağırma
 
-    var map = null; 
+      
     $scope.showMap = function () { 
       console.log("burasdayim"); 
       var directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true }); 
@@ -439,7 +412,7 @@ angular.module('starter.controllers', [])
         center: new google.maps.LatLng(43.07493, -89.381388), 
         zoom: 16, mapTypeId: google.maps.MapTypeId.ROADMAP 
       }; 
-      map = new google.maps.Map(document.getElementById("map"), mapOptions); 
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions); 
       var latLng = new google.maps.LatLng(43.07493, 89.381388);
       $scope.marker = new google.maps.Marker({
         map: $scope.map,
@@ -1160,10 +1133,22 @@ angular.module('starter.controllers', [])
                   course_id: $scope.egitimler[$scope.itemId].ID
                 }
                 $http.post($rootScope.webServiceUrl, ServiceRequest)
-                var confirmPopup = $ionicPopup.alert({
-                  title: "Başarılı",
-                  template: "Sn." + $scope.profil.USER_NAME + "," + $scope.egitimler[$scope.itemId].CRS_NAME + " için ön başvurunuz alınmıuştır. En kısa sürede sizinle iritibata geçilecektir."
-                });
+                if ($scope.language=='TR') {
+                  var confirmPopup = $ionicPopup.alert({
+                    title: "Başarılı",
+                    template: "Sn." + $scope.profil.USER_NAME + "," + $scope.egitimler[$scope.itemId].CRS_NAME + " için ön başvurunuz alınmıştır. En kısa sürede sizinle iritibata geçilecektir."
+                  });
+                } else if ($scope.language=='DE') {
+                  var confirmPopup = $ionicPopup.alert({
+                    title: "Başarılı",
+                    template: "Herr " + $scope.profil.USER_NAME + ", ihre vorläufige Bewerbung für " + $scope.egitimler[$scope.itemId].CRS_NAME + " ist eingegangen. Sie werden sich so schnell wie möglich mit Ihnen in Verbindung setzen."
+                  });
+                } else {
+                  var confirmPopup = $ionicPopup.alert({
+                    title: "Successful",
+                    template: "Dear " + $scope.profil.USER_NAME + ", your preliminary application to " + $scope.egitimler[$scope.itemId].CRS_NAME + " is received. They will contact you ASAP."
+                  });
+                }
               } else {
                 var ServiceRequest = {
                   service_type: "kursu_iptal_et",
@@ -1171,10 +1156,22 @@ angular.module('starter.controllers', [])
                   course_id: $scope.egitimler[$scope.itemId].ID
                 }
                 $http.post($rootScope.webServiceUrl, ServiceRequest)
-                var confirmPopup = $ionicPopup.alert({
-                  title: "İptal Edildi",
-                  template: "İptal onaylanmıştır."
-                });
+                if ($scope.language=='TR') {
+                  var confirmPopup = $ionicPopup.alert({
+                    title: "İptal Edildi",
+                    template: "İptal onaylanmıştır."
+                  });
+                } else if ($scope.language=='DE') {
+                  var confirmPopup = $ionicPopup.alert({
+                    title: "Storniert",
+                    template: "Bestätigte Stornierung."
+                  });
+                } else {
+                  var confirmPopup = $ionicPopup.alert({
+                    title: "Cancelled",
+                    template: "Confirmed cancellation."
+                  });
+                }
               }
               $scope.chckEnrollment($scope.itemId);
               break;
