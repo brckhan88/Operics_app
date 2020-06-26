@@ -34,7 +34,7 @@
     </div>
  <br>
  <button style="margin-left:38%; "class="button" ng-click="data.showReorder = !data.showReorder">
-            Reorder
+            {{!data.showReorder ? 'Reorder' : 'Save'}}
         </button>
 <!--Hizmetler Tab-->
   <center> 
@@ -43,7 +43,6 @@
    <ion-list show-reorder="data.showReorder">
       <ion-item class="col item item-body service_location item item-button-right"
      item="item" ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" href="#/hizmet/{{hizmet.ID}}" ng-click="modalgosterici('service',{{$index}})">
-     {{hizmet}}
 
     <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-touch="onCatch($index)" on-release="onRelease()"></ion-reorder-button>
 
