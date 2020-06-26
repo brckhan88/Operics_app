@@ -18,8 +18,6 @@
 
 
 
-
-
 <ion-content>
   <br>
    <br> 
@@ -28,7 +26,7 @@
 
 
 <!--Ekleme Butonu-->
-
+    
     <div class="center" ng-if="isAdmin==1" ng-click="editgosterici('editAbout',0)">
     <button class="button button-assertive add_button ">
     <h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
@@ -45,8 +43,9 @@
    <ion-list show-reorder="data.showReorder">
       <ion-item class="col item item-body service_location item item-button-right"
      item="item" ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" href="#/hizmet/{{hizmet.ID}}" ng-click="modalgosterici('service',{{$index}})">
+     {{hizmet}}
 
-    <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-release="test()"></ion-reorder-button>
+    <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-touch="onCatch($index)" on-release="onRelease()"></ion-reorder-button>
 
     <img style="max-width: 39%;margin-top: -7%;"class="col-50 full-image right_funct" ng-src="{{hizmet.SERVICE_IMAGE}}" >
     <h2 align="center" class="col service_header right_funct">{{hizmet.SERVICE_NAME}}

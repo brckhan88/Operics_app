@@ -557,15 +557,18 @@ angular.module('starter.controllers', [])
       }
     }
 
-  $scope.moveItem = function(hizmet, fromIndex, toIndex) {
-    $scope.hizmetler.splice(fromIndex, 1);
-    $scope.hizmetler.splice(toIndex, 0, hizmet);
-  };
-  
+    $scope.moveItem = function(item, fromIndex, toIndex) {
+      $scope.hizmetler.splice(fromIndex, 1);
+      $scope.hizmetler.splice(toIndex, 0, item);
+    };
 
-  $scope.test = function(){
-  console.log("Tetikledi");
-  };
+    $scope.onCatch = function(id) {
+      $scope.catchedItem = $scope.hizmetler[id]
+    };
+
+    $scope.onRelease = function(id) {
+      console.log("Bıraktı " + id);
+    };
 
 
    $scope.wait =function (ms) {
