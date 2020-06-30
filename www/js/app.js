@@ -131,15 +131,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
           }
         }
       })
-      /*.state('tab.userprofile', {
-        url: '/userprofile/:userID',
+      /*
+      .state('tab.userprofile', {
+        url: '/',
         views: {
-          'tab-contact': {
-            templateUrl: 'templates/userprofile.html'
+          'tab-sms': {
+            templateUrl: 'templates/tab-profile.html'
           }
         }
       })
-      */;
+      */
+      ;
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
