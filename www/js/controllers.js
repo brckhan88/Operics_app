@@ -91,55 +91,56 @@ angular.module('starter.controllers', [])
           localStorage.setItem('versionJson', JSON.stringify(data));
           $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
         })
-      } 
-      var ServiceRequest = {
-        service_type       :         "version_check",
-        language_version   :          $scope.currentVersion[7].TABLE_VERSION,
-        story_version      :          $scope.currentVersion[1].TABLE_VERSION,
-        service_version    :          $scope.currentVersion[2].TABLE_VERSION,
-        team_version       :          $scope.currentVersion[3].TABLE_VERSION,
-        reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
-        dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
-        course_version     :          $scope.currentVersion[6].TABLE_VERSION,
-        about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
+      } else {
+        var ServiceRequest = {
+          service_type       :         "version_check",
+          language_version   :          $scope.currentVersion[7].TABLE_VERSION,
+          story_version      :          $scope.currentVersion[1].TABLE_VERSION,
+          service_version    :          $scope.currentVersion[2].TABLE_VERSION,
+          team_version       :          $scope.currentVersion[3].TABLE_VERSION,
+          reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
+          dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
+          course_version     :          $scope.currentVersion[6].TABLE_VERSION,
+          about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+          $scope.versionResponse = data[0];
+
+          if ($scope.versionResponse.response_lan == false) {
+            localStorage.removeItem('dillerJson');
+            localStorage.removeItem('versionJson');
+          }
+          if ($scope.versionResponse.response_sto == false) {
+            localStorage.removeItem('hikayeJson');
+            localStorage.removeItem('versionJson');
+          }
+          if ($scope.versionResponse.response_ser == false) {
+            localStorage.removeItem('hizmetJson');
+            localStorage.removeItem('versionJson');
+          }
+          if ($scope.versionResponse.response_tea == false) {
+            localStorage.removeItem('ekipJson');
+            localStorage.removeItem('versionJson');
+          }
+          if ($scope.versionResponse.response_ref == false) {
+            localStorage.removeItem('referansJson');
+            localStorage.removeItem('versionJson');
+          }
+          if ($scope.versionResponse.response_dic == false) {
+            localStorage.removeItem('sozlukJson');
+            localStorage.removeItem('versionJson');
+          }
+          if ($scope.versionResponse.response_cou == false) {
+            localStorage.removeItem('egitimJson');
+            localStorage.removeItem('versionJson');
+          }
+          //if ($scope.versionResponse.response_abo == false) {
+          //  localStorage.removeItem('..Json');
+          //  localStorage.removeItem('versionJson');
+          //}
+        })
       }
-
-      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
-        $scope.versionResponse = data[0];
-
-        if ($scope.versionResponse.response_lan == false) {
-          localStorage.removeItem('dillerJson');
-          localStorage.removeItem('versionJson');
-        }
-        if ($scope.versionResponse.response_sto == false) {
-          localStorage.removeItem('hikayeJson');
-          localStorage.removeItem('versionJson');
-        }
-        if ($scope.versionResponse.response_ser == false) {
-          localStorage.removeItem('hizmetJson');
-          localStorage.removeItem('versionJson');
-        }
-        if ($scope.versionResponse.response_tea == false) {
-          localStorage.removeItem('ekipJson');
-          localStorage.removeItem('versionJson');
-        }
-        if ($scope.versionResponse.response_ref == false) {
-          localStorage.removeItem('referansJson');
-          localStorage.removeItem('versionJson');
-        }
-        if ($scope.versionResponse.response_dic == false) {
-          localStorage.removeItem('sozlukJson');
-          localStorage.removeItem('versionJson');
-        }
-        if ($scope.versionResponse.response_cou == false) {
-          localStorage.removeItem('egitimJson');
-          localStorage.removeItem('versionJson');
-        }
-        //if ($scope.versionResponse.response_abo == false) {
-        //  localStorage.removeItem('..Json');
-        //  localStorage.removeItem('versionJson');
-        //}
-      })
       $scope.loadData();
     };
     
@@ -245,7 +246,8 @@ angular.module('starter.controllers', [])
 
       if (!$scope.sozluk) {
         var ServiceRequest = {
-          service_type: "sozluk"
+          service_type: "sozluk",
+          language: localStorage.getItem('language')
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {

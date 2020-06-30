@@ -21,7 +21,7 @@
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
         <div class="col.col-25 item item-thumbnail- services-main" ng-repeat="servis in hizmetler" style="border-radius: 10px !important;
-      margin-right: 14px;margin-top: 2.7%;" ng-click="modalgosterici('service',{{$index}})">
+      margin-right: 14px;margin-top: 2.7%;" ng-click="tiklaab(0); modalgosterici('service',{{$index}})">
           <img class="main-image_align" ng-src="{{servis.SERVICE_IMAGE}}">
           <p align="center">{{servis.SERVICE_NAME}}</p>
         </div>
@@ -46,7 +46,7 @@
 
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden; " direction="x">
       <div class="row">
-        <div ng-repeat="takim in ekip" ng-click="modalgosterici('team',{{$index}})" class="card teams_style col-75"
+        <div ng-repeat="takim in ekip" ng-click="tiklaab(2); modalgosterici('team',{{$index}})" class="card teams_style col-75"
           style="margin-right: 22px;">
           <div class="item item-avatarim">
             <img class="im" ng-src="{{takim.IMAGE}}">

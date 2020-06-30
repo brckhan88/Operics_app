@@ -137,7 +137,7 @@ switch ($service_type) {
             
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
-            if ($row['USER_EMAIL']==$USER_EMAIL) {
+            if ($row['USER_EMAIL']==$user_email) {
             	$duplicate_email = "true";
         	}
             if ($row['USER_PHONE']==$user_phone) {
@@ -148,37 +148,37 @@ switch ($service_type) {
             }
         }
             
-            if ($duplicate_email == "false" && $duplicate_phone == "false" || $status=="passive") {
+        if ($duplicate_email == "false" && $duplicate_phone == "false") {
         
-        $sorgu = "INSERT INTO `LOGIN` (`ID`, `LANGUAGES_ID`, `USER_PASSWORD`, `USER_EMAIL`, `USER_PHONE`, `USER_PHOTO`, `USER_TYPE`, `USER_COMPANY`, `USER_POSITION`, `USER_NAME`) VALUES (NULL, '+90', '".md5($user_password)."', '".$user_email."', '".$user_phone."', 'img/team/3.png', '".$user_type."', '".$user_company."', '".$user_position."', '".$user_name."');";
-        $data = $conn->query($sorgu);
+            $sorgu = "INSERT INTO `LOGIN` (`ID`, `LANGUAGES_ID`, `USER_PASSWORD`, `USER_EMAIL`, `USER_PHONE`, `USER_PHOTO`, `USER_TYPE`, `USER_COMPANY`, `USER_POSITION`, `USER_NAME`) VALUES (NULL, '+90', '".md5($user_password)."', '".$user_email."', '".$user_phone."', 'img/team/3.png', '".$user_type."', '".$user_company."', '".$user_position."', '".$user_name."');";
+            $data = $conn->query($sorgu);
 
 
-        $sorgu = "SELECT `ID` FROM LOGIN WHERE `USER_EMAIL` = '".$user_email."' AND `USER_PHONE` = '".$user_phone."'  ORDER BY ID DESC LIMIT 1";   
-        $data = $conn->query($sorgu);
-        foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
-            $user_id = $row['ID'];
-        }
+            $sorgu = "SELECT `ID` FROM LOGIN WHERE `USER_EMAIL` = '".$user_email."' AND `USER_PHONE` = '".$user_phone."'  ORDER BY ID DESC LIMIT 1";   
+            $data = $conn->query($sorgu);
+            foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                $user_id = $row['ID'];
+            }
               
 
-        $sorgu = "DELETE FROM LOGIN WHERE USER_EMAIL = '".$user_email."' AND USER_TYPE = 'passive' AND ID!=".$user_id;     
-        $data = $conn->query($sorgu);
+            $sorgu = "DELETE FROM LOGIN WHERE USER_EMAIL = '".$user_email."' AND USER_TYPE = 'passive' AND ID!=".$user_id;     
+            $data = $conn->query($sorgu);
 
 
-        $rand_sms_code = rand(1000,9999);
-        $sorgu = "INSERT INTO `SMS` (`ID`, `LOGIN_ID`, `S_CODE`, `S_DATE`) VALUES (NULL, '".$user_id."', '".$rand_sms_code."', '".$user_date."');";
-        $data = $conn->query($sorgu);
-/*
-        $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK'); // tqQvcinrdaouKUcgUr2zyW6lf
-        $Message = new \MessageBird\Objects\Message();
-        $Message->originator = ORIGINATOR;
-        $Message->recipients = array('+'.$user_phone);
-        $Message->body = 'Welcome to Operics! Your verification code is : '.$rand_sms_code;
-        $MessageBird->messages->create($Message);
-    */                    
-        $create_status = 1;
+            $rand_sms_code = rand(1000,9999);
+            $sorgu = "INSERT INTO `SMS` (`ID`, `LOGIN_ID`, `S_CODE`, `S_DATE`) VALUES (NULL, '".$user_id."', '".$rand_sms_code."', '".$user_date."');";
+            $data = $conn->query($sorgu);
+            /*
+            $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK'); // tqQvcinrdaouKUcgUr2zyW6lf
+            $Message = new \MessageBird\Objects\Message();
+            $Message->originator = ORIGINATOR;
+            $Message->recipients = array('+'.$user_phone);
+            $Message->body = 'Welcome to Operics! Your verification code is : '.$rand_sms_code;
+            $MessageBird->messages->create($Message);
+            */                    
+            $create_status = 1;
 
-        /*
+            /*
             $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK');
     		$Message = new \MessageBird\Objects\Message();
     		$Message->originator = ORIGINATOR;
@@ -261,8 +261,17 @@ switch ($service_type) {
     break;
 
     case "hikayeler":
-        $sorgu = "SELECT * FROM STORIES";
-        $data = $conn->query($sorgu);
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language   = '+90';
+        } else if ($language == 'DE') {
+            $language   = '+49';
+        } else {
+            $language   = '+44';
+        }
+
+        $sorgu = "SELECT * FROM STORIES WHERE LANGUAGES_ID = $language";
+        $data  = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $rows[]=$row;
         }
@@ -271,7 +280,16 @@ switch ($service_type) {
     break;
 
     case "hizmetler":
-        $sorgu = "CALL service();";
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language   = '+90';
+        } else if ($language == 'DE') {
+            $language   = '+49';
+        } else {
+            $language   = '+44';
+        }
+
+        $sorgu = "SELECT * FROM SERVICE WHERE LANGUAGES_ID = $language";
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $rows[]=$row;
@@ -281,7 +299,16 @@ switch ($service_type) {
     break;
         
     case "egitimler":
-        $sorgu = "SELECT * FROM COURSE";
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language   = '+90';
+        } else if ($language == 'DE') {
+            $language   = '+49';
+        } else {
+            $language   = '+44';
+        }
+
+        $sorgu = "SELECT * FROM COURSE WHERE LANGUAGES_ID = $language";
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $rows[]=$row;
@@ -301,7 +328,16 @@ switch ($service_type) {
     break;
 
     case "sozluk":
-        $sorgu = "SELECT * FROM DICTIONARY";
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language   = '+90';
+        } else if ($language == 'DE') {
+            $language   = '+49';
+        } else {
+            $language   = '+44';
+        }
+
+        $sorgu = "SELECT * FROM DICTIONARY WHERE LANG_ID = $language";
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $rows[]=$row;
@@ -328,7 +364,16 @@ switch ($service_type) {
     */
 
     case "ekip":
-        $sorgu = "SELECT * FROM TEAMS";
+        $language       = $data["language"];
+        if ($language == 'TR') {
+            $language   = '+90';
+        } else if ($language == 'DE') {
+            $language   = '+49';
+        } else {
+            $language   = '+44';
+        }
+
+        $sorgu = "SELECT * FROM TEAMS WHERE LANGUAGES_ID = $language";
         $data = $conn->query($sorgu);
         foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
             $rows[]=$row;
