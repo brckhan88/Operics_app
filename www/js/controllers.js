@@ -515,6 +515,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.autoTab= function(toId) {
+      if ($scope.inputField.maxlength==1)
       document.getElementsByTagName('input')[toId].focus();
     }
 
