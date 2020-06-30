@@ -107,7 +107,7 @@
             <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[17].kelime}}"
             ng-model="kayitData.passwordChck">
           </label>
-          <p style="text-align: left; margin-left: 7%;">{{kayitData.passwordChck!=kayitData.password ? diller[54].kelime : ""}}</p>
+          <p style="text-align: left; margin-left: 7%;" on-touch="kayitData.password">{{kayitData.passwordChck!=kayitData.password ? diller[54].kelime : ""}}</p>
         
           
           
