@@ -514,9 +514,8 @@ angular.module('starter.controllers', [])
       $scope.abouttab = abouttab;
     };
 
-    $scope.autoTab= function(toId) {
-      if ($scope.inputField.maxlength==1)
-      document.getElementsByTagName('input')[toId].focus();
+    $scope.autoTab= function(tabindex) {
+      document.getElementsByTagName('input')[tabindex].focus();
     }
 
     $scope.text_truncate = function (str, length, ending) {
