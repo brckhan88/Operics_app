@@ -93,7 +93,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         url: '/main',
         views: {
           'tab-main': {
-            templateUrl: 'templates/sms.html'
+            templateUrl: 'templates/tab-main.html'
           }
         }
       })
