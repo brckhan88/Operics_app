@@ -142,7 +142,7 @@
 }
 
 .sms_text{
-  font-size: 193%;
+  font-size: 184%;
   text-align: center;
 }
 
@@ -162,7 +162,7 @@
 
 .sms{
  width: 20%;
- height: 60px;
+ min-height: 61px;
  border: solid 1px #f0f0f0
  margin-top: 12%;
  border: solid 0px #e2e2e2;
