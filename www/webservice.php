@@ -159,38 +159,39 @@ switch ($service_type) {
             foreach ($data->fetchAll(PDO::FETCH_ASSOC) as $row) {
                 $user_id = $row['ID'];
             }
+
+            if ($status=="passive") {
               
 
-            $sorgu = "DELETE FROM LOGIN WHERE USER_EMAIL = '".$user_email."' AND USER_TYPE = 'passive' AND ID!=".$user_id;     
-            $data = $conn->query($sorgu);
+                $sorgu = "DELETE FROM LOGIN WHERE USER_EMAIL = '".$user_email."' AND USER_TYPE = 'passive' AND ID!=".$user_id;     
+                $data = $conn->query($sorgu);
 
 
-            $rand_sms_code = rand(1000,9999);
-            $sorgu = "INSERT INTO `SMS` (`ID`, `LOGIN_ID`, `S_CODE`, `S_DATE`) VALUES (NULL, '".$user_id."', '".$rand_sms_code."', '".$user_date."');";
-            $data = $conn->query($sorgu);
-            /*
-            $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK'); // tqQvcinrdaouKUcgUr2zyW6lf
-            $Message = new \MessageBird\Objects\Message();
-            $Message->originator = ORIGINATOR;
-            $Message->recipients = array('+'.$user_phone);
-            $Message->body = 'Welcome to Operics! Your verification code is : '.$rand_sms_code;
-            $MessageBird->messages->create($Message);
-            */                    
-            $create_status = 1;
-
-            /*
-            $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK');
-    		$Message = new \MessageBird\Objects\Message();
-    		$Message->originator = ORIGINATOR;
-    		$Message->recipients = $user_phone;
-    		$Message->body = $rand_sms_code;
-
-    		$MessageBird->messages->create($Message);
-
-            */
+                $rand_sms_code = rand(1000,9999);
+                $sorgu = "INSERT INTO `SMS` (`ID`, `LOGIN_ID`, `S_CODE`, `S_DATE`) VALUES (NULL, '".$user_id."', '".$rand_sms_code."', '".$user_date."');";
+                $data = $conn->query($sorgu);
+                /*
+                $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK'); // tqQvcinrdaouKUcgUr2zyW6lf
+                $Message = new \MessageBird\Objects\Message();
+                $Message->originator = ORIGINATOR;
+                $Message->recipients = array('+'.$user_phone);
+                $Message->body = 'Welcome to Operics! Your verification code is : '.$rand_sms_code;
+                $MessageBird->messages->create($Message);
+                */                    
+                $create_status = 1;
+                /*
+                $MessageBird = new \MessageBird\Client('ze3J3qB5GEyKK20vkDhIPXDvK');
+    		    $Message = new \MessageBird\Objects\Message();
+    		    $Message->originator = ORIGINATOR;
+    		    $Message->recipients = $user_phone;
+    		    $Message->body = $rand_sms_code;
+    		    $MessageBird->messages->create($Message);
+                */
+            }
         } else {
             $create_status = 0;
         }
+        
         $rows[]=["create_status"=>$create_status,"user_id"=>$user_id,"duplicate_email"=>$duplicate_email,"duplicate_phone"=>$duplicate_phone];
                 
                 
