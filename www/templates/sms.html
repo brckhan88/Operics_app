@@ -17,16 +17,16 @@
 					<label style="font-size: 23px;color: #616161;">{{diller[59].kelime}}</label>
 				</div>
 
-                <div class="row" style="margin-top: 8%;">
-                 <input class="col sms sms_text" type="text" tabindex="1" size="1" maxlength="1"  ng-model="smsVerify.kod1" ng-keypress="autoTab(1)" ><div style="margin-left: 4%;"></div></input>
 
-                 <input class="col sms sms_text" type="text" tabindex="2" size="1" maxlength="1"  ng-model="smsVerify.kod2" ng-keypress="autoTab(2)"><div style="margin-left: 4%;"></div></input>
+            	<div class="row" style="margin-top: 8%;">
+                 	<input class="col sms sms_text" type="text" tabindex="1" size="1" maxlength="1"  ng-model="smsVerify.kod1" ng-keypress="autoTab(1)" ><div style="margin-left: 4%;"></div></input>
 
-                 <input class="col sms sms_text" type="text" tabindex="3" size="1" maxlength="1" ng-model="smsVerify.kod3" ng-keypress="autoTab(3)"><div style="margin-left: 4%;"></div></input>
+                 	<input class="col sms sms_text" type="text" tabindex="2" size="1" maxlength="1"  ng-model="smsVerify.kod2" ng-keypress="autoTab(2)"><div style="margin-left: 4%;"></div></input>
 
-                 <input class="col sms sms_text" type="text" tabindex="4" size="1" maxlength="1" ng-model="smsVerify.kod4"><div style="margin-left: 4%;"></div></input>
+                 	<input class="col sms sms_text" type="text" tabindex="3" size="1" maxlength="1" ng-model="smsVerify.kod3" ng-keypress="autoTab(3)"><div style="margin-left: 4%;"></div></input>
 
-                </div>
+                 	<input class="col sms sms_text" type="text" tabindex="4" size="1" maxlength="1" ng-model="smsVerify.kod4"><div style="margin-left: 4%;"></div></input>
+            	</div>
 				
 				<button style="margin-top: 14%"class="button  sms_button" ng-hide="!smsVerify.kod1 || !smsVerify.kod2 || !smsVerify.kod3 || !smsVerify.kod4" type="submit">{{diller[60].kelime}}
 				</button>
