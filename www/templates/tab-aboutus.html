@@ -20,25 +20,25 @@
 
 <ion-content>
   <br>
-   <br> 
+   <br>
     <br>
 
 
 
 <!--Ekleme Butonu-->
-    
+
     <div class="center" ng-if="isAdmin==1" ng-click="editgosterici('editAbout',0)">
     <button class="button button-assertive add_button ">
     <h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
     </button>
     </div>
-    <button style="margin-left: 25%;" class="button add_button button-assertive" ng-click="data.showReorder = !data.showReorder">
-            {{!data.showReorder ? 'Reorder' : 'Save'}}
+    <button style="margin-left: 25%;" class="button add_button button-assertive" ng-click="data.showReorder = !data.showReorder" ng-if="(abouttab==0||!abouttab)" >
+            {{!data.showReorder ? diller[76].kelime : diller[77].kelime}}
     </button>
  <br>
-    
+
 <!--Hizmetler Tab-->
-  <center> 
+  <center>
   <div dragable="true" class="col col-100">
    <ion-list show-reorder="data.showReorder">
       <ion-item class="col item item-body service_location item item-button-right"
@@ -85,7 +85,7 @@
 <div class="col">
 
  <div ng-if="abouttab==2" ng-repeat="takim in ekip" ng-click="modalgosterici('team',{{$index}})"
- class="col col-100" style="padding: 4%;"> 
+ class="col col-100" style="padding: 4%;">
  <div class="col item item-text-wrap our-team-style">
   <img class="im" ng-src="{{takim.IMAGE}}">
   <h2><i class="ei">{{takim.NAME}}</i></h2>
@@ -95,7 +95,7 @@
 
 </div>
 </div>
- 
+
 
 </ion-content>
 </ion-view>
