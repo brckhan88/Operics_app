@@ -680,6 +680,7 @@ angular.module('starter.controllers', [])
       console.log(id);
       $scope.editInput.name = $scope.referanslar[id].REF_NAME;
       $scope.editInput.img = $scope.referanslar[id].REF_PHOTO;
+      $scope.editInput.itemID = $scope.referanslar[id].ID;
     }
 
     $scope.adminUserInteraction = function (type, id) {
