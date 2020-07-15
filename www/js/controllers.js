@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
     $rootScope.webServiceUrl = "http://www.microwebservice.net/operics_web/webservice.php";
 
-  
+
     //Girişte sorgulanacak parametreler
     $scope.loginData                    = {};
     $scope.kayitData                    = {};
@@ -26,7 +26,7 @@ angular.module('starter.controllers', [])
     $scope.egitimler                    = JSON.parse(localStorage.getItem('egitimJson'));
     $scope.sozluk                       = JSON.parse(localStorage.getItem('sozlukJson'));
     $scope.profil                       = JSON.parse(localStorage.getItem('profilJson'));
-     
+
     // Uygulama dilinin belirlenmesi
 
     $scope.tiklabayrak = function (language) {
@@ -49,7 +49,7 @@ angular.module('starter.controllers', [])
       }
       console.log(language);
     };
-   
+
     if (!$scope.language || !$scope.diller ) {
       localStorage.setItem('language', "TR");
       $scope.language = localStorage.getItem('language');
@@ -64,7 +64,7 @@ angular.module('starter.controllers', [])
         $scope.diller = JSON.parse(localStorage.getItem('dillerJson'));
       })
     };
-    
+
     // Login Durum Kontrolcüsü
 
     $scope.isLogged = function () {
@@ -86,7 +86,7 @@ angular.module('starter.controllers', [])
         var ServiceRequest = {
           service_type       :      "get_current_version",
         }
-  
+
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
           localStorage.setItem('versionJson', JSON.stringify(data));
           $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
@@ -143,10 +143,10 @@ angular.module('starter.controllers', [])
       }
       $scope.loadData();
     };
-    
+
 
     // Verilerin kontrolü ve yüklenmesi
-   
+
     $scope.loadData = function () {
       // Çağrılacak servisler:
 
@@ -160,7 +160,7 @@ angular.module('starter.controllers', [])
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
           localStorage.setItem('profilJson', JSON.stringify(data[0]));
           $scope.profil = JSON.parse(localStorage.getItem('profilJson'));
-          
+
           // Kullanıcı tipi belirlenir!.. (MANDATORY)
 
           if ($scope.profil.USER_TYPE == "admin") {
@@ -170,8 +170,8 @@ angular.module('starter.controllers', [])
             localStorage.setItem('isAdmin', 0);
             $scope.isAdmin = localStorage.getItem('isAdmin');
           }
-        })     
-      } 
+        })
+      }
 
       if (!$scope.userList && ($scope.isAdmin == 1) ) {
         localStorage.removeItem('kullanıcıListesiJson');
@@ -181,7 +181,7 @@ angular.module('starter.controllers', [])
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
           $scope.userList = data;
-        })    
+        })
       }
 
       if (!$scope.hikayeler ) {
@@ -266,7 +266,7 @@ angular.module('starter.controllers', [])
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
           localStorage.setItem('iletisimJson', JSON.stringify(data));
           $scope.iletisim = JSON.parse(localStorage.getItem('iletisimJson'));
-        }) 
+        })
       }
       */
     };
@@ -301,7 +301,7 @@ angular.module('starter.controllers', [])
           $scope.userId = localStorage.getItem('user_id');
           $scope.loginStatus = localStorage.getItem('loginStatus');
           $scope.loadData();
-          
+
           // Kaydedilen bilgiler uygulamanın ilgili kısımlarında gösterilmek üzere kullanılır.
           $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
 
@@ -319,7 +319,7 @@ angular.module('starter.controllers', [])
     // Kullanıcı Kayıt Fonksiyonu
 
     $scope.registerUser = function () {
-      
+
       var ServiceRequest = {
         service_type: "create_user",
         photo: "img/pp.jfif",
@@ -346,7 +346,7 @@ angular.module('starter.controllers', [])
     // Kullanıcı Şifre Yenileme
 
     $scope.passwordRes = function () {
-      
+
       var ServiceRequest = {
         service_type: "reset_password",
         email: $scope.resetPass.email,
@@ -366,7 +366,7 @@ angular.module('starter.controllers', [])
       })
 
     };
-    
+
     // Sms Onay
 
     $scope.smsOnay = function () {
@@ -382,14 +382,14 @@ angular.module('starter.controllers', [])
         if ($scope.sms_verify.create_status == "true") {
           localStorage.setItem('loginStatus', 1);
           $scope.loginStatus = localStorage.getItem('loginStatus');
-          $scope.loadData(); 
+          $scope.loadData();
           location.href = "#/tab/main";
           $scope.modal.hide();
           console.log($scope.loginStatus);
         }
       })
     }
-    
+
 
     //Logout işlemi
 
@@ -402,24 +402,24 @@ angular.module('starter.controllers', [])
 
     //Harita Çağırma
 
-      
-    $scope.showMap = function (lat,lng) { 
-      var directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true }); 
-      var directionsService = new google.maps.DirectionsService; 
-      var mapOptions = { 
-        center: new google.maps.LatLng(lat,lng ), 
-        zoom: 16, mapTypeId: google.maps.MapTypeId.ROADMAP 
-      }; 
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions); 
+
+    $scope.showMap = function (lat,lng) {
+      var directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true });
+      var directionsService = new google.maps.DirectionsService;
+      var mapOptions = {
+        center: new google.maps.LatLng(lat,lng ),
+        zoom: 16, mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
       var latLng = new google.maps.LatLng(lat, lng);
       $scope.marker = new google.maps.Marker({
         map: map,
         animation: google.maps.Animation.DROP,
         position: latLng
       });
-     
+
     };
-    
+
 
 
     // Profil resmi için kamera kontrolcüsü
@@ -443,7 +443,7 @@ angular.module('starter.controllers', [])
             $scope.galleryPP();
             return true;
           }
-        } 
+        }
       });
     };
 
@@ -510,7 +510,6 @@ angular.module('starter.controllers', [])
     };
 
     $scope.tiklaab = function (abouttab) {
-      console.log(abouttab);
       $scope.abouttab = abouttab;
     };
 
@@ -677,6 +676,12 @@ angular.module('starter.controllers', [])
       }
     };
 
+    $scope.catchRef = function (id) {
+      console.log(id);
+      $scope.editInput.name = $scope.referanslar[id].REF_NAME;
+      $scope.editInput.img = $scope.referanslar[id].REF_PHOTO;
+    }
+
     $scope.adminUserInteraction = function (type, id) {
       console.log(type + " " +id);
       switch (type) {
@@ -707,7 +712,7 @@ angular.module('starter.controllers', [])
             $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
           break;
       }
-     
+
       $scope.userList = null;
       $scope.loadData();
     };
@@ -716,7 +721,7 @@ angular.module('starter.controllers', [])
     $scope.editgosterici = function (tur, editFlag) {
 
       $scope.editFg = editFlag;
-      
+
       if ($scope.editFg == 1) {
         $scope.inputField.name      = $scope.editInput.name;
         $scope.inputField.position  = $scope.editInput.position;
@@ -733,7 +738,7 @@ angular.module('starter.controllers', [])
       } else {
         $scope.inputField.name      = null;
         $scope.inputField.position  = null;
-        $scope.inputField.link      = null; 
+        $scope.inputField.link      = null;
         $scope.inputField.img       = null;
         $scope.inputField.head      = null;
         $scope.inputField.desc      = null;
@@ -788,7 +793,7 @@ angular.module('starter.controllers', [])
         case 'editStory':
           $scope.transformLangToLang($scope.editInput.LangID);
           $scope.modal.hide();
-      
+
           $ionicModal.fromTemplateUrl('templates/add-story.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -847,8 +852,6 @@ angular.module('starter.controllers', [])
           break;
       }
 
-      console.log($scope.editFg);
-
     };
 
     $scope.applyButton = function(tur, islem) {
@@ -861,7 +864,7 @@ angular.module('starter.controllers', [])
                 language           :               $scope.icerikLang,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
-                story_about        :               $scope.inputField.desc  
+                story_about        :               $scope.inputField.desc
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -879,7 +882,7 @@ angular.module('starter.controllers', [])
                 story_id           :               $scope.editInput.itemID,
                 story_image        :               $scope.inputField.img,
                 story_head         :               $scope.inputField.head,
-                story_about        :               $scope.inputField.desc   
+                story_about        :               $scope.inputField.desc
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -912,7 +915,7 @@ angular.module('starter.controllers', [])
               var ServiceRequest = {
                 service_type       :               "hizmet_ekle",
                 language           :               $scope.icerikLang,
-                service_image      :               $scope.inputField.img,  
+                service_image      :               $scope.inputField.img,
                 service_name       :               $scope.inputField.name,
                 service_description:               $scope.inputField.desc
               }
@@ -932,10 +935,10 @@ angular.module('starter.controllers', [])
                 service_id         :               $scope.editInput.itemID,
                 service_image      :               $scope.inputField.img,
                 service_name       :               $scope.inputField.name,
-                service_description:               $scope.inputField.desc 
+                service_description:               $scope.inputField.desc
               }
 
-        
+
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('hizmetJson');
               $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
@@ -982,7 +985,7 @@ angular.module('starter.controllers', [])
                 service_type       :               "referans_guncelle",
                 reference_id       :               $scope.editInput.itemID,
                 reference_image    :               $scope.inputField.img,
-                reference_name     :               $scope.inputField.name 
+                reference_name     :               $scope.inputField.name
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -1019,7 +1022,7 @@ angular.module('starter.controllers', [])
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
                 team_linkedin      :               $scope.inputField.link,
-                team_image         :               $scope.inputField.img  
+                team_image         :               $scope.inputField.img
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -1039,7 +1042,7 @@ angular.module('starter.controllers', [])
                 team_position      :               $scope.inputField.position,
                 team_about         :               $scope.inputField.desc,
                 team_linkedin      :               $scope.inputField.link,
-                team_image         :               $scope.inputField.img  
+                team_image         :               $scope.inputField.img
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -1187,7 +1190,7 @@ angular.module('starter.controllers', [])
                 service_type       :                 "kelime_ekle",
                 language           :                 $scope.icerikLang,
                 word_name          :                 $scope.inputField.name,
-                word_description   :                 $scope.inputField.desc 
+                word_description   :                 $scope.inputField.desc
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
@@ -1237,7 +1240,7 @@ angular.module('starter.controllers', [])
                   word_id: $scope.sozluk[$scope.itemId].ID
                 }
                 $http.post($rootScope.webServiceUrl, ServiceRequest)
-                
+
               } else {
                 var ServiceRequest = {
                   service_type: "favori_cikar",
