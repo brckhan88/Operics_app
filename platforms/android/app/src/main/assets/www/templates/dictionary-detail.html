@@ -5,23 +5,28 @@
     </ion-header-buttons>
   </ion-header-bar>
 
+  <!-- İlgili sayfanın ID'sini yakalamak için -->
+  {{editInput.itemID = sozluk[itemId].ID}}
+  {{editInput.LangID = sozluk[itemId].LANGUAGES_ID}}
+
   <ion-content>
 
-    <div class="all">{{sozluk[itemId].WORD}}</div>
+    <div class="all">{{editInput.name = sozluk[itemId].WORD}}</div>
 
-    <img ng-click="FavKontrol(sozluk[itemId], localStorage.getItem('user_id'))" class="full-image sagda_simge rr"
-      src="img/icons/r5.png">
+    <img ng-click="applyButton('dictionary','favoriEkleKaldir')" class="full-image sagda_simge dic_fav"
+      src="img/sozlk/{{aktifMi==true ? 's1.png' : aktifMi==false ? 's2.png': '' }}">
 
     <br>
     <center>
-      <div class="col col-90">
-        <a class="col item item-body " style="border-radius:12px;height: 560px;" href="#/tab/dictionary">
 
-          <p style="font-size: 22px;font-family: Avenir-Book;margin-right: 1%;margin-top: 14%;">{{sozluk[itemId].DESCRIPTION}}<div
-              class="ion-compose " ng-if="isAdmin==1" style=" font-size: 33px;
-  margin-top: -240px;margin-left: -802%;
-  text-align: right;"></div>
-          </p>
+      <div class="col col-90">
+        <a class="col item item-body " style="border-radius:12px;height: 560px;margin-top: 10%;" href="#/tab/dictionary">
+
+          
+      <div  class="ion-compose edit_icon "style="margin-top: -1%;
+      margin-left: 87%;" ng-if="isAdmin==1" ng-click="editgosterici('editDic',1)">
+      </div>
+      <p class="text">{{editInput.desc = sozluk[itemId].DESCRIPTION}}</p>
 
         </a>
       </div>

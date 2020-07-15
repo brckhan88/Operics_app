@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
 
   .run(function ($ionicPlatform, $rootScope) {
     $ionicPlatform.ready(function () {
@@ -50,6 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       
       getLanguage();
     });
+    
   })
 
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -130,15 +131,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           }
         }
       })
-      /*.state('tab.userprofile', {
-        url: '/userprofile/:userID',
+      /*
+      .state('tab.userprofile', {
+        url: '/',
         views: {
-          'tab-contact': {
-            templateUrl: 'templates/userprofile.html'
+          'tab-sms': {
+            templateUrl: 'templates/tab-profile.html'
           }
         }
       })
-      */;
+      */
+      ;
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');

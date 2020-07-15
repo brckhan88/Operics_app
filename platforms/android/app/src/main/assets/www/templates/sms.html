@@ -14,19 +14,21 @@
 
 
 				<div class="col col-100">
-					<label style="font-size: 23px;color: #616161;">Lütfen telefonunuza SMS olarak gelen kodu giriniz.</label>
+					<label style="font-size: 23px;color: #616161;">{{diller[59].kelime}}</label>
 				</div>
 
 
-				<div class="col-100 for" style="margin-top: 8%;">
-					<input type="" name="input1" size="1" maxlength="1" style="margin-right: 4%;"class="sms sms_text" ng-model="smsVerify.kod1" ng-keydown="moveToNext('input1', '1', 'input2')">
-					<input type="" name="input2" size="1" maxlength="1" style="margin-right: 4%;" class="sms sms_text" ng-model="smsVerify.kod2" ng-keydown="moveToNext('input2', '1', 'input3')">
-					<input type="" name="input3" size="1" maxlength="1" style="margin-right: 4%;"class="sms sms_text" ng-model="smsVerify.kod3" ng-keydown="moveToNext('input3', '1', 'input4')">
-					<input type="" name="input4" size="1" maxlength="1" class="sms sms_text" ng-model="smsVerify.kod4">
-				</div>
+            	<div class="row" style="margin-top: 8%;">
+                 	<input class="col sms sms_text" type="text" tabindex="1" size="1" maxlength="1"  ng-model="smsVerify.kod1" ng-keypress="autoTab(1)" ><div style="margin-left: 4%;"></div></input>
 
+                 	<input class="col sms sms_text" type="text" tabindex="2" size="1" maxlength="1"  ng-model="smsVerify.kod2" ng-keypress="autoTab(2)"><div style="margin-left: 4%;"></div></input>
 
-				<button style="margin-top: 14%"class="button  sms_button" ng-hide="!smsVerify.kod1 || !smsVerify.kod2 || !smsVerify.kod3 || !smsVerify.kod4" type="submit">Onayla
+                 	<input class="col sms sms_text" type="text" tabindex="3" size="1" maxlength="1" ng-model="smsVerify.kod3" ng-keypress="autoTab(3)"><div style="margin-left: 4%;"></div></input>
+
+                 	<input class="col sms sms_text" type="text" tabindex="4" size="1" maxlength="1" ng-model="smsVerify.kod4"><div style="margin-left: 4%;"></div></input>
+            	</div>
+				
+				<button style="margin-top: 14%"class="button  sms_button" ng-hide="!smsVerify.kod1 || !smsVerify.kod2 || !smsVerify.kod3 || !smsVerify.kod4" type="submit">{{diller[60].kelime}}
 				</button>
 			</center>
 		</form>

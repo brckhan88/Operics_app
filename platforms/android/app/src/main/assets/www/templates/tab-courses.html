@@ -1,13 +1,13 @@
+
 <ion-view view-title='<img class="title-image" src="img/logo.PNG"/ >'>
 	<ion-content>
 
-		<br>
-		<h4 align="center">{{diller[6].kelime}}</h4>
+		<div class="all">{{diller[6].kelime}}</div>
 
 		<!--Ekleme Butonu-->
-		<div class="ortala" ng-if="isAdmin==1">
-			<button class="button button-assertive ekle_b" ng-click="editgosterici('editCourse')" >
-				<h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
+		<div class="center" ng-if="isAdmin==1">
+			<button class="button button-assertive add_button" ng-click="editgosterici('editCourse',0)" >
+				<h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
 			</button>
 		</div>
 

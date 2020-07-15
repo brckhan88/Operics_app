@@ -9,137 +9,95 @@
       <a class="tab-item {{abouttab==1 ? 'active' :''}}" ng-click="tiklaab(1)" href="#/tab/aboutus">
       {{diller[2].kelime}}
       </a>
-      <a class="tab-item {{abouttab==2 ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus">
+      <a class="tab-item {{abouttab==2  ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus">
         {{diller[3].kelime}}
       </a>
     </div>
   </div>
 </div>
 
+
+
 <ion-content>
   <br>
-   <br> 
+   <br>
     <br>
+
+
 
 <!--Ekleme Butonu-->
 
-    <div class="ortala" ng-if="isAdmin==1" ng-click="editgosterici('editAbout')">
-    <button class="button button-assertive ekle_b ">
-    <h3 style=" color: white;font-family: monospace;">  + Ekle</h3>
+    <div class="center" ng-if="isAdmin==1" ng-click="editgosterici('editAbout',0)">
+    <button class="button button-assertive add_button ">
+    <h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
     </button>
     </div>
+    <div class="center" ng-if="isAdmin==1" >
+    <button  class="button add_button button-assertive" ng-click="data.showReorder = !data.showReorder"  >
+            {{!data.showReorder ? diller[76].kelime : diller[77].kelime}}
+    </button>
+  </div>
+ <br>
 
 <!--Hizmetler Tab-->
-  <center> 
-    <div class="col col-100">
-    <div ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" style="margin-top: 30px;"
-    ng-click="modalgosterici('service',{{$index}})">
-    <div class="col col-60" style="    border-radius: 8px;
-    border: solid 1px #ddd;height: 222px;width: auto;">
-    <img style="max-width: 39%;"class="col-50 full-image" ng-src="{{hizmet.SERVICE_IMAGE}}" >
-    <div class="col col-100">
-    <h2 style="font-size: 17px;color: #424242;
-    font-family: -webkit-body;"align="center" class="col">{{hizmet.SERVICE_NAME}}
-    <hr width="100%" size="1">
+  <center>
+  <div dragable="true" class="col col-100">
+   <ion-list show-reorder="data.showReorder">
+      <ion-item class="col item item-body service_location item item-button-right"
+     item="item" ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" href="#/hizmet/{{hizmet.ID}}" ng-click="modalgosterici('service',{{$index}})">
+
+    <ion-reorder-button class="ion-arrow-move service_icon iconn" ng-click="editgosterici('editAbout',1)" on-reorder="moveItem(hizmet, $fromIndex, $toIndex)" on-release="applyReorder()"></ion-reorder-button>
+
+    <img style="max-width: 39%;margin-top: -7%;"class="col-50 full-image right_funct" ng-src="{{hizmet.SERVICE_IMAGE}}" >
+    <h2 align="center" class="col service_header right_funct">{{hizmet.SERVICE_NAME}}
+    <hr width="100%" size="1" >
     </h2>
-    <p style="font-size: 12px;color: #6e6767;" align="center">{{hizmet.DESCRIPTION}}</p>
-   </div>
-  </div>
- </div>
-</center>
+
+    <p style="font-size: 12px;color: #6e6767;" class="right_funct" align="center">{{hizmet.DESCRIPTION}}</p>
+      </ion-item>
+     </ion-list>
+    </div>
+    {{hizmet[0].ID}}
+    </center>
 
 
 
-<!-- Referanslar Tab -->
-<div style="margin-top: 30px;" class="row ortala " ng-if="abouttab==1">
+
+<!--Referanslar Tab-->
+
+<div class="row center " ng-if="abouttab==1" style="margin-top: -13%;">
+
   <div class="col col-50">
-    <div class="col referans_konum" ng-repeat="referans in referanslar" ng-if="referans.ID%2==0">
-      <i class="ion-compose referans_icon" ng-if="isAdmin==1"></i>
-      <img class="referans_style " ng-src="{{referans.REF_PHOTO}}">
-    </div> 
-  </div>
-  <div class="col col-50">
-    <div  class="col referans_konum " ng-repeat="referans in referanslar" ng-if="referans.ID%2==1">
-      <i class="ion-compose referans_icon" ng-if="isAdmin==1"></i>
-      <img class="referans_style" src="{{referans.REF_PHOTO}}">
+    <div class="col item item-body reference-location" ng-repeat="referans in referanslar" ng-if="referans.ID%2==1">
+      <i class="ion-compose  reference-icon " ng-if="isAdmin==1" ng-click="catchRef($index); editgosterici('editAbout',1)"></i>
+      <img ng-src="{{referans.REF_PHOTO}}" class="col-50 full-reference-style">
     </div>
   </div>
+
+  <div class="col col-50">
+    <div class="col item item-body reference-location" ng-repeat="referans in referanslar" ng-if="referans.ID%2==0">
+      <i class="ion-compose  reference-icon" ng-if="isAdmin==1" ng-click="catchRef($index); editgosterici('editAbout',1)"></i>
+      <img ng-src="{{referans.REF_PHOTO}}" class="col-50 full-reference-style">
+    </div>
+  </div>
+
 </div>
-
-
-
 
 <!-- Ekibimiz Tab -->
 <div class="col">
+
  <div ng-if="abouttab==2" ng-repeat="takim in ekip" ng-click="modalgosterici('team',{{$index}})"
- class="col col-100" style="padding: 4%;"> 
- <div class="col item item-text-wrap ekibimiz_style">
+ class="col col-100" style="padding: 4%;">
+ <div class="col item item-text-wrap our-team-style">
   <img class="im" ng-src="{{takim.IMAGE}}">
   <h2><i class="ei">{{takim.NAME}}</i></h2>
   <h2><i class="es">{{takim.POSITION}}</i></h2>
-  <p class="ea">{{text_truncate(takim.ABOUT,100)}}</p>
+  <p class="ea" style="margin-top: 1%;    margin-left: 22%;">{{text_truncate(takim.ABOUT,98)}}</p>
 </div>
 
 </div>
 </div>
-  <!-- Hizmetlerimiz Tab 
-  <div class="ortala" ng-click="deneme()">
-    <button class="button button-assertive ekle_b ">
-      Deneme
-    </button>
-  </div>
 
-  <div class="ortala" ng-click="aboutus_ekle(abouttab)">
-    <button class="button button-assertive ekle_b ">
-      <h3 style=" color: white;font-family: monospace;">  + Ekle</h3>
-    </button>
-  </div>
-
-  <div ng-if="(abouttab==0||!abouttab)" ng-repeat="hizmet in hizmetler" style="margin-top: 30px;"
-  ng-click="modalgosterici('service',{{$index}})">
-
-  <div class="item item-body hk">
-    <img class="full-image i" ng-src="{{hizmet.SERVICE_IMAGE}}">
-
-    <div class="">
-      <h2 align="center">{{hizmet.SERVICE_NAME}}
-        <hr width="100%" size="4">
-      </h2>
-    </div>
-    <p style="font-size: 12px;" align="center">
-      {{hizmet.DESCRIPTION}}
-    </p>
-  </div>
-</div>
-
-</div>
-
--->
-
-
-
-<!--
-
-<div ng-if="abouttab==1" class="row">
-  <div class="col" >
-    <br>
-    <div class="col.col-50 " ng-repeat="referans in referanslar">
-      <div class="item item-thumbnail- h "  href="#" ng-if="referans.ID%2!=0">
-        <img class="rfr " ng-src="{{referans.REF_PHOTO}}">
-      </div>
-      <br>
-    </div>
-  </div>
-  <div class="col ">
-    <div class="col.col-50 " ng-repeat="referans in referanslar">
-      <div class="item item-thumbnail- h " href="#" ng-if="referans.ID%2==0">
-        <img class="rfr " ng-src="{{referans.REF_PHOTO}}">
-      </div>
-      <br>
-    </div>
-  </div>
-</div>
--->
 
 </ion-content>
 </ion-view>
