@@ -55,6 +55,9 @@
     },
     "cordova-plugin-ios-camera-permissions": {
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {

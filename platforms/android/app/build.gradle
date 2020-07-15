@@ -101,6 +101,7 @@ ext {
 apply from: "../cordova-plugin-firebasex/starter-build.gradle"
 apply from: "../cordova-plugin-googlemaps/starter-tbxml-android.gradle"
 apply from: "../cordova-plugin-googlemaps/starter-pgm-custom.gradle"
+apply from: "../cordova-support-google-services/starter-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
