@@ -18,6 +18,7 @@
 */
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 buildscript {
     repositories {
@@ -27,7 +28,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
@@ -115,9 +116,9 @@ if (hasBuildExtras2) {
 
 // Set property defaults after extension .gradle files.
 ext.cdvCompileSdkVersion = cdvCompileSdkVersion == null ? (
-    defaultCompileSdkVersion == null 
+    defaultCompileSdkVersion == null
         ? privateHelpers.getProjectTarget()
-        : defaultCompileSdkVersion 
+        : defaultCompileSdkVersion
 ) : Integer.parseInt('' + cdvCompileSdkVersion);
 
 if (ext.cdvBuildToolsVersion == null) {
