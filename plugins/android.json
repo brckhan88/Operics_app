@@ -55,6 +55,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.operics.app"
+    },
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "com.operics.app"
     }
   },
   "dependent_plugins": {

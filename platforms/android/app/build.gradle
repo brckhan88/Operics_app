@@ -28,7 +28,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.3.0'
     }
 }
 
@@ -102,6 +102,7 @@ ext {
 apply from: "../cordova-plugin-firebasex/app-build.gradle"
 apply from: "../cordova-plugin-googlemaps/app-tbxml-android.gradle"
 apply from: "../cordova-plugin-googlemaps/app-pgm-custom.gradle"
+apply from: "../cordova-support-google-services/app-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
