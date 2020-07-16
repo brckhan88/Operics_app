@@ -17,12 +17,12 @@
   },
   "dependencies": {
     "@ionic-native/globalization": "^5.23.0",
-    "cordova-android": "^8.1.0",
     "cordova-plugin-androidx": "^1.0.2",
     "cordova-plugin-androidx-adapter": "^1.1.0",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-firebasex": "^9.1.0-cli",
     "cordova-plugin-globalization": "^1.11.0",
+    "cordova-plugin-google-analytics": "^1.8.3",
     "cordova-plugin-googlemaps": "^2.7.1",
     "cordova-plugin-ios-camera-permissions": "^1.2.0",
     "cordova-support-google-services": "1.4.1"
@@ -42,10 +42,9 @@
       "cordova-plugin-firebasex": {},
       "cordova-plugin-googlemaps": {},
       "cordova-plugin-ios-camera-permissions": {},
-      "cordova-support-google-services": {}
+      "cordova-support-google-services": {},
+      "cordova-plugin-google-analytics": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
