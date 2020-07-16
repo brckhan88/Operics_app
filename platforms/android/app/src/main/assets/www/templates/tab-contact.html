@@ -1,0 +1,54 @@
+<ion-view view-title='<img class="title-image1" src="img/logo.PNG"/ >'>
+	<ion-content scroll="false" ng-init="showMap(40.984144,29.100140)">
+
+		<div class="all">{{diller[8].kelime}}</div>
+		<!--Ekleme Butonu-->
+		<div class="center" ng-if="isAdmin==1">
+			<button class="button button-assertive add_button" ng-click="editgosterici('editCon',0)">
+				<h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
+			</button>
+		</div>
+
+		<br>
+
+		 <div class="map" id="map"></div>
+
+
+
+
+		<br>
+
+
+
+		<h2 style="font-size: 23px;font-size: 33px; margin-left: 24px;" class="ion-ios-location y">
+			<a>
+				<font style="margin-left: 50px;font-size: 16px;">
+				<p style="margin-left: 23%;margin-top: -11%;">Barbaros Mah. Kardelen Sok. No: 2/41 Atasehir, Istanbul</p>
+				<hr align="right" width="80%" size="10">
+				</font>
+			</a>
+		</h2>
+
+		<h2 style="font-size: 23px;font-size: 33px; margin-left: 24px;" class="ion-ios-telephone y">
+			<a>
+			<font style="margin-left: 50px;font-size: 16px;">
+				<p style="margin-left: 25%;margin-top: -11%;">+90 505 765 33 22<br>+90 216 687 17 70</p>
+				<hr align="right" width="80%" size="10">
+			</font>
+			</a>
+		</h2>
+
+
+		<h2 style="font-size: 23px;font-size: 33px; margin-left: 24px;" class="ion-email y">
+			<a>
+			<font style="margin-left: 50px;font-size: 16px;margin-top: -11%;">
+				<p style="margin-left: 25%;margin-top: -9%;">info@operics.com.tr</p>
+				<hr align="right" width="80%" size="10">
+			</font>
+			</a>
+		</h2>
+
+
+	</ion-content>
+
+</ion-view>

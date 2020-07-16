@@ -1,0 +1,44 @@
+<ion-modal-view view-title='<img class="title-image" src="img/logo.PNG"/ >'>
+  <ion-header-bar class="bar-light">
+    <ion-header-buttons>
+      <button class="button button-clear ion-close" ng-click="modal.hide()"></button>
+    </ion-header-buttons>
+  </ion-header-bar>
+
+  <!-- İlgili sayfanın ID'sini yakalamak için -->
+  {{editInput.itemID = ekip[itemId].ID}}
+  {{editInput.LangID = ekip[itemId].LANGUAGES_ID}}
+  
+  <ion-content>
+    <h4 align="center">{{diller[3].kelime}}</h4>
+<br>
+<center>
+<div class="col col-90" >
+
+<div class="col item item-body" style="border-radius: 12px;height: 560px;">
+     <br><br>
+     <div  class="ion-compose edit_icon edit-detail_icon" ng-if="isAdmin==1" ng-click="editgosterici('editTeam',1)"></div>
+     <center>
+     <i class="col list" style="height: 97px;">
+      <div style="border-color: red;
+    border-width: 2px;
+    border-radius: 153px;
+    width: 43%;margin-top:-39%;" class="item item-avatar ekip_detay ">
+        <img class="our-team-story_img" ng-src="{{editInput.img = ekip[itemId].IMAGE}}">
+      </i></div></i></center>
+   
+
+    <h1 align="center" style="font-size: 21px;">{{editInput.name = ekip[itemId].NAME}}</h1>
+    <h2 align="center">{{editInput.position = ekip[itemId].POSITION}}</h2>
+    <br>
+    <p style="font-size: 15px;" align="center">{{editInput.desc = ekip[itemId].ABOUT}}
+
+      <a href="{{editInput.link = ekip[itemId].LINKEDIN}}">
+      <i class="ion-social-linkedin linkdn_icon "></i></a>
+      </div>
+    </div>
+</i></div></div></center>
+
+
+  </ion-content>
+</ion-modal-view>
