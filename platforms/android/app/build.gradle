@@ -18,7 +18,6 @@
 */
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
 
 buildscript {
     repositories {
@@ -36,7 +35,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        google()
         jcenter()
     }
 }
@@ -100,10 +98,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-firebasex/starter-build.gradle"
-apply from: "../cordova-plugin-googlemaps/starter-tbxml-android.gradle"
-apply from: "../cordova-plugin-googlemaps/starter-pgm-custom.gradle"
-apply from: "../cordova-support-google-services/starter-build.gradle"
+apply from: "../cordova-plugin-firebasex/app-build.gradle"
+apply from: "../cordova-plugin-googlemaps/app-tbxml-android.gradle"
+apply from: "../cordova-plugin-googlemaps/app-pgm-custom.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -118,9 +115,9 @@ if (hasBuildExtras2) {
 
 // Set property defaults after extension .gradle files.
 ext.cdvCompileSdkVersion = cdvCompileSdkVersion == null ? (
-    defaultCompileSdkVersion == null
+    defaultCompileSdkVersion == null 
         ? privateHelpers.getProjectTarget()
-        : defaultCompileSdkVersion
+        : defaultCompileSdkVersion 
 ) : Integer.parseInt('' + cdvCompileSdkVersion);
 
 if (ext.cdvBuildToolsVersion == null) {
