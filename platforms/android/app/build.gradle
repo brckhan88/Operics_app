@@ -29,7 +29,6 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
-        implementation 'com.google.firebase:firebase-analytics:17.2.2'
     }
 }
 
