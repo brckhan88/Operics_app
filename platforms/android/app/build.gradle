@@ -28,7 +28,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
     }
 }
 
@@ -36,7 +36,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        google()
         jcenter()
     }
 }
@@ -100,10 +99,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-firebasex/starter-build.gradle"
-apply from: "../cordova-plugin-googlemaps/starter-tbxml-android.gradle"
-apply from: "../cordova-plugin-googlemaps/starter-pgm-custom.gradle"
-apply from: "../cordova-support-google-services/starter-build.gradle"
+apply from: "../cordova-plugin-firebasex/app-build.gradle"
+apply from: "../cordova-plugin-googlemaps/app-tbxml-android.gradle"
+apply from: "../cordova-plugin-googlemaps/app-pgm-custom.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
