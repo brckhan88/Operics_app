@@ -98,10 +98,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-firebasex/app-build.gradle"
-apply from: "../cordova-plugin-googlemaps/app-tbxml-android.gradle"
-apply from: "../cordova-plugin-googlemaps/app-pgm-custom.gradle"
-apply from: "../cordova-support-google-services/app-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -297,19 +293,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    implementation "androidx.legacy:legacy-support-v4:1.0.0"
-    implementation "com.google.android.gms:play-services-auth:17.0.0"
-    implementation "com.google.firebase:firebase-analytics:17.2.1"
-    implementation "com.google.firebase:firebase-messaging:20.0.0"
-    implementation "com.google.firebase:firebase-config:19.0.3"
-    implementation "com.google.firebase:firebase-perf:19.0.1"
-    implementation "com.google.firebase:firebase-auth:19.1.0"
-    implementation "com.google.firebase:firebase-firestore:21.4.0"
-    implementation "com.crashlytics.sdk.android:crashlytics:2.10.1"
-    implementation "com.crashlytics.sdk.android:crashlytics-ndk:2.1.1"
-    implementation "com.google.code.gson:gson:2.8.6"
-    implementation "com.google.android.gms:play-services-analytics:+"
-    implementation "androidx.annotation:annotation:1.0.0"
+    implementation "com.android.support:support-v4:27.+"
+    implementation "com.android.support:support-annotations:27.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 
