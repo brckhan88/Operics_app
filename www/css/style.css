@@ -1,6 +1,8 @@
 .title-image {
   margin-top: 4px;
   height: 38px;
+  text-align: center;
+
 }
 
 .title-image1 {
@@ -25,7 +27,7 @@
 }
 
 .services-main{
-  width: 30%;
+  width: 29%;
   height: 97.5px;
   border-radius: 4px !important;
   border: solid 0.5px #e5e5e5;
@@ -216,8 +218,10 @@
 }
 
 .tabs{
-  background-color: black;
-  height: 8%;
+    background-color: black;
+    height: 8%;
+    
+ 
 }
 
 .scroll_structure{
@@ -288,11 +292,6 @@
   margin-left: 25%;
 }
 /* Empty. Add your own CSS if you like */
-
-
-
-
-
 .im{
   position: absolute;
   top: 19px;

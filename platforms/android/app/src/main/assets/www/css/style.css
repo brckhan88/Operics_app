@@ -1,6 +1,8 @@
 .title-image {
   margin-top: 4px;
   height: 38px;
+  text-align: center;
+
 }
 
 .title-image1 {
@@ -218,6 +220,7 @@
 .tabs{
   background-color: black;
   height: 8%;
+ 
 }
 
 .scroll_structure{

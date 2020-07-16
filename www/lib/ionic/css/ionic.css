@@ -5071,6 +5071,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .tabs.tabs-top {
   top: 44px;
   padding-top: 0;
+  background-color: black;
   background-position: bottom;
   border-top-width: 0;
   border-bottom-width: 1px; }

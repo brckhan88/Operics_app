@@ -5069,7 +5069,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 /* If you change this, change platform.scss as well */
 .tabs-top > .tabs,
 .tabs.tabs-top {
-  top: 44px;
+  background-color: black;
   padding-top: 0;
   background-position: bottom;
   border-top-width: 0;
@@ -5236,7 +5236,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   pointer-events: none; }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
-  top: 0; }
+  /*top: 0;*/ }
 
 .pane[hide-nav-bar="true"] .has-tabs-top {
   top: 49px; }
