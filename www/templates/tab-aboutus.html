@@ -1,19 +1,12 @@
 <ion-view view-title='<img class="title-image" src="img/logo.PNG"/ >'>
 
   <!-- Hakkımızda Tab -->
-  <div class="tabs-striped tabs-top tabs-background-light tabs-color-dark">
-    <div class="tabs">
-      <a class="tab-item {{(abouttab==0||!abouttab) ? 'active' :''}}" ng-click="tiklaab(0)" href="#/tab/aboutus">
-        {{diller[1].kelime}}
-      </a>
-      <a class="tab-item {{abouttab==1 ? 'active' :''}}" ng-click="tiklaab(1)" href="#/tab/aboutus">
-      {{diller[2].kelime}}
-      </a>
-      <a class="tab-item {{abouttab==2  ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus">
-        {{diller[3].kelime}}
-      </a>
-    </div>
-  </div>
+<div class="bar bar-subheader topnav-a topnav-b topnav-c topnav-d ">
+
+  <a class="tab-item {{(abouttab==0||!abouttab) ? 'active' :''}}" ng-click="tiklaab(0)" href="#/tab/aboutus" style="color: #6b6666;">{{diller[1].kelime}}</a>
+  <a class="tab-item {{abouttab==1 ? 'active' :''}}" ng-click="tiklaab(1)" href="#/tab/aboutus" style="color: #6b6666;"> {{diller[2].kelime}}</a>
+  <a class="tab-item {{abouttab==2  ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus" style="color: #6b6666;">{{diller[3].kelime}}</a>
+
 </div>
 
 

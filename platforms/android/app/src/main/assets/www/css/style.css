@@ -27,7 +27,7 @@
 }
 
 .services-main{
-  width: 30%;
+  width: 29%;
   height: 97.5px;
   border-radius: 4px !important;
   border: solid 0.5px #e5e5e5;
@@ -218,8 +218,9 @@
 }
 
 .tabs{
-  background-color: black;
-  height: 8%;
+    background-color: black;
+    height: 8%;
+    
  
 }
 
@@ -290,12 +291,30 @@
   margin-right: 30%;
   margin-left: 25%;
 }
+.topnav-a {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav-b {
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.topnav-c {
+  float: left;
+  color: #111;
+  text-align: center;
+  padding: 4px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav-d {
+  border-bottom-style: solid;
+  border-bottom-color: #6969693d;
+}
 /* Empty. Add your own CSS if you like */
-
-
-
-
-
 .im{
   position: absolute;
   top: 19px;
@@ -306,7 +325,6 @@
   height: 100%;
   border-radius: 50%;
 }
-
 
 
 .imi{
