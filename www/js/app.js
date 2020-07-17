@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
       })
 
       .state('sms', {
-        url: '/login',
+        url: '/sms',
         templateUrl: 'templates/sms.html',
         controller: 'MainCtrl'
       })
