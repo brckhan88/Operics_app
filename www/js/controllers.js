@@ -78,6 +78,7 @@ angular.module('starter.controllers', [])
 
     // Version Kontrolü
 
+
     $scope.versionChck = function () {
       if(!$scope.currentVersion) {
         var ServiceRequest = {
@@ -103,42 +104,47 @@ angular.module('starter.controllers', [])
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
           $scope.versionResponse = data[0];
+          console.log($scope.versionResponse.response_lan);
 
           if ($scope.versionResponse.response_lan == false) {
             localStorage.removeItem('dillerJson');
-            localStorage.removeItem('versionJson');
+            $scope.diller      = JSON.parse(localStorage.getItem('dillerJson'));
           }
           if ($scope.versionResponse.response_sto == false) {
             localStorage.removeItem('hikayeJson');
-            localStorage.removeItem('versionJson');
+            $scope.hikayeler   = JSON.parse(localStorage.getItem('hikayeJson'));
           }
           if ($scope.versionResponse.response_ser == false) {
             localStorage.removeItem('hizmetJson');
-            localStorage.removeItem('versionJson');
+            $scope.hizmetler   = JSON.parse(localStorage.getItem('hizmetJson'));
           }
           if ($scope.versionResponse.response_tea == false) {
             localStorage.removeItem('ekipJson');
-            localStorage.removeItem('versionJson');
+            $scope.ekip        = JSON.parse(localStorage.getItem('ekipJson'));
           }
           if ($scope.versionResponse.response_ref == false) {
             localStorage.removeItem('referansJson');
-            localStorage.removeItem('versionJson');
+            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
           }
           if ($scope.versionResponse.response_dic == false) {
             localStorage.removeItem('sozlukJson');
-            localStorage.removeItem('versionJson');
+            $scope.sozluk      = JSON.parse(localStorage.getItem('sozlukJson'));
           }
           if ($scope.versionResponse.response_cou == false) {
             localStorage.removeItem('egitimJson');
-            localStorage.removeItem('versionJson');
+            $scope.egitimler   = JSON.parse(localStorage.getItem('egitimJson'));
           }
           //if ($scope.versionResponse.response_abo == false) {
           //  localStorage.removeItem('..Json');
-          //  localStorage.removeItem('versionJson');
           //}
         })
+        if (!$scope.diller || !$scope.hikayeler || !$scope.hizmetler || !$scope.ekip || !$scope.referanslar || !$scope.sozluk || !$scope.egitimler ) {
+          localStorage.removeItem('versionJson');
+          $scope.currentVersion  = JSON.parse(localStorage.getItem('versionJson'));
+          $scope.loadData();
+        }
       }
-      $scope.loadData();
+
     };
 
 

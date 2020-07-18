@@ -2,6 +2,7 @@
 <ion-view view-title='<img class="title-image" src="img/logo.PNG"/ >' >
 
   <ion-content class="padding" >
+    {{giris}}
     <!-- Anasayfa Tab -->
 
     <h3 class="font_text">{{diller[0].kelime}}</h3>
@@ -17,7 +18,7 @@
 
 
     <h3 class="font_text">{{diller[1].kelime}}</h3>
- 
+
       <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
         <div class="col.col-25" ng-repeat="servis in hizmetler" ng-click="tiklaab(0); modalgosterici('service',{{$index}})">
@@ -43,7 +44,7 @@
         </div>
       </div>
     </ion-scroll>
-    
+
     <h3 class="font_text">{{diller[3].kelime}}</h3>
 
     <ion-scroll scrollbar-x="false" style="overflow-x: hidden; " direction="x">
