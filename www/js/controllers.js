@@ -170,17 +170,6 @@ angular.module('starter.controllers', [])
         })
       }
 
-      if (!$scope.userList && ($scope.isAdmin == 1) ) {
-        localStorage.removeItem('kullanıcıListesiJson');
-        var ServiceRequest = {
-          service_type: "admin_users_detail",
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.userList = data;
-        })
-      }
-
       if (!$scope.hikayeler ) {
         var ServiceRequest = {
           service_type: "hikayeler",
@@ -385,17 +374,6 @@ angular.module('starter.controllers', [])
       })
     }
 
-
-
-    //Logout işlemi
-
-    $scope.cikis = function () {
-      localStorage.removeItem('language');
-      localStorage.removeItem('user_id');
-      $scope.userId = localStorage.getItem('user_id');
-    }
-
-
     //Harita Çağırma
 
 
@@ -511,7 +489,7 @@ angular.module('starter.controllers', [])
 
     $scope.autoTab= function(tabindex) {
       document.getElementsByTagName('input')[tabindex].focus();
-    }
+    };
 
     $scope.text_truncate = function (str, length, ending) {
       if (length == null) {
@@ -525,7 +503,7 @@ angular.module('starter.controllers', [])
       } else {
           return str;
       }
-    }
+    };
 
     $scope.moveItem = function(item, fromIndex, toIndex) {
       $scope.hizmetler.splice(fromIndex, 1);
@@ -544,7 +522,7 @@ angular.module('starter.controllers', [])
         reordered_list     :         $scope.tempJson,
       }
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
-    }
+    };
 
     $scope.wait =function (ms) {
       var start = new Date().getTime();
@@ -552,7 +530,7 @@ angular.module('starter.controllers', [])
       while(end < start + ms) {
         end = new Date().getTime();
       }
-    }
+    };
 
     // Derse Katılım sorgusu
     $scope.chckEnrollment = function (id) {
@@ -677,7 +655,7 @@ angular.module('starter.controllers', [])
       $scope.editInput.name = $scope.referanslar[id].REF_NAME;
       $scope.editInput.img = $scope.referanslar[id].REF_PHOTO;
       $scope.editInput.itemID = $scope.referanslar[id].ID;
-    }
+    };
 
     $scope.adminUserInteraction = function (type, id) {
       console.log(type + " " +id);
@@ -842,6 +820,16 @@ angular.module('starter.controllers', [])
           break;
 
         case 'listUsers':
+          // Admin Kullanıcı paneli
+          if (!$scope.userList) {
+            var ServiceRequest = {
+              service_type: "admin_users_detail",
+            }
+
+            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+              $scope.userList = data;
+            })
+          }
           $ionicModal.fromTemplateUrl('templates/list-users.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -918,12 +906,12 @@ angular.module('starter.controllers', [])
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
-            localStorage.removeItem('hizmetJson');
-            $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
-            $scope.loadData();
-            console.log("Hizmet eklendi");
-            $scope.modal.hide();
-            break;
+              localStorage.removeItem('hizmetJson');
+              $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
+              $scope.loadData();
+              console.log("Hizmet eklendi");
+              $scope.modal.hide();
+              break;
 
             case 'guncelle':
               var ServiceRequest = {
