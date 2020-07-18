@@ -68,16 +68,13 @@ angular.module('starter.controllers', [])
     // Login Durum Kontrolcüsü
 
     $scope.isLogged = function () {
-      if ($scope.loginStatus != 1) {
 
-        location.href = "#/login";
-
-      } else {
+      if ($scope.loginStatus == 1) {
         $scope.versionChck();
-
         location.href = "#/tab/main";
       }
     };
+
 
     // Version Kontrolü
 
@@ -271,6 +268,8 @@ angular.module('starter.controllers', [])
       */
     };
 
+
+
     // Kullanıcı girişi, Kullanıcı kaydı, Şifre yenileme Switch Algoritması
 
     $scope.kayitButon = function (kayittab) {
@@ -316,6 +315,7 @@ angular.module('starter.controllers', [])
       })
     };
 
+
     // Kullanıcı Kayıt Fonksiyonu
 
     $scope.registerUser = function () {
@@ -334,10 +334,7 @@ angular.module('starter.controllers', [])
         localStorage.setItem('user_id', $scope.kullanici.user_id)
 
         if ($scope.kullanici.create_status == 1 ) {
-          $ionicModal.fromTemplateUrl('templates/sms.html', { scope: $scope }).then(function (modal) {
-            $scope.modal = modal;
-            $scope.modal.show();
-          });
+          location.href = "#/sms";
         }
       })
 
@@ -384,11 +381,10 @@ angular.module('starter.controllers', [])
           $scope.loginStatus = localStorage.getItem('loginStatus');
           $scope.loadData();
           location.href = "#/tab/main";
-          $scope.modal.hide();
-          console.log($scope.loginStatus);
         }
       })
     }
+
 
 
     //Logout işlemi
@@ -1299,6 +1295,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.isLogged();
+
 
 
   });
