@@ -657,6 +657,19 @@ angular.module('starter.controllers', [])
       $scope.editInput.itemID = $scope.referanslar[id].ID;
     };
 
+    // Admin Kullanıcı Listesi
+    $scope.adminUserList = function() {
+      if (!$scope.userList) {
+        var ServiceRequest = {
+          service_type: "admin_users_detail",
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          $scope.userList = data;
+        })
+      }
+    };
+
     $scope.adminUserInteraction = function (type, id) {
       console.log(type + " " +id);
       switch (type) {
@@ -689,7 +702,7 @@ angular.module('starter.controllers', [])
       }
 
       $scope.userList = null;
-      $scope.loadData();
+      $scope.adminUserList();
     };
 
 
@@ -820,16 +833,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'listUsers':
-          // Admin Kullanıcı paneli
-          if (!$scope.userList) {
-            var ServiceRequest = {
-              service_type: "admin_users_detail",
-            }
-
-            $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-              $scope.userList = data;
-            })
-          }
+          $scope.adminUserList();
           $ionicModal.fromTemplateUrl('templates/list-users.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
