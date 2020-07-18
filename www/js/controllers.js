@@ -95,7 +95,7 @@ angular.module('starter.controllers', [])
           language_version   :          $scope.currentVersion[7].TABLE_VERSION,
           story_version      :          $scope.currentVersion[1].TABLE_VERSION,
           service_version    :          $scope.currentVersion[2].TABLE_VERSION,
-          team_version       :          $scope.currentVersion[3].TABLE_VERSION,
+          team_version       :          5,
           reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
           dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
           course_version     :          $scope.currentVersion[6].TABLE_VERSION,
@@ -104,7 +104,7 @@ angular.module('starter.controllers', [])
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
           $scope.versionResponse = data[0];
-          console.log($scope.versionResponse.response_lan);
+          console.log($scope.versionResponse.response_tea);
 
           if ($scope.versionResponse.response_lan == false) {
             localStorage.removeItem('dillerJson');
