@@ -17,9 +17,10 @@
 
 
     <h3 class="font_text">{{diller[1].kelime}}</h3>
-     <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
+ 
+      <ion-scroll scrollbar-x="false" style="overflow-x: hidden;" direction="x">
       <div class="row">
-        <div class="col.col-25" ng-repeat="servis in hizmetler">
+        <div class="col.col-25" ng-repeat="servis in hizmetler" ng-click="tiklaab(0); modalgosterici('service',{{$index}})">
           <a class="item item-thumbnail- reference-main" style="border-radius: 10px !important;
       margin-right: 14px; ">
             <img class="main-image_align" ng-src="{{servis.SERVICE_IMAGE}}">
