@@ -883,7 +883,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('hikayeJson');
               $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Hikaye güncellendi");
               $scope.modal.hide();
               break;
@@ -897,7 +897,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('hikayeJson');
               $scope.hikayeler = JSON.parse(localStorage.getItem('hikayeJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Hikaye silindi");
               $scope.modal.hide();
               break;
@@ -918,7 +918,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('hizmetJson');
               $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Hizmet eklendi");
               $scope.modal.hide();
               break;
@@ -937,7 +937,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('hizmetJson');
               $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Hizmet güncellendi");
               $scope.modal.hide();
               break;
@@ -951,7 +951,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('hizmetJson');
               $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Hizmet silindi");
               $scope.modal.hide();
               break;
@@ -970,7 +970,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('referansJson');
               $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Referans eklendi");
               $scope.modal.hide();
               break;
@@ -986,7 +986,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('referansJson');
               $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Referans güncellendi");
               $scope.modal.hide();
               break;
@@ -1000,7 +1000,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('referansJson');
               $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Referans silindi");
               $scope.modal.hide();
               break;
@@ -1023,7 +1023,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('ekipJson');
               $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Çalışan ekledi");
               $scope.modal.hide();
               break;
@@ -1043,7 +1043,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('ekipJson');
               $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Çalışan guncelledi");
               $scope.modal.hide();
               break;
@@ -1057,7 +1057,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('ekipJson');
               $scope.ekip = JSON.parse(localStorage.getItem('ekipJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Çalışan silindi");
               $scope.modal.hide();
               break;
@@ -1083,7 +1083,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('egitimJson');
               $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Egitim eklendi");
               $scope.modal.hide();
               break;
@@ -1106,7 +1106,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('egitimJson');
               $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Egitim güncellendi");
               scope.modal.hide();
               break;
@@ -1120,7 +1120,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('egitimJson');
               $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Egitim silindi");
               $scope.modal.hide();
               break;
@@ -1191,7 +1191,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('sozlukJson');
               $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Sozluk eklendi");
               $scope.modal.hide();
               break;
@@ -1208,7 +1208,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('sozlukJson');
               $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Sozluk güncellendi");
               $scope.modal.hide();
               break;
@@ -1222,7 +1222,7 @@ angular.module('starter.controllers', [])
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               localStorage.removeItem('sozlukJson');
               $scope.sozluk = JSON.parse(localStorage.getItem('sozlukJson'));
-              $scope.loadData();
+              $scope.versionChck();
               console.log("Sozluk silindi");
               $scope.modal.hide();
               break;
@@ -1258,7 +1258,7 @@ angular.module('starter.controllers', [])
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               $scope.iletisim= null;
-              $scope.loadData();
+              $scope.versionChck();
               console.log("... eklendi");
               $scope.modal.hide();
               break;
@@ -1270,7 +1270,7 @@ angular.module('starter.controllers', [])
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               $scope.iletisim = null;
-              $scope.loadData();
+              $scope.versionChck();
               console.log("... güncellendi");
               $scope.modal.hide();
               break;
@@ -1283,7 +1283,7 @@ angular.module('starter.controllers', [])
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
               $scope.iletisim = null;
-              $scope.loadData();
+              $scope.versionChck();
               console.log("... silindi");
               $scope.modal.hide();
               break;
