@@ -297,7 +297,13 @@ angular.module('starter.controllers', [])
           $scope.loadData();
 
           // Kaydedilen bilgiler uygulamanın ilgili kısımlarında gösterilmek üzere kullanılır.
-          $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
+          if ($scope.language == "TR" ) {
+            $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
+          } else if ($scope.language == "DE" ) {
+            $ionicPopup.alert({ template: "Sehr geehrte " + $scope.giris.user_name + ", Wilkommen bei Operics!.." });
+          } else {
+            $ionicPopup.alert({ template: "Dear " + $scope.giris.user_name + ", Welcome to Operics!.." });
+          }
 
           console.log("Login Status = " + $scope.loginStatus);
           location.href = "#/tab/main";
