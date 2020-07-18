@@ -3985,7 +3985,7 @@ a.subdued {
     position: absolute;
     top: 0;
     right: 0;
-    left: 0;
+    left: 21px;
     z-index: 0;
     overflow: hidden;
     margin: 0 10px;
