@@ -105,6 +105,7 @@ angular.module('starter.controllers', [])
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
           $scope.versionResponse = data[0];
+          console.log($scope.versionResponse);
 
           if ($scope.versionResponse.response_lan == false) {
             localStorage.removeItem('dillerJson');
