@@ -319,6 +319,12 @@
   border-bottom-color: #6969693d;
 }
 /* Empty. Add your own CSS if you like */
+.header-style{
+  font-size:25px;
+  text-align:center;
+  margin-top:15px;
+}
+
 .team-image{
   position: absolute;
   top: 19px;
@@ -422,8 +428,6 @@
 
 
 
-
-
 .ie{
   -webkit-user-drag: none;
   width: 113%;
@@ -434,11 +438,6 @@
 
 
 
-.all{
-  font-size:25px;
-  text-align:center;
-  margin-top:15px;
-}
 
 
 
@@ -483,8 +482,5 @@
   font-size:18px;
 }
 
-.in{
- font-size:14px;
-}
 
 
