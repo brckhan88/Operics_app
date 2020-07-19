@@ -798,14 +798,14 @@ switch ($service_type) {
         $about_us_version   = $data["about_us_version"];
 
 
-        $response_lan  = 1;
-        $response_sto  = 1;
-        $response_ser  = 1;
-        $response_tea  = 1;
-        $response_ref  = 1;
-        $response_dic  = 1;
-        $response_cou  = 1;
-        $response_abo  = 1;
+        $response_lan  = true;
+        $response_sto  = false;
+        $response_ser  = true;
+        $response_tea  = true;
+        $response_ref  = true;
+        $response_dic  = true;
+        $response_cou  = true;
+        $response_abo  = true;
 
         $sorgu = "SELECT * FROM VERSIONS";
         $data = $conn->query($sorgu);
@@ -815,36 +815,36 @@ switch ($service_type) {
         }
 
         if($ver[7]['TABLE_VERSION']!=$language_version) {
-            $response_lan  = 0;
+            $response_lan  = false;
         }
 
         if($ver[1]['TABLE_VERSION']!=$story_version) {
-            $response_sto  = 0;
+            $response_sto  = false;
         }
 
         if($ver[2]['TABLE_VERSION']!=$service_version) {
-            $response_ser  = 0;
+            $response_ser  = false;
         }
 
         if($ver[3]['TABLE_VERSION']!=$teams_version) {
-            $response_tea  = 0;
+            $response_tea  = false;
         }
 
         if($ver[4]['TABLE_VERSION']!=$reference_version) {
-            $response_ref  = 0;
+            $response_ref  = false;
         }
 
         if($ver[5]['TABLE_VERSION']!=$dictionary_version) {
-            $response_dic  = 0;
+            $response_dic  = false;
         }
 
         if($ver[6]['TABLE_VERSION']!=$course_version) {
-            $response_cou  = 0;
+            $response_cou  = false;
         }
 
 
         if($ver[8]['TABLE_VERSION']!=$about_us_version) {
-            $response_abo  = 0;
+            $response_abo  = false;
         }
 
         $rows[]=["response_lan"=>$response_lan,"response_sto"=>$response_sto,"response_ser"=>$response_ser,"response_tea"=>$response_lan,"response_ref"=>$response_ref,"response_dic"=>$response_dic,"response_cou"=>$response_cou,"response_abo"=>$response_abo];
