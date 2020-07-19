@@ -26,6 +26,7 @@ angular.module('starter.controllers', [])
     $scope.egitimler                    = JSON.parse(localStorage.getItem('egitimJson'));
     $scope.sozluk                       = JSON.parse(localStorage.getItem('sozlukJson'));
     $scope.profil                       = JSON.parse(localStorage.getItem('profilJson'));
+    $scope.icerikLang                   = localStorage.getItem('language');
 
     // Uygulama dilinin belirlenmesi
 
