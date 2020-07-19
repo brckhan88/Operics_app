@@ -138,14 +138,13 @@ angular.module('starter.controllers', [])
           //if ($scope.versionResponse.response_abo == false) {
           //  localStorage.removeItem('..Json');
           //}
+          if (!$scope.diller || !$scope.hikayeler || !$scope.hizmetler || !$scope.ekip || !$scope.referanslar || !$scope.sozluk || !$scope.egitimler ) {
+            localStorage.removeItem('versionJson');
+            $scope.currentVersion  = JSON.parse(localStorage.getItem('versionJson'));
+          }
         })
       }
-      if (!$scope.diller || !$scope.hikayeler || !$scope.hizmetler || !$scope.ekip || !$scope.referanslar || !$scope.sozluk || !$scope.egitimler ) {
-        localStorage.removeItem('versionJson');
-        $scope.currentVersion  = JSON.parse(localStorage.getItem('versionJson'));
-        $scope.loadData();
-      }
-
+      $scope.loadData();
     };
 
 
