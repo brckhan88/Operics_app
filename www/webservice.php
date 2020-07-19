@@ -799,7 +799,7 @@ switch ($service_type) {
 
 
         $response_lan  = true;
-        $response_sto  = false;
+        $response_sto  = true;
         $response_ser  = true;
         $response_tea  = true;
         $response_ref  = true;
