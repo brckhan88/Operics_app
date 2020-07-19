@@ -673,7 +673,7 @@ switch ($service_type) {
         $course_bgdate      = $data["course_bgdate"];
         $course_endate      = $data["course_endate"];
 
-        "UPDATE `COURSE` SET LANGUAGES_ID = '$language', CRS_NAME = '$course_name' , CRS_DESCRIPTION = '$course_description' , CRS_PHOTO = '$course_image' , CRS_CITY = '$course_city', CRS_HOUR = '$course_hour' , CRS_ADRESS = '$course_adress' , CRS_ENDDATE = '$course_endate' , CRS_BEGINDATE = '$course_bgdate' WHERE ID=".$team_id;
+        $sorgu = "UPDATE `COURSE` SET LANGUAGES_ID = '$language', CRS_NAME = '$course_name' , CRS_DESCRIPTION = '$course_description' , CRS_PHOTO = '$course_image' , CRS_CITY = '$course_city', CRS_HOUR = '$course_hour' , CRS_ADRESS = '$course_adress' , CRS_ENDDATE = '$course_endate' , CRS_BEGINDATE = '$course_bgdate' WHERE ID=".$course_id;
         $data = $conn->query($sorgu);
     break;
 
