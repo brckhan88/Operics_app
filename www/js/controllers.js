@@ -1114,7 +1114,7 @@ angular.module('starter.controllers', [])
               $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
               $scope.versionChck();
               console.log("Egitim güncellendi");
-              scope.modal.hide();
+              $scope.modal.hide();
               break;
 
             case 'sil':
