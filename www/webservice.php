@@ -798,14 +798,14 @@ switch ($service_type) {
         $about_us_version   = $data["about_us_version"];
 
 
-        $response_lan  = true;
-        $response_sto  = true;
-        $response_ser  = true;
-        $response_tea  = true;
-        $response_ref  = true;
-        $response_dic  = true;
-        $response_cou  = true;
-        $response_abo  = true;
+        $response_lan  = false;
+        $response_sto  = false;
+        $response_ser  = false;
+        $response_tea  = false;
+        $response_ref  = false;
+        $response_dic  = false;
+        $response_cou  = false;
+        $response_abo  = false;
 
         $sorgu = "SELECT * FROM VERSIONS";
         $data = $conn->query($sorgu);
@@ -814,37 +814,37 @@ switch ($service_type) {
             $ver[] = $row;
         }
 
-        if($ver[7]['TABLE_VERSION']!=$language_version) {
-            $response_lan  = false;
+        if($ver[7]['TABLE_VERSION']==$language_version) {
+            $response_lan  = true;
         }
 
-        if($ver[1]['TABLE_VERSION']!=$story_version) {
-            $response_sto  = false;
+        if($ver[1]['TABLE_VERSION']==$story_version) {
+            $response_sto  = true;
         }
 
-        if($ver[2]['TABLE_VERSION']!=$service_version) {
-            $response_ser  = false;
+        if($ver[2]['TABLE_VERSION']==$service_version) {
+            $response_ser  = true;
         }
 
-        if($ver[3]['TABLE_VERSION']!=$teams_version) {
-            $response_tea  = false;
+        if($ver[3]['TABLE_VERSION']==$teams_version) {
+            $response_tea  = true;
         }
 
-        if($ver[4]['TABLE_VERSION']!=$reference_version) {
-            $response_ref  = false;
+        if($ver[4]['TABLE_VERSION']==$reference_version) {
+            $response_ref  = true;
         }
 
-        if($ver[5]['TABLE_VERSION']!=$dictionary_version) {
-            $response_dic  = false;
+        if($ver[5]['TABLE_VERSION']==$dictionary_version) {
+            $response_dic  = true;
         }
 
-        if($ver[6]['TABLE_VERSION']!=$course_version) {
-            $response_cou  = false;
+        if($ver[6]['TABLE_VERSION']==$course_version) {
+            $response_cou  = true;
         }
 
 
-        if($ver[8]['TABLE_VERSION']!=$about_us_version) {
-            $response_abo  = false;
+        if($ver[8]['TABLE_VERSION']==$about_us_version) {
+            $response_abo  = true;
         }
 
         $rows[]=["response_lan"=>$response_lan,"response_sto"=>$response_sto,"response_ser"=>$response_ser,"response_tea"=>$response_lan,"response_ref"=>$response_ref,"response_dic"=>$response_dic,"response_cou"=>$response_cou,"response_abo"=>$response_abo];
