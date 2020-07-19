@@ -3343,7 +3343,7 @@ body.grade-c {
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+  overflow: scroll;
   margin-top: -1px;
   padding-top: 1px;
   margin-bottom: -1px;
