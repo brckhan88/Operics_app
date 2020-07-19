@@ -35,12 +35,12 @@
 
         <br><br>
 
-        <button ng-disabled="!loginData.email || !loginData.password" class="button button-dark beton2"
+        <button ng-disabled="!loginData.email || !loginData.password" class="button button-dark login_button"
           type="submit">{{diller[16].kelime}}</button>
 
         <br><br>
 
-        <button class="button button-dark beton1" type="button" ng-click="kayitButon(1)">
+        <button class="button button-dark login-register_button" type="button" ng-click="kayitButon(1)">
           <p class="button-register"> {{diller[20].kelime}}</p>
         </button>
         <br><br>
@@ -115,7 +115,7 @@
         <br><br>
 
         <!-- Submit Butonu -->
-        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || kayitData.number/100000000000<1 || kayitData.number/100000000000>=10|| !kayitData.email || !kayitData.password || kayitData.password.length<8 || (kayitData.passwordChck!=kayitData.password)" type="submit">
+        <button class="button button-dark login_button" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || kayitData.number/100000000000<1 || kayitData.number/100000000000>=10|| !kayitData.email || !kayitData.password || kayitData.password.length<8 || (kayitData.passwordChck!=kayitData.password)" type="submit">
           {{diller[20].kelime}}
         </button>
 
@@ -123,7 +123,7 @@
         <br>
         
         <!-- Giriş Yap'a dönüş -->
-        <button style="margin-left: -1%;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
+        <button style="margin-left: -1%;" class="button button-dark login-register_button" type="button" ng-click="kayitButon(0)">
          <p class="button-register">{{diller[16].kelime}}</p>
         </button>
 

@@ -25,6 +25,12 @@
   border-radius: 23.25px;
 }
 
+.service-detail-image{
+  width: 33%;
+  margin-left: 95px;
+  margin-top: -14px;
+}
+
 .services-main{
   width: 29%;
   height: 97.5px;
@@ -33,6 +39,25 @@
   margin-left: -1px;
 }
 
+.service_location{
+  margin-top: 17%;
+  height: 271px;
+  max-width: 69%;
+  overflow: hidden;
+  border-radius: 4%;
+  border-color: #69696987;
+}
+.service_header{
+  font-size: 17px;
+  color: #424242; 
+  font-family: -webkit-body; 
+  width: 121%;
+}
+.service_icon{
+  font-size: 168%;
+  margin-right: 88%;
+  margin-top: 0%;
+}
 .add_button{
   min-width: 50%;
   max-width: 250px;
@@ -65,34 +90,6 @@
   margin-top: 2%;
 }
 
-.service_location{
-  margin-top: 17%;
-  height: 271px;
-  max-width: 69%;
-  overflow: hidden;
-  border-radius: 4%;
-  border-color: #69696987;
-}
-.service_header{
-  font-size: 17px;
-  color: #424242; 
-  font-family: -webkit-body; 
-  width: 121%;
-}
-.service_icon{
-  font-size: 168%;
-  margin-right: 88%;
-  margin-top: 0%;
-}
-.iconn{
-  margin-top: -138%;
-}
-
-.right_funct{
- margin-right: -13%;
-
-}
-
 .reference-location{
   margin-top: 43%;
   height: 25%;
@@ -108,6 +105,15 @@
   margin-left: 81%;
   margin-top: -9%;
   
+}
+
+.iconn{
+  margin-top: -138%;
+}
+
+.right_funct{
+ margin-right: -13%;
+
 }
 
 .existing-users{
@@ -313,7 +319,7 @@
   border-bottom-color: #6969693d;
 }
 /* Empty. Add your own CSS if you like */
-.im{
+.team-image{
   position: absolute;
   top: 19px;
   left: 10px;
@@ -324,127 +330,23 @@
   border-radius: 50%;
 }
 
-
-.imi{
- z-index: 4;
- width: 58.86px;
- height: 58.62px;
- border-radius: 31px;
-}
-
-.i{
-  width: 40%;
-  margin-left: -1%;
-  margin-top: -3%;
-}
-
-.id{
-  width: 33%;
-  margin-left: 95px;
-  margin-top: -14px;
-}
-
-
-
-.ie{
-  -webkit-user-drag: none;
-  width: 113%;
-  margin-top: -28px;
-  margin-left: -17px;
-}
-
-.ea {
+.team-explanation{
   margin-left: 63px;
   width: 220px;
   font-size: 15px;
   margin-top: 10px;
 }
 
-.es {
+.team-position {
  text-align: center;
  font-size: 15px;
  margin-left: 72px;
 }
 
-.ei{
+.team-name{
   text-align: center;
   font-size: 22px;
   margin-left: 70px;
-}
-
-
-.all{
-  font-size:25px;
-  text-align:center;
-  margin-top:15px;
-}
-
-
-
-.icon{
- font-size:30px;
-
-}
-
-.a8{
-  color:black;
-  text-align:left;
-  margin-left:20px;
-}
-
-.profile{
-  border-radius: 130px !important;
-  width: 49%;
-  height: 27%;
-}
-
-.ic{
- margin-right: 25px;
- margin-left: -34px;
- font-size: 33px;
-}
-
-.profile2{
-  border-radius: 130px !important;
-  width: 39%;
-  height: 133px;
-  margin-left: 28%;
-}
-
-.ikk{
-  width: 30%;
-  margin-left: 110px;
-  margin-top: 37px;
-}
-
-.kart{
-  border-radius:60px;
-  width: 263px;
-  margin-left: 26px;
-  height: 46px;
-}
-
-.si{
-  margin: -16px 88px 10px;
-  font-family: Bahnschrift Light;
-  margin-left: 83px;
-  font-size:18px;
-}
-
-.in{
- font-size:14px;
-}
-
-
-.b4{
-  border-radius: 100px !important;
-  margin-left:33px !important;
-  width:250px !important;
-}
-
-.say{
-  font-size:20px;
-  color:black;
 }
 
 .input-style{
@@ -456,7 +358,18 @@
   box-shadow: 1px 3px rgb(246,248,249)
 }
 
-.beton1{
+.button-register{
+  color:black;
+  margin-top:2px;
+}
+
+.button-bar{
+  background-color:white !important;
+  border-color:black !important;
+  box-shadow: inset 15px 15px black !important;
+}
+
+.login-register_button{
   border-radius: 4px;
   width:250px;
   height:32px !important;
@@ -464,7 +377,7 @@
   border-color:black !important;
 }
 
-.beton2{
+.login_button{
   border-radius: 4px;
   width:250px;
   border-color:black;
@@ -489,25 +402,119 @@
 }
 
 
-.pp{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.imi{
+ z-index: 4;
+ width: 58.86px;
+ height: 58.62px;
+ border-radius: 31px;
+}
+
+.i{
+  width: 40%;
+  margin-left: -1%;
+  margin-top: -3%;
+}
+
+
+
+
+.ie{
+  -webkit-user-drag: none;
+  width: 113%;
+  margin-top: -28px;
+  margin-left: -17px;
+}
+
+
+
+
+.all{
+  font-size:25px;
   text-align:center;
-  margin-left:-14px;
-  font-family:Bahnschrift Light;
-  font-size:18px;
-  margin-top:-8px;
+  margin-top:15px;
 }
 
-.button-register{
+
+
+.icon{
+ font-size:30px;
+
+}
+
+.a8{
   color:black;
-  margin-top:2px;
-}
-
-.button-bar{
-  background-color:white !important;
-  border-color:black !important;
-  box-shadow: inset 15px 15px black !important;
+  text-align:left;
+  margin-left:20px;
 }
 
 
+
+.ic{
+ margin-right: 25px;
+ margin-left: -34px;
+ font-size: 33px;
+}
+
+
+
+.ikk{
+  width: 30%;
+  margin-left: 110px;
+  margin-top: 37px;
+}
+
+.kart{
+  border-radius:60px;
+  width: 263px;
+  margin-left: 26px;
+  height: 46px;
+}
+
+.si{
+  margin: -16px 88px 10px;
+  font-family: Bahnschrift Light;
+  margin-left: 83px;
+  font-size:18px;
+}
+
+.in{
+ font-size:14px;
+}
 
 
