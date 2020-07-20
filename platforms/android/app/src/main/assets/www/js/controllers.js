@@ -460,7 +460,7 @@ angular.module('starter.controllers', [])
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.inputField.img = data[0];
+          $scope.inputField.img = data[0].photo_link;
         })
 
       },function(err) {
@@ -495,7 +495,7 @@ angular.module('starter.controllers', [])
         }
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.inputField.img = data[0];
+          $scope.inputField.img = data[0].photo_link;
         })
 
       },function(err) {

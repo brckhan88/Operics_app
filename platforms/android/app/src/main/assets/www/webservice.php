@@ -517,7 +517,7 @@ switch ($service_type) {
 
         file_put_contents("img/pics/".$urldate.".jpeg", base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $deal_pictureUrl)));
 
-        $photo_url = "http://www.microwebservice.net/operics_web/img/pics/%22".$urldate."%22.jpeg";
+        $photo_url = "http://www.microwebservice.net/operics_web/img/pics/".$urldate.".jpeg";
         $rows[]=["photo_link"=>$photo_url];
 
         print json_encode($rows, JSON_UNESCAPED_UNICODE);
