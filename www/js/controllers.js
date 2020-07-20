@@ -79,8 +79,7 @@ angular.module('starter.controllers', [])
 
     // Version Kontrolü
 
-
-    $scope.versionChck = function () {
+    $scope.getVersions = function () {
       if(!$scope.currentVersion) {
         var ServiceRequest = {
           service_type       :      "get_current_version",
@@ -90,60 +89,64 @@ angular.module('starter.controllers', [])
           localStorage.setItem('versionJson', JSON.stringify(data));
           $scope.currentVersion = JSON.parse(localStorage.getItem('versionJson'));
         })
-      } else {
-        var ServiceRequest = {
-          service_type       :         "version_check",
-          language_version   :          $scope.currentVersion[7].TABLE_VERSION,
-          story_version      :          $scope.currentVersion[1].TABLE_VERSION,
-          service_version    :          $scope.currentVersion[2].TABLE_VERSION,
-          team_version       :          $scope.currentVersion[3].TABLE_VERSION,
-          reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
-          dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
-          course_version     :          $scope.currentVersion[6].TABLE_VERSION,
-          about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
-          $scope.versionResponse = data[0];
-          console.log($scope.versionResponse);
-
-          if ($scope.versionResponse.response_lan == false) {
-            localStorage.removeItem('dillerJson');
-            $scope.diller      = JSON.parse(localStorage.getItem('dillerJson'));
-          }
-          if ($scope.versionResponse.response_sto == false) {
-            localStorage.removeItem('hikayeJson');
-            $scope.hikayeler   = JSON.parse(localStorage.getItem('hikayeJson'));
-          }
-          if ($scope.versionResponse.response_ser == false) {
-            localStorage.removeItem('hizmetJson');
-            $scope.hizmetler   = JSON.parse(localStorage.getItem('hizmetJson'));
-          }
-          if ($scope.versionResponse.response_tea == false) {
-            localStorage.removeItem('ekipJson');
-            $scope.ekip        = JSON.parse(localStorage.getItem('ekipJson'));
-          }
-          if ($scope.versionResponse.response_ref == false) {
-            localStorage.removeItem('referansJson');
-            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
-          }
-          if ($scope.versionResponse.response_dic == false) {
-            localStorage.removeItem('sozlukJson');
-            $scope.sozluk      = JSON.parse(localStorage.getItem('sozlukJson'));
-          }
-          if ($scope.versionResponse.response_cou == false) {
-            localStorage.removeItem('egitimJson');
-            $scope.egitimler   = JSON.parse(localStorage.getItem('egitimJson'));
-          }
-          //if ($scope.versionResponse.response_abo == false) {
-          //  localStorage.removeItem('..Json');
-          //}
-          if (!$scope.diller || !$scope.hikayeler || !$scope.hizmetler || !$scope.ekip || !$scope.referanslar || !$scope.sozluk || !$scope.egitimler ) {
-            localStorage.removeItem('versionJson');
-            $scope.currentVersion  = JSON.parse(localStorage.getItem('versionJson'));
-          }
-        })
       }
+    };
+
+    // Version Kontrolü
+
+    $scope.versionChck = function () {
+
+      var ServiceRequest = {
+        service_type       :         "version_check",
+        language_version   :          $scope.currentVersion[7].TABLE_VERSION,
+        story_version      :          $scope.currentVersion[1].TABLE_VERSION,
+        service_version    :          $scope.currentVersion[2].TABLE_VERSION,
+        team_version       :          $scope.currentVersion[3].TABLE_VERSION,
+        reference_version  :          $scope.currentVersion[4].TABLE_VERSION,
+        dictionary_version :          $scope.currentVersion[5].TABLE_VERSION,
+        course_version     :          $scope.currentVersion[6].TABLE_VERSION,
+        about_us_version   :          $scope.currentVersion[8].TABLE_VERSION,
+      }
+
+      $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
+        $scope.versionResponse = data[0];
+        console.log($scope.versionResponse);
+
+        if ($scope.versionResponse.response_lan == false) {
+          localStorage.removeItem('dillerJson');
+          $scope.diller      = JSON.parse(localStorage.getItem('dillerJson'));
+        }
+        if ($scope.versionResponse.response_sto == false) {
+          localStorage.removeItem('hikayeJson');
+          $scope.hikayeler   = JSON.parse(localStorage.getItem('hikayeJson'));
+        }
+        if ($scope.versionResponse.response_ser == false) {
+          localStorage.removeItem('hizmetJson');
+          $scope.hizmetler   = JSON.parse(localStorage.getItem('hizmetJson'));
+        }
+        if ($scope.versionResponse.response_tea == false) {
+          localStorage.removeItem('ekipJson');
+          $scope.ekip        = JSON.parse(localStorage.getItem('ekipJson'));
+        }
+        if ($scope.versionResponse.response_ref == false) {
+          localStorage.removeItem('referansJson');
+          $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
+        }
+        if ($scope.versionResponse.response_dic == false) {
+          localStorage.removeItem('sozlukJson');
+          $scope.sozluk      = JSON.parse(localStorage.getItem('sozlukJson'));
+        }
+        if ($scope.versionResponse.response_cou == false) {
+          localStorage.removeItem('egitimJson');
+          $scope.egitimler   = JSON.parse(localStorage.getItem('egitimJson'));
+        }
+        //if ($scope.versionResponse.response_abo == false) {
+        //  localStorage.removeItem('..Json');
+        //}
+        if (!$scope.diller || !$scope.hikayeler || !$scope.hizmetler || !$scope.ekip || !$scope.referanslar || !$scope.sozluk || !$scope.egitimler ) {
+          $scope.getVersions ();
+        }
+      })
       $scope.loadData();
     };
 
@@ -1299,9 +1302,8 @@ angular.module('starter.controllers', [])
       }
     };
 
+    $scope.getVersions ();
     $scope.isLogged();
-
-
 
   });
 
