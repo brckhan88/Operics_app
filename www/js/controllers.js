@@ -452,16 +452,16 @@ angular.module('starter.controllers', [])
         $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
           console.log('Failed because:');
           console.log(err);
+
+          var ServiceRequest = {
+            service_type     :  "catchPP",
+            photoLink        :  $scope.profileImage
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            $scope.inputField.img = data[0];
+          })
       });
-      var ServiceRequest = {
-          service_type     :  "catchPP",
-          photoLink        :  $scope.profileImage
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.inputField.img = data[0];
-        })
-
     };
 
 
@@ -472,6 +472,7 @@ angular.module('starter.controllers', [])
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         encodingType: Camera.EncodingType.JPEG,
+        mediaType: PICTURE,
         targetWidth: 500,
         targetHeight:500,
         allowEdit: true,
@@ -484,15 +485,16 @@ angular.module('starter.controllers', [])
         $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
           console.log('Failed because:');
           console.log(err);
-      });
-      var ServiceRequest = {
-          service_type     :  "catchPP",
-          photoLink        :  $scope.profileImage
-        }
 
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.inputField.img = data[0];
-        })
+          var ServiceRequest = {
+            service_type     :  "catchPP",
+            photoLink        :  $scope.profileImage
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            $scope.inputField.img = data[0];
+          })
+      });
     };
 
     $scope.tiklaab = function (abouttab) {
