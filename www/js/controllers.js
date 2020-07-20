@@ -452,18 +452,20 @@ angular.module('starter.controllers', [])
       };
 
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
-          console.log('Failed because:');
-          console.log(err);
+        $scope.profileImage = 'data:image/jpeg;base64,' + imageData;
 
-          var ServiceRequest = {
-            service_type     :  "catchPP",
-            photoLink        :  $scope.profileImage
-          }
+        var ServiceRequest = {
+          service_type     :  "catchPP",
+          photoLink        :  $scope.profileImage
+        }
 
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            $scope.inputField.img = data[0];
-          })
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          $scope.inputField.img = data[0];
+        })
+
+      },function(err) {
+        console.log('Failed because:');
+        console.log(err);
       });
     };
 
@@ -484,18 +486,21 @@ angular.module('starter.controllers', [])
       };
 
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
-          console.log('Failed because:');
-          console.log(err);
+        console.log('Camera Data :' + angular.toJson(imageData));
+        $scope.profileImage = 'data:image/jpeg;base64,' + imageData;
 
-          var ServiceRequest = {
-            service_type     :  "catchPP",
-            photoLink        :  $scope.profileImage
-          }
+        var ServiceRequest = {
+          service_type     :  "catchPP",
+          photoLink        :  $scope.profileImage
+        }
 
-          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-            $scope.inputField.img = data[0];
-          })
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          $scope.inputField.img = data[0];
+        })
+
+      },function(err) {
+        console.log('Failed because:');
+        console.log(err);
       });
     };
 
