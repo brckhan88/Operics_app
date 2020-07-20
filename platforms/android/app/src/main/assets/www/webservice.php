@@ -204,12 +204,12 @@ switch ($service_type) {
         $is_valid = false;
         $sıra = 1;
 
-        if ($dil == TR ) {
+        if ($dil == 'TR' ) {
             $error = "Böyle bir kullanıcı bulunamadı!";
-        } else if ($dil == EN ) {
+        } else if ($dil == 'DE' ) {
+          $error =  "Benutzer wurde nicht gefunden!";
+        } else {
             $error =  "User not found!";
-        } else if ($dil == DE ) {
-            $error =  "Benutzer wurde nicht gefunden!";
         }
 
         $data = $conn->query($sorgu);
@@ -218,11 +218,11 @@ switch ($service_type) {
                 $user_id = $row['ID'];
                 $is_valid = true;
 
-                if ($dil == TR ) {
+                if ($dil == 'TR' ) {
                     $error = "Şifre yenileme talebiniz e-postanıza iletilmiştir. Lütfen posta kutunuzu kontrol ediniz.";
-                } else if ($dil == EN ) {
+                } else if ($dil == 'EN' ) {
                     $error =  "Your password renewal request has been sent to your e-mail. Please check your mailbox.";
-                } else if ($dil == DE ) {
+                } else if ($dil == 'DE' ) {
                      $error =  "Ihre Anfrage zur Passworterneuerung wurde an Ihre E-Mail gesendet. Bitte überprüfen Sie Ihre Mailbox.";
                 }
 
