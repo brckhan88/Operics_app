@@ -512,9 +512,8 @@ switch ($service_type) {
     break;
 
     case "catchPP":
-
         $deal_pictureUrl = $data["photoLink"];
-        $urldate         = new DateTime(date('Y-m-d H:i:s'));
+        $urldate         = date('Y-m-d-H-i-s');
 
         file_put_contents("img/pics/". $urldate . ".jpeg", base64_decode(preg_replace("#^data:image/\w+;base64,#i", "", $deal_pictureUrl)));
 
