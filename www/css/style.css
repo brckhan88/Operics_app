@@ -98,7 +98,7 @@
 
 .reference-location{
   margin-top: 43%;
-  height: 26%;
+  min-height: 32%;
   max-width: 84%;
   overflow: hidden;
   margin-left: 7%;

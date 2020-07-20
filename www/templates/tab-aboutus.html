@@ -68,7 +68,7 @@
     </div>
   </div>
 
-  <div class="col col-50">
+  <div class="col col-50 ">
     <div class="col item item-body reference-location border_radius" ng-repeat="referans in referanslar" ng-if="referans.ID%2==0">
       <i class="ion-compose  reference-icon" ng-if="isAdmin==1" ng-click="catchRef($index); editgosterici('editAbout',1)"></i>
       <img ng-src="{{referans.REF_PHOTO}}" class="col-50 full-reference-style">
