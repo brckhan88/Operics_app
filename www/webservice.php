@@ -791,7 +791,7 @@ switch ($service_type) {
         $language_version   = $data["language_version"];
         $story_version      = $data["story_version"];
         $service_version    = $data["service_version"];
-        $teams_version      = $data["teams_version"];
+        $team_version       = $data["team_version"];
         $reference_version  = $data["reference_version"];
         $dictionary_version = $data["dictionary_version"];
         $course_version     = $data["course_version"];
