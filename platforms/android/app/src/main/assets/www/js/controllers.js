@@ -26,6 +26,7 @@ angular.module('starter.controllers', [])
     $scope.egitimler                    = JSON.parse(localStorage.getItem('egitimJson'));
     $scope.sozluk                       = JSON.parse(localStorage.getItem('sozlukJson'));
     $scope.profil                       = JSON.parse(localStorage.getItem('profilJson'));
+    $scope.icerikLang                   = localStorage.getItem('language');
 
     // Uygulama dilinin belirlenmesi
 
@@ -68,18 +69,16 @@ angular.module('starter.controllers', [])
     // Login Durum Kontrolcüsü
 
     $scope.isLogged = function () {
-      if ($scope.loginStatus != 1) {
 
-        location.href = "#/login";
-
-      } else {
+      if ($scope.loginStatus == 1) {
         $scope.versionChck();
-
         location.href = "#/tab/main";
       }
     };
 
+
     // Version Kontrolü
+
 
     $scope.versionChck = function () {
       if(!$scope.currentVersion) {
@@ -106,39 +105,43 @@ angular.module('starter.controllers', [])
 
         $http.post($rootScope.webServiceUrl, ServiceRequest).success(function(data) {
           $scope.versionResponse = data[0];
+          console.log($scope.versionResponse);
 
           if ($scope.versionResponse.response_lan == false) {
             localStorage.removeItem('dillerJson');
-            localStorage.removeItem('versionJson');
+            $scope.diller      = JSON.parse(localStorage.getItem('dillerJson'));
           }
           if ($scope.versionResponse.response_sto == false) {
             localStorage.removeItem('hikayeJson');
-            localStorage.removeItem('versionJson');
+            $scope.hikayeler   = JSON.parse(localStorage.getItem('hikayeJson'));
           }
           if ($scope.versionResponse.response_ser == false) {
             localStorage.removeItem('hizmetJson');
-            localStorage.removeItem('versionJson');
+            $scope.hizmetler   = JSON.parse(localStorage.getItem('hizmetJson'));
           }
           if ($scope.versionResponse.response_tea == false) {
             localStorage.removeItem('ekipJson');
-            localStorage.removeItem('versionJson');
+            $scope.ekip        = JSON.parse(localStorage.getItem('ekipJson'));
           }
           if ($scope.versionResponse.response_ref == false) {
             localStorage.removeItem('referansJson');
-            localStorage.removeItem('versionJson');
+            $scope.referanslar = JSON.parse(localStorage.getItem('referansJson'));
           }
           if ($scope.versionResponse.response_dic == false) {
             localStorage.removeItem('sozlukJson');
-            localStorage.removeItem('versionJson');
+            $scope.sozluk      = JSON.parse(localStorage.getItem('sozlukJson'));
           }
           if ($scope.versionResponse.response_cou == false) {
             localStorage.removeItem('egitimJson');
-            localStorage.removeItem('versionJson');
+            $scope.egitimler   = JSON.parse(localStorage.getItem('egitimJson'));
           }
           //if ($scope.versionResponse.response_abo == false) {
           //  localStorage.removeItem('..Json');
-          //  localStorage.removeItem('versionJson');
           //}
+          if (!$scope.diller || !$scope.hikayeler || !$scope.hizmetler || !$scope.ekip || !$scope.referanslar || !$scope.sozluk || !$scope.egitimler ) {
+            localStorage.removeItem('versionJson');
+            $scope.currentVersion  = JSON.parse(localStorage.getItem('versionJson'));
+          }
         })
       }
       $scope.loadData();
@@ -170,17 +173,6 @@ angular.module('starter.controllers', [])
             localStorage.setItem('isAdmin', 0);
             $scope.isAdmin = localStorage.getItem('isAdmin');
           }
-        })
-      }
-
-      if (!$scope.userList && ($scope.isAdmin == 1) ) {
-        localStorage.removeItem('kullanıcıListesiJson');
-        var ServiceRequest = {
-          service_type: "admin_users_detail",
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.userList = data;
         })
       }
 
@@ -271,6 +263,8 @@ angular.module('starter.controllers', [])
       */
     };
 
+
+
     // Kullanıcı girişi, Kullanıcı kaydı, Şifre yenileme Switch Algoritması
 
     $scope.kayitButon = function (kayittab) {
@@ -303,7 +297,13 @@ angular.module('starter.controllers', [])
           $scope.loadData();
 
           // Kaydedilen bilgiler uygulamanın ilgili kısımlarında gösterilmek üzere kullanılır.
-          $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
+          if ($scope.language == "TR" ) {
+            $ionicPopup.alert({ template: "Sn. " + $scope.giris.user_name + ", Operics'e hoşgeldiniz!.." });
+          } else if ($scope.language == "DE" ) {
+            $ionicPopup.alert({ template: "Sehr geehrte " + $scope.giris.user_name + ", Wilkommen bei Operics!.." });
+          } else {
+            $ionicPopup.alert({ template: "Dear " + $scope.giris.user_name + ", Welcome to Operics!.." });
+          }
 
           console.log("Login Status = " + $scope.loginStatus);
           location.href = "#/tab/main";
@@ -315,6 +315,7 @@ angular.module('starter.controllers', [])
         };
       })
     };
+
 
     // Kullanıcı Kayıt Fonksiyonu
 
@@ -334,10 +335,7 @@ angular.module('starter.controllers', [])
         localStorage.setItem('user_id', $scope.kullanici.user_id)
 
         if ($scope.kullanici.create_status == 1 ) {
-          $ionicModal.fromTemplateUrl('templates/sms.html', { scope: $scope }).then(function (modal) {
-            $scope.modal = modal;
-            $scope.modal.show();
-          });
+          location.href = "#/sms";
         }
       })
 
@@ -384,21 +382,9 @@ angular.module('starter.controllers', [])
           $scope.loginStatus = localStorage.getItem('loginStatus');
           $scope.loadData();
           location.href = "#/tab/main";
-          $scope.modal.hide();
-          console.log($scope.loginStatus);
         }
       })
     }
-
-
-    //Logout işlemi
-
-    $scope.cikis = function () {
-      localStorage.removeItem('language');
-      localStorage.removeItem('user_id');
-      $scope.userId = localStorage.getItem('user_id');
-    }
-
 
     //Harita Çağırma
 
@@ -466,16 +452,16 @@ angular.module('starter.controllers', [])
         $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
           console.log('Failed because:');
           console.log(err);
+
+          var ServiceRequest = {
+            service_type     :  "catchPP",
+            photoLink        :  $scope.profileImage
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            $scope.inputField.img = data[0];
+          })
       });
-      var ServiceRequest = {
-          service_type     :  "catchPP",
-          photoLink        :  $scope.profileImage
-        }
-
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.inputField.img = data[0];
-        })
-
     };
 
 
@@ -486,6 +472,7 @@ angular.module('starter.controllers', [])
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         encodingType: Camera.EncodingType.JPEG,
+        mediaType: PICTURE,
         targetWidth: 500,
         targetHeight:500,
         allowEdit: true,
@@ -498,15 +485,16 @@ angular.module('starter.controllers', [])
         $scope.profileImage = "data: image/jpeg;base64," + imageData;},function(err) {
           console.log('Failed because:');
           console.log(err);
-      });
-      var ServiceRequest = {
-          service_type     :  "catchPP",
-          photoLink        :  $scope.profileImage
-        }
 
-        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
-          $scope.inputField.img = data[0];
-        })
+          var ServiceRequest = {
+            service_type     :  "catchPP",
+            photoLink        :  $scope.profileImage
+          }
+
+          $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+            $scope.inputField.img = data[0];
+          })
+      });
     };
 
     $scope.tiklaab = function (abouttab) {
@@ -515,7 +503,7 @@ angular.module('starter.controllers', [])
 
     $scope.autoTab= function(tabindex) {
       document.getElementsByTagName('input')[tabindex].focus();
-    }
+    };
 
     $scope.text_truncate = function (str, length, ending) {
       if (length == null) {
@@ -529,7 +517,7 @@ angular.module('starter.controllers', [])
       } else {
           return str;
       }
-    }
+    };
 
     $scope.moveItem = function(item, fromIndex, toIndex) {
       $scope.hizmetler.splice(fromIndex, 1);
@@ -548,7 +536,7 @@ angular.module('starter.controllers', [])
         reordered_list     :         $scope.tempJson,
       }
       $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
-    }
+    };
 
     $scope.wait =function (ms) {
       var start = new Date().getTime();
@@ -556,7 +544,7 @@ angular.module('starter.controllers', [])
       while(end < start + ms) {
         end = new Date().getTime();
       }
-    }
+    };
 
     // Derse Katılım sorgusu
     $scope.chckEnrollment = function (id) {
@@ -681,7 +669,20 @@ angular.module('starter.controllers', [])
       $scope.editInput.name = $scope.referanslar[id].REF_NAME;
       $scope.editInput.img = $scope.referanslar[id].REF_PHOTO;
       $scope.editInput.itemID = $scope.referanslar[id].ID;
-    }
+    };
+
+    // Admin Kullanıcı Listesi
+    $scope.adminUserList = function() {
+      if (!$scope.userList) {
+        var ServiceRequest = {
+          service_type: "admin_users_detail",
+        }
+
+        $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {
+          $scope.userList = data;
+        })
+      }
+    };
 
     $scope.adminUserInteraction = function (type, id) {
       console.log(type + " " +id);
@@ -715,7 +716,7 @@ angular.module('starter.controllers', [])
       }
 
       $scope.userList = null;
-      $scope.loadData();
+      $scope.adminUserList();
     };
 
 
@@ -846,6 +847,7 @@ angular.module('starter.controllers', [])
           break;
 
         case 'listUsers':
+          $scope.adminUserList();
           $ionicModal.fromTemplateUrl('templates/list-users.html', { scope: $scope }).then(function (modal) {
             $scope.modal = modal;
             $scope.modal.show();
@@ -922,12 +924,12 @@ angular.module('starter.controllers', [])
               }
 
               $http.post($rootScope.webServiceUrl, ServiceRequest).success(function (data) {})
-            localStorage.removeItem('hizmetJson');
-            $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
-            $scope.loadData();
-            console.log("Hizmet eklendi");
-            $scope.modal.hide();
-            break;
+              localStorage.removeItem('hizmetJson');
+              $scope.hizmetler = JSON.parse(localStorage.getItem('hizmetJson'));
+              $scope.loadData();
+              console.log("Hizmet eklendi");
+              $scope.modal.hide();
+              break;
 
             case 'guncelle':
               var ServiceRequest = {
@@ -1114,7 +1116,7 @@ angular.module('starter.controllers', [])
               $scope.egitimler = JSON.parse(localStorage.getItem('egitimJson'));
               $scope.loadData();
               console.log("Egitim güncellendi");
-              scope.modal.hide();
+              $scope.modal.hide();
               break;
 
             case 'sil':
@@ -1299,6 +1301,7 @@ angular.module('starter.controllers', [])
     };
 
     $scope.isLogged();
+
 
 
   });

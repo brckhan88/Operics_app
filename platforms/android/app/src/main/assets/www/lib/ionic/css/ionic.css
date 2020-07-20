@@ -3343,7 +3343,7 @@ body.grade-c {
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+  overflow: scroll;
   margin-top: -1px;
   padding-top: 1px;
   margin-bottom: -1px;
@@ -3985,7 +3985,7 @@ a.subdued {
     position: absolute;
     top: 0;
     right: 0;
-    left: 0;
+    left: 21px;
     z-index: 0;
     overflow: hidden;
     margin: 0 10px;
@@ -5071,7 +5071,6 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .tabs-top > .tabs,
 .tabs.tabs-top {
   top: 44px;
-  padding-top: 0;
   background-color: black;
   background-position: bottom;
   border-top-width: 0;
@@ -7746,7 +7745,7 @@ input[type="color"] {
 
 .item-input input,
 .item-input textarea {
-  width: 100%; }
+  width: 110%; }
 
 textarea {
   padding-left: 0; }
@@ -9076,7 +9075,7 @@ a.button {
   -ms-flex: 1;
   flex: 1;
   display: block;
-  padding: 5px;
+  padding: 11px;
   width: 100%; }
 
 /* Vertically Align Columns */
