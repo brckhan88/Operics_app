@@ -66,11 +66,11 @@ switch ($service_type) {
         $login_status = false;
         $sıra = 1;
 
-        if ($dil == TR ) {
+        if ($dil == 'TR' ) {
             $error = "Böyle bir kullanıcı bulunamadı!";
-        } else if ($dil == EN ) {
+        } else if ($dil == 'EN' ) {
             $error =  "User not found!";
-        } else if ($dil == DE ) {
+        } else if ($dil == 'DE' ) {
             $error =  "Benutzer wurde nicht gefunden!";
         }
 
@@ -80,33 +80,33 @@ switch ($service_type) {
     	        $error = null;
     	            if($row["USER_PASSWORD"]==md5($sifre)){
     	                if($row["USER_TYPE"]=="passive"){
-            				if ($dil == TR ) {
-                                $error = "Profiliniz doğrulanmamıştır! Lütfen yeniden kayıt olup SMS onayı yapınız.";
-                            } else if ($dil == EN ) {
-                                $error =  "Your profile has not been verified! Please re-register and confirm SMS.";
-                            } else if ($dil == DE ) {
-                                $error =  "Ihr Profil wurde nicht verifiziert! Bitte melden Sie sich erneut an und bestätigen Sie SMS.";
-                            }
-            			} else if ($row["USER_TYPE"]=="banned"){
-                            if ($dil == TR ) {
-                                $error = "Uygulamaya erişiminiz yönetim tarafından engellenmiştir.";
-                            } else if ($dil == EN ) {
-                                $error =  "Your access to the application has been blocked by administration.";
-                            } else if ($dil == DE ) {
-                                $error =  "Ihr Zugriff auf die Anwendung wurde vom Management blockiert.";
-                            }
-                        } else {
-            				$login_status = true;
-                            $user_id = $row["ID"];
-                            $user_type = $row["USER_TYPE"];
-                            $user_name = $row["USER_NAME"];
-            			}
+                          if ($dil == 'TR' ) {
+                            $error = "Profiliniz doğrulanmamıştır! Lütfen yeniden kayıt olup SMS onayı yapınız.";
+                          } else if ($dil == 'DE' ) {
+                            $error =  "Ihr Profil wurde nicht verifiziert! Bitte melden Sie sich erneut an und bestätigen Sie SMS.";
+                          } else {
+                            $error =  "Your profile has not been verified! Please re-register and confirm SMS.";
+                          }
+            			    } else if ($row["USER_TYPE"]=="banned"){
+                          if ($dil == 'TR' ) {
+                            $error = "Uygulamaya erişiminiz yönetim tarafından engellenmiştir.";
+                          } else if ($dil == 'DE' ) {
+                            $error =  "Ihr Zugriff auf die Anwendung wurde vom Management blockiert.";
+                          } else {
+                            $error =  "Your access to the application has been blocked by administration.";
+                          }
+                      } else {
+                          $login_status = true;
+                          $user_id = $row["ID"];
+                          $user_type = $row["USER_TYPE"];
+                          $user_name = $row["USER_NAME"];
+            			    }
     	            } else {
-                        if ($dil == TR ) {
+                        if ($dil == 'TR' ) {
     	                   $error = "Şifrenizi yanlış girdiniz! Lütfen tekrar deneyiniz.";
-                        } else if ($dil == EN ) {
+                        } else if ($dil == 'EN' ) {
                             $error =  "Your password is invalid! Please try again.";
-                        } else if ($dil == DE ) {
+                        } else if ($dil == 'DE' ) {
                             $error =  "Sie haben Ihr Passwort falsch eingegeben! Bitte versuchen Sie es erneut.";
                         }
 
