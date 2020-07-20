@@ -472,7 +472,6 @@ angular.module('starter.controllers', [])
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
         encodingType: Camera.EncodingType.JPEG,
-        mediaType: PICTURE,
         targetWidth: 500,
         targetHeight:500,
         allowEdit: true,
