@@ -73,6 +73,8 @@ angular.module('starter.controllers', [])
       if ($scope.loginStatus == 1) {
         $scope.versionChck();
         location.href = "#/tab/main";
+      } else {
+        location.href = "#/login";
       }
     };
 
