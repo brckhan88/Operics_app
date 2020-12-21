@@ -3343,7 +3343,7 @@ body.grade-c {
   right: 0;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+  overflow: scroll;
   margin-top: -1px;
   padding-top: 1px;
   margin-bottom: -1px;
@@ -3375,6 +3375,7 @@ body.grade-c {
  * scroll view functionality.
  */
 .scroll {
+   overflow-x: scroll;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3500,7 +3501,8 @@ ion-infinite-scroll {
   top: 88px; }
 
 .has-tabs-top {
-  top: 93px; }
+  top: 58px; 
+  bottom: 49px;}
 
 .has-header.has-subheader.has-tabs-top {
   top: 137px; }
@@ -3983,7 +3985,7 @@ a.subdued {
     position: absolute;
     top: 0;
     right: 0;
-    left: 0;
+    left: 21px;
     z-index: 0;
     overflow: hidden;
     margin: 0 10px;
@@ -3996,12 +3998,12 @@ a.subdued {
     font-weight: 500;
     line-height: 44px; }
     .bar .title.title-left {
-      text-align: left; }
+      text-align: center; }
     .bar .title.title-right {
       text-align: right; }
-  .bar .title a {
+    .bar .title a {
     color: inherit; }
-  .bar .button, .bar button {
+    .bar .button, .bar button {
     z-index: 1;
     padding: 0 8px;
     min-width: initial;
@@ -4466,7 +4468,6 @@ a.subdued {
   background-color: white;
   background-image: none;
   border: none;
-  border-bottom: 1px solid #ddd;
   padding-top: 2px; }
 
 .tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
@@ -5070,7 +5071,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .tabs-top > .tabs,
 .tabs.tabs-top {
   top: 44px;
-  padding-top: 0;
+  background-color: black;
   background-position: bottom;
   border-top-width: 0;
   border-bottom-width: 1px; }
@@ -5236,7 +5237,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   pointer-events: none; }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
-  top: 0; }
+  top: auto; }
 
 .pane[hide-nav-bar="true"] .has-tabs-top {
   top: 49px; }
@@ -7744,7 +7745,7 @@ input[type="color"] {
 
 .item-input input,
 .item-input textarea {
-  width: 100%; }
+  width: 110%; }
 
 textarea {
   padding-left: 0; }
@@ -9074,7 +9075,7 @@ a.button {
   -ms-flex: 1;
   flex: 1;
   display: block;
-  padding: 5px;
+  padding: 11px;
   width: 100%; }
 
 /* Vertically Align Columns */
@@ -9430,7 +9431,7 @@ a.button {
  * --------------------------------------------------
  */
 .padding {
-  padding: 10px; }
+  /*padding: 10px; */}
 
 .padding-top,
 .padding-vertical {

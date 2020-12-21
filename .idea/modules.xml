@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Operics_app.iml" filepath="$PROJECT_DIR$/.idea/Operics_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/generated/source/buildConfig/buildConfig.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/generated/source/buildConfig/buildConfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/buildConfig/buildConfig1.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/buildConfig/buildConfig1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-camera/src/cordova-plugin-camera.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-camera/src/cordova-plugin-camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-device/src/cordova-plugin-device.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-firebasex/src/cordova-plugin-firebasex.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-firebasex/src/cordova-plugin-firebasex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-globalization/src/cordova-plugin-globalization.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-globalization/src/cordova-plugin-globalization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/cordova-plugin-google-analytics.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-google-analytics/cordova-plugin-google-analytics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-googlemaps/src/cordova-plugin-googlemaps.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-googlemaps/src/cordova-plugin-googlemaps.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-ionic-keyboard/src/cordova-plugin-ionic-keyboard.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-ionic-keyboard/src/cordova-plugin-ionic-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-ionic-webview/src/cordova-plugin-ionic-webview.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-ionic-webview/src/cordova-plugin-ionic-webview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-splashscreen/src/cordova-plugin-splashscreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-statusbar/src/cordova-plugin-statusbar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" filepath="$PROJECT_DIR$/plugins/cordova-plugin-whitelist/src/cordova-plugin-whitelist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/src/main/main.iml" filepath="$PROJECT_DIR$/platforms/android/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/r/r.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/build/generated/source/r/r.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/generated/source/r/r1.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/generated/source/r/r1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/app/build/intermediates/manifests/full/release/release.iml" filepath="$PROJECT_DIR$/platforms/android/app/build/intermediates/manifests/full/release/release.iml" />
     </modules>
   </component>
 </project>

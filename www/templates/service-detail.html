@@ -1,14 +1,16 @@
 <ion-modal-view view-title='<img class="title-image" src="img/logo.PNG"/ >'>
-  <ion-header-bar class="bar-light ">
+  <ion-header-bar class="bar-light">
     <ion-header-buttons>
       <button class="button button-clear ion-close" ng-click="modal.hide()"></button>
     </ion-header-buttons>
   </ion-header-bar>
-
+  <!-- İlgili sayfanın ID'sini yakalamak için -->
+  {{editInput.itemID = hizmetler[itemId].ID}}
+  {{editInput.LangID = hizmetler[itemId].LANGUAGES_ID}}
   <ion-content>
 
 
-    <h4 align="center">Hizmetlerimiz</h4>
+    <h3 align="center">{{diller[1].kelime}}</h3>
     <br>
 
     <center>
@@ -19,14 +21,14 @@
 
       <i class="col list" style="height: 102px;">
      
-      <img style="margin-left:3%;" class="full-image id" ng-src="{{hizmetler[itemId].SERVICE_IMAGE}}"></i>
+      <img style="margin-left:3%;" class="full-image service-detail-image" ng-src="{{editInput.img = hizmetler[itemId].SERVICE_IMAGE}}"></i>
 
       <div class="">
-        <h2 align="center">{{hizmetler[itemId].SERVICE_NAME}}
+        <h2 align="center">{{editInput.name = hizmetler[itemId].SERVICE_NAME}}
           <hr width="100%" size="4">
         </h2>
       </div>
-      <p style="font-size: 12px;" align="center">{{hizmetler[itemId].SUB_DESCRIPTION}}</p>
+      <p style="font-size: 12px;" align="center">{{editInput.desc = hizmetler[itemId].DESCRIPTION}}</p>
     </div>
     </div></div></div></i></div></div></center>
   </ion-content>

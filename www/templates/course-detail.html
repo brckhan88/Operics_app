@@ -5,6 +5,10 @@
     </ion-header-buttons>
   </ion-header-bar>
 
+  <!-- İlgili sayfanın ID'sini yakalamak için -->
+  {{editInput.itemID = egitimler[itemId].ID}}
+  {{editInput.LangID = egitimler[itemId].LANGUAGES_ID}}
+  
   <ion-content>
 
     <a href="#/tab/courses">
@@ -26,7 +30,7 @@
 
 
     <h2 style="font-size: 23px;margin-left: 4%;" class="ion-ios-time-outline y">
-      <font style="font-size: 19px;"> {{editInput.hour = egitimler[itemId].CRS_HOUR}} Saat</font>
+      <font style="font-size: 19px;"> {{editInput.hour = egitimler[itemId].CRS_HOUR}} {{diller[11].kelime}}</font>
     </h2>
     <br>
     <h4 style="font-size: 29px;margin-left: 4%;" class="ion-ios-location-outline y">
@@ -40,14 +44,10 @@
     <br><br>
 
     <center>
-      <div ng-if="aktifmi">
-        <button ng-click="CancelApplication()" class="button button-dark pre-application_button">Ön Başvuruyu İptal Et</button>
+      <div>
+        <button ng-click="applyButton('courses','dersEkleSil')" class="button {{aktifMi==true ? 'button-dark': aktifMi==false ? 'button-assertive': '' }}  pre-application_button">{{aktifMi==true ? diller[75].kelime: aktifMi==false ? diller[10].kelime: '' }}</button>
       </div>
 
-      <div ng-if="!aktifmi">
-       <button ng-click="ConfirmApplication()" class="button button-assertive pre-application_button">Ön Başvuru Yap</button>
-     </div>
    </center>
-
  </ion-content>
 </ion-modal-view>

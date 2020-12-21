@@ -1,27 +1,27 @@
 <ion-view view-title='<img class="title-image1" src="img/logo.PNG"/ >'>
 
 	<ion-content>
-		<div class="all">{{diller[7].kelime}}</div>
+		<div class="header-style">{{diller[7].kelime}}</div>
 
 		<img class="full-image sagda_simge rr" src="img/sozlk/s1.png">
 
 		<div class="list list-inset">
 			<label class="item item-input" style="border-radius: 58px;">
 				<i style="font-size: 33px;" class="ion-ios-search placeholder-icon"></i>
-				<input type="text" ng-model="sozlukara" placeholder="Ne Aramıştınız?">
+				<input type="text" ng-model="sozlukara" placeholder="{{diller[78].kelime}}">
 			</label>
 		</div>
 
 		<!--Ekleme Butonu-->
-		<div class="ortala" ng-if="isAdmin==1">
-			<button class="button button-assertive ekle_b" ng-click="editgosterici('editDic')">
-				<h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
+		<div class="center" ng-if="isAdmin==1">
+			<button class="button button-assertive add_button" ng-click="editgosterici('editDic', 0)">
+				<h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
 			</button></div>
 
 
 			<div class="button button-full button-clear" ng-repeat="kelime in sozluk | filter:sozlukara"
 			ng-click="modalgosterici('dictionary', {{$index}})">
-			<p class="a8"> {{kelime.WORD}} - {{kelime.LOGIN_ID==null ? "değil" : "favori"}}</p>
+			<p class="dictionary-style"> {{kelime.WORD}}</p>
 		</div>
 
 	</ion-content>

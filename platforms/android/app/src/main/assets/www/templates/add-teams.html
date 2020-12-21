@@ -1,4 +1,4 @@
-margin-top: 4%;<ion-modal-view view-title="Servis Ekle">
+<ion-modal-view view-title="Servis Ekle">
   <ion-header-bar class="bar-light">
     <ion-header-buttons>
       <button class="button button-clear button-assertive ion-close" ng-click="modal.hide()"></button>
@@ -8,45 +8,60 @@ margin-top: 4%;<ion-modal-view view-title="Servis Ekle">
 
   <ion-content>
 
-    <div style="margin-top: 10%" class="ortala list list-inset">
-      <h3>Çalışan Ekle</h3>
-     <center> <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-      border-radius: 10px !important;margin-top:8%;">
-      <textarea type="text" placeholder="Kişi Adı" ></textarea>
+
+    <div style="margin-top: 10%" class="center list list-inset">
+      <h3>{{editFg==0 ? diller[31].kelime : editFg==1 ? diller[69].kelime : ''}}</h3>
+
+      
+        <button class="button button-clear button-light" ng-click="editLang('EN')">              
+          <img  style="opacity: {{icerikLang=='EN' ? 1 : 0.2 }};"  class=" full-image language-EN"src="img/login/bb.png"></button>
+        <button class="button button-clear button--light" ng-click="editLang('DE')">
+          <img style="opacity: {{icerikLang=='DE' ? 1 : 0.2 }};"class="full-image language-DE"src="img/login/aa.png"></button>
+        <button class="button button-clear button-light" ng-click="editLang('TR')">
+          <img style="opacity: {{icerikLang=='TR' ? 1 : 0.2 }};"class="full-image language-TR"src="img/login/tt.png"></button>
+
+     <center>
+
+      <label class="ekle_input item item-input card_width add_scard">
+       <textarea type="text" placeholder="{{diller[32].kelime}}" ng-model="inputField.name" ></textarea>
+      </label>
+      <label class="ekle_input item item-input card_width add_scard">
+       <textarea type="text" placeholder="{{diller[33].kelime}}" ng-model="inputField.position"></textarea>
+      </label>
+
+
+      <label class="ekle_input item item-input card_width add_scard " style=" height: 106px;">
+       <textarea type="text" class="scroll_structure add_text add_text" placeholder="{{diller[27].kelime}}" style="width: 150%;" ng-model="inputField.desc" ></textarea>
+      </label>
+
+      <label class="ekle_input item item-input card_width add_scard" >
+       <textarea type="text" placeholder="{{diller[34].kelime}}" ng-model="inputField.link">
+       </textarea>
+      </label>
+
+     <label class="ekle_input item item-input card_width add_card" >
+      <i class="ion-images images_icon"></i>
+      <button class="button button-clear button-assertive" ng-click="changePP()"> <input class="ekle_input item-input" type="text" ></button>
+      <  <img src = "{{inputField.img}}" class="images_card add_imgs " style="color: white;">
     </label>
-    <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-    border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="Görevi" ></textarea>
-  </label>
 
-
-  <label class="ekle_input item item-input" style="width: 89%;height: 106px;
-  border-radius:10px !important;margin-top: 4%;">
-  <textarea type="text" placeholder="Açıklama" style="margin-top:-28px;"></textarea>
-</label>
-
-<label class="ekle_input item item-input" style="width: 89%;height: 51px;
-border-radius: 10px !important;margin-top: 4%;">
-<textarea type="text" placeholder="Linkedin Profili" ></textarea>
-</label>
-
-<label class="ekle_input item item-input" style="width: 89%;height: 143px;
-border-radius:10px !important;margin-top: 4%;">
-<button class="button button-clear button-assertive"> <input class="ekle_input item-input" type="file"></button>
-<textarea type="text" placeholder="Resmi" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
-</label>
+  </center>
 
 
 
-</center>
+    <div class="center"style="margin-top: 4%;">
+     <button class="button button-assertive add_button" ng-click="applyButton('team','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
+     <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? diller[23].kelime : editFg==1 ? diller[43].kelime : ''}}</h3>
+     </button>
+     </div>
+    </div>
 
-
-
-<div class="ortala"style="margin-top: 4%;">
-  <button class="button button-assertive ekle_b ">
-    <h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
-  </button></div>
-</div>
+    <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('team','sil')">
+     <button class="button button-assertive add_button">
+     <h3 style=" color: white;font-family: monospace;">{{diller[44].kelime}}</h3>
+     </button>
+     </div>
+    </div>
 
 </ion-content>
 

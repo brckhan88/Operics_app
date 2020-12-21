@@ -4,44 +4,74 @@
       <button class="button button-clear button-assertive ion-close" ng-click="modal.hide()"></button>
     </ion-header-buttons>
   </ion-header-bar>
-
-
   <ion-content>
-
-    <div style="margin-top: 20px" class="ortala list list-inset">
-      <h3>Eğitim Ekle</h3>
-      
-
-      <center><label class="ekle_input item item-input" style="width: 89%;height: 143px;
-      border-radius:10px !important;">
-      <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
-      <textarea type="text" placeholder="Resmi" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
-    </label>
-
-    <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-    border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="Eğitim Adı" ></textarea>
-  </label>
-
-  <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-  border-radius: 10px !important;margin-top: 4%;">
-  <textarea type="text" placeholder="Eğitim Tarihi" ></textarea>
-</label>
-
-<label class="ekle_input item item-input" style="width: 89%;height: 106px;
-border-radius:10px !important;margin-top: 4%;">
-<textarea type="text" placeholder="0/255 Açıklama" style="margin-top:-28px;"></textarea>
-</label>
-</center>
+    <div style="margin-top: 10%" class="center list list-inset">
+      <h3> {{editFg==0 ? diller[36].kelime : editFg==1 ? diller[70].kelime : ''}} </h3>
 
 
+        <button class="button button-clear button-light" ng-click="editLang('EN')">
+          <img  style="opacity: {{icerikLang=='EN' ? 1 : 0.2 }};"  class=" full-image language-EN"src="img/login/bb.png"></button>
+        <button class="button button-clear button--light" ng-click="editLang('DE')">
+          <img style="opacity: {{icerikLang=='DE' ? 1 : 0.2 }};"class="full-image language-DE"src="img/login/aa.png"></button>
+        <button class="button button-clear button-light" ng-click="editLang('TR')">
+          <img style="opacity: {{icerikLang=='TR' ? 1 : 0.2 }};"class="full-image language-TR"src="img/login/tt.png"></button>
 
-<div class="ortala"style="margin-top: 2%;">
-  <button class="button button-assertive ekle_b ">
-    <h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
-  </button></div>
+      <center>
+
+        <label class="ekle_input item item-input card_width add_card" >
+          <i class="ion-images images_icon"></i>
+          <button class="button button-clear button-positive" ng-click="changePP()"> <input class="ekle_input item-input" type="text"></button>
+          <img src = "{{inputField.img}}" class="images_card add_imgc">
+        </label>
+
+
+        <label class="ekle_input item item-input card_width add_scard ">
+          <textarea type="text" placeholder="{{editFg==0 ? diller[37].kelime : ''}}" ng-model="inputField.head"> {{inputField.head}}</textarea>
+        </label>
+
+
+        <label class="ekle_input item item-input card_width" style="height: 106px;">
+          <textarea type="text" class="scroll_structure add_text" style="width: 150%;"placeholder="{{editFg==0 ? diller[39].kelime : ''}}" ng-model="inputField.desc">{{inputField.desc}}</textarea>
+        </label>
+
+        <label class="ekle_input item item-input card_width add_scard">
+          <textarea type="text" placeholder="{{editFg==0 ? diller[38].kelime : ''}}" ng-model="inputField.hour">{{inputField.hour}}</textarea>
+        </label>
+
+
+        <label class="ekle_input item item-input card_width add_scard">
+          <textarea type="text" placeholder="{{editFg==0 ? diller[79].kelime : ''}}" ng-model="inputField.address">{{inputField.address}}</textarea>
+        </label>
+
+        <label class="ekle_input item item-input card_width add_scard" >
+          <textarea type="text" placeholder="{{editFg==0 ? diller[73].kelime : ''}}" ng-model="inputField.bgdate">{{inputField.bgdate}}</textarea>
+        </label>
+
+        <label class="ekle_input item item-input card_width add_scard">
+          <textarea type="text" placeholder="{{editFg==0 ? diller[74].kelime : ''}}" ng-model="inputField.enddate">{{inputField.enddate}}</textarea>
+        </label>
+
+
+      </center>
+
+
+
+
+      <div class="center"style="margin-top: 2%;">
+        <button class="button button-assertive add_button" ng-click="applyButton('courses','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
+      <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? diller[23].kelime : editFg==1 ? diller[43].kelime : ''}}</h3>
+        </button>
+      </div>
+      <br>
+
+      <div class="center" style="margin-top: 1%;" ng-if="editFg==1" ng-click="applyButton('courses','sil')">
+        <button class="button button-assertive add_button">
+          <h3 style=" color: white;font-family: monospace;">{{diller[44].kelime}}</h3>
+        </button>
+      </div>
+
+
 </div>
-
 </ion-content>
 
 </ion-modal-view>

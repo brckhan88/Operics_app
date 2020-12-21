@@ -7,35 +7,41 @@
 
 
   <ion-content>
-
-    <div style="margin-top: 20px" class="center list list-inset">
-      <h3>Müşteri Ekle</h3>
-      
-
-      <center><label class="ekle_input item item-input" style="width: 89%;height: 143px;
-      border-radius:10px !important;">
-      <button class="button button-clear button-positive"> <input class="ekle_input item-input" type="file"></button>
-      <textarea type="" placeholder="Referans Ekle" style="margin-top:-42px;margin-left: -56%;font-size: 120%;"></textarea>
-    </label>
-
-    <label class="ekle_input item item-input" style="width: 89%;height: 51px;
-    border-radius: 10px !important;margin-top: 4%;">
-    <textarea type="text" placeholder="Müşteri Adı" ></textarea>
-  </label>
+    <div style="margin-top: 10%" class="center list list-inset">
+      <h3>{{editFg==0 ? diller[28].kelime : editFg==1 ? diller[68].kelime : ''}}
+      </h3>
+     <center>
 
 
-  
-  
-</center>
+      <label class="ekle_input item item-input card_width add_card">
+         <i class="ion-images images_icon"></i>
+          <button class="button button-clear button-positive" ng-click="changePP()"> <input class="ekle_input item-input" type="text"></button>
+          <img src = "{{inputField.img}}" class="images_card add_img" style="color: white;">
+
+        </label>
+
+        <label class="ekle_input item item-input card_width add_scard">
+          <textarea type="text" placeholder="{{diller[30].kelime}}" ng-model="inputField.name" >{{inputField.name}}</textarea>
+        </label>
+      </center>
 
 
 
-<div class="center"style="margin-top: 49%;">
-  <button class="button button-assertive add_button">
-    <h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
-  </button></div>
-</div>
+      <div class="center"style="margin-top: 41%;">
+        <button class="button button-assertive add_button" ng-click="applyButton('references','{{editFg==0 ? 'ekle' : editFg==1 ? 'guncelle' : ''}}')">
+          <h3 style=" color: white;font-family: monospace;">{{editFg==0 ? diller[23].kelime : editFg==1 ? diller[43].kelime : ''}}</h3>
+        </button>
+      </div>
+      <br>
 
-</ion-content>
+      <div class="center"ng-if="editFg==1" ng-click="applyButton('references','sil')">
+        <button class="button button-assertive add_button">
+         <h3 style=" color: white;font-family: monospace;">{{diller[44].kelime}}</h3>
+        </button>
+      </div>
+
+    </div>
+
+  </ion-content>
 
 </ion-modal-view>

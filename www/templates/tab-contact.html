@@ -1,82 +1,54 @@
 <ion-view view-title='<img class="title-image1" src="img/logo.PNG"/ >'>
-	<ion-content>
+	<ion-content scroll="false" ng-init="showMap(40.984144,29.100140)">
 
-		<div class="all">İletişim</div>
+		<div class="header-style">{{diller[8].kelime}}</div>
 		<!--Ekleme Butonu-->
 		<div class="center" ng-if="isAdmin==1">
-			<button class="button button-assertive add_button" ng-click="editgosterici('editCon')">
-				<h3 style=" color: white;font-family: monospace;">+ Ekle</h3>
-			</button></div>
+			<button class="button button-assertive add_button" ng-click="editgosterici('editCon',0)">
+				<h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
+			</button>
+		</div>
 
-			<!-- konum bilgisi eklenek -->
-			<br><br><br><br><br><br><br><br><br><br><br><br>
+		<br>
+
+		 <div class="map" id="map"></div>
 
 
 
-			<h2 style="font-size: 23px;font-size: 33px;
-			margin-left: 24px;" class="ion-ios-location y">
-			<font style="margin-left: 50px;font-size: 16px;">
-				<p style="margin-left: 23%;margin-top: -11%;">Yıldız Mahallesi, Spor Caddesi Quasar Plaza 1b/28
-				Şişli/İstanbul</p>
+
+		<br>
+
+
+
+		<h2 style="font-size: 23px;font-size: 33px; margin-left: 24px;" class="ion-ios-location y">
+			<a>
+				<font style="margin-left: 50px;font-size: 16px;">
+				<p style="margin-left: 23%;margin-top: -11%;">Barbaros Mah. Kardelen Sok. No: 2/41 Atasehir, Istanbul</p>
 				<hr align="right" width="80%" size="10">
-			</font>
+				</font>
+			</a>
 		</h2>
 
-		<h2 style="font-size: 23px;font-size: 33px;
-		margin-left: 24px;" class="ion-ios-telephone y">
-		<font style="margin-left: 50px;font-size: 16px;">
-			<p style="margin-left: 25%;margin-top: -11%;">+90 505 765 33 22<br>0 212 456 78 89</p>
-			<hr align="right" width="80%" size="10">
-		</font>
-	</h2>
+		<h2 style="font-size: 23px;font-size: 33px; margin-left: 24px;" class="ion-ios-telephone y">
+			<a>
+			<font style="margin-left: 50px;font-size: 16px;">
+				<p style="margin-left: 25%;margin-top: -11%;">+90 505 765 33 22<br>+90 216 687 17 70</p>
+				<hr align="right" width="80%" size="10">
+			</font>
+			</a>
+		</h2>
 
 
-	<h2 style="font-size: 23px;font-size: 33px;
-	margin-left: 24px;" class="ion-email y">
-	<font style="margin-left: 50px;font-size: 16px;margin-top: -11%;">
-		<p style="margin-left: 25%;margin-top: -9%;">indo@operics.com.tr</p>
-		<hr align="right" width="80%" size="10">
-	</font>
-</h2>
+		<h2 style="font-size: 23px;font-size: 33px; margin-left: 24px;" class="ion-email y">
+			<a>
+			<font style="margin-left: 50px;font-size: 16px;margin-top: -11%;">
+				<p style="margin-left: 25%;margin-top: -9%;">info@operics.com.tr</p>
+				<hr align="right" width="80%" size="10">
+			</font>
+			</a>
+		</h2>
 
 
-
-
-
-
-
-
-		<!--<br><br><br><br><br><br><br><br><br><br><br><br>
-<img src="#/img/pp.jfif">
- <div class="card">
-  <div class="item item-text-wrap">
-  	<img src="http://api-lunacy.icons8.com/api/assets/961a6186-0aa0-4c26-91fa-3d38864c3e18/iconfinder_icons_pin_1564524.png">
-    Yıldız Mahallesi, Spor Caddesi <br>
-          Quasar Plaza 1b/28 Şişli/İstanbul
-
-  </div>
-</div>
-<div class="card">
-  <div class="item item-text-wrap">
-  	<img src="http://api-lunacy.icons8.com/api/assets/82612daf-87ff-46cc-9f4e-f898dda4353e/iconfinder_phone8_216688.png">
-      +90 505 765 33 22
-    <br>
-       0 212 456 78 89
-  </div>
-</div>
-<div class="card">
-  <div class="item item-text-wrap">
-  	<img src="http://api-lunacy.icons8.com/api/assets/a2ea55a5-3913-4b6f-9c24-ebf9d22b3381/iconfinder_008_Mail_183573.png">
-  	indo@operics.com.tr
-  </div>
-</div>-->
-
-
-
-
-
-
-
-</ion-content>
+	</ion-content>
 
 </ion-view>

@@ -41,14 +41,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-firebasex.FirebasePlugin",
-      "file": "plugins/cordova-plugin-firebasex/www/firebase.js",
-      "pluginId": "cordova-plugin-firebasex",
-      "clobbers": [
-        "FirebasePlugin"
-      ]
-    },
-    {
       "id": "cordova-plugin-globalization.GlobalizationError",
       "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
       "pluginId": "cordova-plugin-globalization",
@@ -98,14 +90,12 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-androidx": "1.0.2",
-    "cordova-plugin-androidx-adapter": "1.1.0",
     "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-firebasex": "9.1.0-cli",
     "cordova-plugin-globalization": "1.11.0",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.2.0",
+    "cordova-plugin-ios-camera-permissions": "1.2.0",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3"

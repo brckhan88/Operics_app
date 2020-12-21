@@ -9,27 +9,23 @@
 	<ion-content>
 		
 		<ion-list>
-			<ion-item class="item-remove-animate item-avatar item-icon-right " ng-repeat="veri in userlist" type="item-text-wrap" href="#/tab/userprofile/{{veri.id}}">
+			<ion-item class="item-remove-animate item-avatar item-icon-right " ng-repeat="veri in userList" type="item-text-wrap" href="#/tab/userprofile/{{veri.id}}">
 				<img ng-src="{{veri.USER_PHOTO}}">
 				<h2 class="{{veri.USER_TYPE=='banned' ? 'blocked-user' : ''}}">{{veri.USER_NAME}} - {{veri.USER_COMPANY}}{{veri.USER_TYPE=='banned' ? ' (Yasaklı Kullanıcı)' : ''}}</h2>
 				<p>{{veri.USER_EMAIL}} - {{veri.USER_PHONE}}</p>
 				<i class="icon ion-chevron-right icon-accessory"></i>
 
-				<ion-option-button class="button-assertive" ng-click="remove(chat)">
-					Engelle
+				<ion-option-button class="button-assertive" ng-click="adminUserInteraction('userRemove',{{$index}})">
+					Sil
 				</ion-option-button>
+
+				<ion-option-button class="button-assertive" ng-click="adminUserInteraction('userBanorRelease',{{$index}})">
+					{{veri.USER_TYPE=='banned' ? 'Engeli Kaldır' : 'Engelle'}}
+				</ion-option-button>
+				
 			</ion-item>
 		</ion-list>
 
-		<center>
-			<ion-option-button ng-if="veri.USER_TYPE!='banned'" class="button-assertive add_button" ng-click="user_yasakla(veri.ID)" >
-				<h3 style=" color: white;font-family: monospace;margin-top: 12px;">Engelle</h3>
-			</ion-option-button>
-
-			<ion-option-button ng-if="veri.USER_TYPE=='banned'" class="button-assertive" ng-click="user_yasak_kaldir(veri.ID)" >
-				<h3 style=" color: white;font-family: monospace;margin-top: 12px;">Engel Kaldır</h3>
-			</ion-option-button>
-		</center>
 	</ion-item>
 </ion-list>
 </ion-content>
