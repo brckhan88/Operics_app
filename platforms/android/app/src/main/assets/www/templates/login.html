@@ -19,7 +19,7 @@
 
         <br><br>
         <!-- Kullanıcı Email Girişi -->
-        <label class="item item-input kd">
+        <label class="item item-input input-style">
           <i class="ion-ios-email-outline" style="margin-right: 1%;font-size: 124%;"></i>
           <input type="text" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"
             ng-model="loginData.email">
@@ -27,7 +27,7 @@
 
         <br><br>
         <!-- Kullanıcı Şifre Girişi -->
-        <label class="item item-input kd">
+        <label class="item item-input input-style">
           <i class="ion-ios-unlocked-outline" style="margin-right: 10%;font-size: 124%;"></i>
           <input type="password" style="font-size:103%;margin-left: -5%;margin-top: 0%;"
             placeholder="{{diller[13].kelime}}" ng-model="loginData.password">
@@ -35,13 +35,13 @@
 
         <br><br>
 
-        <button ng-disabled="!loginData.email || !loginData.password" class="button button-dark beton2"
+        <button ng-disabled="!loginData.email || !loginData.password" class="button button-dark login_button"
           type="submit">{{diller[16].kelime}}</button>
 
         <br><br>
 
-        <button class="button button-dark beton1" type="button" ng-click="kayitButon(1)">
-          <p class="dil"> {{diller[20].kelime}}</p>
+        <button class="button button-dark login-register_button" type="button" ng-click="kayitButon(1)">
+          <p class="button-register"> {{diller[20].kelime}}</p>
         </button>
         <br><br>
         <button class="button button-block button-light" type="button" ng-click="kayitButon(2)">
@@ -51,7 +51,7 @@
       </div>
     </form>
   </center>
-    
+
     <!-- Kullanıcı Kayıt Form Yapısı -->
 
         <!-- Kullanıcı Kayıt Form Yapısı -->
@@ -60,71 +60,71 @@
       <div class="list center" style="padding:1px;">
         <br><br>
           <!-- Kayıt Ad Soyad -->
-          <label class="item item-input kd">
+          <label class="item item-input input-style">
             <i class="ion-ios-person-outline" style="margin-right: 1%;font-size: 124%;"></i>
             <input type="text" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[14].kelime}}"
             ng-model="kayitData.name">
           </label>
           <p style="text-align: left; margin-left: 7%;">{{kayitData.name.length==0 ? diller[46].kelime : ""}}</p>
-          
+
 
         <br><br>
           <!-- Kayıt Telefon -->
-          <label class="item item-input kd">
+          <label class="item item-input input-style">
             <i class="ion-ios-telephone-outline" style="margin-right: 1%;font-size: 124%;"></i>
             <input type="number" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="498887776655"
             ng-model="kayitData.number">
           </label>
           <p style="text-align: left; margin-left: 7%;">{{kayitData.number/10==0 ? diller[47].kelime : kayitData.number/100000000000<1 ? diller[48].kelime : kayitData.number/100000000000>=10 ? diller[48].kelime :"" }}</p>
-          
-          
+
+
 
         <br><br>
           <!-- Kayıt Email -->
-          <label class="item item-input kd">
+          <label class="item item-input input-style">
             <i class="ion-ios-email-outline" style="margin-right: 1%;font-size: 124%;"></i>
             <input type="email" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"  ng-model="kayitData.email" [email]="true">
           </label>
           <div ng-if="kayitData.email.length==0">
             <p style="text-align: left; margin-left: 7%;">{{diller[50].kelime}}</p>
           </div>
-          
+
 
         <br><br>
           <!-- Kayıt Şifre -->
-          <label class="item item-input kd">
+          <label class="item item-input input-style">
             <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
             <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[13].kelime}}"
             ng-model="kayitData.password">
           </label>
           <p style="text-align: left; margin-left: 7%;">{{kayitData.password.length==0 ? diller[51].kelime: kayitData.password.length<8 ? diller[52].kelime:""}}</p>
-         
-          
+
+
         <br><br>
           <!-- Kayıt Şifre Tekrar -->
-          <label class="item item-input kd">
+          <label class="item item-input input-style">
             <i class="ion-ios-unlocked-outline" style="margin-right: 1%;font-size: 124%;"></i>
             <input type="password" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[17].kelime}}"
             ng-model="kayitData.passwordChck">
           </label>
           <p style="text-align: left; margin-left: 7%;" on-touch="kayitData.password">{{kayitData.passwordChck!=kayitData.password ? diller[54].kelime : ""}}</p>
-        
-          
-          
+
+
+
 
         <br><br>
 
         <!-- Submit Butonu -->
-        <button class="button button-dark beton2" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || kayitData.number/100000000000<1 || kayitData.number/100000000000>=10|| !kayitData.email || !kayitData.password || kayitData.password.length<8 || (kayitData.passwordChck!=kayitData.password)" type="submit">
+        <button class="button button-dark login_button" style="margin-left: -1%;" ng-disabled="!kayitData.name || !kayitData.number || kayitData.number/100000000000<1 || kayitData.number/100000000000>=10|| !kayitData.email || !kayitData.password || kayitData.password.length<8 || (kayitData.passwordChck!=kayitData.password)" type="submit">
           {{diller[20].kelime}}
         </button>
 
         <br>
         <br>
-        
+
         <!-- Giriş Yap'a dönüş -->
-        <button style="margin-left: -1%;" class="button button-dark beton1" type="button" ng-click="kayitButon(0)">
-         <p class="dil">{{diller[16].kelime}}</p>
+        <button style="margin-left: -1%;" class="button button-dark login-register_button" type="button" ng-click="kayitButon(0)">
+         <p class="button-register">{{diller[16].kelime}}</p>
         </button>
 
         <br>
@@ -146,7 +146,7 @@
         <br><br>
         <label class="item item-input kd">
           <i class="ion-ios-email-outline" style="margin-right: 1%;font-size: 124%;"></i>
-          <input type="text" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"
+          <input type="email" style="font-size:103%;margin-left: 3%;margin-top: 0%;" placeholder="{{diller[15].kelime}}"
             ng-model="resetPass.email">
         </label>
         <br><br>
@@ -162,20 +162,17 @@
 
 
     <center>
-      <button class="button button-clear button-light" ng-click="tiklabayrak('EN')">              
-
-
-
-        <img  style="opacity: {{language=='EN' ? 1 : 0.2 }};"  class=" full-image l1"src="img/login/bb.png"></button>
+      <button class="button button-clear button-light" ng-click="tiklabayrak('EN')">
+      <img  style="opacity: {{language=='EN' ? 1 : 0.2 }};"  class=" full-image language-EN"src="img/login/bb.png"></button>
 
       <button class="button button-clear button--light" ng-click="tiklabayrak('DE')">
-        <img style="opacity: {{language=='DE' ? 1 : 0.2 }};"class="full-image l2"src="img/login/aa.png"></button>
+        <img style="opacity: {{language=='DE' ? 1 : 0.2 }};"class="full-image language-DE"src="img/login/aa.png"></button>
 
       <button class="button button-clear button-light" ng-click="tiklabayrak('TR')">
-        <img style="opacity: {{language=='TR' ? 1 : 0.2 }};"class="full-image l3"src="img/login/tt.png"></button>
+        <img style="opacity: {{language=='TR' ? 1 : 0.2 }};"class="full-image language-TR"src="img/login/tt.png"></button>
     </center>
 
- 
+
 
 
 

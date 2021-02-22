@@ -7,17 +7,17 @@
   <ion-content>
     <div style="margin-top: 10%" class="center list list-inset">
       <h3> {{editFg==0 ? diller[36].kelime : editFg==1 ? diller[70].kelime : ''}} </h3>
-      
 
-        <button class="button button-clear button-light" ng-click="editLang('EN')">              
-          <img  style="opacity: {{icerikLang=='EN' ? 1 : 0.2 }};"  class=" full-image l1"src="img/login/bb.png"></button>
+
+        <button class="button button-clear button-light" ng-click="editLang('EN')">
+          <img  style="opacity: {{icerikLang=='EN' ? 1 : 0.2 }};"  class=" full-image language-EN"src="img/login/bb.png"></button>
         <button class="button button-clear button--light" ng-click="editLang('DE')">
-          <img style="opacity: {{icerikLang=='DE' ? 1 : 0.2 }};"class="full-image l2"src="img/login/aa.png"></button>
+          <img style="opacity: {{icerikLang=='DE' ? 1 : 0.2 }};"class="full-image language-DE"src="img/login/aa.png"></button>
         <button class="button button-clear button-light" ng-click="editLang('TR')">
-          <img style="opacity: {{icerikLang=='TR' ? 1 : 0.2 }};"class="full-image l3"src="img/login/tt.png"></button>
-          
+          <img style="opacity: {{icerikLang=='TR' ? 1 : 0.2 }};"class="full-image language-TR"src="img/login/tt.png"></button>
+
       <center>
-        
+
         <label class="ekle_input item item-input card_width add_card" >
           <i class="ion-images images_icon"></i>
           <button class="button button-clear button-positive" ng-click="changePP()"> <input class="ekle_input item-input" type="text"></button>
@@ -26,29 +26,29 @@
 
 
         <label class="ekle_input item item-input card_width add_scard ">
-          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Adı' : ''}}" ng-model="inputField.head"> {{inputField.head}}</textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? diller[37].kelime : ''}}" ng-model="inputField.head"> {{inputField.head}}</textarea>
         </label>
-        
-        
+
+
         <label class="ekle_input item item-input card_width" style="height: 106px;">
-          <textarea type="text" class="scroll_structure add_text" style="width: 150%;"placeholder="{{editFg==0 ? '0/255 Açıklama' : ''}}" ng-model="inputField.desc">{{inputField.desc}}</textarea>
+          <textarea type="text" class="scroll_structure add_text" style="width: 150%;"placeholder="{{editFg==0 ? diller[39].kelime : ''}}" ng-model="inputField.desc">{{inputField.desc}}</textarea>
         </label>
 
         <label class="ekle_input item item-input card_width add_scard">
-          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Süresi' : ''}}" ng-model="inputField.hour">{{inputField.hour}}</textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? diller[38].kelime : ''}}" ng-model="inputField.hour">{{inputField.hour}}</textarea>
         </label>
 
 
         <label class="ekle_input item item-input card_width add_scard">
-          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Konumu' : ''}}" ng-model="inputField.address">{{inputField.address}}</textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? diller[79].kelime : ''}}" ng-model="inputField.address">{{inputField.address}}</textarea>
         </label>
 
         <label class="ekle_input item item-input card_width add_scard" >
-          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Başlangıç Tarihi' : ''}}" ng-model="inputField.bgdate">{{inputField.bgdate}}</textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? diller[73].kelime : ''}}" ng-model="inputField.bgdate">{{inputField.bgdate}}</textarea>
         </label>
 
         <label class="ekle_input item item-input card_width add_scard">
-          <textarea type="text" placeholder="{{editFg==0 ? 'Eğitim Bitiş Tarihi' : ''}}" ng-model="inputField.enddate">{{inputField.enddate}}</textarea>
+          <textarea type="text" placeholder="{{editFg==0 ? diller[74].kelime : ''}}" ng-model="inputField.enddate">{{inputField.enddate}}</textarea>
         </label>
 
 

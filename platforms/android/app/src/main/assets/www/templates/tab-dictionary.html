@@ -1,14 +1,14 @@
 <ion-view view-title='<img class="title-image1" src="img/logo.PNG"/ >'>
 
 	<ion-content>
-		<div class="all">{{diller[7].kelime}}</div>
+		<div class="header-style">{{diller[7].kelime}}</div>
 
 		<img class="full-image sagda_simge rr" src="img/sozlk/s1.png">
 
 		<div class="list list-inset">
 			<label class="item item-input" style="border-radius: 58px;">
 				<i style="font-size: 33px;" class="ion-ios-search placeholder-icon"></i>
-				<input type="text" ng-model="sozlukara" placeholder="Ne Aramıştınız?">
+				<input type="text" ng-model="sozlukara" placeholder="{{diller[78].kelime}}">
 			</label>
 		</div>
 
@@ -21,7 +21,7 @@
 
 			<div class="button button-full button-clear" ng-repeat="kelime in sozluk | filter:sozlukara"
 			ng-click="modalgosterici('dictionary', {{$index}})">
-			<p class="a8"> {{kelime.WORD}}</p>
+			<p class="dictionary-style"> {{kelime.WORD}}</p>
 		</div>
 
 	</ion-content>

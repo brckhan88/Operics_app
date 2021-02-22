@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         // remove the status bar on iOS or change it to use white instead of dark colors.
         StatusBar.styleDefault();
       }
-      
+
       function getLanguage() {
         this.globalization.getPreferredLanguage(onSuccess,onError);
 
@@ -47,10 +47,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
         }
       }
 
-      
+
       getLanguage();
     });
-    
+
   })
 
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -62,10 +62,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova'])
     $stateProvider
 
       // setup an independent states
-      
+
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
+        controller: 'MainCtrl'
+      })
+
+      .state('sms', {
+        url: '/sms',
+        templateUrl: 'templates/sms.html',
         controller: 'MainCtrl'
       })
 

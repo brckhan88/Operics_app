@@ -1,19 +1,12 @@
 <ion-view view-title='<img class="title-image" src="img/logo.PNG"/ >'>
 
   <!-- Hakkımızda Tab -->
-  <div class="tabs-striped tabs-top tabs-background-light tabs-color-dark">
-    <div class="tabs">
-      <a class="tab-item {{(abouttab==0||!abouttab) ? 'active' :''}}" ng-click="tiklaab(0)" href="#/tab/aboutus">
-        {{diller[1].kelime}}
-      </a>
-      <a class="tab-item {{abouttab==1 ? 'active' :''}}" ng-click="tiklaab(1)" href="#/tab/aboutus">
-      {{diller[2].kelime}}
-      </a>
-      <a class="tab-item {{abouttab==2  ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus">
-        {{diller[3].kelime}}
-      </a>
-    </div>
-  </div>
+<div class="bar bar-subheader topnav-a topnav-b topnav-c topnav-d ">
+
+  <a class="tab-item {{(abouttab==0||!abouttab) ? 'active' :''}}" ng-click="tiklaab(0)" href="#/tab/aboutus" style="color: #6b6666;">{{diller[1].kelime}}</a>
+  <a class="tab-item {{abouttab==1 ? 'active' :''}}" ng-click="tiklaab(1)" href="#/tab/aboutus" style="color: #6b6666;"> {{diller[2].kelime}}</a>
+  <a class="tab-item {{abouttab==2  ? 'active' :''}}" ng-click="tiklaab(2)" href="#/tab/aboutus" style="color: #6b6666;">{{diller[3].kelime}}</a>
+
 </div>
 
   <div>
@@ -28,6 +21,7 @@
 
 
 
+
 <!--Ekleme Butonu-->
 
     <div class="center" ng-if="isAdmin==1" ng-click="editgosterici('editAbout',0)">
@@ -35,7 +29,7 @@
     <h3 style=" color: white;font-family: monospace;">{{diller[23].kelime}}</h3>
     </button>
     </div>
-    <div class="center" ng-if="isAdmin==1">
+    <div class="center">
     <button  class="button add_button button-assertive" ng-click="data.showReorder = !data.showReorder"  >
             {{!data.showReorder ? diller[76].kelime : diller[77].kelime}}
     </button>
@@ -77,7 +71,7 @@
     </div>
   </div>
 
-  <div class="col col-50">
+  <div class="col col-50 ">
     <div class="col item item-body reference-location border_radius" ng-repeat="referans in referanslar" ng-if="referans.ID%2==0">
       <i class="ion-compose  reference-icon" ng-if="isAdmin==1" ng-click="catchRef($index); editgosterici('editAbout',1)"></i>
       <img ng-src="{{referans.REF_PHOTO}}" class="col-50 full-reference-style">
@@ -91,10 +85,10 @@
  <div ng-if="abouttab==2" ng-repeat="takim in ekip" ng-click="modalgosterici('team',{{$index}})"
  class="col col-100" style="padding: 4%;">
  <div class="col item item-text-wrap our-team-style">
-  <img class="im" ng-src="{{takim.IMAGE}}">
-  <h2><i class="ei">{{takim.NAME}}</i></h2>
-  <h2><i class="es">{{takim.POSITION}}</i></h2>
-  <p class="ea" style="margin-top: 1%;    margin-left: 22%;">{{text_truncate(takim.ABOUT,98)}}</p>
+  <img class="team-image" ng-src="{{takim.IMAGE}}">
+  <h2><i class="team-name">{{takim.NAME}}</i></h2>
+  <h2><i class="team-position">{{takim.POSITION}}</i></h2>
+  <p class="team-explanation" style="margin-top: 1%;    margin-left: 22%;">{{text_truncate(takim.ABOUT,98)}}</p>
 </div>
 
 </div>

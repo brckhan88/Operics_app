@@ -28,14 +28,19 @@
        <div class="col item item-body" style="border-radius: 12px;height: 560px;"> 
          <br>
          <br>
-         <div  class="ion-compose edit_icon edit-detail_icon" ng-if="isAdmin==1" ng-click="editgosterici('editStory',1)"></div>
+       <div  class="ion-compose edit_icon edit-detail_icon" ng-if="isAdmin==1" ng-click="editgosterici('editStory',1)"></div>
+    
+      
 
-
-
-         <div class="col item  ekip_detay" style=" border-radius: 509%;
-         border: solid 2px red;
-         max-width: 43%;
-         padding: 6%;"> <img class="mstory_image" ng-src="{{editInput.img = hikayeler[itemId].STR_IMAGE}}"></div>
+       <div class="row">
+    <div  class="col-offset-25" style=" border:solid 2px red;border-radius: 66%;min-width: 152px;height: 151px;" >
+      <div class="card" style="border-radius: 90px;margin-top:6% ;">
+        <div style="background: url('{{editInput.img = hikayeler[itemId].STR_IMAGE}}'); height: 132px;margin-top: -2%;background-size: 99%;margin-left: -3%;">
+          </div>
+          </div>
+        </div>
+     </div>
+  
 
          <h2 align="center" style="font-size: 21px;">{{editInput.head = hikayeler[itemId].STR_HEAD}} </h2>
          <br>
@@ -53,44 +58,6 @@
 
 
 
-
-
-
-    <!--div class="ortala">
-      <button class="button button-assertive ekle_b ">
-        + Ekle
-      </button></div>
-      <br>
-      <br>
-      <br> 
-      <br>
-      <div class="item item-body hkd" > ,
-       <br><br>
-       <div  class="ion-compose edit_i detail_edit"></div>
-       <i class="list card ">
-        <div style="border-color: red;border-width: 2px;" class="item item-avatar profile ">
-
-         
-        </i>
-      </div>
-
-
-
-
- <img class="pi " ng-src="{{hikayeler[itemId].STR_IMAGE}}">
-
-
-
-
-
-      <h2 align="center" style="font-size: 21px;">{{hikayeler[itemId].STR_HEAD}} </h2>
-      <br>
-      <p style="font-size: 15px;" align="center">{{hikayeler[itemId].STR_DESCRIPTION}}
-
-
-      </div>
-    -->
-    
 
   </ion-content>
 </ion-modal-view>
