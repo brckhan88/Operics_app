@@ -5237,7 +5237,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   pointer-events: none; }
 
 .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
-  top: 0; }
+  top: auto; }
 
 .pane[hide-nav-bar="true"] .has-tabs-top {
   top: 49px; }
